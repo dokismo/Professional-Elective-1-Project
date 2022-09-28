@@ -4,7 +4,7 @@
 ## Members
 ### Pamesa Programming
 ### Jay Programming
-### Vergara Programming
+### Joshua Programming
 
 ### York SFX
 ### Joshua SFX
