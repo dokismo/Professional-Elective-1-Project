@@ -3,21 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Player
+public class thisIsTest : MonoBehaviour
 {
-    
-}
-
-public class Enemy
-{
-    
-}
-public class sample : MonoBehaviour
-{
-    
-
-
-
 
     // Start is called before the first frame update
     void Start()
