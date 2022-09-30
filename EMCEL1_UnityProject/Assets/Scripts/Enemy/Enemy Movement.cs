@@ -2,23 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Player
+public class EnemyMovement : MonoBehaviour
 {
-    
-}
-
-public class Enemy
-{
-    
-}
-public class sample : MonoBehaviour
-{
-    
-
-
-
-
     // Start is called before the first frame update
     void Start()
     {
