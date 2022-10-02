@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="558b9179-28c8-4697-8f7c-231721a381c6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Global Scene.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/Global Scene.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObjects.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Scene Management Scriptable.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/ScriptableObjects/Scene Management Scriptable.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/GlobalSceneManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/GlobalSceneManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneScriptableObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/SceneManagement/SceneScriptableObject.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Sounds/Background Music.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectSettings/TimelineSettings.asset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/Objects.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/Objects/Door.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Environment/Objects/Door.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.EMCEL1_UnityProject/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.EMCEL1_UnityProject/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
@@ -31,7 +20,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="main" />
+        <entry key="$PROJECT_DIR$/.." value="Pamesa" />
       </map>
     </option>
   </component>
@@ -101,7 +90,7 @@
       <updated>1664504952058</updated>
       <workItem from="1664504956841" duration="1348000" />
       <workItem from="1664534074052" duration="1120000" />
-      <workItem from="1664582344008" duration="5685000" />
+      <workItem from="1664697503489" duration="1625000" />
     </task>
     <task id="LOCAL-00001" summary="Test Push">
       <created>1664505058623</created>
