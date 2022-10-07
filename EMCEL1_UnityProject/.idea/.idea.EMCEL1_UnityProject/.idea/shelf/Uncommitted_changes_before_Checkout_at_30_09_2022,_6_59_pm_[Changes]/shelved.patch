@@ -1,0 +1,57 @@
+Index: .idea/.idea.EMCEL1_UnityProject/.idea/workspace.xml
+===================================================================
+diff --git a/.idea/.idea.EMCEL1_UnityProject/.idea/workspace.xml b/.idea/.idea.EMCEL1_UnityProject/.idea/workspace.xml
+--- a/.idea/.idea.EMCEL1_UnityProject/.idea/workspace.xml	
++++ b/.idea/.idea.EMCEL1_UnityProject/.idea/workspace.xml	
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="558b9179-28c8-4697-8f7c-231721a381c6" name="Changes" comment="Fix Push" />
++    <list default="true" id="558b9179-28c8-4697-8f7c-231721a381c6" name="Changes" comment="Test commit" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -16,7 +16,6 @@
+   </component>
+   <component name="HighlightingSettingsPerFile">
+     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/thisIsTest.cs" root0="FORCE_HIGHLIGHTING" />
+     <setting file="mock:///mnt/e6c94c8b-0a35-4bc3-a5c0-85336a613d3a/Unity Projects/Professional Elective 1 Project/EMCEL1_UnityProject/UserSettings/EditorUserSettings.asset" root0="SKIP_HIGHLIGHTING" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+@@ -81,7 +80,7 @@
+       <option name="presentableId" value="Default" />
+       <updated>1664504952058</updated>
+       <workItem from="1664504956841" duration="1348000" />
+-      <workItem from="1664534074052" duration="1120000" />
++      <workItem from="1664534074052" duration="1424000" />
+     </task>
+     <task id="LOCAL-00001" summary="Test Push">
+       <created>1664505058623</created>
+@@ -111,7 +110,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1664534533223</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="Test commit">
++      <created>1664535495341</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1664535495341</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -138,6 +144,7 @@
+     <MESSAGE value="JayBrainCh Test" />
+     <MESSAGE value="test" />
+     <MESSAGE value="Fix Push" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Fix Push" />
++    <MESSAGE value="Test commit" />
++    <option name="LAST_COMMIT_MESSAGE" value="Test commit" />
+   </component>
+ </project>
+\ No newline at end of file
