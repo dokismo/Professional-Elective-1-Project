@@ -4,4 +4,9 @@ namespace CORE
     {
         void Interact();
     }
+
+    public interface IOpenClose
+    {
+        void IsOpen(bool value);
+    }
 }
