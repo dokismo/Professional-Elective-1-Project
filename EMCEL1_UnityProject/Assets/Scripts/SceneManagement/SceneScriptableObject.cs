@@ -1,19 +1,13 @@
 using System;
 using System.Collections.Generic;
+using CORE;
 using UnityEngine;
 
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 namespace SceneManagement
 {
-    [Serializable]
-    public class LocalScene
-    {
-        public string name;
-        public bool isLoaded;
-    }
-    
-    
     [Serializable] 
     public class LocalGroupScene
     {
@@ -54,10 +48,14 @@ namespace SceneManagement
         public delegate void LoadSceneEvent<in TT>(TT name);
         public static LoadSceneEvent<string> LoadScene;
         
-        public List<LocalGroupScene> sceneGroup;
+        [FormerlySerializedAs("sceneGroup")] 
+        public List<LocalGroupScene> mainSceneGroup;
+        public List<LocalGroupScene> mapLocations;
+
+        public List<LocalGroupScene> AdditiveScenes { get; set; } = new();
         public LocalGroupScene CurrentMainScene { get; set; }
         
-        private void LoadLocalGroupScene(LocalGroupScene localGroupScene)
+        private void LoadSingleLocalGroupScene(LocalGroupScene localGroupScene)
         {
             if (localGroupScene.IsLoaded) return;
 
@@ -66,14 +64,23 @@ namespace SceneManagement
             CurrentMainScene.LoadAsync();
         }
 
-        private void UnloadCurrentScene(LocalGroupScene localGroupScene)
+        private void LoadAdditiveLocalGroupScene(LocalGroupScene localGroupScene)
         {
-            localGroupScene.UnloadAll();
+            if (localGroupScene.IsLoaded) return;
+            
+            AdditiveScenes.Add(localGroupScene);
+            localGroupScene.LoadAsync();
         }
 
-        private LocalGroupScene FindGroupScene(string sceneGroupName)
+        private LocalGroupScene FindMainGroupScene(string sceneGroupName) =>
+            FindGroupScene(mainSceneGroup, sceneGroupName);
+
+        private LocalGroupScene FindLocationGroupScene(string sceneGroupName) =>
+            FindGroupScene(mapLocations, sceneGroupName);
+
+        private LocalGroupScene FindGroupScene(List<LocalGroupScene> localGroupScenes, string sceneGroupName)
         {
-            foreach (var localGroupScene in sceneGroup)
+            foreach (var localGroupScene in localGroupScenes)
                 if (localGroupScene.name == sceneGroupName)
                     return localGroupScene;
 
@@ -83,8 +90,8 @@ namespace SceneManagement
 
         public void LoadLocalGroupScene(string groupSceneName)
         {
-            var localGroupScene = FindGroupScene(groupSceneName);
-            LoadLocalGroupScene(localGroupScene);
+            var localGroupScene = FindMainGroupScene(groupSceneName);
+            LoadSingleLocalGroupScene(localGroupScene);
         }
 
         public void GoToMainMenu() => LoadLocalGroupScene("Main Menu");
