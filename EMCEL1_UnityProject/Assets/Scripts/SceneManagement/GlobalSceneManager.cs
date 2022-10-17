@@ -2,9 +2,6 @@ using UnityEngine;
 
 namespace SceneManagement
 {
-    
-    
-    
     public class GlobalSceneManager : MonoBehaviour
     {
         [SerializeField] private SceneScriptableObject sceneScriptableObject;
@@ -18,7 +15,7 @@ namespace SceneManagement
         {
             sceneScriptableObject.CurrentMainScene = null;
             
-            foreach (var localGroupScene in sceneScriptableObject.sceneGroup)
+            foreach (var localGroupScene in sceneScriptableObject.mainSceneGroup)
             {
                 localGroupScene.UnloadAll();
             }
