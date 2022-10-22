@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57633ce3ab034281a4e7a5e978bc5cf1, type: 3}
   m_Name: Scene Management Scriptable
   m_EditorClassIdentifier: 
-  sceneGroup:
+  mainScenes:
   - name: Main Menu
     scenes:
     - name: MainMenu
@@ -20,4 +20,17 @@ MonoBehaviour:
   - name: Testing
     scenes:
     - name: Testing Scene
+      isLoaded: 0
+  additiveScenes:
+  - name: Town1
+    scenes:
+    - name: Type A 1
+      isLoaded: 0
+  - name: Town2
+    scenes:
+    - name: Type A 2
+      isLoaded: 0
+  - name: Town3
+    scenes:
+    - name: Type A 3
       isLoaded: 0

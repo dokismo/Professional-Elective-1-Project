@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using CORE;
 using UnityEngine;
-
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
@@ -45,38 +45,78 @@ namespace SceneManagement
     [CreateAssetMenu(fileName = "Scene Management Scriptable", menuName = "Scene Management")]
     public class SceneScriptableObject : ScriptableObject
     {
-        public delegate void LoadSceneEvent<in TT>(TT name);
-        public static LoadSceneEvent<string> LoadScene;
-        
         [FormerlySerializedAs("sceneGroup")] 
-        public List<LocalGroupScene> mainSceneGroup;
-        public List<LocalGroupScene> mapLocations;
+        public List<LocalGroupScene> mainScenes;
+        public List<LocalGroupScene> additiveScenes;
 
-        public List<LocalGroupScene> AdditiveScenes { get; set; } = new();
+        public List<LocalGroupScene> CurrentAdditiveScenes { get; set; } = new();
         public LocalGroupScene CurrentMainScene { get; set; }
         
-        private void LoadSingleLocalGroupScene(LocalGroupScene localGroupScene)
+        public void LoadMain(string localGroupSceneName)
+        {
+            var localGroupScene = FindMainScene(localGroupSceneName);
+            
+            if (localGroupScene == null)
+            {
+                Debug.LogError($"CAN NOT FIND MAIN SCENE {this}");
+                return;
+            }
+            
+            LoadMain(localGroupScene);
+        }
+        
+        public void LoadMain(LocalGroupScene localGroupScene)
         {
             if (localGroupScene.IsLoaded) return;
 
             CurrentMainScene?.UnloadAll();
             CurrentMainScene = localGroupScene;
+            UnloadAllAdditive();
             CurrentMainScene.LoadAsync();
         }
 
-        private void LoadAdditiveLocalGroupScene(LocalGroupScene localGroupScene)
+        public void LoadAdditive(string localGroupSceneName)
+        {
+            var localGroupScene = FindAdditiveScene(localGroupSceneName);
+
+            if (localGroupScene == null)
+            {
+                Debug.LogError($"CAN NOT FIND ADDITIVE SCENE {this}");
+                return;
+            }
+            
+            LoadAdditive(localGroupScene);
+        }
+
+        public void LoadAdditive(LocalGroupScene localGroupScene)
         {
             if (localGroupScene.IsLoaded) return;
             
-            AdditiveScenes.Add(localGroupScene);
+            CurrentAdditiveScenes.Add(localGroupScene);
             localGroupScene.LoadAsync();
         }
+    
+        public void UnloadAdditive(string localGroupSceneName)
+        {
+            foreach (var localGroupScene in CurrentAdditiveScenes.Where(localGroupScene => localGroupScene.IsLoaded && localGroupScene.name == localGroupSceneName))
+            {
+                localGroupScene.UnloadAll();
+                CurrentAdditiveScenes.Remove(localGroupScene);
+                break;
+            }
+        }
 
-        private LocalGroupScene FindMainGroupScene(string sceneGroupName) =>
-            FindGroupScene(mainSceneGroup, sceneGroupName);
+        public void UnloadAllAdditive()
+        {
+            foreach (var localGroupScene in CurrentAdditiveScenes) localGroupScene.UnloadAll();
+            CurrentAdditiveScenes = new List<LocalGroupScene>();
+        }
 
-        private LocalGroupScene FindLocationGroupScene(string sceneGroupName) =>
-            FindGroupScene(mapLocations, sceneGroupName);
+        private LocalGroupScene FindMainScene(string sceneGroupName) =>
+            FindGroupScene(mainScenes, sceneGroupName);
+
+        private LocalGroupScene FindAdditiveScene(string sceneGroupName) =>
+            FindGroupScene(additiveScenes, sceneGroupName);
 
         private LocalGroupScene FindGroupScene(List<LocalGroupScene> localGroupScenes, string sceneGroupName)
         {
@@ -88,13 +128,7 @@ namespace SceneManagement
             return null;
         }
 
-        public void LoadLocalGroupScene(string groupSceneName)
-        {
-            var localGroupScene = FindMainGroupScene(groupSceneName);
-            LoadSingleLocalGroupScene(localGroupScene);
-        }
-
-        public void GoToMainMenu() => LoadLocalGroupScene("Main Menu");
-
+        public void GoToMainMenu() => LoadMain("Main Menu");
+        
     }
 }

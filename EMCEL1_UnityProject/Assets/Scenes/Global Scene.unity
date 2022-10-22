@@ -168,3 +168,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneScriptableObject: {fileID: 11400000, guid: c470a2db1455689bf8c8fe24a3ca54c7, type: 2}
+  loadMainOnStart: 0

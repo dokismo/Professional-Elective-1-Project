@@ -22,7 +22,7 @@ namespace Environment.Map_Generation
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.N))
                 SetupRandom();
         }
         
