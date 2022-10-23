@@ -23,9 +23,7 @@ public class MovementAndAiming : MonoBehaviour
 
     void FixedUpdate()
     {
-        // we normalized the movement because if its not normalized two keys movements (W + A = 2) will be faster than single key movement (W = 1)
-        // https://hernandonj.medium.com/why-to-normalize-movement-in-game-dev-cc6dad62e885
-        rb.MovePosition(rb.position + movement.normalized * (moveSpeed * Time.fixedDeltaTime));
+        rb.MovePosition(rb.position + movement.normalized * moveSpeed * Time.fixedDeltaTime);
 
         Vector2 lookDir = mousePos - rb.position;
 
