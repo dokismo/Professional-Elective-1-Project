@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DestroyBullet : MonoBehaviour
 {
-    private float boundary = 20f;
-    private float boundaryNega = -20f;
+    private float boundary = 40f;
+    private float boundaryNega = -40f;
 
     // Update is called once per frame
     void Update()
