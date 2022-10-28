@@ -4,39 +4,35 @@ using UnityEngine;
 
 namespace Environment.Objects
 {
-    [RequireComponent(typeof(Collider2D))]
     public class Door : MonoBehaviour, IInteract
     {
-        [SerializeField]
-        private bool isOpen;
-        
-        private SpriteRenderer spriteRenderer;
-        private Collider2D col2D;
-
-        private void Start()
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-            col2D = GetComponent<Collider2D>();
-            SetDoor();
-        }
+        public GameObject open, close;
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space)) Interact();
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                Toggle();
+            }
         }
 
+        public void Toggle()
+        {
+            if (open.activeSelf)
+            {
+                open.SetActive(false);
+                close.SetActive(true);
+            }
+            else
+            {
+                open.SetActive(true);
+                close.SetActive(false);
+            }
+        }
+        
         public void Interact()
         {
-            isOpen = !isOpen;
-            SetDoor();
-        }
-
-        private void SetDoor()
-        {
-            col2D.enabled = !isOpen;
-            Color color = spriteRenderer.color;
-            
-            spriteRenderer.color = isOpen ? new Color(color.r, color.g, color.b, 0.25f) : new Color(color.r, color.g, color.b, 1);
+            Toggle();
         }
     }
 }
