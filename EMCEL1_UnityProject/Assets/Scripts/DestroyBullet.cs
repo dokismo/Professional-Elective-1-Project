@@ -10,16 +10,8 @@ public class DestroyBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
-        if(transform.position.x > boundary || transform.position.y > boundary)
-        {
-            Destroy(gameObject);
-        }
-        else if(transform.position.x < boundaryNega || transform.position.y < boundaryNega)
-        {
-            Destroy(gameObject);
-        }
-        
+
+        Destroy(gameObject, 1);
+
     }
 }
