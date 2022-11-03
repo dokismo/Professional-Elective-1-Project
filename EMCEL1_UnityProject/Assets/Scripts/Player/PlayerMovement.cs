@@ -1,25 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    [SerializeField] 
+    private float moveSpeed = 5f;
+    
+    private Rigidbody2D rb;
+    private Vector2 movement;
 
-    public Rigidbody2D rb;
+    public bool IsMoving => rb.velocity.magnitude > 0.1f;
 
-    Vector2 movement;
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
-    // Update is called once per frame
     void Update()
     {
-        movement.x=Input.GetAxisRaw("Horizontal");
-        movement.y=Input.GetAxisRaw("Vertical");
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
     }
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement.normalized * (moveSpeed * Time.fixedDeltaTime));
+        rb.velocity = movement.normalized * (moveSpeed * 10 * Time.fixedDeltaTime);
     }
 }

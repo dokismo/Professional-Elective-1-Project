@@ -1,17 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DestroyBullet : MonoBehaviour
 {
-    private float boundary = 40f;
-    private float boundaryNega = -40f;
+    [SerializeField]
+    private float lifeTime = 1f;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-
-        Destroy(gameObject, 1);
-
+        Destroy(gameObject, lifeTime);
     }
 }
