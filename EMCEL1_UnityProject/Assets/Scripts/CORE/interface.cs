@@ -9,4 +9,9 @@ namespace CORE
     {
         void IsOpen(bool value);
     }
+
+    public interface IPickup
+    {
+        void Pickup();
+    }
 }

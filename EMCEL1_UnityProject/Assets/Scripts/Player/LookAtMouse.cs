@@ -1,49 +1,34 @@
-using System;
 using UnityEngine;
 
 namespace Player
 {
-    public class GunRotation : MonoBehaviour
+    public class LookAtMouse : MonoBehaviour
     {
-        [SerializeField]
-        private Rigidbody2D rb2d;
-        
-
-        [SerializeField] private float lowestZ = -90, highestZ = 90;
-
+        private Rigidbody2D playerRigidbody2D;
         private SpriteRenderer spriteRenderer;
         private Vector2 mousePos;
         private Camera cam;
+
+        private float appliedZ;
         
         private void Start()
         {
-            spriteRenderer = GetComponent<SpriteRenderer>();
+            playerRigidbody2D = GetComponentInParent<Rigidbody2D>();
             cam = Camera.main;
         }
+
 
         private void Update()
         {
             mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
-            
-            FlipSprite();
         }
-
-        private void FlipSprite()
-        {
-            var z = transform.rotation.eulerAngles.z;
-
-            spriteRenderer.flipY = z > lowestZ && z < highestZ;
-        }
-        
         
         private void FixedUpdate()
         {
-            Vector2 lookDir = mousePos - rb2d.position;
+            Vector2 lookDir = mousePos - playerRigidbody2D.position;
 
             float angle = Mathf.Atan2(lookDir.y,lookDir.x)* Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0, 0, angle);
         }
-
-        
     }
 }
