@@ -1,3 +1,4 @@
+using Player.Inventory;
 using UnityEngine;
 
 namespace Player
@@ -6,7 +7,8 @@ namespace Player
     {
         public delegate void Shoot();
         public static Shoot onShoot;
-    
+
+        public AmmoType ammoType = AmmoType.Rifle;
     
         [Header("References")]
         [SerializeField] private Transform firePoint;
@@ -114,6 +116,11 @@ namespace Player
                 return bulletsPerFire - ammoInMagazine;
 
             return bulletsPerFire;
+        }
+
+        public void AddAmmo(int amount)
+        {
+            totalAmmo += amount;
         }
     }
 }

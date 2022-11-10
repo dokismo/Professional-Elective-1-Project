@@ -1,3 +1,7 @@
+using Player;
+using Player.Inventory;
+using UnityEngine;
+
 namespace CORE
 {
     public interface IInteract
@@ -10,8 +14,10 @@ namespace CORE
         void IsOpen(bool value);
     }
 
-    public interface IPickup
+    public interface IPickup<out T>
     {
-        void Pickup();
+        GameObject GetItem();
+
+        T GetItemType();
     }
 }

@@ -8,6 +8,13 @@ using UnityEngine.Serialization;
 
 namespace SceneManagement
 {
+    [Serializable]
+    public class LocalScene
+    {
+        public string name;
+        public bool isLoaded;
+    }
+    
     [Serializable] 
     public class LocalGroupScene
     {
