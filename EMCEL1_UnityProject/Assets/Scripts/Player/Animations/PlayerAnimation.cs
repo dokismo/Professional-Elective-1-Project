@@ -21,16 +21,14 @@ namespace Player.Animations
 
         private void OnEnable()
         {
-            Movement.OnJump += OnJump;
-            Movement.OnLand += OnLand;
-            Movement.OnClimb += OnClimb;
+            Movement.onJump += OnJump;
+            Movement.onLand += OnLand;
         }
 
         private void OnDisable()
         {
-            Movement.OnJump -= OnJump;
-            Movement.OnLand -= OnLand;
-            Movement.OnClimb -= OnClimb;
+            Movement.onJump -= OnJump;
+            Movement.onLand -= OnLand;
         }
 
         private void Update()
@@ -43,7 +41,6 @@ namespace Player.Animations
             animator.SetBool(Falling, movement.IsFalling);
         }
 
-        private void OnClimb() => animator.SetTrigger(Climb); 
         private void OnJump() => animator.SetTrigger(Jump);
         private void OnLand() => animator.SetTrigger(Land);
 

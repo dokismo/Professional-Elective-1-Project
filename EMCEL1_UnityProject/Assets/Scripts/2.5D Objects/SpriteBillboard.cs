@@ -16,17 +16,17 @@ namespace _2._5D_Objects
 
         public Vector3 freezeValues = new Vector3(0, 0, 0);
 
-        private Transform _mainCamera;
+        private Transform mainCamera;
 
 
         private void Start()
         {
-            _mainCamera = Camera.main.transform;
+            mainCamera = Camera.main.transform;
         }
 
         private void Update()
         {
-            Vector3 lookDir = (_mainCamera.position - transform.position).normalized;
+            Vector3 lookDir = (mainCamera.position - transform.position).normalized;
             Quaternion parentRot = parentTransform ? parentTransform.rotation : new();
             //if (debugMsg) Debug.Log(newRot.eulerAngles);
             transform.rotation = Quaternion.LookRotation(lookDir);
