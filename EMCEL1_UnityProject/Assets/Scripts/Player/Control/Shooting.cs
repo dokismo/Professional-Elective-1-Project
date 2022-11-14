@@ -17,7 +17,6 @@ namespace Player.Control
         private void Start()
         {
             thisCamera = Camera.main;
-            Cursor.lockState = CursorLockMode.Locked;
         }
 
         private void OnEnable()
@@ -40,6 +39,8 @@ namespace Player.Control
 
         private void Fire()
         {
+            if (!PlayerStatus.canShoot) return;
+            
             Ray ray = thisCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
             if (Physics.Raycast(ray, out var raycastHit, distance, targetLayers))

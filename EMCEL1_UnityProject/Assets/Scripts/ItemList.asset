@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 303bdb52b1c14235b209cd5c534b5e76, type: 3}
+  m_Name: ItemList
+  m_EditorClassIdentifier: 
+  items:
+  - name: AK47
+    gameObject: {fileID: 3510005223879702140, guid: af6016b8d1c87a74aa4416f4f8ac4380, type: 3}
+    value: 100
+  - name: WTF IS THIS
+    gameObject: {fileID: 6166451632325911448, guid: 3d8c441185a8bea4a897ad5bbed802d3, type: 3}
+    value: 150

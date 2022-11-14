@@ -21,7 +21,7 @@ namespace Enemy
 
         private IEnumerator IFollow()
         {
-            while (true)
+            while (gameObject)
             {
                 var path = new NavMeshPath();
 
