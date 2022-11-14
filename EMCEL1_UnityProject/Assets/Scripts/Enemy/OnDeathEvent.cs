@@ -12,6 +12,7 @@ namespace Enemy
 
         private void OnDestroy()
         {
+            //FindObjectType<AudioManager>().Play("zombie_sfx1");
             givePlayerMoney?.Invoke(deathValue);
         }
     }
