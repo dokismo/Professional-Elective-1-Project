@@ -7,33 +7,50 @@ using Pathfinding.Util;
 
 public class detectPlayerScript : MonoBehaviour
 {
-    public LayerMask IgnoreMe, IgnoreMe2, finalIgnoreLayer;
+    [Header("       Layers for raycast to ignore")]
+    public LayerMask IgnoreMe;
+    public LayerMask IgnoreMe2;
+    public LayerMask finalIgnoreLayer;
 
+    [Header("       Script For Referencing")]
     public AIDestinationSetter aiSetterScript;
     public AIPath aiPathScript;
     public sampleEnemyColScript enemyColScript;
+    public objectIdentifier objIdentifier;
 
     public GameObject lastPos, instantiatedLastPost;
-
-
-
     public GameObject[] patrolSpots;
+    public SphereCollider objIdentifierSphere;
 
-    public float stopToAttackTime = 2f, stayInLastPos = 2f, chaseTime = 1f, timeToStand = 2f;
+    [Header("       Timers")]
+    public float stopToAttackTime = 2f;
+    public float stayInLastPos = 2f;
+    public float chaseTime = 1f;
+    public float timeToStand = 2f;
 
-    public bool reachedEnd = false, canRaycast = true, chasingPlayer = false, findingPlayer = false,
-        playerDetected = false, goingToLastPos = false, patrolling = true, lastPosInstantiated = false;
+    [Header("       Enemy States")]
+    public bool reachedEnd = false;
+    public bool canRaycast = true;
+    public bool chasingPlayer = false;
+    public bool findingPlayer = false;
+    public bool playerDetected = false;
+    public bool goingToLastPos = false;
+    public bool patrolling = true;
+    public bool lastPosInstantiated = false;
+    public bool attacking = false;
 
-    RaycastHit2D ray;
+    RaycastHit ray;
     void Start()
     {
+
         aiSetterScript = transform.parent.GetComponent<AIDestinationSetter>();
         aiPathScript = transform.parent.GetComponent<AIPath>();
         enemyColScript = transform.parent.GetComponent<sampleEnemyColScript>();
+        objIdentifier = transform.parent.GetChild(1).GetComponent<objectIdentifier>();
+        objIdentifierSphere = transform.parent.GetChild(1).GetComponent<SphereCollider>();
         IgnoreMe = 1 << LayerMask.NameToLayer("enemyLayer");
         IgnoreMe2 = 1 << LayerMask.NameToLayer("detectPlayerLayer");
         finalIgnoreLayer = IgnoreMe | IgnoreMe2;
-
     }
 
     private void Update()
@@ -42,43 +59,55 @@ public class detectPlayerScript : MonoBehaviour
         {
             lastPosInstantiated = false;
         }
-        if (!reachedEnd && aiPathScript.enabled)
+        reachedEnd = aiPathScript.reachedEndOfPath;
+        objIdentifierSphere.radius = aiPathScript.endReachedDistance;
+
+        if(objIdentifier.identifiedObj != null)
         {
-            reachedEnd = aiPathScript.reachedEndOfPath;
+            Debug.Log("IN COLLIDER: " + objIdentifier.identifiedObj);
         }
 
-        
-
-        if (aiPathScript.reachedEndOfPath)
+        if (aiSetterScript.target != null && objIdentifier.identifiedObj != null)
         {
-            aiPathScript.enabled = false;
+            if (aiPathScript.reachedEndOfPath && aiSetterScript.target.gameObject.tag == "Player" && !patrolling 
+                && objIdentifier.identifiedObj.tag =="Player")
+            {
+                attacking = true;
+            }
         }
 
-        if (aiPathScript.reachedEndOfPath && aiSetterScript.target.gameObject.tag == "Player")
+        if(attacking)
         {
-            
-            aiPathScript.enabled = false;
-
+            if(stopToAttackTime <= 0)
+            {
+                stopToAttackTime = 2f;
+                attacking = false;
+            } else
+            {
+                aiPathScript.enabled = false;
+                stopToAttackTime -= Time.deltaTime;
+            }
         }
 
+        /*
         if (!aiPathScript.enabled && !patrolling && !goingToLastPos)
         {
             stopToAttackTime -= Time.deltaTime;
 
-            if(stopToAttackTime <= 0)
+            if (stopToAttackTime <= 0)
             {
                 aiPathScript.enabled = true;
                 stopToAttackTime = 2f;
             }
         }
+        */
 
 
-
-        if(findingPlayer && !playerDetected && !goingToLastPos)
+        if (findingPlayer && !playerDetected && !goingToLastPos)
         {
             Debug.Log("CHASE TIME STARTED");
             chaseTime -= Time.deltaTime;
-            aiPathScript.endReachedDistance = 0.5f;
+            aiPathScript.endReachedDistance = 2f;
             if (chaseTime <= 0)
             {
                 goToLastPos();
@@ -92,45 +121,43 @@ public class detectPlayerScript : MonoBehaviour
         {
             patrol();
         }
-
-
-
     }
     
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            
             if (canRaycast)
             {
                 Debug.Log("Player Detected");
                 Debug.DrawRay(transform.parent.position, GameObject.Find("Player").transform.position - transform.parent.position);
-                ray = Physics2D.Raycast(transform.parent.position, GameObject.Find("Player").transform.position - transform.parent.position, Mathf.Infinity,~finalIgnoreLayer);
+              
+                Physics.Raycast(transform.parent.position, GameObject.Find("Player").transform.position - transform.parent.position,out ray, Mathf.Infinity,~finalIgnoreLayer);
                 Debug.Log("Ray detected:  " + ray.collider.name);
             }
             
 
             if(ray.collider.tag == "Player")
             {
-                timeToStand = 2f;
-                aiPathScript.enabled = true;
-                aiSetterScript.target = ray.collider.gameObject.transform;
-                chasingPlayer = true;
-                findingPlayer = false;
                 patrolling = false;
-                goingToLastPos = false;
-                playerDetected = true;
-
-                if (instantiatedLastPost != null)
-                {
-                    Destroy(instantiatedLastPost);
-                    lastPosInstantiated = false;
-                }
                 
-               
-                aiPathScript.endReachedDistance = 1f;
-                chaseTime = 1f;
+                if(!attacking)
+                {
+                    timeToStand = 2f;
+                    aiPathScript.enabled = true;
+                    aiSetterScript.target = ray.collider.gameObject.transform;
+                    chasingPlayer = true;
+                    findingPlayer = false;
+                    goingToLastPos = false;
+                    playerDetected = true;
+                    if (instantiatedLastPost != null)
+                    {
+                        Destroy(instantiatedLastPost);
+                        lastPosInstantiated = false;
+                    }
+                    aiPathScript.endReachedDistance = 2f;
+                    chaseTime = 1f;
+                }
                 
 
             } else if(ray.collider.tag != "Door" && chasingPlayer)
@@ -142,7 +169,7 @@ public class detectPlayerScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit(Collider collision)
     {
         if(collision.gameObject.tag=="Player")
         {
@@ -154,11 +181,11 @@ public class detectPlayerScript : MonoBehaviour
 
     public void goToLastPos()
     {
-        if (!lastPosInstantiated && !playerDetected)
+        if (!lastPosInstantiated && !playerDetected )
         {
             aiPathScript.enabled = true;
             instantiatedLastPost = Instantiate(lastPos, GameObject.FindGameObjectWithTag("Player").transform.position, Quaternion.identity);
-            //instantiatedLastPost.GetComponent<destroyTime>().detectScript = gameObject.GetComponent<detectPlayerScript>();
+            instantiatedLastPost.GetComponent<destroyTime>().detectScript = gameObject.GetComponent<detectPlayerScript>();
             aiSetterScript.target = instantiatedLastPost.transform;
             goingToLastPos = true;
             lastPosInstantiated = true;
@@ -170,6 +197,8 @@ public class detectPlayerScript : MonoBehaviour
 
     public void patrol()
     {
+        attacking = false;
+        stopToAttackTime = 0;
         if (!playerDetected)
         {
             chasingPlayer = false;
@@ -178,7 +207,7 @@ public class detectPlayerScript : MonoBehaviour
             lastPosInstantiated = false;
             aiPathScript.enabled = true;
 
-            aiPathScript.endReachedDistance = 0.5f;
+            aiPathScript.endReachedDistance = 0.8f;
 
             Debug.Log("PATROLLING");
             if (timeToStand > 0)

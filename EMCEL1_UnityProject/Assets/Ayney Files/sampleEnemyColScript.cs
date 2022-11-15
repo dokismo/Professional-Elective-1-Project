@@ -9,7 +9,7 @@ public class sampleEnemyColScript : MonoBehaviour
     bool attacking = false;
     detectPlayerScript script1;
     AIDestinationSetter script2;
-    Collision2D collObj;
+    Collision collObj;
 
     private void Start()
     {
@@ -30,7 +30,8 @@ public class sampleEnemyColScript : MonoBehaviour
             }
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    
+    private void OnCollisionStay(Collision collision)
     {
         
         if(collision.gameObject.tag == "Door" && !attacking && !script1.patrolling)
@@ -69,7 +70,7 @@ public class sampleEnemyColScript : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject == script1.instantiatedLastPost)
         {
