@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerStatus
   m_EditorClassIdentifier: 
   money: 300
-  health: 0
-  maxHealth: 0
+  health: 12.66
+  maxHealth: 100
