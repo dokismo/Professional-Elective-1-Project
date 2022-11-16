@@ -8,6 +8,7 @@ namespace Enemy
         public delegate void OnDeath(int money);
         public static OnDeath givePlayerMoney;
 
+       
         public int deathValue = 100;
 
         private void OnDestroy()
