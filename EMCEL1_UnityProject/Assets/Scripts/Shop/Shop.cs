@@ -1,25 +1,29 @@
 using Player;
+using Player.Control;
 using UnityEngine;
 
 namespace Shop
 {
-    [System.Serializable]
-    public class Item
-    {
-        public string name = "Not Named";
-        public GameObject gameObject;
-        public int value = 100;
-    }
-    
-    
     public class Shop : MonoBehaviour
     {
-        [SerializeField] private Item[] items;
+        public ItemsScriptable itemsScriptable;
         public PlayerStatusScriptable playerStatusScriptable;
 
-        public GameObject Buy(int position)
+        public PlayerStatus playerStatus;
+
+        private void Start()
         {
-            return playerStatusScriptable.GetMoney(items[position].value) > -1 ? items[position].gameObject : null;
+            playerStatus = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
+        }
+
+        public void Buy(int position)
+        {
+            Item item = itemsScriptable.GetItem(position);
+            
+            if (item.gameObject == null || playerStatus.inventoryIsFull)
+                return;
+
+            if (playerStatusScriptable.GetMoney(item.value) > -1 ? item.gameObject : null) playerStatus.AddGun(item.gameObject);
         }
     }
 }

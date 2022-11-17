@@ -1,3 +1,4 @@
+using Player.Control;
 using UnityEngine;
 
 namespace Shop
@@ -16,6 +17,8 @@ namespace Shop
             if (!other.gameObject.CompareTag("Player"))
                  return;
             
+            Cursor.lockState = CursorLockMode.None;
+            
             shopUI.SetActive(true);
         }
 
@@ -23,6 +26,8 @@ namespace Shop
         {
             if (!other.gameObject.CompareTag("Player"))
                 return;
+            
+            Cursor.lockState = CursorLockMode.Locked;
             
             shopUI.SetActive(false);
         }
