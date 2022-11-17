@@ -36,7 +36,13 @@ namespace Player.Control
             if (Camera.main != null)
             {
                 for (int i = 0; i < Camera.main.gameObject.transform.childCount; i++)
-                    localGuns.Add(Camera.main.gameObject.transform.GetChild(i).gameObject);
+                {
+                    Shooting shooting = Camera.main.gameObject.transform.GetChild(i).GetComponent<Shooting>();
+                    
+                    if (!shooting) continue;
+                    
+                    localGuns.Add(shooting.gameObject);
+                }
 
                 gunAnchor = Camera.main.gameObject.transform;
             }

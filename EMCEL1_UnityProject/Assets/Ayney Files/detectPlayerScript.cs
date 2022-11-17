@@ -105,7 +105,7 @@ public class detectPlayerScript : MonoBehaviour
 
         if (findingPlayer && !playerDetected && !goingToLastPos)
         {
-            Debug.Log("CHASE TIME STARTED");
+            // Debug.Log("CHASE TIME STARTED");
             chaseTime -= Time.deltaTime;
             aiPathScript.endReachedDistance = 2f;
             if (chaseTime <= 0)
@@ -129,11 +129,11 @@ public class detectPlayerScript : MonoBehaviour
         {
             if (canRaycast)
             {
-                Debug.Log("Player Detected");
+                // Debug.Log("Player Detected");
                 Debug.DrawRay(transform.parent.position, GameObject.Find("Player").transform.position - transform.parent.position);
               
                 Physics.Raycast(transform.parent.position, GameObject.Find("Player").transform.position - transform.parent.position,out ray, Mathf.Infinity,~finalIgnoreLayer);
-                Debug.Log("Ray detected:  " + ray.collider.name);
+                // Debug.Log("Ray detected:  " + ray.collider.name);
             }
             
 
@@ -209,7 +209,7 @@ public class detectPlayerScript : MonoBehaviour
 
             aiPathScript.endReachedDistance = 0.8f;
 
-            Debug.Log("PATROLLING");
+            // Debug.Log("PATROLLING");
             if (timeToStand > 0)
             {
                 timeToStand -= Time.deltaTime;

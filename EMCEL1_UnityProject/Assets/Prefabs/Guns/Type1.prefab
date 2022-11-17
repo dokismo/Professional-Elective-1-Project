@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6166451632325911448}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.91, y: -0.55999994, z: 1.26}
+  m_LocalPosition: {x: 0.91, y: -0.55999994, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -101,6 +101,13 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 256
+  ammoInMag: 0
+  ammoPerMag: 0
+  totalAmmo: 0
+  rpm: 60
+  ammoPerFire: 1
+  recoil: 0
+  reloadTime: 1
   fireInput:
     m_Name: Fire Input
     m_Type: 0
