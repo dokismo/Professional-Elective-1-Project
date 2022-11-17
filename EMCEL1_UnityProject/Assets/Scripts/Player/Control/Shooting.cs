@@ -18,8 +18,10 @@ namespace Player.Control
         public float rpm = 60;
         public int ammoPerFire = 1;
         public float recoil;
+        public float recoilControl = 2;
 
         public float reloadTime = 1;
+        
         private float FireTime => 60 / rpm;
         private float currentRecoil = 0;
         private float fireTimer = 0;
@@ -58,6 +60,7 @@ namespace Player.Control
             
             fireTimer = Mathf.Clamp(fireTimer - Time.deltaTime, 0, 99);
             reloadTimer = Mathf.Clamp(reloadTimer - Time.deltaTime, 0, 99);
+            currentRecoil = fireTimer <= 0 ? Mathf.Clamp(currentRecoil - recoilControl * Time.deltaTime, 0, 99) : currentRecoil;
             
             if (Mouse.current.leftButton.isPressed)
             {
@@ -76,13 +79,8 @@ namespace Player.Control
 
             for (int i = 0; i < ammoPerFire; i++)
             {
-                var randomCircle = Random.insideUnitCircle * currentRecoil;
-                var mousePosition = Mouse.current.position.ReadValue();
-
-                var precision = new Vector2(randomCircle.x + mousePosition.x, randomCircle.y + mousePosition.y);
-                var newPrecision = -precision + precision;
-
-                Debug.Log(mousePosition);
+                var randomCircle = Random.insideUnitCircle * Mathf.Clamp(currentRecoil, 1, 55);
+                var precision = ReturnRandomPoint(randomCircle);
                 
                 Ray ray = thisCamera.ScreenPointToRay(precision);
 
@@ -117,9 +115,10 @@ namespace Player.Control
             ammoInMag += gotAmount;
         }
 
-        // private Vector2 ReturnRandomPointIn(Vector2 direction)
-        // {
-        //     return 
-        // }
+        private Vector2 ReturnRandomPoint(Vector2 circlePoint)
+        {
+            var mousePosition = Mouse.current.position.ReadValue();
+            return new Vector2(mousePosition.x + circlePoint.x, mousePosition.y + circlePoint.y);
+        }
     }
 }
