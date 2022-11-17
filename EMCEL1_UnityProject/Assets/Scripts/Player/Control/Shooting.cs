@@ -39,6 +39,7 @@ namespace Player.Control
 
         private void Fire()
         {
+            FindObjectOfType<AudioManager>().Play("gun_shot01");
             if (!PlayerStatus.canShoot) return;
             
             Ray ray = thisCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
