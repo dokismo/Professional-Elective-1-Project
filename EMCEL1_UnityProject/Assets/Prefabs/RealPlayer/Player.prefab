@@ -77,7 +77,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  cam: {fileID: 9169399032448258088}
+  cam: {fileID: 0}
   movementInput:
     m_Name: Input
     m_Type: 0
@@ -301,6 +301,7 @@ MonoBehaviour:
   rpm: 60
   ammoPerFire: 1
   recoil: 0
+  recoilControl: 2
   reloadTime: 1
   fireInput:
     m_Name: Fire Input
@@ -651,12 +652,13 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 320
-  ammoInMag: 10
-  ammoPerMag: 10
-  totalAmmo: 20
-  rpm: 180
+  ammoInMag: 30
+  ammoPerMag: 30
+  totalAmmo: 180
+  rpm: 240
   ammoPerFire: 1
-  recoil: 0
+  recoil: 5
+  recoilControl: 2
   reloadTime: 1
   fireInput:
     m_Name: Fire Input
@@ -691,7 +693,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9169399033560810389
 Transform:
   m_ObjectHideFlags: 0
@@ -720,9 +722,9 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 10
-  m_SpotAngle: 75
-  m_InnerSpotAngle: 7
+  m_Range: 25
+  m_SpotAngle: 45
+  m_InnerSpotAngle: 4
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
