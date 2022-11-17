@@ -13,7 +13,7 @@ namespace Enemy
 
         private void OnDestroy()
         {
-            FindObjectOfType<AudioManager>().Play("zombie_sfx1");
+            FindObjectOfType<AudioManager>().Play("zombie_death01"); //josh_sfx
             givePlayerMoney?.Invoke(deathValue);
         }
     }

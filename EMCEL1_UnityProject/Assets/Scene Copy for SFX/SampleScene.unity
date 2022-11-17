@@ -583,6 +583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
+  playerHealthBar: {fileID: 0}
   txtMoney: {fileID: 340863580}
 --- !u!1 &171891866
 GameObject:
@@ -2500,17 +2501,27 @@ MonoBehaviour:
   sounds:
   - name: zombie_sfx1
     clip: {fileID: 8300000, guid: 289898a3f0cacfd4e905064ff301c163, type: 3}
-    volume: 0.24
+    volume: 0.892
     pitch: 1
     source: {fileID: 0}
   - name: zombie_sfx3
     clip: {fileID: 8300000, guid: 9ebc9868ce588c4458d2aee9ea6826b5, type: 3}
-    volume: 0.719
+    volume: 0.897
+    pitch: 1
+    source: {fileID: 0}
+  - name: zombie_death01
+    clip: {fileID: 8300000, guid: 7cd9d7afb5776384ca556e2ebd372e42, type: 3}
+    volume: 0.885
     pitch: 1
     source: {fileID: 0}
   - name: bgm_1
     clip: {fileID: 8300000, guid: 7b819b45652155f4b8071ea2066adc86, type: 3}
-    volume: 0.719
+    volume: 0.455
+    pitch: 1
+    source: {fileID: 0}
+  - name: gun_shot01
+    clip: {fileID: 8300000, guid: 75705dd2dd65d9c458a29954b452fddb, type: 3}
+    volume: 1
     pitch: 1
     source: {fileID: 0}
 --- !u!4 &1178163937
