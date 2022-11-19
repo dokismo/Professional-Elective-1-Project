@@ -24,7 +24,7 @@ namespace Player.Control
         public Transform cam;
         [FormerlySerializedAs("inputAction")] 
         public InputAction movementInput;
-    
+
         [HideInInspector] public Vector3 moveDir;
         [HideInInspector] public Vector3 velocity;
         [HideInInspector] public bool isClimbing;
@@ -59,6 +59,8 @@ namespace Player.Control
 
         private void Update()
         {
+            cam ??= Camera.main.transform;
+            
             timer = Mathf.Clamp(timer - Time.deltaTime, 0, 20);
             Vector3 inputs = movementInput.ReadValue<Vector3>();
             

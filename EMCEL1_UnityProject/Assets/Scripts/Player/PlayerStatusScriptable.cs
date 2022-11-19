@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Player.Control;
 using UnityEngine;
 
 namespace Player
@@ -10,7 +11,9 @@ namespace Player
         public float health;
         public float maxHealth;
 
-        
+        public PlayerStatus PlayerStatus { get; private set; }
+
+        public void SetPlayer(PlayerStatus playerStatus) => PlayerStatus = playerStatus;
 
         public int GetMoney(int amount)
         {
@@ -22,6 +25,8 @@ namespace Player
 
         public void AddMoney(int amount) => money += amount;
 
-        public void AddHealthBy(float amount) => health = Mathf.Clamp(health + amount, 0, maxHealth);
+        public void SetHealthBy(int amount) => health = Mathf.Clamp(health + amount, 0, maxHealth);
+        
+        
     }
 }

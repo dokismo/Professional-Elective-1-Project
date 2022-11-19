@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8635842050565386431}
   - component: {fileID: 7536541638977419033}
   - component: {fileID: 594133050450399276}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Type1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ SpriteRenderer:
   m_GameObject: {fileID: 6166451632325911448}
   m_Enabled: 1
   m_CastShadows: 2
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -107,6 +107,7 @@ MonoBehaviour:
   rpm: 60
   ammoPerFire: 1
   recoil: 0
+  recoilControl: 2
   reloadTime: 1
   fireInput:
     m_Name: Fire Input

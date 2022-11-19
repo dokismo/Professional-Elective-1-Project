@@ -7,6 +7,9 @@ namespace Player.Control
 {
     public class PlayerStatus : MonoBehaviour
     {
+        public delegate void ChangeHealthEvent(int amount);
+        public static ChangeHealthEvent changeHealth;
+        
         public PlayerStatusScriptable playerStatusScriptable;
 
         public int maxGuns = 3;
@@ -22,16 +25,20 @@ namespace Player.Control
         private void OnEnable()
         {
             Enemy.OnDeathEvent.givePlayerMoney += playerStatusScriptable.AddMoney;
+            changeHealth += playerStatusScriptable.SetHealthBy;
         }
 
         private void OnDisable()
         {
             Enemy.OnDeathEvent.givePlayerMoney -= playerStatusScriptable.AddMoney;
+            changeHealth -= playerStatusScriptable.SetHealthBy;
         }
         
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
+            
+            playerStatusScriptable.SetPlayer(this);
             
             if (Camera.main != null)
             {
@@ -86,13 +93,17 @@ namespace Player.Control
         private void Selection()
         {
             if (Keyboard.current.digit1Key.wasPressedThisFrame)
+            {
                 Switch(0);
+            }
             else if (Keyboard.current.digit2Key.wasPressedThisFrame)
+            {
                 Switch(1);
-            else if (Keyboard.current.digit3Key.wasPressedThisFrame) 
+            }
+            else if (Keyboard.current.digit3Key.wasPressedThisFrame)
+            {
                 Switch(2);
+            }
         }
-
-        
     }
 }

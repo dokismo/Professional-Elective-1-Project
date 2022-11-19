@@ -5,10 +5,6 @@ namespace _2._5D_Objects
 {
     public class SpriteBillboard : MonoBehaviour
     {
-        public bool debugMsg = false;
-        [Range(0f, 15f)]
-        public float speedRotation = 15f;
-
         public Transform parentTransform;
         
         public bool freezeXRotation;
@@ -16,6 +12,7 @@ namespace _2._5D_Objects
         public bool freezeZRotation;
 
         public Vector3 freezeValues = new Vector3(0, 0, 0);
+        public Vector3 addRotation = new Vector3(0, 0, 0);
 
         private Transform mainCamera;
 
@@ -27,9 +24,13 @@ namespace _2._5D_Objects
 
         private void Update()
         {
+            if (Camera.main != null) mainCamera ??= Camera.main.transform;
+
+            if (!mainCamera) return;
+            
             Vector3 lookDir = (mainCamera.position - transform.position).normalized;
             Quaternion parentRot = parentTransform ? parentTransform.rotation : new();
-            //if (debugMsg) Debug.Log(newRot.eulerAngles);
+            
             transform.rotation = Quaternion.LookRotation(lookDir);
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles - parentRot.eulerAngles);
             
@@ -45,7 +46,7 @@ namespace _2._5D_Objects
                 z = freezeZRotation ? freezeValues.z : transform.rotation.eulerAngles.z
             };
 
-            transform.localRotation = Quaternion.Euler(rotation);
+            transform.localRotation = Quaternion.Euler(rotation.x + addRotation.x, rotation.y + addRotation.y, rotation.z + addRotation.z);
         }
     }
 }

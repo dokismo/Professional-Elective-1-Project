@@ -5,11 +5,13 @@ namespace Shop
 {
     public class ShowShop : MonoBehaviour
     {
-        public GameObject shopUI;
+        public delegate void ShopUI(bool state);
+
+        public static ShopUI showState;
 
         private void Start()
         {
-            shopUI.SetActive(false);
+            showState?.Invoke(false);
         }
 
         private void OnTriggerEnter(Collider other)
@@ -19,7 +21,7 @@ namespace Shop
             
             Cursor.lockState = CursorLockMode.None;
             
-            shopUI.SetActive(true);
+            showState?.Invoke(true);
         }
 
         private void OnTriggerExit(Collider other)
@@ -29,7 +31,7 @@ namespace Shop
             
             Cursor.lockState = CursorLockMode.Locked;
             
-            shopUI.SetActive(false);
+            showState?.Invoke(false);
         }
     }
 }

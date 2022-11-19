@@ -1,3 +1,4 @@
+using System;
 using Player;
 using Player.Control;
 using UnityEngine;
@@ -6,24 +7,25 @@ namespace Shop
 {
     public class Shop : MonoBehaviour
     {
+        public GameObject shopUI;
+        
         public ItemsScriptable itemsScriptable;
         public PlayerStatusScriptable playerStatusScriptable;
+        
+        private PlayerStatus PlayerStatus => playerStatusScriptable.PlayerStatus;
 
-        public PlayerStatus playerStatus;
-
-        private void Start()
-        {
-            playerStatus = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatus>();
-        }
-
+        private void OnEnable() => ShowShop.showState += SetState;
+        private void OnDisable() => ShowShop.showState -= SetState;
+        private void SetState(bool state) => shopUI.SetActive(state);
+        
         public void Buy(int position)
         {
             Item item = itemsScriptable.GetItem(position);
             
-            if (item.gameObject == null || playerStatus.inventoryIsFull)
+            if (item.gameObject == null || PlayerStatus.inventoryIsFull)
                 return;
-
-            if (playerStatusScriptable.GetMoney(item.value) > -1 ? item.gameObject : null) playerStatus.AddGun(item.gameObject);
+        
+            if (playerStatusScriptable.GetMoney(item.value) > -1 ? item.gameObject : null) PlayerStatus.AddGun(item.gameObject);
         }
     }
 }
