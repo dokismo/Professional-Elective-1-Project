@@ -2,61 +2,91 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using Player.Control;
 
 public class SimpleEnemyColScript : MonoBehaviour
 {
-    public float enemyDamage = 1f, attackSpeed = 1f;
-    bool attacking = false;
-    detectPlayerScript script1;
-    Collision collObj;
+    [Header ("Attacking Variables")]
+    public float defaultAttackSpeed = 5f, timeToAttack;
+    public int enemyDamage = 10;
+    public GameObject objInRange;
+
+    public bool attacking = false;
+
+    [Header("       Script For Referencing")]
+    public AIDestinationSetter aiSetterScript;
+    public AIPath aiPathScript;
+    public SimpleEnemyColScript enemyColScript;
+    public objectIdentifier objIdentifier;
+    public forSpawningScript forSpawnScript;
+
+    public SphereCollider objIdentifierSphere;
+
 
     private void Start()
     {
-        script1 = GetComponentInChildren<detectPlayerScript>();
+        transform.SetParent(GameObject.Find("Enemies").transform);
+
+        aiSetterScript = transform.GetComponent<AIDestinationSetter>();
+        aiPathScript = transform.GetComponent<AIPath>();
+        enemyColScript = transform.GetComponent<SimpleEnemyColScript>();
+        objIdentifier = transform.GetChild(0).GetComponent<objectIdentifier>();
+        objIdentifierSphere = transform.GetChild(0).GetComponent<SphereCollider>();
+        aiSetterScript.target = GameObject.Find("Player").transform;
+
+        timeToAttack = defaultAttackSpeed;
+        defaultAttackSpeed = enemyColScript.defaultAttackSpeed;
     }
+
+  
     private void Update()
     {
+        objIdentifierSphere.radius = aiPathScript.endReachedDistance;
+
+        if (aiSetterScript.target != null && objIdentifier.identifiedObj != null)
+        {
+            if (aiPathScript.reachedEndOfPath && aiSetterScript.target.gameObject.tag == "Player"
+                && objIdentifier.identifiedObj.tag == "Player")
+            {
+                attacking = true;
+                enemyColScript.attacking = attacking;
+            }
+        }
+
         if (attacking)
         {
-            if (attackSpeed > 0)
+            if (timeToAttack <= 0)
             {
-                attackSpeed -= Time.deltaTime;
+                timeToAttack = defaultAttackSpeed;
+                aiPathScript.enabled = true;
+                attacking = false;
+                enemyColScript.attacking = attacking;
+                enemyColScript.timeToAttack = enemyColScript.defaultAttackSpeed;
+                enemyColScript.attackTarget();
             }
             else
             {
-                attacking = false;
-                attackSpeed = 1f;
+                aiPathScript.enabled = false;
+                timeToAttack -= Time.deltaTime;
             }
         }
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-
-        if (collision.gameObject.tag == "Door" && !attacking && !script1.patrolling)
-        {
-            collObj = collision;
-            attackTarget();
-            attacking = true;
-        }
-
-        if (collision.gameObject.tag == "Player" && !attacking)
-        {
-            collObj = collision;
-            attackTarget();
-            attacking = true;
-        }
-
-
-
-    }
+ 
 
     public void attackTarget()
     {
-
-        if (collObj.gameObject.tag == "Player")
+        if(objInRange != null)
         {
-            Debug.Log("ENEMY ATTACKING " + collObj.gameObject.name);
+            if (objInRange.gameObject.tag == "Player")
+            {
+                PlayerStatus.changeHealth?.Invoke(enemyDamage);
+                Debug.Log("ENEMY ATTACKING " + objInRange.gameObject.name);
+                attacking = false;
+            }
+        } else
+        {
+            Debug.Log("Enemy attack MISSED!");
         }
     }
 }

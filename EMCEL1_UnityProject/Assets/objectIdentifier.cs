@@ -13,4 +13,12 @@ public class objectIdentifier : MonoBehaviour
             identifiedObj = other.gameObject;
         }    
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag =="Player")
+        {
+            identifiedObj = null;
+        }
+    }
 }

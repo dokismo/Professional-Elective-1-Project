@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zombiesSpawnedCount: 0
-  maxZombiesSpawned: 30
+  maxZombiesSpawned: 40
   EnemiesStorer: {fileID: 0}
   spawnedZombies: []
   Spawners: []
@@ -3252,7 +3252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 2113560724}
   clamp: {x: -60, y: 60}
-  sensitivity: 5
+  sensitivity: 15
   mouseX:
     m_Name: Mouse X
     m_Type: 0

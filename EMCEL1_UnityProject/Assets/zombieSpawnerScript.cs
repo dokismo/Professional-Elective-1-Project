@@ -5,6 +5,7 @@ using UnityEngine;
 public class zombieSpawnerScript : MonoBehaviour
 {
     public float defaultTimeToSpawn = 2f;
+
     float timeToSpawn, maxSpawnCount;
 
     public forSpawningScript forSpawnScript;

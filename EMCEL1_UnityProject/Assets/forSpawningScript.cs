@@ -18,7 +18,6 @@ public class forSpawningScript : MonoBehaviour
     private void Update()
     {
         checkZombieCount();
-       
     }
 
     public void checkZombieCount()
@@ -41,6 +40,11 @@ public class forSpawningScript : MonoBehaviour
                 waitTime = defaultWaitTime;
             }
             
+        }
+
+        if(zombiesSpawnedCount > maxZombiesSpawned)
+        {
+            Destroy(EnemiesStorer.transform.GetChild(0).gameObject);
         }
     }
 }
