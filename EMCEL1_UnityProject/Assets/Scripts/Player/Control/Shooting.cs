@@ -91,14 +91,6 @@ namespace Player.Control
                 {
                     // Destroy(raycastHit.collider.gameObject);
                 }
-
-                //// ADDED BY AYNEY
-                if(raycastHit.collider.gameObject.tag == "Enemy")
-                {
-                    float sampleDamage = 40f;
-                    raycastHit.collider.gameObject.GetComponent<EnemyHpHandler>().takeDamage(sampleDamage);
-                }
-                ////
             }
             
             currentRecoil += recoil;
