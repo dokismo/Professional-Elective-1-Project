@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class objectIdentifier : MonoBehaviour
+public class ObjectIdentifier : MonoBehaviour
 {
     public GameObject identifiedObj;
 

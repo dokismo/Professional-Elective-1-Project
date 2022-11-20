@@ -478,6 +478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 4137329151798101454, guid: 9088cf352fe75b04a82235553ac46d1b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4137329151798101455, guid: 9088cf352fe75b04a82235553ac46d1b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -670,7 +674,7 @@ MonoBehaviour:
     seed: 0
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
-  showGraphs: 1
+  showGraphs: 0
 --- !u!4 &319041354
 Transform:
   m_ObjectHideFlags: 0
@@ -945,7 +949,7 @@ Transform:
   - {fileID: 1445991535}
   - {fileID: 291413801}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &542359370 stripped
 GameObject:
@@ -1186,8 +1190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombiesSpawnedCount: 0
   maxZombiesSpawned: 40
+  defaultWaitTime: 5
   EnemiesStorer: {fileID: 0}
-  spawnedZombies: []
   Spawners: []
 --- !u!4 &751126548
 Transform:
@@ -1202,7 +1206,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &761811754 stripped
 GameObject:
@@ -1562,7 +1566,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1071374505 stripped
 GameObject:
@@ -1836,6 +1840,10 @@ PrefabInstance:
     - target: {fileID: 4137329151798101454, guid: 9088cf352fe75b04a82235553ac46d1b, type: 3}
       propertyPath: m_Name
       value: Zombie Spawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137329151798101454, guid: 9088cf352fe75b04a82235553ac46d1b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4137329151798101455, guid: 9088cf352fe75b04a82235553ac46d1b, type: 3}
       propertyPath: m_RootOrder
@@ -2676,6 +2684,10 @@ PrefabInstance:
     - target: {fileID: 4137329151798101454, guid: 9088cf352fe75b04a82235553ac46d1b, type: 3}
       propertyPath: m_Name
       value: Zombie Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137329151798101454, guid: 9088cf352fe75b04a82235553ac46d1b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4137329151798101455, guid: 9088cf352fe75b04a82235553ac46d1b, type: 3}
       propertyPath: m_RootOrder

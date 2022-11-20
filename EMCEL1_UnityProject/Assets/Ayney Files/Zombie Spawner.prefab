@@ -46,4 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTimeToSpawn: 0.4
   forSpawnScript: {fileID: 0}
-  zombie: {fileID: 1459204624250079201, guid: 8e8c74e7b76dce24da6f0ff2d59bdf65, type: 3}
+  zombieGameObjects:
+  - {fileID: 1459204624250079201, guid: 8e8c74e7b76dce24da6f0ff2d59bdf65, type: 3}
+  - {fileID: 1459204624250079201, guid: 052c67b98d8285d47bdf858d4fec5d5a, type: 3}
+  canSpawn: 1

@@ -17,7 +17,7 @@ public class detectPlayerScript : MonoBehaviour
     public AIDestinationSetter aiSetterScript;
     public AIPath aiPathScript;
     public sampleEnemyColScript enemyColScript;
-    public objectIdentifier objIdentifier;
+    public ObjectIdentifier objIdentifier;
 
     public GameObject lastPos, instantiatedLastPost;
     public GameObject[] patrolSpots;
@@ -48,7 +48,7 @@ public class detectPlayerScript : MonoBehaviour
         aiSetterScript = transform.parent.GetComponent<AIDestinationSetter>();
         aiPathScript = transform.parent.GetComponent<AIPath>();
         enemyColScript = transform.parent.GetComponent<sampleEnemyColScript>();
-        objIdentifier = transform.parent.GetChild(1).GetComponent<objectIdentifier>();
+        objIdentifier = transform.parent.GetChild(1).GetComponent<ObjectIdentifier>();
         objIdentifierSphere = transform.parent.GetChild(1).GetComponent<SphereCollider>();
         IgnoreMe = 1 << LayerMask.NameToLayer("enemyLayer");
         IgnoreMe2 = 1 << LayerMask.NameToLayer("detectPlayerLayer");
@@ -172,7 +172,7 @@ public class detectPlayerScript : MonoBehaviour
         {
             aiPathScript.enabled = true;
             instantiatedLastPost = Instantiate(lastPos, GameObject.FindGameObjectWithTag("Player").transform.position, Quaternion.identity);
-            instantiatedLastPost.GetComponent<destroyTime>().detectScript = gameObject.GetComponent<detectPlayerScript>();
+            instantiatedLastPost.GetComponent<DestroyTime>().detectScript = gameObject.GetComponent<detectPlayerScript>();
             aiSetterScript.target = instantiatedLastPost.transform;
             goingToLastPos = true;
             lastPosInstantiated = true;

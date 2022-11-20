@@ -4,15 +4,15 @@ using UnityEngine;
 using Pathfinding;
 using Pathfinding.Util;
 
-public class simpleAiScript : MonoBehaviour
+public class SimpleAiScript : MonoBehaviour
 {
 
     [Header("       Script For Referencing")]
     public AIDestinationSetter aiSetterScript;
     public AIPath aiPathScript;
     public SimpleEnemyColScript enemyColScript;
-    public objectIdentifier objIdentifier;
-    public forSpawningScript forSpawnScript;
+    public ObjectIdentifier objIdentifier;
+    public ForSpawningScript forSpawnScript;
 
     public SphereCollider objIdentifierSphere;
 

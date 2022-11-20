@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class destroyTime : MonoBehaviour
+public class DestroyTime : MonoBehaviour
 {
     public detectPlayerScript detectScript;
     public float timer = 5f;
