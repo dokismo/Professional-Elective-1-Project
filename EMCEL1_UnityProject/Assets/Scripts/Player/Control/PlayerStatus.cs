@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Gun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
