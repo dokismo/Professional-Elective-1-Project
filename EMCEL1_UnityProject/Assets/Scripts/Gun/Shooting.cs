@@ -2,35 +2,33 @@ using Core;
 using Player.Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using VFX;
 using Random = UnityEngine.Random;
 
 namespace Gun
 {
-    [RequireComponent(typeof(ParticleEffect))]
     public class Shooting : MonoBehaviour
     {
         public float distance;
         public LayerMask targetLayers;
 
-        public int damage = 20;
+        [Header("Gun Specs")] public int damage = 20;
+        public int
+            ammoInMag,
+            ammoPerMag,
+            totalAmmo,
+            rpm = 60,
+            ammoPerFire = 1,
+            recoil,
+            recoilControl = 2,
+            maxRecoil = 45,
+            reloadTime = 1;
 
-        public int ammoInMag;
-        public int ammoPerMag;
-        public int totalAmmo;
-
-        public float rpm = 60;
-        public int ammoPerFire = 1;
-        public float recoil;
-        public float recoilControl = 2;
-        public float maxRecoil = 45;
-
-        public float reloadTime = 1;
-        
-        private float FireTime => 60 / rpm;
-        private float currentRecoil = 0;
-        private float fireTimer = 0;
-        private float reloadTimer = 0;
-        private bool reloadToggler = false;
+        private float FireTime => 60f / rpm;
+        private float currentRecoil;
+        private float fireTimer;
+        private float reloadTimer;
+        private bool reloadToggle;
         
         public bool CanShoot => !IsReloading && fireTimer <= 0 && ammoInMag > 0;
         public bool IsReloading => reloadTimer > 0;
@@ -39,7 +37,7 @@ namespace Gun
         public InputAction fireInput;
         private Camera thisCamera;
         private ParticleEffect particleEffect;
-        private int didntFried = 0;
+        private int didntFried;
 
         private void Start()
         {
@@ -59,9 +57,9 @@ namespace Gun
 
         private void Update()
         {
-            if (reloadToggler && !IsReloading)
+            if (reloadToggle && !IsReloading)
             {
-                reloadToggler = false;
+                reloadToggle = false;
                 Reload();
             }
             
@@ -106,15 +104,17 @@ namespace Gun
 
                 ITarget target = raycastHit.collider.GetComponent<ITarget>();
                 particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal);
-                target?.Hit(20);
+                target?.Hit(damage);
             }
+            
+            CameraShake.shakeOnce?.Invoke();
         }
 
         private void CheckForReload()
         {
-            if (reloadToggler || IsReloading || ammoInMag > 0 || totalAmmo <= 0) return;
+            if (reloadToggle || IsReloading || ammoInMag > 0 || totalAmmo <= 0) return;
             
-            reloadToggler = true;
+            reloadToggle = true;
             reloadTimer += reloadTime;
         }
 
