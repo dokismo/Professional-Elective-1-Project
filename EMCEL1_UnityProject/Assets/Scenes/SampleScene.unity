@@ -3441,6 +3441,7 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 256
+  damage: 20
   ammoInMag: 0
   ammoPerMag: 0
   totalAmmo: 0
@@ -3848,6 +3849,7 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 320
+  damage: 20
   ammoInMag: 30
   ammoPerMag: 30
   totalAmmo: 180

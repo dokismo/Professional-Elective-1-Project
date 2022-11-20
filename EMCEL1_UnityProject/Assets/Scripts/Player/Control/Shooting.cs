@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -8,6 +9,8 @@ namespace Player.Control
     {
         public float distance;
         public LayerMask targetLayers;
+
+        public int damage = 20;
 
         public int ammoInMag;
         public int ammoPerMag;
@@ -85,12 +88,11 @@ namespace Player.Control
                 if (!Physics.Raycast(ray, out var raycastHit, distance, targetLayers)) continue;
                 
                 Debug.DrawLine(Camera.main.transform.position, raycastHit.point, Color.white, 2);
-                // Debug.Log($"{raycastHit.point}");
                 
-                if (raycastHit.collider.GetComponent<GameObject>() != null)
-                {
-                    // Destroy(raycastHit.collider.gameObject);
-                }
+                // Debug.Log($"{raycastHit.point}");
+                ITarget target = raycastHit.collider.GetComponent<ITarget>();
+
+                target?.Hit(20);
             }
             
             currentRecoil += recoil;
