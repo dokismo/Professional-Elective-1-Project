@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorTime: 0.5
-  appliedColor: {r: 0, g: 0, b: 0, a: 0}
+  appliedColor: {r: 1, g: 0, b: 0, a: 1}
   toggle: 0
 --- !u!1 &1459204624217277936
 GameObject:
@@ -229,7 +229,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459204624250079201}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.3, z: 4.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
