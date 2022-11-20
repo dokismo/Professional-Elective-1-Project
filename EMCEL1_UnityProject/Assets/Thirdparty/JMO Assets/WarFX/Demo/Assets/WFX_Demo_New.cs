@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using UnityEngine.InputSystem;
 
 // Cartoon FX - (c) 2015 - Jean Moreno
 //
@@ -69,23 +70,23 @@ public class WFX_Demo_New : MonoBehaviour
 	
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.LeftArrow))
+		if(Keyboard.current.leftArrowKey.wasPressedThisFrame)
 		{
 			prevParticle();
 		}
-		else if(Input.GetKeyDown(KeyCode.RightArrow))
+		else if(Keyboard.current.rightArrowKey.wasPressedThisFrame)
 		{
 			nextParticle();
 		}
-		else if(Input.GetKeyDown(KeyCode.Delete))
+		else if(Keyboard.current.deleteKey.wasPressedThisFrame)
 		{
 			destroyParticles();
 		}
 		
-		if(Input.GetMouseButtonDown(0))
+		if(Mouse.current.leftButton.wasPressedThisFrame)
 		{
 			RaycastHit hit = new RaycastHit();
-			if(groundCollider.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 9999f))
+			if(groundCollider.Raycast(Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue()), out hit, 9999f))
 			{
 				GameObject particle = spawnParticle();
 				if(!particle.name.StartsWith("WFX_MF"))
@@ -93,13 +94,13 @@ public class WFX_Demo_New : MonoBehaviour
 			}
 		}
 		
-		float scroll = Input.GetAxis("Mouse ScrollWheel");
+		float scroll = Mouse.current.scroll.ReadValue().y;
 		if(scroll != 0f)
 		{
 			Camera.main.transform.Translate(Vector3.forward * (scroll < 0f ? -1f : 1f), Space.Self);
 		}
 		
-		if(Input.GetMouseButtonDown(2))
+		if(Mouse.current.rightButton.wasPressedThisFrame)
 		{
 			Camera.main.transform.position = defaultCamPosition;
 			Camera.main.transform.rotation = defaultCamRotation;

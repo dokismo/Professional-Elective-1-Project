@@ -1,10 +1,12 @@
 using Core;
+using Player.Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-namespace Player.Control
+namespace Gun
 {
+    [RequireComponent(typeof(ParticleEffect))]
     public class Shooting : MonoBehaviour
     {
         public float distance;
@@ -20,6 +22,7 @@ namespace Player.Control
         public int ammoPerFire = 1;
         public float recoil;
         public float recoilControl = 2;
+        public float maxRecoil = 45;
 
         public float reloadTime = 1;
         
@@ -35,9 +38,12 @@ namespace Player.Control
         
         public InputAction fireInput;
         private Camera thisCamera;
+        private ParticleEffect particleEffect;
+        private int didntFried = 0;
 
         private void Start()
         {
+            particleEffect = GetComponent<ParticleEffect>();
             thisCamera = Camera.main;
         }
 
@@ -68,7 +74,7 @@ namespace Player.Control
                 Fire();
             }
         }
-
+        
         private void Fire()
         {
             CheckForReload();
@@ -78,24 +84,30 @@ namespace Player.Control
             fireTimer += FireTime;
             ammoInMag -= ammoPerFire;
 
+            if (FireTime < Time.deltaTime)
+            {
+                float excessFire = Time.deltaTime / FireTime;
+                didntFried += Mathf.RoundToInt(excessFire);
+                fireTimer += Time.deltaTime % FireTime;
+            }
+
+            for (didntFried++; didntFried > 0; didntFried--)
             for (int i = 0; i < ammoPerFire; i++)
             {
-                var randomCircle = Random.insideUnitCircle * Mathf.Clamp(currentRecoil, 1, 55);
+                var randomCircle = Random.insideUnitCircle * Mathf.Clamp(currentRecoil, 1, maxRecoil);
                 var precision = ReturnRandomPoint(randomCircle);
-                
+
                 Ray ray = thisCamera.ScreenPointToRay(precision);
+                currentRecoil = Mathf.Clamp(currentRecoil + recoil, 0, maxRecoil);
 
                 if (!Physics.Raycast(ray, out var raycastHit, distance, targetLayers)) continue;
-                
-                Debug.DrawLine(Camera.main.transform.position, raycastHit.point, Color.white, 2);
-                
-                // Debug.Log($"{raycastHit.point}");
-                ITarget target = raycastHit.collider.GetComponent<ITarget>();
 
+                Debug.DrawLine(Camera.main.transform.position, raycastHit.point, Color.white, 2);
+
+                ITarget target = raycastHit.collider.GetComponent<ITarget>();
+                particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal);
                 target?.Hit(20);
             }
-            
-            currentRecoil += recoil;
         }
 
         private void CheckForReload()

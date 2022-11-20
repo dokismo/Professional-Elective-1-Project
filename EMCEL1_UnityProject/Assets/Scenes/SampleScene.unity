@@ -212,7 +212,7 @@ Transform:
   m_Children:
   - {fileID: 1041207459}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &75685335
 MonoBehaviour:
@@ -928,7 +928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &532859736
 Transform:
   m_ObjectHideFlags: 0
@@ -1171,7 +1171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &751126547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3098,7 +3098,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1779979446
 MonoBehaviour:
@@ -3449,6 +3449,7 @@ MonoBehaviour:
   ammoPerFire: 1
   recoil: 0
   recoilControl: 2
+  maxRecoil: 45
   reloadTime: 1
   fireInput:
     m_Name: Fire Input
@@ -3478,6 +3479,7 @@ GameObject:
   - component: {fileID: 8405449998141977979}
   - component: {fileID: 7775931064994476765}
   - component: {fileID: 810732006537270760}
+  - component: {fileID: 8405449998141977980}
   m_Layer: 12
   m_Name: Type1
   m_TagString: Untagged
@@ -3552,6 +3554,19 @@ Transform:
   m_Father: {fileID: 1895527322}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &8405449998141977980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6263706349338764892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af641f76df54e9bafb31ecb1f67ec62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletImpact: {fileID: 0}
 --- !u!1001 &9169399032324996444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3569,7 +3584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3759,6 +3774,7 @@ GameObject:
   - component: {fileID: 9169399032820462057}
   - component: {fileID: 9169399032820462058}
   - component: {fileID: 9169399032820462059}
+  - component: {fileID: 9169399032820462060}
   m_Layer: 12
   m_Name: AK47
   m_TagString: Untagged
@@ -3845,18 +3861,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90cc1b4248a12243b60953751f95d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 25
+  distance: 45
   targetLayers:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 2368
   damage: 20
   ammoInMag: 30
   ammoPerMag: 30
   totalAmmo: 180
-  rpm: 240
+  rpm: 1800
   ammoPerFire: 1
   recoil: 5
-  recoilControl: 2
+  recoilControl: 20
+  maxRecoil: 45
   reloadTime: 1
   fireInput:
     m_Name: Fire Input
@@ -3875,6 +3892,19 @@ MonoBehaviour:
       m_Action: Fire Input
       m_Flags: 0
     m_Flags: 0
+--- !u!114 &9169399032820462060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9169399032820462056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af641f76df54e9bafb31ecb1f67ec62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletImpact: {fileID: 100002, guid: fc7f8379080d0a844ad699b91bfd56f0, type: 3}
 --- !u!1 &9169399033863693604
 GameObject:
   m_ObjectHideFlags: 0
