@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Core;
+using Enemy.Animation;
 
-public class EnemyHpHandler : MonoBehaviour
+public class EnemyHpHandler : MonoBehaviour, ITarget
 {
-    public float enemyHp = 100f;
+    public int enemyHp = 100;
 
-
-    public void takeDamage(float dmg)
+    public void Hit(int dmg)
     {
         enemyHp -= dmg;
         checkHealth();
+        transform.GetComponentInChildren<ChangeSpriteColorOnHit>().ApplyEffect();
     }
     public void checkHealth()
     {
@@ -19,4 +21,6 @@ public class EnemyHpHandler : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    
 }

@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1459204623821867065}
   - component: {fileID: 1459204623821867071}
   - component: {fileID: 1459204623821867070}
-  - component: {fileID: 1530650373181176933}
+  - component: {fileID: 6497005808355680378}
+  - component: {fileID: 7724351454408850717}
   m_Layer: 8
   m_Name: Sprite
   m_TagString: Untagged
@@ -27,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459204623821867064}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1.039, z: 0}
+  m_LocalScale: {x: 1.7, y: 1.7, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1459204624250079206}
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e3eeadff192d5504886f3c6136a4fa32, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b1323573790bc549a4a79e6da379187, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +105,22 @@ MonoBehaviour:
   freezeZRotation: 1
   freezeValues: {x: 0, y: 0, z: 0}
   addRotation: {x: 0, y: 180, z: 0}
---- !u!95 &1530650373181176933
+--- !u!114 &6497005808355680378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459204623821867064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1d641b2ced0294eb1675f9eb91b54b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorTime: 0.5
+  appliedColor: {r: 0, g: 0, b: 0, a: 0}
+  toggle: 0
+--- !u!95 &7724351454408850717
 Animator:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -114,7 +130,7 @@ Animator:
   m_GameObject: {fileID: 1459204623821867064}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 31e09c9ae17a92a45bd714811c7f36a1, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9d7e03be4585c2f47b008126205f55a1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -200,7 +216,7 @@ GameObject:
   - component: {fileID: -6881727868965907273}
   - component: {fileID: 8276065929336391048}
   m_Layer: 8
-  m_Name: Zombie 1
+  m_Name: Zombie 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

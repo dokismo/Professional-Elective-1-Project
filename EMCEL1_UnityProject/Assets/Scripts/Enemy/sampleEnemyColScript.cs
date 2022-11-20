@@ -7,13 +7,13 @@ public class sampleEnemyColScript : MonoBehaviour
 {
     public float enemyDamage = 1f, attackSpeed = 1f;
     bool attacking = false;
-    detectPlayerScript script1;
+    DetectPlayerScript script1;
     AIDestinationSetter script2;
     Collision collObj;
 
     private void Start()
     {
-        script1 = GetComponentInChildren<detectPlayerScript>();
+        script1 = GetComponentInChildren<DetectPlayerScript>();
         script2 = GetComponentInParent<AIDestinationSetter>();
     }
     private void Update()

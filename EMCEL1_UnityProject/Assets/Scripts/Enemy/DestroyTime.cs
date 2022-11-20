@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyTime : MonoBehaviour
 {
-    public detectPlayerScript detectScript;
+    public DetectPlayerScript detectScript;
     public float timer = 5f;
     void Update()
     {

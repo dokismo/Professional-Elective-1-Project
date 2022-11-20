@@ -5,7 +5,7 @@ using Pathfinding;
 using Pathfinding.Util;
 
 
-public class detectPlayerScript : MonoBehaviour
+public class DetectPlayerScript : MonoBehaviour
 {
     
     [Header("       Layers for raycast to ignore")]
@@ -172,7 +172,7 @@ public class detectPlayerScript : MonoBehaviour
         {
             aiPathScript.enabled = true;
             instantiatedLastPost = Instantiate(lastPos, GameObject.FindGameObjectWithTag("Player").transform.position, Quaternion.identity);
-            instantiatedLastPost.GetComponent<DestroyTime>().detectScript = gameObject.GetComponent<detectPlayerScript>();
+            instantiatedLastPost.GetComponent<DestroyTime>().detectScript = gameObject.GetComponent<DetectPlayerScript>();
             aiSetterScript.target = instantiatedLastPost.transform;
             goingToLastPos = true;
             lastPosInstantiated = true;
