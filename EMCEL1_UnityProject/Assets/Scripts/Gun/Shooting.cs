@@ -109,7 +109,11 @@ namespace Gun
                 fireSfx();
 
                 ITarget target = raycastHit.collider.GetComponent<ITarget>();
-                particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal);
+                particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal, 
+                    target != null 
+                        ? SurfaceType.Flesh
+                        : SurfaceType.Wall);
+                
                 target?.Hit(damage);
             }
             
