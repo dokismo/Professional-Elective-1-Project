@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Gun
@@ -10,13 +11,16 @@ namespace Gun
         public static RecoilEvent apply;
         public static RecoilEvent2 setControl;
 
-        public AnimationCurve curve;
+        [FormerlySerializedAs("curve")] 
+        public AnimationCurve controlCurve;
+        public AnimationCurve shootingCurve;
 
         public Vector2 localMaxRecoil = new(10, -15);
 
         private float processedYAxis;
         private float recoilControl;
         private float appliedRecoil;
+        private float shootingTimer;
         private float timer;
 
         private void OnEnable()
@@ -33,8 +37,12 @@ namespace Gun
 
         private void Update()
         {
-            timer = Mathf.Clamp(timer + Time.deltaTime, 0, 1);
-            appliedRecoil = Mathf.Clamp(appliedRecoil - recoilControl * curve.Evaluate(timer), 0, -localMaxRecoil.y);
+            timer = Mathf.Clamp01(timer + Time.deltaTime);
+
+            if (timer > 0.3f) 
+                shootingTimer = Mathf.Clamp01(shootingTimer - Time.deltaTime);
+
+            appliedRecoil = Mathf.Clamp(appliedRecoil - recoilControl * controlCurve.Evaluate(timer), 0, -localMaxRecoil.y);
             
             transform.localRotation = Quaternion.Euler(-appliedRecoil, transform.localRotation.eulerAngles.y + processedYAxis, 0);
             
@@ -52,18 +60,23 @@ namespace Gun
         private float SprayLinear(float recoil, float maxRecoil)
         {
             ApplyX(recoil);
-
-            float rotX = Mathf.Clamp(recoil * 0.6f, -localMaxRecoil.x, localMaxRecoil.x) * 0.75f;
-            float inverseLerp = Mathf.InverseLerp(0, localMaxRecoil.y, appliedRecoil);
+            
+            shootingTimer = Mathf.Clamp01(shootingTimer + Time.deltaTime * 3) ;
+            
+            float rotX = Mathf.Clamp(recoil, -localMaxRecoil.x, localMaxRecoil.x) * 0.75f;
+            float inverseLerp = Mathf.InverseLerp(0, -localMaxRecoil.y, appliedRecoil);
+            float test = 
+                shootingCurve.Evaluate(shootingTimer) * 
+                Mathf.InverseLerp(0, -localMaxRecoil.y, appliedRecoil) * maxRecoil;
             
             processedYAxis =
                 inverseLerp >= 0.8f
                     ? Random.Range(-rotX, rotX)
                     : 0;
             
-            Debug.Log($"{processedYAxis}, {inverseLerp} , {rotX}");
+            Debug.Log($"{inverseLerp}, {rotX} , {processedYAxis}");
             
-            return Mathf.InverseLerp(localMaxRecoil.y, 0, appliedRecoil) * maxRecoil;
+            return test;
         }
         
     }

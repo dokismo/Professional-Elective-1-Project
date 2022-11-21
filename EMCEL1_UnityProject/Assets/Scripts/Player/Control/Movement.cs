@@ -19,6 +19,7 @@ namespace Player.Control
         
         [Header("Setting")]
         public Transform groundCheck;
+        public Transform cameraAnchor;
         public float groundDistance = 0.4f, wallDistance = 0.5f;
         public LayerMask groundLayer;
         [FormerlySerializedAs("inputAction")] 
@@ -31,6 +32,8 @@ namespace Player.Control
         [HideInInspector] public bool isGrounded;
         private float timer;
 
+        private Vector3 CamAncForward => new(cameraAnchor.forward.x, 0, cameraAnchor.forward.z);
+        private Vector3 CamAncRight => new(cameraAnchor.right.x, 0, cameraAnchor.right.z);
         public bool CanMove => timer <= 0;
         public bool IsMoving => moveDir.magnitude > 0.1f;
         public bool IsFalling => velocity.y < -0.02f;
@@ -60,10 +63,12 @@ namespace Player.Control
         {
             timer = Mathf.Clamp(timer - Time.deltaTime, 0, 20);
             Vector3 inputs = movementInput.ReadValue<Vector3>();
+
+            
             
             moveDir =
-                transform.right * inputs.x +
-                transform.forward * inputs.z;
+                CamAncRight * inputs.x +
+                CamAncForward * inputs.z;
 
             bool checkFloor = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer);
             

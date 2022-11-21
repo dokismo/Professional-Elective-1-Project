@@ -2112,7 +2112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4d994512134fe191081a878414d497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curve:
+  controlCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -2145,7 +2145,40 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  localMaxRecoil: {x: 10, y: -15}
+  shootingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.33438647
+      outSlope: 0.33438647
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5437114
+      value: 0.18180974
+      inSlope: 1.0637643
+      outSlope: 1.0637643
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1.7931422
+      outSlope: 1.7931422
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  localMaxRecoil: {x: 10, y: -7.5}
 --- !u!1001 &1445991534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4017,6 +4050,10 @@ PrefabInstance:
       propertyPath: speed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5660677681306034388, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
+      propertyPath: cameraAnchor
+      value: 
+      objectReference: {fileID: 1404824326}
     - target: {fileID: 5660677681306034388, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 2112
