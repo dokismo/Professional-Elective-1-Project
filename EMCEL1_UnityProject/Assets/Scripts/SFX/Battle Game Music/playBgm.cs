@@ -6,7 +6,7 @@ public class playBgm : MonoBehaviour
 {
     void Start()
     {
-        FindObjectOfType<AudioManager>().Play("bgm_1");
+        FindObjectOfType<SFXManager>().Play("bgm01");
     }
 
 }

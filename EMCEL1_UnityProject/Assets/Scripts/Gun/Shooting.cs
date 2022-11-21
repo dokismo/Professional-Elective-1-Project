@@ -29,21 +29,28 @@ namespace Gun
         private float fireTimer;
         private float reloadTimer;
         private bool reloadToggle;
-        
+
+
         public bool CanShoot => !IsReloading && fireTimer <= 0 && ammoInMag > 0;
         public bool IsReloading => reloadTimer > 0;
         
         
         public InputAction fireInput;
         private Camera thisCamera;
+        private AudioSource sfx; //SFX
         private ParticleEffect particleEffect;
         private int didntFried;
+        
 
         private void Start()
         {
+            sfx = GetComponent<AudioSource>(); //SFX
             particleEffect = GetComponent<ParticleEffect>();
             thisCamera = Camera.main;
         }
+
+        
+        
 
         private void OnEnable()
         {
@@ -72,11 +79,12 @@ namespace Gun
                 Fire();
             }
         }
-        
+
+
         private void Fire()
         {
             CheckForReload();
-            
+
             if (!PlayerStatus.canShoot || !CanShoot) return;
 
             fireTimer += FireTime;
@@ -88,7 +96,6 @@ namespace Gun
                 didntFried += Mathf.RoundToInt(excessFire);
                 fireTimer += Time.deltaTime % FireTime;
             }
-
             for (didntFried++; didntFried > 0; didntFried--)
             for (int i = 0; i < ammoPerFire; i++)
             {
@@ -98,7 +105,9 @@ namespace Gun
                 Ray ray = thisCamera.ScreenPointToRay(precision);
                 currentRecoil = Mathf.Clamp(currentRecoil + recoil, 0, maxRecoil);
 
+                
                 if (!Physics.Raycast(ray, out var raycastHit, distance, targetLayers)) continue;
+                fireSfx();
 
                 Debug.DrawLine(Camera.main.transform.position, raycastHit.point, Color.white, 2);
 
@@ -108,6 +117,11 @@ namespace Gun
             }
             
             CameraShake.shakeOnce?.Invoke();
+        }
+
+        private void fireSfx()
+        {
+            sfx.PlayOneShot(sfx.clip); //SFX
         }
 
         private void CheckForReload()

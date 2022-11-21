@@ -32,8 +32,10 @@ public class ZombieSpawnerScript : MonoBehaviour
 
     void SpawnZombie(int Random)
     {
+        
         if (timeToSpawn > 0f)
         {
+            
             timeToSpawn -= Time.deltaTime;
         }
         else

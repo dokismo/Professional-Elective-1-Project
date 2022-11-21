@@ -13,7 +13,7 @@ public class SimpleEnemyColScript : MonoBehaviour
 
     public bool attacking = false;
 
-    [Header("       Script For Referencing")]
+    [Header("Script For Referencing")]
     public AIDestinationSetter aiSetterScript;
     public AIPath aiPathScript;
     public SimpleEnemyColScript enemyColScript;
@@ -50,11 +50,13 @@ public class SimpleEnemyColScript : MonoBehaviour
             {
                 attacking = true;
                 enemyColScript.attacking = attacking;
+                
             }
         }
 
         if (attacking)
         {
+            
             if (timeToAttack <= 0)
             {
                 timeToAttack = defaultAttackSpeed;
@@ -71,8 +73,6 @@ public class SimpleEnemyColScript : MonoBehaviour
             }
         }
     }
-
- 
 
     public void attackTarget()
     {

@@ -18,6 +18,7 @@ public class EnemyHpHandler : MonoBehaviour, ITarget
     {
         if(enemyHp <= 0f)
         {
+            FindObjectOfType<SFXManager>().Play("zombie_death");//sfx
             Destroy(gameObject);
         }
     }
