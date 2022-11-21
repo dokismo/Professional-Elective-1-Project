@@ -21,7 +21,6 @@ namespace Player.Control
         public Transform groundCheck;
         public float groundDistance = 0.4f, wallDistance = 0.5f;
         public LayerMask groundLayer;
-        public Transform cam;
         [FormerlySerializedAs("inputAction")] 
         public InputAction movementInput;
 
@@ -59,14 +58,12 @@ namespace Player.Control
 
         private void Update()
         {
-            cam ??= Camera.main.transform;
-            
             timer = Mathf.Clamp(timer - Time.deltaTime, 0, 20);
             Vector3 inputs = movementInput.ReadValue<Vector3>();
             
             moveDir =
-                (cam ? cam.right : transform.right) * inputs.x +
-                (cam ? cam.forward : transform.forward) * inputs.z;
+                transform.right * inputs.x +
+                transform.forward * inputs.z;
 
             bool checkFloor = Physics.CheckSphere(groundCheck.position, groundDistance, groundLayer);
             

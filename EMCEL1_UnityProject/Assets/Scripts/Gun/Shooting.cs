@@ -12,20 +12,20 @@ namespace Gun
         public float distance;
         public LayerMask targetLayers;
 
-        [Header("Gun Specs")] public int damage = 20;
+        [Header("Gun Specs")] 
+        public int damage = 20;
         public int
             ammoInMag,
             ammoPerMag,
             totalAmmo,
             rpm = 60,
             ammoPerFire = 1,
+            reloadTime = 1,
             recoil,
-            recoilControl = 2,
-            maxRecoil = 45,
-            reloadTime = 1;
+            maxRecoil,
+            recoilControl;
 
         private float FireTime => 60f / rpm;
-        private float currentRecoil;
         private float fireTimer;
         private float reloadTimer;
         private bool reloadToggle;
@@ -48,6 +48,7 @@ namespace Gun
         private void OnEnable()
         {
             fireInput.Enable();
+            RecoilEffect.setControl?.Invoke(recoilControl);
         }
 
         private void OnDisable()
@@ -65,7 +66,6 @@ namespace Gun
             
             fireTimer = Mathf.Clamp(fireTimer - Time.deltaTime, 0, 99);
             reloadTimer = Mathf.Clamp(reloadTimer - Time.deltaTime, 0, 99);
-            currentRecoil = fireTimer <= 0 ? Mathf.Clamp(currentRecoil - recoilControl * Time.deltaTime, 0, 99) : currentRecoil;
             
             if (Mouse.current.leftButton.isPressed)
             {
@@ -92,22 +92,19 @@ namespace Gun
             for (didntFried++; didntFried > 0; didntFried--)
             for (int i = 0; i < ammoPerFire; i++)
             {
-                var randomCircle = Random.insideUnitCircle * Mathf.Clamp(currentRecoil, 1, maxRecoil);
-                var precision = ReturnRandomPoint(randomCircle);
-
-                Ray ray = thisCamera.ScreenPointToRay(precision);
-                currentRecoil = Mathf.Clamp(currentRecoil + recoil, 0, maxRecoil);
+                Vector2 mousePos = Mouse.current.position.ReadValue();
+                Vector2 gotRecoil = new Vector2(0, RecoilEffect.apply?.Invoke(recoil, maxRecoil) ?? 0);
+                
+                Ray ray = thisCamera.ScreenPointToRay(mousePos + gotRecoil);
 
                 if (!Physics.Raycast(ray, out var raycastHit, distance, targetLayers)) continue;
-
-                Debug.DrawLine(Camera.main.transform.position, raycastHit.point, Color.white, 2);
 
                 ITarget target = raycastHit.collider.GetComponent<ITarget>();
                 particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal);
                 target?.Hit(damage);
             }
             
-            CameraShake.shakeOnce?.Invoke();
+            // CameraShake.shakeOnce?.Invoke();
         }
 
         private void CheckForReload()
