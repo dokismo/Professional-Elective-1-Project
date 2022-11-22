@@ -39,8 +39,10 @@ namespace Gun
         {
             timer = Mathf.Clamp01(timer + Time.deltaTime);
 
-            if (timer > 0.3f) 
+            if (timer > 0.3f)
+            {
                 shootingTimer = Mathf.Clamp01(shootingTimer - Time.deltaTime);
+            }
 
             appliedRecoil = Mathf.Clamp(appliedRecoil - recoilControl * controlCurve.Evaluate(timer), 0, -localMaxRecoil.y);
             

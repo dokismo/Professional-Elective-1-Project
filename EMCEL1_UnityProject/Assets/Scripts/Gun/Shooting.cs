@@ -41,16 +41,12 @@ namespace Gun
         private ParticleEffect particleEffect;
         private int didntFried;
         
-
         private void Start()
         {
             sfx = GetComponent<AudioSource>(); //SFX
             particleEffect = GetComponent<ParticleEffect>();
             thisCamera = Camera.main;
         }
-
-        
-        
 
         private void OnEnable()
         {
