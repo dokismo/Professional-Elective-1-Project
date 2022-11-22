@@ -24,7 +24,7 @@ namespace Enemy.Animation
             
             timer = Mathf.Clamp(timer - Time.deltaTime, 0, 9);
             toggle = timer != 0;
-            spriteRenderer.color = Color.Lerp(Color.white, appliedColor, timer);
+            spriteRenderer.color = Color.Lerp(Color.white, appliedColor, Mathf.InverseLerp(0, colorTime, timer));
         }
 
         public void ApplyEffect()
