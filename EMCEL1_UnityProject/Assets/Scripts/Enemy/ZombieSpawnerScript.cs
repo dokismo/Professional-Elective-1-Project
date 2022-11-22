@@ -12,21 +12,25 @@ public class ZombieSpawnerScript : MonoBehaviour
     public GameObject[] zombieGameObjects;
 
     public bool canSpawn = true;
-   
+
+    
+
 
     void Start()
     {
         transform.SetParent(GameObject.Find("SPAWNERS").transform);
         forSpawnScript = GameObject.Find("For Spawning").GetComponent<ForSpawningScript>();
         timeToSpawn = defaultTimeToSpawn;
+       
     }
 
     void Update()
     {
-        if(canSpawn)
+        if (canSpawn)
         {
             SpawnZombie(Random.Range(0,2));
         }
+        
     }
 
 
@@ -35,7 +39,6 @@ public class ZombieSpawnerScript : MonoBehaviour
         
         if (timeToSpawn > 0f)
         {
-            
             timeToSpawn -= Time.deltaTime;
         }
         else
@@ -49,5 +52,10 @@ public class ZombieSpawnerScript : MonoBehaviour
             Instantiate(zombieGameObjects[Random], transform.position, Quaternion.identity);
             timeToSpawn = defaultTimeToSpawn;
         }
+
+        
+
     }
+
+    
 }

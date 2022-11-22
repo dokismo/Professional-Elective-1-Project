@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3510005223879702141}
   - component: {fileID: 3510005223879702142}
   - component: {fileID: 3510005223879702143}
-  - component: {fileID: -4679649307054474063}
+  - component: {fileID: 3161998446447741838}
   m_Layer: 12
   m_Name: AK47
   m_TagString: Untagged
@@ -108,10 +108,10 @@ MonoBehaviour:
   totalAmmo: 0
   rpm: 60
   ammoPerFire: 1
-  recoil: 0
-  recoilControl: 2
-  maxRecoil: 45
   reloadTime: 1
+  recoil: 0
+  maxRecoil: 45
+  recoilControl: 2
   fireInput:
     m_Name: Fire Input
     m_Type: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
       m_Action: Fire Input
       m_Flags: 0
     m_Flags: 0
---- !u!82 &-4679649307054474063
+--- !u!82 &3161998446447741838
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
