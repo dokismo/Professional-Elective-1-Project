@@ -51,25 +51,37 @@ public class ForSpawningScript : MonoBehaviour
         }
     }
 
+    
     public void DeactivateSpawners()
     {
+        
         Debug.Log("Round Over, SPAWNING ZOMBIES");
         for (int i = 0; i < Spawners.Length; i++)
         {
+            spawnSfx();
             Spawners[i].SetActive(false);
             Spawners[i].GetComponent<ZombieSpawnerScript>().canSpawn = false;
         }
+
     }
     public void SetSpawnersActive()
     {
         Debug.Log("Round Over, SPAWNING ZOMBIES");
         for (int i = 0; i < Spawners.Length; i++)
         {
+            spawnSfx();
             Spawners[i].SetActive(true);
             Spawners[i].GetComponent<ZombieSpawnerScript>().canSpawn = true;
+           
         }
     }
-    
+
+    public void spawnSfx() //sfx
+    {
+        FindObjectOfType<SFXManager>().Play("spawnZ");//sfx
+        Debug.Log("SPAWN SFX");
+    }
+
 
     public void ZombieLimiter()
     {

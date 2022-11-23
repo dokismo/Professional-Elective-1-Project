@@ -37,14 +37,16 @@ namespace Gun
         
         public InputAction fireInput;
         private Camera thisCamera;
-        private AudioSource sfx; //SFX
         private ParticleEffect particleEffect;
         private int didntFried;
+
         
+        private AudioSource gunFireSfx;
+
 
         private void Start()
         {
-            sfx = GetComponent<AudioSource>(); //SFX
+            gunFireSfx = GetComponent<AudioSource>(); //SFX
             particleEffect = GetComponent<ParticleEffect>();
             thisCamera = Camera.main;
         }
@@ -69,8 +71,9 @@ namespace Gun
             {
                 reloadToggle = false;
                 Reload();
+                reloadAmmo(); //SFX
             }
-            
+
             fireTimer = Mathf.Clamp(fireTimer - Time.deltaTime, 0, 99);
             reloadTimer = Mathf.Clamp(reloadTimer - Time.deltaTime, 0, 99);
             
@@ -84,7 +87,6 @@ namespace Gun
         private void Fire()
         {
             CheckForReload();
-
             if (!PlayerStatus.canShoot || !CanShoot) return;
 
             fireTimer += FireTime;
@@ -120,9 +122,16 @@ namespace Gun
             // CameraShake.shakeOnce?.Invoke();
         }
 
-        private void fireSfx()
+        private void fireSfx() //SFX
         {
-            sfx.PlayOneShot(sfx.clip); //SFX
+            gunFireSfx.PlayOneShot(gunFireSfx.clip); //SFX
+            Debug.Log("GunFire SFX");
+        }
+
+        private void reloadAmmo() //SFX
+        {
+            
+            Debug.Log("Reloading Sound");//SFX
         }
 
         private void CheckForReload()

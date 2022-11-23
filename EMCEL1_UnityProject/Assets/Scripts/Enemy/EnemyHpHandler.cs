@@ -20,6 +20,7 @@ public class EnemyHpHandler : MonoBehaviour, ITarget
         {
             FindObjectOfType<SFXManager>().Play("zombie_death");//sfx
             Destroy(gameObject);
+            Debug.Log("ZOMBIE DIED SFX");
         }
     }
 
