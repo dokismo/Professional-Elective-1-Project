@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using VFX;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
+using TMPro;
 
 namespace Gun
 {
@@ -40,12 +42,20 @@ namespace Gun
         private AudioSource sfx; //SFX
         private ParticleEffect particleEffect;
         private int didntFried;
-        
+
+
+        public TMP_Text ammoDisplay;
+
+
         private void Start()
         {
             sfx = GetComponent<AudioSource>(); //SFX
             particleEffect = GetComponent<ParticleEffect>();
             thisCamera = Camera.main;
+
+            ammoDisplay.text = ("Ammo: ") + ammoInMag.ToString();
+
+
         }
 
         private void OnEnable()
@@ -73,6 +83,7 @@ namespace Gun
             if (Mouse.current.leftButton.isPressed)
             {
                 Fire();
+                ammoDisplay.text = ("Ammo: ") + ammoInMag.ToString();
             }
         }
 
@@ -85,6 +96,8 @@ namespace Gun
 
             fireTimer += FireTime;
             ammoInMag -= ammoPerFire;
+
+            
 
             if (FireTime < Time.deltaTime)
             {
@@ -142,6 +155,8 @@ namespace Gun
             Debug.Log($"{neededAmmo} {gotAmount}");
             totalAmmo -= gotAmount;
             ammoInMag += gotAmount;
+
+            
         }
     }
 }
