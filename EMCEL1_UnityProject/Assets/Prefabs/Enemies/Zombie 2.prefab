@@ -390,6 +390,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 100
+  MinimumMoney: 10
+  MaxMoney: 20
 --- !u!1 &2482340962948636984
 GameObject:
   m_ObjectHideFlags: 0
