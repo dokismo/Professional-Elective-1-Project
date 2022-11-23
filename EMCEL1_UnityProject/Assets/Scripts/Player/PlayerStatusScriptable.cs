@@ -23,6 +23,8 @@ namespace Player
             return amount;
         }
 
+        public void PutMoney(int amount) => money += amount;
+
         public void AddMoney(int amount) => money += amount;
 
         public void SetHealthBy(int amount) => health = Mathf.Clamp(health + amount, 0, maxHealth);

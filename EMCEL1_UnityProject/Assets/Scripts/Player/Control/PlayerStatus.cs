@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Gun;
 using UnityEngine;
@@ -8,31 +7,35 @@ namespace Player.Control
 {
     public class PlayerStatus : MonoBehaviour
     {
-        public delegate void ChangeHealthEvent(int amount);
-        public static ChangeHealthEvent changeHealth;
+        public delegate void Event(int amount);
+        public static Event changeHealth;
+        public static Event getMoney;
         
         public PlayerStatusScriptable playerStatusScriptable;
 
         public int maxGuns = 3;
         public List<GameObject> localGuns;
         public Transform gunAnchor;
-
+        
         private int currentIndex = 0;
+        
+        public Shooting CurrentGun { get; private set; }
+        public bool InventoryIsFull => localGuns.Count >= maxGuns;
 
-        public bool inventoryIsFull => localGuns.Count >= maxGuns;
-
-        public static bool canShoot => Cursor.lockState == CursorLockMode.Locked;
+        public static bool CanShoot => Cursor.lockState == CursorLockMode.Locked;
 
         private void OnEnable()
         {
             Enemy.OnDeathEvent.givePlayerMoney += playerStatusScriptable.AddMoney;
             changeHealth += playerStatusScriptable.SetHealthBy;
+            getMoney += playerStatusScriptable.PutMoney;
         }
 
         private void OnDisable()
         {
             Enemy.OnDeathEvent.givePlayerMoney -= playerStatusScriptable.AddMoney;
             changeHealth -= playerStatusScriptable.SetHealthBy;
+            getMoney -= playerStatusScriptable.PutMoney;
         }
         
         private void Start()
@@ -55,10 +58,8 @@ namespace Player.Control
                 gunAnchor = Camera.main.gameObject.transform;
             }
 
-            Switch();
+            Switch(0);
         }
-        
-        
 
         private void Update()
         {
@@ -69,15 +70,22 @@ namespace Player.Control
         {
             currentIndex = position < 0 ? currentIndex : position;
                 
+            CurrentGun = null;
             for (int i = 0; i < localGuns.Count; i++)
             {
-                localGuns[i].SetActive(currentIndex == i);
+                if (currentIndex == i)
+                {
+                    localGuns[i].SetActive(true);
+                    CurrentGun = localGuns[i].GetComponent<Shooting>();
+                }
+                else
+                    localGuns[i].SetActive(false);
             }
         }
         
         public void AddGun(GameObject gun)
         {
-            if (inventoryIsFull) return;
+            if (InventoryIsFull) return;
 
             GameObject instanceGun = Instantiate(gun, gunAnchor);
             localGuns.Add(instanceGun);

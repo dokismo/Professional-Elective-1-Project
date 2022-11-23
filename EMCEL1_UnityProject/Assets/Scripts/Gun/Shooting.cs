@@ -18,6 +18,7 @@ namespace Gun
             ammoInMag,
             ammoPerMag,
             totalAmmo,
+            maxTotalAmmo,
             rpm = 60,
             ammoPerFire = 1,
             reloadTime = 1,
@@ -29,7 +30,6 @@ namespace Gun
         private float fireTimer;
         private float reloadTimer;
         private bool reloadToggle;
-
 
         public bool CanShoot => !IsReloading && fireTimer <= 0 && ammoInMag > 0;
         public bool IsReloading => reloadTimer > 0;
@@ -81,7 +81,7 @@ namespace Gun
         {
             CheckForReload();
 
-            if (!PlayerStatus.canShoot || !CanShoot) return;
+            if (!PlayerStatus.CanShoot || !CanShoot) return;
 
             fireTimer += FireTime;
             ammoInMag -= ammoPerFire;
@@ -95,14 +95,14 @@ namespace Gun
             for (didntFried++; didntFried > 0; didntFried--)
             for (int i = 0; i < ammoPerFire; i++)
             {
+                fireSfx();
+                
                 Vector2 mousePos = Mouse.current.position.ReadValue();
                 Vector2 gotRecoil = new Vector2(0, RecoilEffect.apply?.Invoke(recoil, maxRecoil) ?? 0);
                 
                 Ray ray = thisCamera.ScreenPointToRay(mousePos + gotRecoil);
 
-                
                 if (!Physics.Raycast(ray, out var raycastHit, distance, targetLayers)) continue;
-                fireSfx();
 
                 ITarget target = raycastHit.collider.GetComponent<ITarget>();
                 particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal, 
@@ -129,6 +129,12 @@ namespace Gun
             reloadTimer += reloadTime;
         }
 
+        public void RefillAmmo()
+        {
+            ammoInMag = ammoPerMag;
+            totalAmmo = maxTotalAmmo;
+        }
+
         private void Reload()
         {
             int neededAmmo = ammoPerMag - ammoInMag;
@@ -136,12 +142,6 @@ namespace Gun
             Debug.Log($"{neededAmmo} {gotAmount}");
             totalAmmo -= gotAmount;
             ammoInMag += gotAmount;
-        }
-
-        private Vector2 ReturnRandomPoint(Vector2 circlePoint)
-        {
-            var mousePosition = Mouse.current.position.ReadValue();
-            return new Vector2(mousePosition.x + circlePoint.x, mousePosition.y + circlePoint.y);
         }
     }
 }

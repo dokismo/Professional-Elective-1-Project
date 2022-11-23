@@ -206,7 +206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 75685333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.28, y: 2.37, z: 1.37}
+  m_LocalPosition: {x: 6.22, y: 2.37, z: 58.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3777,6 +3777,10 @@ PrefabInstance:
     - target: {fileID: 5660677681306034386, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9169399032820462059, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
+      propertyPath: recoil
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9169399032820462059, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: GunFireSFX

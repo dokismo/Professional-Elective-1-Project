@@ -22,10 +22,19 @@ namespace Shop
         {
             Item item = itemsScriptable.GetItem(position);
             
-            if (item.gameObject == null || PlayerStatus.inventoryIsFull)
+            if (item.gameObject == null || PlayerStatus.InventoryIsFull)
                 return;
         
-            if (playerStatusScriptable.GetMoney(item.value) > -1 ? item.gameObject : null) PlayerStatus.AddGun(item.gameObject);
+            if (playerStatusScriptable.GetMoney(item.value) > -1 ? item.gameObject : null) 
+                PlayerStatus.AddGun(item.gameObject);
+        }
+
+        public void RefillAmmo(int cost)
+        {
+            if (playerStatusScriptable.GetMoney(cost) <= 0) return;
+            
+            if (PlayerStatus.CurrentGun != null)
+                PlayerStatus.CurrentGun.RefillAmmo();
         }
     }
 }
