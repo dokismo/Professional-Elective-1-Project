@@ -2,10 +2,6 @@ using Core;
 using Player.Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using VFX;
-using Random = UnityEngine.Random;
-using UnityEngine.UI;
-using TMPro;
 
 namespace Gun
 {
@@ -36,25 +32,17 @@ namespace Gun
         public bool CanShoot => !IsReloading && fireTimer <= 0 && ammoInMag > 0;
         public bool IsReloading => reloadTimer > 0;
         
-        
         public InputAction fireInput;
         private Camera thisCamera;
         private AudioSource sfx; //SFX
         private ParticleEffect particleEffect;
         private int didntFried;
-
-
-        public TMP_Text ammoDisplay;
-
-
+        
         private void Start()
         {
             sfx = GetComponent<AudioSource>(); //SFX
             particleEffect = GetComponent<ParticleEffect>();
             thisCamera = Camera.main;
-
-            ammoDisplay.text = ("Ammo: ") + ammoInMag.ToString();
-
 
         }
 
@@ -83,7 +71,6 @@ namespace Gun
             if (Mouse.current.leftButton.isPressed)
             {
                 Fire();
-                ammoDisplay.text = ("Ammo: ") + ammoInMag.ToString();
             }
         }
 
