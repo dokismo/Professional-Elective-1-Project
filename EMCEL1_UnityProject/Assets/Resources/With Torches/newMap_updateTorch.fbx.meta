@@ -1,0 +1,411 @@
+fileFormatVersion: 2
+guid: 1fae947c9a1c63f4fac890cdb348b32b
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon
+    second: {fileID: 2100000, guid: 6f0004ef2e84eec48b2b16a187fe52ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon tileset
+    second: {fileID: 2100000, guid: 051009da5c508cf4787edae1fa8adcc1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon tileset.068
+    second: {fileID: 2100000, guid: d7b1c34aad0f63148bedb7492994168d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon tileset.069
+    second: {fileID: 2100000, guid: ac912ac77b0b431458bd4abc341c021e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon tileset.070
+    second: {fileID: 2100000, guid: cc368482184ebc34ea69d4775059d047, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon tileset.071
+    second: {fileID: 2100000, guid: 9f7dd37498ac1604c886375a2d7b1873, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon tileset.072
+    second: {fileID: 2100000, guid: b1c251ff389e296438217c54bead6631, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon tileset.073
+    second: {fileID: 2100000, guid: c6ba8e4dffb3d834e8a6a702af9e2f96, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon tileset.074
+    second: {fileID: 2100000, guid: 8ecd1979ca8368c41aab8783f3025ecd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon tileset.075
+    second: {fileID: 2100000, guid: 96e8736f405cd2e4c971755566305b12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon tileset.076
+    second: {fileID: 2100000, guid: 2e1e90e11eb671243bf1c26aa8f36361, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.001
+    second: {fileID: 2100000, guid: 8a3d13e3ad2eba949a3ac106c8e6da77, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.002
+    second: {fileID: 2100000, guid: 3ff295f59d2eb6749ae22573f8286e33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.003
+    second: {fileID: 2100000, guid: c2c0e3ae7c90de041909ce60c2af3fe7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.004
+    second: {fileID: 2100000, guid: f2ef2fafed0f7824f998c46b4c188526, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.005
+    second: {fileID: 2100000, guid: 3bc04ade0ea043b4ab1f235bcc72f3ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.006
+    second: {fileID: 2100000, guid: b89be0dd8da76dd4f960b3dbbb5d6523, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.007
+    second: {fileID: 2100000, guid: c8a4c483c2de6b24ab92f30b54164995, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.008
+    second: {fileID: 2100000, guid: e9a096011b6c02b48a989e3c083d008e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.009
+    second: {fileID: 2100000, guid: cd5176ad545e63c43a89ba8806eabf4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.012
+    second: {fileID: 2100000, guid: e51b930538e315449bd05221f5532eb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.015
+    second: {fileID: 2100000, guid: e1347a26c896453489a05f4c5ffd6053, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.018
+    second: {fileID: 2100000, guid: 825530c4f1cb5d94f80f385c56d55259, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.022
+    second: {fileID: 2100000, guid: 7b23f707053520647b4e34f3c3244028, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.024
+    second: {fileID: 2100000, guid: fcf145e73a886ff47a7edd4fbcf19d4b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.026
+    second: {fileID: 2100000, guid: aa0cfc8f6b37c74429c98ba584f435ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.028
+    second: {fileID: 2100000, guid: d894128026de3a341bc2a16ab53d90c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.029
+    second: {fileID: 2100000, guid: 13490c0f5594d4a418ed3d8604f100f7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.032
+    second: {fileID: 2100000, guid: 2556814f34b48a742b070036de60b42a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.035
+    second: {fileID: 2100000, guid: b5d0ceb99be134e468246f6b770325c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.038
+    second: {fileID: 2100000, guid: 8aeb31f6d41b22c41a1a72579ae291b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.042
+    second: {fileID: 2100000, guid: cea500bdeb9354d4a9689d370b6dae90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.044
+    second: {fileID: 2100000, guid: f81c6cb8b2bcb714797212a883311a59, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.046
+    second: {fileID: 2100000, guid: 3dd83c7a227636042a2c89ec4b42ea63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.048
+    second: {fileID: 2100000, guid: 084488c8d9f979347ad7063418ef10c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.049
+    second: {fileID: 2100000, guid: a5f70a168d6efc74ea37b18e3f8dbacc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.050
+    second: {fileID: 2100000, guid: bd6c75b881395f94abeb90e150dabce7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.051
+    second: {fileID: 2100000, guid: c92a59b26ccf7b6489d258cfd6f2f57b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.053
+    second: {fileID: 2100000, guid: 1c09122b119c30b479f75b50f1f73f13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.054
+    second: {fileID: 2100000, guid: e96f55782c45e5247ade0d0b269e306b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.055
+    second: {fileID: 2100000, guid: 0947eaa9868cef340976bd6446393c69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.058
+    second: {fileID: 2100000, guid: e84686dc990649e4b9e14297e79dca38, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.061
+    second: {fileID: 2100000, guid: de54653dc4168d3448ee5010a018d243, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.064
+    second: {fileID: 2100000, guid: c3c24dc70518c21438c5ed6196fc3f13, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.065
+    second: {fileID: 2100000, guid: 2691edcfc1e1e3c4091c8ac5d1080c21, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.066
+    second: {fileID: 2100000, guid: 56c027e78994e8343ae387812efbfe7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.067
+    second: {fileID: 2100000, guid: c0e2355285e48d3419b5381573c8ddfc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.068
+    second: {fileID: 2100000, guid: 35df1c375844ca34c829567acf9d89a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.069
+    second: {fileID: 2100000, guid: 80417b8bb470027448eb5211ac314d3a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.073
+    second: {fileID: 2100000, guid: 5b39dec75b1fd124b8496240272e18e9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.077
+    second: {fileID: 2100000, guid: 3a3c1f6f50f1a394e8b3aae56a784707, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.081
+    second: {fileID: 2100000, guid: cbd507cc780b75346b3e83b8f9156bf0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.088
+    second: {fileID: 2100000, guid: b3d1cedbb522332448df29cbf3250b8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.092
+    second: {fileID: 2100000, guid: 66dc914131b0ea747a937212a9bad3f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.096
+    second: {fileID: 2100000, guid: daf980b55f9668749ba328d59c5dd8e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.099
+    second: {fileID: 2100000, guid: e5849583056698041aac18e0c1f723b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.102
+    second: {fileID: 2100000, guid: 3bb1713068436104daee1ddd9697f7c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.103
+    second: {fileID: 2100000, guid: e9b17f03009956c47afdc9709e125159, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Dungeon.104
+    second: {fileID: 2100000, guid: 65fc0e12c1521374badeeb17a7be042b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 23697557769fb674db21edcd2e9b3a03, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Smoke Domain Material
+    second: {fileID: 2100000, guid: a06061e76474e334e837070fad89f0c1, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
