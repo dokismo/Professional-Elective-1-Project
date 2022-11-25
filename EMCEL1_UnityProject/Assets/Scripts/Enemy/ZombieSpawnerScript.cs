@@ -28,7 +28,7 @@ public class ZombieSpawnerScript : MonoBehaviour
     {
         if (canSpawn)
         {
-            SpawnZombie(Random.Range(0,2));
+            SpawnZombie(Random.Range(0, zombieGameObjects.Length));
         }
         
     }
