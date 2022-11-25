@@ -49,4 +49,5 @@ MonoBehaviour:
   zombieGameObjects:
   - {fileID: 1459204624250079201, guid: 8e8c74e7b76dce24da6f0ff2d59bdf65, type: 3}
   - {fileID: 1459204624250079201, guid: 052c67b98d8285d47bdf858d4fec5d5a, type: 3}
+  - {fileID: 1459204624250079201, guid: ba2800b46a2e63d4ab831f04ae1ce0df, type: 3}
   canSpawn: 1
