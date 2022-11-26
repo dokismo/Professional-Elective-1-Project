@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-public class AudioOnClickCharStartRun : MonoBehaviour
+public class AudioOnClickMute : MonoBehaviour
 {
 	public Button ButtonsUI;
 
@@ -15,6 +15,6 @@ public class AudioOnClickCharStartRun : MonoBehaviour
 	void TaskOnClick()
 	{
 		Debug.Log("Sound Plays");
-		FindObjectOfType<ButtonSFXManager>().Play("clickStartRun");//sfx
+		FindObjectOfType<ButtonSFXManager>().Play("clickMute");//sfx
 	}
 }

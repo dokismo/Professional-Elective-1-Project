@@ -15,6 +15,6 @@ public class AudioOnClickBack : MonoBehaviour
 	void TaskOnClick()
 	{
 		Debug.Log("Sound Plays");
-		FindObjectOfType<AudioManager>().Play("clickButtonBack");//sfx
+		FindObjectOfType<ButtonSFXManager>().Play("clickButtonBack");//sfx
 	}
 }
