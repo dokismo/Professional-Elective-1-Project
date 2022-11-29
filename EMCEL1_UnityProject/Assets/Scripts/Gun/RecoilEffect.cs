@@ -76,8 +76,6 @@ namespace Gun
                     ? Random.Range(-rotX, rotX)
                     : 0;
             
-            Debug.Log($"{inverseLerp}, {rotX} , {processedYAxis}");
-            
             return test;
         }
         

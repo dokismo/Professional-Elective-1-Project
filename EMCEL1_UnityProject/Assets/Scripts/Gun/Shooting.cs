@@ -23,6 +23,7 @@ namespace Gun
             recoil,
             maxRecoil,
             recoilControl;
+        
 
         private float FireTime => 60f / rpm;
         private float fireTimer;
@@ -33,6 +34,8 @@ namespace Gun
         public bool IsReloading => reloadTimer > 0;
         
         public InputAction fireInput;
+        private GunLight gunLight;
+        private FirePath firePath;
         private Camera thisCamera;
         private AudioSource sfx; //SFX
         private ParticleEffect particleEffect;
@@ -44,6 +47,8 @@ namespace Gun
             particleEffect = GetComponent<ParticleEffect>();
             thisCamera = Camera.main;
 
+            gunLight = GetComponent<GunLight>();
+            firePath = GetComponent<FirePath>();
         }
 
         private void OnEnable()
@@ -84,8 +89,6 @@ namespace Gun
             fireTimer += FireTime;
             ammoInMag -= ammoPerFire;
 
-            
-
             if (FireTime < Time.deltaTime)
             {
                 float excessFire = Time.deltaTime / FireTime;
@@ -96,21 +99,27 @@ namespace Gun
             for (int i = 0; i < ammoPerFire; i++)
             {
                 fireSfx();
+                gunLight.Light();
                 
                 Vector2 mousePos = Mouse.current.position.ReadValue();
                 Vector2 gotRecoil = new Vector2(0, RecoilEffect.apply?.Invoke(recoil, maxRecoil) ?? 0);
                 
                 Ray ray = thisCamera.ScreenPointToRay(mousePos + gotRecoil);
 
-                if (!Physics.Raycast(ray, out var raycastHit, distance, targetLayers)) continue;
+                Physics.Raycast(ray, out var raycastHit, distance, targetLayers);
 
-                ITarget target = raycastHit.collider.GetComponent<ITarget>();
-                particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal, 
-                    target != null 
-                        ? SurfaceType.Flesh
-                        : SurfaceType.Wall);
+                if (raycastHit.collider != null)
+                {
+                    ITarget target = raycastHit.collider.GetComponent<ITarget>();
+                    particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal, 
+                        target != null 
+                            ? SurfaceType.Flesh
+                            : SurfaceType.Wall);
                 
-                target?.Hit(damage);
+                    target?.Hit(damage);
+
+                    firePath.RenderLine(raycastHit.point);
+                }
             }
             
             // CameraShake.shakeOnce?.Invoke();
