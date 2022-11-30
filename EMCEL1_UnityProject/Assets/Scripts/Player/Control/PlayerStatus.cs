@@ -12,6 +12,8 @@ namespace Player.Control
         public static Event getMoney;
         
         public PlayerStatusScriptable playerStatusScriptable;
+        public GameObject ak47;
+        public GameObject m4;
 
         public int maxGuns = 3;
         public List<GameObject> localGuns;
@@ -57,7 +59,10 @@ namespace Player.Control
 
                 gunAnchor = Camera.main.gameObject.transform;
             }
-
+            
+            AddGun(ak47);
+            AddGun(m4);
+            
             Switch(0);
         }
 
@@ -88,6 +93,7 @@ namespace Player.Control
             if (InventoryIsFull) return;
 
             GameObject instanceGun = Instantiate(gun, gunAnchor);
+            instanceGun.SetActive(false);
             localGuns.Add(instanceGun);
         }
 

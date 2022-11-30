@@ -5,6 +5,8 @@ namespace Gun
     public class FirePath : MonoBehaviour
     {
         public LineRenderer lineRenderer;
+
+        public Transform lineStart;
         public float distanceToRender = 5;
         
         [Range(0, 1)]
@@ -24,7 +26,8 @@ namespace Gun
             
             timer = lifeTime;
             
-            lineRenderer.SetPosition(1, transform.InverseTransformPoint(endPosition));
+            lineRenderer.SetPosition(0, lineStart.position);
+            lineRenderer.SetPosition(1, endPosition);
         }
     }
 }

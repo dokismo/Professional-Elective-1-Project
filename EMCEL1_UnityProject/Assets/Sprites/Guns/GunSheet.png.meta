@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: d164b0be1a5948f4a89b0cb240dcd14a
+guid: c86c191483d337d41887846ea786138e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -36,8 +36,8 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
+    wrapU: 0
+    wrapV: 0
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,11 +63,11 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -101,94 +101,37 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crosshair_1
+      name: AK47_NoMag
       rect:
         serializedVersion: 2
-        x: 54
-        y: 40
-        width: 9
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 7
+        y: 334
+        width: 80
+        height: 21
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2529490efd4bac94597d365ecba9f2cf
-      internalID: -1965049688
+      spriteID: 3de5a1fad81c1404d80c8eb33767aaaf
+      internalID: 1465934080
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crosshair_2
+      name: AK47_Mag
       rect:
         serializedVersion: 2
-        x: 32
-        y: 26
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 718b441baf5e5be4f988e2b7cf173fa8
-      internalID: -1363188762
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: crosshair_3
-      rect:
-        serializedVersion: 2
-        x: 41
-        y: 24
-        width: 13
+        x: 93
+        y: 339
+        width: 12
         height: 13
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -197,50 +140,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a143e0f21a66b6240879d4b26dac0f53
-      internalID: 467592509
+      spriteID: b80937cc610deff4d852fc9474fc40c2
+      internalID: -627957649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crosshair_4
+      name: AK47_Full
       rect:
         serializedVersion: 2
-        x: 57
-        y: 23
-        width: 15
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 112
+        y: 334
+        width: 80
+        height: 21
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e00265ea49692ef40867f6cfa23f8b2a
-      internalID: -1147375144
+      spriteID: c4fb7f8811ae13a48ad459f0476e4646
+      internalID: 1311936697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: crosshair_7
+      name: M4_Full
       rect:
         serializedVersion: 2
-        x: 2
-        y: 8
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 112
+        y: 300
+        width: 72
+        height: 23
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03076f03b84203047bfa5dd7344baf4c
-      internalID: 2027836075
+      spriteID: 8bba40c48ac37164e807b3de95842683
+      internalID: 420750079
       vertices: []
       indices: 
       edges: []
@@ -248,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: f64c855fb7559bb4490f01da03ea9d6d
     internalID: 0
     vertices: []
     indices: 
@@ -256,15 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      crosshair_3: 467592509
-      crosshair_8: -249874963
-      crosshair_4: -1147375144
-      crosshair_0: 1573132047
-      crosshair_1: -1965049688
-      crosshair_6: -2117425287
-      crosshair_7: 2027836075
-      crosshair_5: 895633922
-      crosshair_2: -1363188762
+      AK47_NoMag: 1465934080
+      AK47_Full: 1311936697
+      AK47_Mag: -627957649
+      M4_Full: 420750079
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

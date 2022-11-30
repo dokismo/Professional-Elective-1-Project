@@ -34,6 +34,8 @@ namespace Gun
         public bool IsReloading => reloadTimer > 0;
         
         public InputAction fireInput;
+
+        private GunAnimation gunAnimation;
         private GunLight gunLight;
         private FirePath firePath;
         private Camera thisCamera;
@@ -47,6 +49,7 @@ namespace Gun
             particleEffect = GetComponent<ParticleEffect>();
             thisCamera = Camera.main;
 
+            gunAnimation = GetComponent<GunAnimation>();
             gunLight = GetComponent<GunLight>();
             firePath = GetComponent<FirePath>();
         }
@@ -67,16 +70,14 @@ namespace Gun
             if (reloadToggle && !IsReloading)
             {
                 reloadToggle = false;
-                Reload();
+                ReloadMagazine();
             }
             
             fireTimer = Mathf.Clamp(fireTimer - Time.deltaTime, 0, 99);
             reloadTimer = Mathf.Clamp(reloadTimer - Time.deltaTime, 0, 99);
             
-            if (Mouse.current.leftButton.isPressed)
-            {
-                Fire();
-            }
+            if (Mouse.current.leftButton.isPressed) Fire();
+            else if (Keyboard.current.rKey.wasPressedThisFrame) Reload();
         }
 
 
@@ -100,14 +101,14 @@ namespace Gun
             {
                 fireSfx();
                 gunLight.Light();
-                
+
                 Vector2 mousePos = Mouse.current.position.ReadValue();
                 Vector2 gotRecoil = new Vector2(0, RecoilEffect.apply?.Invoke(recoil, maxRecoil) ?? 0);
                 
                 Ray ray = thisCamera.ScreenPointToRay(mousePos + gotRecoil);
 
                 Physics.Raycast(ray, out var raycastHit, distance, targetLayers);
-
+                    
                 if (raycastHit.collider != null)
                 {
                     ITarget target = raycastHit.collider.GetComponent<ITarget>();
@@ -118,6 +119,7 @@ namespace Gun
                 
                     target?.Hit(damage);
 
+                    gunAnimation.ShootEvent(raycastHit.point);
                     firePath.RenderLine(raycastHit.point);
                 }
             }
@@ -134,6 +136,7 @@ namespace Gun
         {
             if (reloadToggle || IsReloading || ammoInMag > 0 || totalAmmo <= 0) return;
             
+            gunAnimation.Reload(reloadTime);
             reloadToggle = true;
             reloadTimer += reloadTime;
         }
@@ -146,13 +149,23 @@ namespace Gun
 
         private void Reload()
         {
+            if (totalAmmo <= 0 || ammoInMag == ammoPerMag) return;
+
+            gunAnimation.Reload(reloadTime);
+            reloadToggle = true;
+            reloadTimer += reloadTime;
+        }
+
+        private void ReloadMagazine()
+        {
             int neededAmmo = ammoPerMag - ammoInMag;
-            int gotAmount = totalAmmo <= neededAmmo ? totalAmmo : Mathf.Clamp(totalAmmo, 0, ammoPerMag);
-            Debug.Log($"{neededAmmo} {gotAmount}");
+            int gotAmount 
+                = totalAmmo <= neededAmmo 
+                ? totalAmmo 
+                : Mathf.Clamp(neededAmmo, 0, ammoPerMag);
+            
             totalAmmo -= gotAmount;
             ammoInMag += gotAmount;
-
-            
         }
     }
 }
