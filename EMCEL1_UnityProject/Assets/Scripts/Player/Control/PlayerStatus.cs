@@ -12,8 +12,8 @@ namespace Player.Control
         public static Event getMoney;
         
         public PlayerStatusScriptable playerStatusScriptable;
-        public GameObject ak47;
-        public GameObject m4;
+        public GameObject startGun1;
+        public GameObject startGun2;
 
         public int maxGuns = 3;
         public List<GameObject> localGuns;
@@ -60,8 +60,10 @@ namespace Player.Control
                 gunAnchor = Camera.main.gameObject.transform;
             }
             
-            AddGun(ak47);
-            AddGun(m4);
+            if (startGun1 != null)
+                AddGun(startGun1);
+            if (startGun2 != null)
+                AddGun(startGun2);
             
             Switch(0);
         }

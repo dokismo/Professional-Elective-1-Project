@@ -1,8 +1,11 @@
 using System;
 using Gun;
 using Player;
+using Player.Display;
+using Shop;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI
@@ -14,6 +17,24 @@ namespace UI
         public Image playerHealthBar;
         public TextMeshProUGUI txtMoney;
         public TextMeshProUGUI ammo;
+        public TextMeshProUGUI shopTxt;
+
+        private WallShop currentWallShop;
+
+        private void OnEnable()
+        {
+            InspectShopWall.showWallShop += ItemShop;
+        }
+
+        private void OnDisable()
+        {
+            InspectShopWall.showWallShop -= ItemShop;
+        }
+
+        private void Start()
+        {
+            shopTxt.enabled = false;
+        }
 
         private void Update()
         {
@@ -39,6 +60,18 @@ namespace UI
         {
             playerHealthBar.fillAmount = playerStatusScriptable.health / playerStatusScriptable.maxHealth;
             playerHealthBar.color = Color.Lerp(Color.red, Color.white, playerHealthBar.fillAmount * 3.5f);
+        }
+
+        private void ItemShop(WallShop wallShop)
+        {
+            if (wallShop == null)
+            {
+                shopTxt.enabled = false;
+                return;
+            }
+            
+            shopTxt.SetText(wallShop.GetMessage() + "\n[E]");
+            shopTxt.enabled = true;
         }
     }
 }
