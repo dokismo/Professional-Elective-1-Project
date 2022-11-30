@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 4441497135764967769}
   - component: {fileID: 4441497135764967774}
   - component: {fileID: 8619453133615977790}
-  - component: {fileID: 5609772056633512450}
+  - component: {fileID: 3681218291290941617}
   m_Layer: 12
-  m_Name: AK47
+  m_Name: Glock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1311936697, guid: c86c191483d337d41887846ea786138e, type: 3}
+  m_Sprite: {fileID: 680180945, guid: c86c191483d337d41887846ea786138e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -200,7 +200,7 @@ Animator:
   m_GameObject: {fileID: 4441497135764967775}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 11ffce6027961f543a747c5c30ba4004, type: 2}
+  m_Controller: {fileID: 22100000, guid: 543ac5712d6f3a942b6c2c8c4a80729a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -226,16 +226,16 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 2368
-  damage: 20
-  ammoInMag: 30
-  ammoPerMag: 60
+  damage: 25
+  ammoInMag: 45
+  ammoPerMag: 45
   totalAmmo: 360
   maxTotalAmmo: 0
-  rpm: 460
+  rpm: 360
   ammoPerFire: 1
   reloadTime: 1
   recoil: 5
-  maxRecoil: 25
+  maxRecoil: 28
   recoilControl: 10
   fireType: 0
   fireInput:
@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e95d3520f0f4edc88d0238ea1dd8ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lineRenderer: {fileID: 5609772056633512450}
+  lineRenderer: {fileID: 3681218291290941617}
   lineStart: {fileID: 6782458728175643258}
   distanceToRender: 5
   lifeTime: 0.05
@@ -313,7 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPauseTime: 0.3
   animator: {fileID: 2543953916339691553}
---- !u!120 &5609772056633512450
+--- !u!120 &3681218291290941617
 LineRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -437,7 +437,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4441497136117624968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.2, z: -0.05}
+  m_LocalPosition: {x: 1, y: 0.2, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -457,7 +457,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.7924528, g: 0.75381076, b: 0.048593827, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -530,7 +530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6356273145500351131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.001, y: 0.321, z: -0}
+  m_LocalPosition: {x: 0.69, y: 0.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []

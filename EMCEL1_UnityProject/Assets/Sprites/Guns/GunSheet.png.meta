@@ -105,49 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AK47_NoMag
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 334
-        width: 80
-        height: 21
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3de5a1fad81c1404d80c8eb33767aaaf
-      internalID: 1465934080
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AK47_Mag
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 339
-        width: 12
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b80937cc610deff4d852fc9474fc40c2
-      internalID: -627957649
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AK47_Full
+      name: AK47
       rect:
         serializedVersion: 2
         x: 112
@@ -168,7 +126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: M4_Full
+      name: M4
       rect:
         serializedVersion: 2
         x: 112
@@ -188,6 +146,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SawedOffShotgun
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 145
+        width: 54
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4755df9c008936944ab3c0090289457b
+      internalID: -1667805104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scar
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 234
+        width: 72
+        height: 23
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 230cbf493b8e0544db33bd9497141d1c
+      internalID: -1439018623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: G36
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 266
+        width: 61
+        height: 23
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e804432fa3a9dcc41819eb6274db620d
+      internalID: -1595681602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: P90
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 209
+        width: 42
+        height: 15
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b48b4064936da448f9554157e72cdc
+      internalID: -509973961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Uzi
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 175
+        width: 37
+        height: 16
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02e5c760fbdc39498132d057490cb93
+      internalID: 476244955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MP 133
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 115
+        width: 94
+        height: 13
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dc426669a5894247851dca69c469047
+      internalID: -387634859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Desert Eagle
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 80
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ddff3622267f04c9a02064790fdaf8
+      internalID: -772455361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Glock
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 49
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19fb73bd492e4d046a993cdc62217671
+      internalID: 680180945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -199,10 +325,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      AK47: 1311936697
       AK47_NoMag: 1465934080
-      AK47_Full: 1311936697
+      MP 133: -387634859
+      Desert Eagle: -772455361
+      G36: -1595681602
+      Glock: 680180945
+      SawedOffShotgun: -1667805104
+      P90: -509973961
       AK47_Mag: -627957649
-      M4_Full: 420750079
+      M4: 420750079
+      Uzi: 476244955
+      Scar: -1439018623
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -5,6 +5,13 @@ using UnityEngine.InputSystem;
 
 namespace Gun
 {
+    public enum FireType
+    {
+        Linear,
+        RandomCircle
+    }
+
+
     public class Shooting : MonoBehaviour
     {
         public float distance;
@@ -23,6 +30,8 @@ namespace Gun
             recoil,
             maxRecoil,
             recoilControl;
+
+        public FireType fireType = FireType.Linear;
         
 
         private float FireTime => 60f / rpm;
@@ -88,7 +97,10 @@ namespace Gun
             if (!PlayerStatus.CanShoot || !CanShoot) return;
 
             fireTimer += FireTime;
-            ammoInMag -= ammoPerFire;
+            ammoInMag -= 
+                fireType == FireType.Linear
+                    ? ammoPerFire
+                    : 1;
 
             if (FireTime < Time.deltaTime)
             {
@@ -96,6 +108,7 @@ namespace Gun
                 didntFried += Mathf.RoundToInt(excessFire);
                 fireTimer += Time.deltaTime % FireTime;
             }
+            
             for (didntFried++; didntFried > 0; didntFried--)
             for (int i = 0; i < ammoPerFire; i++)
             {
@@ -105,7 +118,10 @@ namespace Gun
                 Vector2 mousePos = Mouse.current.position.ReadValue();
                 Vector2 gotRecoil = new Vector2(0, RecoilEffect.apply?.Invoke(recoil, maxRecoil) ?? 0);
                 
-                Ray ray = thisCamera.ScreenPointToRay(mousePos + gotRecoil);
+                Ray ray = thisCamera.ScreenPointToRay(mousePos + 
+                                                      (fireType == FireType.Linear 
+                                                      ? gotRecoil
+                                                      : Random.insideUnitCircle * recoil));
 
                 Physics.Raycast(ray, out var raycastHit, distance, targetLayers);
                     
