@@ -456,8 +456,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
-  ak47: {fileID: 4441497135764967775, guid: cc0edacf9aff4ce468883c7590b81258, type: 3}
-  m4: {fileID: 4441497135764967775, guid: a9f76f64c55d1964081650c0837b51b1, type: 3}
+  startGun1: {fileID: 0}
+  startGun2: {fileID: 0}
   maxGuns: 3
   localGuns: []
   gunAnchor: {fileID: 1895527322}
@@ -487,7 +487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a3f8c3c590145ed8e7f9dc4daac50c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 5
+  playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
+  distance: 2
   targetlayer:
     serializedVersion: 2
     m_Bits: 8192

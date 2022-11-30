@@ -11,6 +11,12 @@ namespace Gun
         RandomCircle
     }
 
+    public enum Operation
+    {
+        Automatic,
+        SemiAutomatic
+    }
+
 
     public class Shooting : MonoBehaviour
     {
@@ -32,6 +38,7 @@ namespace Gun
             recoilControl;
 
         public FireType fireType = FireType.Linear;
+        public Operation operation = Operation.Automatic;
         
 
         private float FireTime => 60f / rpm;
@@ -42,7 +49,6 @@ namespace Gun
         public bool CanShoot => !IsReloading && fireTimer <= 0 && ammoInMag > 0;
         public bool IsReloading => reloadTimer > 0;
         
-        public InputAction fireInput;
 
         private GunAnimation gunAnimation;
         private GunLight gunLight;
@@ -65,13 +71,7 @@ namespace Gun
 
         private void OnEnable()
         {
-            fireInput.Enable();
             RecoilEffect.setControl?.Invoke(recoilControl);
-        }
-
-        private void OnDisable()
-        {
-            fireInput.Disable();
         }
 
         private void Update()
@@ -85,8 +85,13 @@ namespace Gun
             fireTimer = Mathf.Clamp(fireTimer - Time.deltaTime, 0, 99);
             reloadTimer = Mathf.Clamp(reloadTimer - Time.deltaTime, 0, 99);
             
-            if (Mouse.current.leftButton.isPressed) Fire();
-            else if (Keyboard.current.rKey.wasPressedThisFrame) Reload();
+            if (Mouse.current.leftButton.isPressed)
+                if (operation == Operation.SemiAutomatic && Mouse.current.leftButton.wasPressedThisFrame)
+                    Fire();
+                else
+                    Fire();
+
+            if (Keyboard.current.rKey.wasPressedThisFrame) Reload();
         }
 
 

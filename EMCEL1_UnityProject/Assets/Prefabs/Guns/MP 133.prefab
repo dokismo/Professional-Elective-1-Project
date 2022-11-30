@@ -238,6 +238,7 @@ MonoBehaviour:
   maxRecoil: 35
   recoilControl: 10
   fireType: 1
+  operation: 1
   fireInput:
     m_Name: Fire Input
     m_Type: 0

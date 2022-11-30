@@ -200,7 +200,7 @@ Animator:
   m_GameObject: {fileID: 4441497135764967775}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 11ffce6027961f543a747c5c30ba4004, type: 2}
+  m_Controller: {fileID: 9100000, guid: f0f7fa53ac43c454faec8d0603fa8ba9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -238,23 +238,7 @@ MonoBehaviour:
   maxRecoil: 25
   recoilControl: 10
   fireType: 0
-  fireInput:
-    m_Name: Fire Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 898cd589-7ad9-4f06-b9f9-918af0f26658
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 449e8bd4-9ca5-4e2f-b6d9-5d83d841c01c
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Fire Input
-      m_Flags: 0
-    m_Flags: 0
+  operation: 0
 --- !u!114 &4441497135764967770
 MonoBehaviour:
   m_ObjectHideFlags: 0
