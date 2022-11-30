@@ -50,7 +50,6 @@ public class SimpleEnemyColScript : MonoBehaviour
             {
                 attacking = true;
                 enemyColScript.attacking = attacking;
-                
             }
         }
 
@@ -81,12 +80,16 @@ public class SimpleEnemyColScript : MonoBehaviour
             if (objInRange.gameObject.tag == "Player")
             {
                 PlayerStatus.changeHealth?.Invoke(enemyDamage);
-                Debug.Log("ENEMY ATTACKING " + objInRange.gameObject.name);
                 attacking = false;
             }
         } else
         {
             Debug.Log("Enemy attack MISSED!");
+        }
+
+        if(GetComponent<ZombieBossScript>() != null)
+        {
+            aiPathScript.maxSpeed = GetComponent<ZombieBossScript>().StartSpeed;
         }
     }
 }

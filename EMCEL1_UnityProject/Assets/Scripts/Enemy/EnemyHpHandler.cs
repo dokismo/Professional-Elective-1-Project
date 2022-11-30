@@ -4,18 +4,13 @@ using UnityEngine;
 using Core;
 using Enemy.Animation;
 using Player.Control;
-public class EnemyHpHandler : MonoBehaviour, ITarget
+public class EnemyHpHandler : MonoBehaviour
 {
-    public int enemyHp = 100;
+    public float enemyHp = 100;
 
     public int MinimumMoney, MaxMoney;
 
-    public void Hit(int dmg)
-    {
-        enemyHp -= dmg;
-        checkHealth();
-        transform.GetComponentInChildren<ChangeSpriteColorOnHit>().ApplyEffect();
-    }
+    
     public void checkHealth()
     {   
         if(enemyHp <= 0f)
