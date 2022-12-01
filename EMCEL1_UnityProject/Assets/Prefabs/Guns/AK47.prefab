@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4441497135764967751}
   - component: {fileID: 4441497135764967748}
-  - component: {fileID: 4441497135764967771}
   - component: {fileID: 2543953916339691553}
   - component: {fileID: 4441497135764967749}
+  - component: {fileID: 4441497135764967771}
   - component: {fileID: 4441497135764967770}
   - component: {fileID: 4441497135764967769}
   - component: {fileID: 4441497135764967774}
@@ -94,6 +94,58 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &2543953916339691553
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441497135764967775}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f0f7fa53ac43c454faec8d0603fa8ba9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4441497135764967749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441497135764967775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90cc1b4248a12243b60953751f95d3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 45
+  targetLayers:
+    serializedVersion: 2
+    m_Bits: 2368
+  damage: 20
+  ammoInMag: 30
+  ammoPerMag: 60
+  totalAmmo: 360
+  maxTotalAmmo: 0
+  rpm: 460
+  ammoPerFire: 1
+  reloadTime: 1
+  recoil: 5
+  maxRecoil: 25
+  recoilControl: 10
+  fireType: 0
+  operation: 0
+  gunFireSound: {fileID: 8300000, guid: 068ac8a5c0cae204aadd32081f1da42e, type: 3}
+  gunReloadingSound: {fileID: 8300000, guid: 97dba74ebff0eab46817570ff4bf9def, type: 3}
+  audiosource: {fileID: 4441497135764967771}
 --- !u!82 &4441497135764967771
 AudioSource:
   m_ObjectHideFlags: 0
@@ -104,7 +156,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 068ac8a5c0cae204aadd32081f1da42e, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -190,55 +242,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!95 &2543953916339691553
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4441497135764967775}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f0f7fa53ac43c454faec8d0603fa8ba9, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4441497135764967749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4441497135764967775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a90cc1b4248a12243b60953751f95d3b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 45
-  targetLayers:
-    serializedVersion: 2
-    m_Bits: 2368
-  damage: 20
-  ammoInMag: 30
-  ammoPerMag: 60
-  totalAmmo: 360
-  maxTotalAmmo: 0
-  rpm: 460
-  ammoPerFire: 1
-  reloadTime: 1
-  recoil: 5
-  maxRecoil: 25
-  recoilControl: 10
-  fireType: 0
-  operation: 0
 --- !u!114 &4441497135764967770
 MonoBehaviour:
   m_ObjectHideFlags: 0
