@@ -40,6 +40,11 @@ namespace Gun
         public FireType fireType = FireType.Linear;
         public Operation operation = Operation.Automatic;
         
+        //For SFX
+        public AudioClip gunFireSound;
+        public AudioClip gunReloadingSound;
+        public AudioSource audiosource;
+        
 
         private float FireTime => 60f / rpm;
         private float fireTimer;
@@ -54,13 +59,11 @@ namespace Gun
         private GunLight gunLight;
         private FirePath firePath;
         private Camera thisCamera;
-        private AudioSource sfx; //SFX
         private ParticleEffect particleEffect;
         private int didntFried;
         
         private void Start()
         {
-            sfx = GetComponent<AudioSource>(); //SFX
             particleEffect = GetComponent<ParticleEffect>();
             thisCamera = Camera.main;
 
@@ -150,7 +153,13 @@ namespace Gun
 
         private void fireSfx()
         {
-            sfx.PlayOneShot(sfx.clip); //SFX
+            Debug.Log("Gun Fire Sound");
+            audiosource.PlayOneShot(gunFireSound); //SFX
+        }
+        private void reloadSfx()
+        {
+            Debug.Log("Reload Sound");
+            audiosource.PlayOneShot(gunReloadingSound);
         }
 
         private void CheckForReload()
@@ -172,6 +181,7 @@ namespace Gun
         {
             if (totalAmmo <= 0 || ammoInMag == ammoPerMag) return;
 
+            reloadSfx();
             gunAnimation.Reload(reloadTime);
             reloadToggle = true;
             reloadTimer += reloadTime;
