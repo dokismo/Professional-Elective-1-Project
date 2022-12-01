@@ -120,8 +120,8 @@ namespace Gun
             for (didntFried++; didntFried > 0; didntFried--)
             for (int i = 0; i < ammoPerFire; i++)
             {
-                fireSfx();
-                gunLight.Light();
+                    audiosource.PlayOneShot(gunFireSound); //SFX
+                    gunLight.Light();
 
                 Vector2 mousePos = Mouse.current.position.ReadValue();
                 Vector2 gotRecoil = new Vector2(0, RecoilEffect.apply?.Invoke(recoil, maxRecoil) ?? 0);
@@ -151,21 +151,13 @@ namespace Gun
             // CameraShake.shakeOnce?.Invoke();
         }
 
-        private void fireSfx()
-        {
-            Debug.Log("Gun Fire Sound");
-            audiosource.PlayOneShot(gunFireSound); //SFX
-        }
-        private void reloadSfx()
-        {
-            Debug.Log("Reload Sound");
-            audiosource.PlayOneShot(gunReloadingSound);
-        }
+      
 
         private void CheckForReload()
         {
             if (reloadToggle || IsReloading || ammoInMag > 0 || totalAmmo <= 0) return;
-            
+
+            audiosource.PlayOneShot(gunReloadingSound);
             gunAnimation.Reload(reloadTime);
             reloadToggle = true;
             reloadTimer += reloadTime;
@@ -181,7 +173,7 @@ namespace Gun
         {
             if (totalAmmo <= 0 || ammoInMag == ammoPerMag) return;
 
-            reloadSfx();
+            audiosource.PlayOneShot(gunReloadingSound);
             gunAnimation.Reload(reloadTime);
             reloadToggle = true;
             reloadTimer += reloadTime;

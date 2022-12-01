@@ -135,7 +135,7 @@ MonoBehaviour:
   ammoPerMag: 60
   totalAmmo: 360
   maxTotalAmmo: 0
-  rpm: 460
+  rpm: 600
   ammoPerFire: 1
   reloadTime: 1
   recoil: 5
