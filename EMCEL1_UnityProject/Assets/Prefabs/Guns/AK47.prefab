@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1311936697, guid: c86c191483d337d41887846ea786138e, type: 3}
+  m_Sprite: {fileID: -1885730993, guid: b56a4b62f09688e438631d8175ed14a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   ammoInMag: 30
   ammoPerMag: 60
   totalAmmo: 360
-  maxTotalAmmo: 0
+  maxTotalAmmo: 360
   rpm: 600
   ammoPerFire: 1
   reloadTime: 1

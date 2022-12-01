@@ -88,11 +88,10 @@ namespace Gun
             fireTimer = Mathf.Clamp(fireTimer - Time.deltaTime, 0, 99);
             reloadTimer = Mathf.Clamp(reloadTimer - Time.deltaTime, 0, 99);
             
-            if (Mouse.current.leftButton.isPressed)
-                if (operation == Operation.SemiAutomatic && Mouse.current.leftButton.wasPressedThisFrame)
-                    Fire();
-                else
-                    Fire();
+            if (Mouse.current.leftButton.isPressed && operation == Operation.Automatic)
+                Fire();
+            else if (operation == Operation.SemiAutomatic && Mouse.current.leftButton.wasPressedThisFrame)
+                Fire();
 
             if (Keyboard.current.rKey.wasPressedThisFrame) Reload();
         }
@@ -147,18 +146,14 @@ namespace Gun
                     firePath.RenderLine(raycastHit.point);
                 }
             }
-            
-            // CameraShake.shakeOnce?.Invoke();
         }
-
-      
 
         private void CheckForReload()
         {
             if (reloadToggle || IsReloading || ammoInMag > 0 || totalAmmo <= 0) return;
 
             audiosource.PlayOneShot(gunReloadingSound);
-            gunAnimation.Reload(reloadTime);
+            gunAnimation.ReloadEvent();
             reloadToggle = true;
             reloadTimer += reloadTime;
         }
@@ -174,13 +169,14 @@ namespace Gun
             if (totalAmmo <= 0 || ammoInMag == ammoPerMag) return;
 
             audiosource.PlayOneShot(gunReloadingSound);
-            gunAnimation.Reload(reloadTime);
+            gunAnimation.ReloadEvent();
             reloadToggle = true;
             reloadTimer += reloadTime;
         }
 
         private void ReloadMagazine()
         {
+            gunAnimation.ReloadDoneEvent();
             int neededAmmo = ammoPerMag - ammoInMag;
             int gotAmount 
                 = totalAmmo <= neededAmmo 

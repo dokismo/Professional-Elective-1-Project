@@ -1,4 +1,5 @@
 using System;
+using Player.Control;
 using UnityEngine;
 
 namespace Gun
@@ -9,16 +10,23 @@ namespace Gun
         public Animator animator;
         
         private float timer;
-        private float reloadTimer;
-        private static readonly int Reload1 = Animator.StringToHash("Reload");
+        private Movement movement;
+        
+        private static readonly int Reload = Animator.StringToHash("Reload");
+        private static readonly int ReloadDone = Animator.StringToHash("ReloadDone");
+        private static readonly int Speed = Animator.StringToHash("Speed");
+
+        private void Start()
+        {
+            movement = Movement.getMovement?.Invoke();
+        }
 
         private void Update()
         {
             timer = Mathf.Clamp01(timer - Time.deltaTime);
-            reloadTimer = Mathf.Clamp(reloadTimer - Time.deltaTime, 0, 3);
             
-            animator.SetBool(Reload1, reloadTimer > 0);
-            animator.enabled = (timer <= 0 && reloadTimer <= 0) || reloadTimer > 0;
+            animator.SetFloat(Speed, movement.moveDir.magnitude);
+            animator.enabled = timer <= 0;
         }
 
         public void ShootEvent(Vector3 point)
@@ -32,9 +40,7 @@ namespace Gun
                 Mathf.Clamp(transform.localRotation.eulerAngles.z, -4, 4));
         }
 
-        public void Reload(float time)
-        {
-            reloadTimer = time;
-        }
+        public void ReloadEvent() => animator.SetTrigger(Reload);
+        public void ReloadDoneEvent() => animator.SetTrigger(ReloadDone);
     }
 }

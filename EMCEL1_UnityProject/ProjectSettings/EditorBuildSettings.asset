@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/UI/Credentia.unity
+    guid: a966aa4e7873b10488bfd0d5741f9ee1
+  - enabled: 1
     path: Assets/Scenes/UI/MainMenu.unity
     guid: 962662061e7cfde329912a4e8bcd973e
   - enabled: 1

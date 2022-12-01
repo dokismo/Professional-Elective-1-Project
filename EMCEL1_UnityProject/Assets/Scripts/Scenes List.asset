@@ -21,3 +21,7 @@ MonoBehaviour:
     sceneList:
     - name: SampleScene
       isLoaded: 0
+  - name: Credentia
+    sceneList:
+    - name: Credentia
+      isLoaded: 0

@@ -45,8 +45,12 @@ namespace UI
 
         private void Ammo()
         {
-            Shooting gun = playerStatusScriptable.PlayerStatus.CurrentGun;
-            ammo.text = gun
+
+            Shooting gun = playerStatusScriptable.PlayerStatus != null
+                ? playerStatusScriptable.PlayerStatus.CurrentGun
+                : null;
+            
+            ammo.text = gun != null
                 ? $"{gun.ammoInMag}/{gun.totalAmmo}"
                 : "";
         } 
