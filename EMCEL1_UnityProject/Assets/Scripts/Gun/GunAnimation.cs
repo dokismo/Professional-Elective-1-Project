@@ -34,9 +34,13 @@ namespace Gun
             timer = shootPauseTime;
             
             transform.LookAt(point);
+            
+            float angleY = Mathf.Clamp(transform.localRotation.eulerAngles.y - 90, 270, 360);
+            
+            
             transform.localRotation = Quaternion.Euler(
                 0,
-                -90, 
+                angleY, 
                 Mathf.Clamp(transform.localRotation.eulerAngles.z, -4, 4));
         }
 

@@ -1,11 +1,9 @@
-using System;
 using Gun;
 using Player;
 using Player.Display;
 using Shop;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace UI
@@ -15,7 +13,9 @@ namespace UI
         public PlayerStatusScriptable playerStatusScriptable;
 
         public Image playerHealthBar;
+        public Image playerIcon;
         public TextMeshProUGUI txtMoney;
+        public Image gunIcon;
         public TextMeshProUGUI ammo;
         public TextMeshProUGUI shopTxt;
 
@@ -34,6 +34,7 @@ namespace UI
         private void Start()
         {
             shopTxt.enabled = false;
+            playerIcon.sprite = playerStatusScriptable.CharacterIcon;
         }
 
         private void Update()
@@ -41,11 +42,19 @@ namespace UI
             Money();
             Health();
             Ammo();
+            GunIcon();
+        }
+
+        private void GunIcon()
+        {
+            gunIcon.sprite = playerStatusScriptable.GetCurrentGunIcon();
+            gunIcon.color = gunIcon.sprite != null
+                ? Color.white
+                : Color.clear;
         }
 
         private void Ammo()
         {
-
             Shooting gun = playerStatusScriptable.PlayerStatus != null
                 ? playerStatusScriptable.PlayerStatus.CurrentGun
                 : null;

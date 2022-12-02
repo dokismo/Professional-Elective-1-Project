@@ -33,5 +33,10 @@ namespace Player
         public void SetSprite(Sprite sprite) => CharacterIcon = sprite;
 
         public void RemoveSprite() => CharacterIcon = null;
+
+        public Sprite GetCurrentGunIcon() => PlayerStatus.CurrentGun != null && PlayerStatus.CurrentGun.icon != null
+            ? PlayerStatus.CurrentGun.icon
+            : null;
+
     }
 }

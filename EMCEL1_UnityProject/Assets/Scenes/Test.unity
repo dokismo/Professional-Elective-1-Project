@@ -242,15 +242,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6ec2b4f0dc71f24f8ccb295f69e483c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.364624
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6ec2b4f0dc71f24f8ccb295f69e483c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 52.108604
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6ec2b4f0dc71f24f8ccb295f69e483c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 47.130432
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c6ec2b4f0dc71f24f8ccb295f69e483c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -334,15 +334,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 51.77
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 42.28676
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -372,5 +372,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5660677681306034387, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
+      propertyPath: startGun1
+      value: 
+      objectReference: {fileID: 4441497135764967775, guid: cc0edacf9aff4ce468883c7590b81258, type: 3}
+    - target: {fileID: 5660677681306034387, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
+      propertyPath: startGun2
+      value: 
+      objectReference: {fileID: 4441497135764967775, guid: 7a26be89a919b6d4e8e9a7c9fc34d551, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}

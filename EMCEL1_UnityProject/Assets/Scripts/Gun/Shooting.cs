@@ -39,12 +39,12 @@ namespace Gun
 
         public FireType fireType = FireType.Linear;
         public Operation operation = Operation.Automatic;
+        public Sprite icon;
         
         //For SFX
         public AudioClip gunFireSound;
         public AudioClip gunReloadingSound;
         public AudioSource audiosource;
-        
 
         private float FireTime => 60f / rpm;
         private float fireTimer;
@@ -150,12 +150,9 @@ namespace Gun
 
         private void CheckForReload()
         {
-            if (reloadToggle || IsReloading || ammoInMag > 0 || totalAmmo <= 0) return;
+            if (reloadToggle || ammoInMag > 0) return;
 
-            audiosource.PlayOneShot(gunReloadingSound);
-            gunAnimation.ReloadEvent();
-            reloadToggle = true;
-            reloadTimer += reloadTime;
+            Reload();
         }
 
         public void RefillAmmo()
@@ -166,7 +163,7 @@ namespace Gun
 
         private void Reload()
         {
-            if (totalAmmo <= 0 || ammoInMag == ammoPerMag) return;
+            if (totalAmmo <= 0 || ammoInMag == ammoPerMag || IsReloading) return;
 
             audiosource.PlayOneShot(gunReloadingSound);
             gunAnimation.ReloadEvent();
