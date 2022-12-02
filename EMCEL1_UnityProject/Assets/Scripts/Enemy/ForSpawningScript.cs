@@ -9,13 +9,21 @@ public class ForSpawningScript : MonoBehaviour
 
     public int zombiesSpawnedCount, maxZombiesSpawned = 30;
 
+    WaveDifficultyIncrement WaveDifficultyManager;
+
     public float defaultWaitTime = 5;
     float waitTime;
     public GameObject EnemiesStorer;
     public GameObject[] Spawners;
 
+
+    public bool CanSpawnBossEnemy = false;
+    public int NumberOfBossToSpawn = 1;
+    public int BossesSpawned = 0;
     private void Start()
     {
+        WaveDifficultyManager = GameObject.Find("For Wave Management").GetComponent<WaveDifficultyIncrement>();
+
         waitTime = defaultWaitTime;
         Spawners = GameObject.FindGameObjectsWithTag("spawner");
         DeactivateSpawners();
@@ -31,6 +39,7 @@ public class ForSpawningScript : MonoBehaviour
         zombiesSpawnedCount = EnemiesStorer.transform.childCount;
         if(zombiesSpawnedCount <= 0)
         {
+            WaveDifficultyManager.RoundEnd();
             functionToCall = SetSpawnersActive;
             StartWaitTimer(functionToCall);
         }
@@ -46,6 +55,7 @@ public class ForSpawningScript : MonoBehaviour
         }
         else
         {
+            WaveDifficultyManager.RoundStart();
             waitTime = defaultWaitTime;
             function();
         }
@@ -87,7 +97,15 @@ public class ForSpawningScript : MonoBehaviour
     {
         if (zombiesSpawnedCount > maxZombiesSpawned)
         {
-            Destroy(EnemiesStorer.transform.GetChild(0).gameObject);
+            int RandomDestroy = Random.Range(0, EnemiesStorer.transform.childCount);
+            if(!EnemiesStorer.transform.GetChild(RandomDestroy).transform.name.Contains("Boss"))
+            {
+                Destroy(EnemiesStorer.transform.GetChild(RandomDestroy).gameObject);
+            }
+            else
+            {
+                ZombieLimiter();
+            }
         }
     }
 }

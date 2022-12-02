@@ -8,10 +8,10 @@ public class EnemyNavMeshScript : MonoBehaviour
 {
     private NavMeshAgent EnemyNMAgent;
 
-   
+
     [Header("Attacking Variables")]
     public float defaultAttackSpeed = 5f, timeToAttack;
-    public int enemyDamage = 10;
+    public float enemyDamage = 10;
     public GameObject objInRange;
 
     public bool attacking = false;
@@ -24,6 +24,7 @@ public class EnemyNavMeshScript : MonoBehaviour
 
     void Start()
     {
+
         EnemyNMAgent = transform.GetComponent<NavMeshAgent>();
         transform.SetParent(GameObject.Find("Enemies").transform);
 
@@ -31,6 +32,7 @@ public class EnemyNavMeshScript : MonoBehaviour
         objIdentifierSphere = transform.GetChild(0).GetComponent<SphereCollider>();
 
         timeToAttack = defaultAttackSpeed;
+
     }
 
     // Update is called once per frame
@@ -82,7 +84,7 @@ public class EnemyNavMeshScript : MonoBehaviour
         {
             if (objInRange.gameObject.tag == "Player")
             {
-                PlayerStatus.changeHealth?.Invoke(-enemyDamage);
+                PlayerStatus.changeHealth?.Invoke(-(int)enemyDamage);
                 attacking = false;
             }
         }

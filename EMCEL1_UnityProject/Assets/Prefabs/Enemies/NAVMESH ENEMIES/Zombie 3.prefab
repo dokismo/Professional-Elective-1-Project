@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6649745255976233092}
   m_Layer: 8
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60,6 +60,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
 --- !u!1 &4208377391126149653
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +75,7 @@ GameObject:
   - component: {fileID: 4401196724007966271}
   m_Layer: 8
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DmgMultiplier: 1.5
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
 --- !u!1 &6142359283443812756
 GameObject:
   m_ObjectHideFlags: 0
@@ -331,6 +335,7 @@ GameObject:
   - component: {fileID: 3721195929579045924}
   - component: {fileID: -1069586011771049911}
   - component: {fileID: 3410801026662196824}
+  - component: {fileID: 2178827256476420674}
   m_Layer: 8
   m_Name: Zombie 3
   m_TagString: Enemy
@@ -430,6 +435,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2178827256476420674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6142359284156450381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255cafb143608834a981df8d002fa4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyStats: {fileID: 11400000, guid: 5413e0e954ae14a40896778b3d623ad9, type: 2}
 --- !u!1 &6393666749966875128
 GameObject:
   m_ObjectHideFlags: 0

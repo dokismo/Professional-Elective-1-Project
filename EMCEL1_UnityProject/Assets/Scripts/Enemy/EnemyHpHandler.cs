@@ -10,7 +10,6 @@ public class EnemyHpHandler : MonoBehaviour
 
     public int MinimumMoney, MaxMoney;
 
-    
     public void checkHealth()
     {   
         if(enemyHp <= 0f)

@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 8276065929336391048}
   - component: {fileID: -4337750517666689925}
   - component: {fileID: -8250041433784605957}
+  - component: {fileID: 3625847979744858023}
   m_Layer: 8
   m_Name: Zombie 2
   m_TagString: Enemy
@@ -344,6 +345,19 @@ MonoBehaviour:
   objIdentifier: {fileID: 0}
   forSpawnScript: {fileID: 0}
   objIdentifierSphere: {fileID: 0}
+--- !u!114 &3625847979744858023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459204624250079201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255cafb143608834a981df8d002fa4d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyStats: {fileID: 11400000, guid: 6a19a7dc1f847874a8fd823ff711b82a, type: 2}
 --- !u!1 &2482340962948636984
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +431,7 @@ GameObject:
   - component: {fileID: 172006104175827732}
   m_Layer: 8
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -463,6 +477,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DmgMultiplier: 1.5
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
 --- !u!1 &7521647354661697518
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +492,7 @@ GameObject:
   - component: {fileID: 5222624153658426555}
   m_Layer: 8
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -523,3 +539,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1

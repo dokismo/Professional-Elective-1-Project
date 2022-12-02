@@ -46,8 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultTimeToSpawn: 0.4
   forSpawnScript: {fileID: 0}
+  WaveDifficultyManager: {fileID: 0}
   zombieGameObjects:
   - {fileID: 1459204624250079201, guid: a86dd4585d5cee14b9f049e92ff60a72, type: 3}
   - {fileID: 1459204624250079201, guid: 136ba97e31d40b54cbe3656715d0b5f7, type: 3}
   - {fileID: 6142359284156450381, guid: 24df276970d4c3d429c88678d5d7692e, type: 3}
+  - {fileID: 4854259000778479738, guid: 8b5ff9e82a19546499dfcfd89bd0e3c6, type: 3}
+  - {fileID: 6142359284156450381, guid: e96a5b5aeb421284e8c4cd89fe662e71, type: 3}
+  BossZombies:
+  - {fileID: 8183645757868395780, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
   canSpawn: 1
