@@ -19,7 +19,7 @@ public class AttackRange : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             objInRange = other.gameObject;
-            GetComponentInParent<SimpleEnemyColScript>().objInRange = objInRange;
+            GetComponentInParent<EnemyNavMeshScript>().objInRange = objInRange;
         }
     }
 
@@ -28,7 +28,7 @@ public class AttackRange : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             objInRange = null;
-            GetComponentInParent<SimpleEnemyColScript>().objInRange = objInRange;
+            GetComponentInParent<EnemyNavMeshScript>().objInRange = objInRange;
         }
     }
 }

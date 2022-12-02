@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using Pathfinding;
 
 public class ObjectIdentifier : MonoBehaviour
@@ -9,13 +10,14 @@ public class ObjectIdentifier : MonoBehaviour
 
     private void Start()
     {
-        GetComponentInParent<AIPath>().endReachedDistance = GetComponent<SphereCollider>().radius;
+        GetComponentInParent<NavMeshAgent>().stoppingDistance = GetComponent<SphereCollider>().radius * 2;
     }
     private void OnTriggerStay(Collider other)
     {
         if (other != null)
         {
             identifiedObj = other.gameObject;
+            GetComponentInParent<EnemyNavMeshScript>().objInRange = other.gameObject;
         }    
     }
 
