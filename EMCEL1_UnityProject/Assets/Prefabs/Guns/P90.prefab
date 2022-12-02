@@ -135,7 +135,7 @@ MonoBehaviour:
   ammoPerMag: 45
   totalAmmo: 360
   maxTotalAmmo: 0
-  rpm: 360
+  rpm: 800
   ammoPerFire: 1
   reloadTime: 1
   recoil: 5
@@ -143,9 +143,9 @@ MonoBehaviour:
   recoilControl: 10
   fireType: 0
   operation: 0
-  gunFireSound: {fileID: 0}
-  gunReloadingSound: {fileID: 0}
-  audiosource: {fileID: 0}
+  gunFireSound: {fileID: 8300000, guid: 55be166dc4c09824bb1837bc4537b658, type: 3}
+  gunReloadingSound: {fileID: 8300000, guid: 86a7bec9c3bdae54b8deb61faee10794, type: 3}
+  audiosource: {fileID: 4441497135764967771}
 --- !u!82 &4441497135764967771
 AudioSource:
   m_ObjectHideFlags: 0

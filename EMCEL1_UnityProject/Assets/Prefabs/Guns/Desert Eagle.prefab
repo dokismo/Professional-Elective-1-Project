@@ -143,8 +143,8 @@ MonoBehaviour:
   recoilControl: 10
   fireType: 0
   operation: 1
-  gunFireSound: {fileID: 0}
-  gunReloadingSound: {fileID: 0}
+  gunFireSound: {fileID: 8300000, guid: 8cb4d20e0f3c4b34197a8c019e471318, type: 3}
+  gunReloadingSound: {fileID: 8300000, guid: 33f226ed30495794c9e9d390c7acf937, type: 3}
   audiosource: {fileID: 4441497135764967771}
 --- !u!82 &4441497135764967771
 AudioSource:
