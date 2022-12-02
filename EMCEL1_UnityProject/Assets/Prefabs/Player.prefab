@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1404824326}
   - component: {fileID: 1404824327}
+  - component: {fileID: 566139102}
   m_Layer: 7
   m_Name: Recoil
   m_TagString: Untagged
@@ -112,6 +113,26 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   localMaxRecoil: {x: 10, y: -7.5}
+--- !u!95 &566139102
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1404824325}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83e6f74ffa816f149a1c9bc38ea5c779, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1895527321
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +329,7 @@ GameObject:
   - component: {fileID: 5660677681306034387}
   - component: {fileID: 2131667088306124822}
   - component: {fileID: 1302617803}
+  - component: {fileID: 1127913459}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -370,7 +392,6 @@ MonoBehaviour:
   groundCheck: {fileID: 5660677682157815404}
   cameraAnchor: {fileID: 1404824326}
   groundDistance: 0.05
-  wallDistance: 0.6
   groundLayer:
     serializedVersion: 2
     m_Bits: 2112
@@ -492,6 +513,19 @@ MonoBehaviour:
   targetlayer:
     serializedVersion: 2
     m_Bits: 8192
+--- !u!114 &1127913459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660677681306034385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1774a4cc6b438e94b48ee214977c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recoilAnimator: {fileID: 566139102}
 --- !u!1 &5660677682157815405
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +602,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 3
+  m_Range: 15
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

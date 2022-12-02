@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Player.Control;
 using UnityEngine;
 
@@ -7,6 +6,8 @@ namespace Player
     [CreateAssetMenu(menuName = "Player/Status", fileName = "PlayerStatus")]
     public class PlayerStatusScriptable : ScriptableObject
     {
+        public Sprite CharacterIcon { get; private set; }
+
         public int money;
         public float health;
         public float maxHealth;
@@ -28,7 +29,9 @@ namespace Player
         public void AddMoney(int amount) => money += amount;
 
         public void SetHealthBy(int amount) => health = Mathf.Clamp(health + amount, 0, maxHealth);
-        
-        
+
+        public void SetSprite(Sprite sprite) => CharacterIcon = sprite;
+
+        public void RemoveSprite() => CharacterIcon = null;
     }
 }
