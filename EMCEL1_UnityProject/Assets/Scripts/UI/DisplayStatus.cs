@@ -10,6 +10,9 @@ namespace UI
 {
     public class DisplayStatus : MonoBehaviour
     {
+        public delegate void Event();
+        public static Event onDead;
+        
         public PlayerStatusScriptable playerStatusScriptable;
 
         public Image playerHealthBar;
@@ -18,17 +21,20 @@ namespace UI
         public Image gunIcon;
         public TextMeshProUGUI ammo;
         public TextMeshProUGUI shopTxt;
+        public GameObject dead;
 
         private WallShop currentWallShop;
 
         private void OnEnable()
         {
             InspectShopWall.showWallShop += ItemShop;
+            onDead += OnDead;
         }
 
         private void OnDisable()
         {
             InspectShopWall.showWallShop -= ItemShop;
+            onDead -= OnDead;
         }
 
         private void Start()
@@ -85,6 +91,11 @@ namespace UI
             
             shopTxt.SetText(wallShop.GetMessage() + "\n[E]");
             shopTxt.enabled = true;
+        }
+
+        private void OnDead()
+        {
+            dead.SetActive(true);
         }
     }
 }

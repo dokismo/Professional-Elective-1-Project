@@ -1,4 +1,5 @@
 using Player.Control;
+using UI;
 using UnityEngine;
 
 namespace Player
@@ -28,7 +29,12 @@ namespace Player
 
         public void AddMoney(int amount) => money += amount;
 
-        public void SetHealthBy(int amount) => health = Mathf.Clamp(health + amount, 0, maxHealth);
+        public void SetHealthBy(int amount)
+        {
+            health = Mathf.Clamp(health + amount, 0, maxHealth);
+
+            if (health <= 0) DisplayStatus.onDead?.Invoke();
+        }
 
         public void SetSprite(Sprite sprite) => CharacterIcon = sprite;
 

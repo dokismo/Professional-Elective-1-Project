@@ -45,6 +45,7 @@ namespace Player.Control
             Cursor.lockState = CursorLockMode.Locked;
             
             playerStatusScriptable.SetPlayer(this);
+            playerStatusScriptable.SetHealthBy((int)playerStatusScriptable.maxHealth);
             
             if (Camera.main != null)
             {
