@@ -36,15 +36,22 @@ namespace Gun
             transform.LookAt(point);
             
             float angleY = Mathf.Clamp(transform.localRotation.eulerAngles.y - 90, 270, 360);
-            
-            
+
             transform.localRotation = Quaternion.Euler(
                 0,
                 angleY, 
                 Mathf.Clamp(transform.localRotation.eulerAngles.z, -4, 4));
         }
 
-        public void ReloadEvent() => animator.SetTrigger(Reload);
-        public void ReloadDoneEvent() => animator.SetTrigger(ReloadDone);
+        public void ReloadEvent()
+        {
+            timer = 0;
+            animator.SetTrigger(Reload);
+        }
+        public void ReloadDoneEvent()
+        {
+            timer = 0;
+            animator.SetTrigger(ReloadDone);
+        }
     }
 }

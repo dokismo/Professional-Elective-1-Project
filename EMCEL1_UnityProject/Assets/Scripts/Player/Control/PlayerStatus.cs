@@ -65,17 +65,19 @@ namespace Player.Control
                 AddGun(startGun1);
             if (startGun2 != null)
                 AddGun(startGun2);
-            
-            Switch(0);
         }
-
 
         private void Update()
         {
             Selection();
+            
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                playerStatusScriptable.AddMoney(2000);
+            }
         }
         
-        public void Switch(int position = -1)
+        public void Switch(int position = 0)
         {
             currentIndex = position < 0 ? currentIndex : position;
                 
@@ -94,11 +96,22 @@ namespace Player.Control
         
         public void AddGun(GameObject gun)
         {
-            if (InventoryIsFull) return;
+            if (InventoryIsFull)
+            {
+                if (CurrentGun == null) return;
 
-            GameObject instanceGun = Instantiate(gun, gunAnchor);
-            instanceGun.SetActive(false);
-            localGuns.Add(instanceGun);
+                Destroy(CurrentGun.gameObject);
+                GameObject replacementGun = Instantiate(gun, gunAnchor);
+
+                localGuns[currentIndex] = replacementGun;
+            }
+            else
+            {
+                GameObject instanceGun = Instantiate(gun, gunAnchor);
+                instanceGun.SetActive(false);
+                localGuns.Add(instanceGun);
+            }
+            Switch(currentIndex);
         }
 
         public void RemoveGun(GameObject gun)
@@ -118,10 +131,6 @@ namespace Player.Control
             else if (Keyboard.current.digit2Key.wasPressedThisFrame)
             {
                 Switch(1);
-            }
-            else if (Keyboard.current.digit3Key.wasPressedThisFrame)
-            {
-                Switch(2);
             }
         }
     }

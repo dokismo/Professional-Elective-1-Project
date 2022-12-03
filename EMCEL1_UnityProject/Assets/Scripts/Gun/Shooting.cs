@@ -40,20 +40,20 @@ namespace Gun
         public FireType fireType = FireType.Linear;
         public Operation operation = Operation.Automatic;
         public Sprite icon;
+        public GameObject muzzleFlash;
         
         //For SFX
         public AudioClip gunFireSound;
         public AudioClip gunReloadingSound;
         public AudioSource audiosource;
 
-        private float FireTime => 60f / rpm;
+        public float FireTime => 60f / rpm;
         private float fireTimer;
         private float reloadTimer;
         private bool reloadToggle;
 
         public bool CanShoot => !IsReloading && fireTimer <= 0 && ammoInMag > 0;
         public bool IsReloading => reloadTimer > 0;
-        
 
         private GunAnimation gunAnimation;
         private GunLight gunLight;
@@ -101,7 +101,7 @@ namespace Gun
         {
             CheckForReload();
 
-            if (!PlayerStatus.CanShoot || !CanShoot) return;
+            if (!PlayerStatus.CanShoot || !CanShoot || IsReloading) return;
 
             fireTimer += FireTime;
             ammoInMag -= 
@@ -116,11 +116,13 @@ namespace Gun
                 fireTimer += Time.deltaTime % FireTime;
             }
             
+            audiosource.PlayOneShot(gunFireSound); //SFX
+            
             for (didntFried++; didntFried > 0; didntFried--)
             for (int i = 0; i < ammoPerFire; i++)
             {
-                    audiosource.PlayOneShot(gunFireSound); //SFX
-                    gunLight.Light();
+                gunLight.Light();
+                muzzleFlash.SetActive(true);
 
                 Vector2 mousePos = Mouse.current.position.ReadValue();
                 Vector2 gotRecoil = new Vector2(0, RecoilEffect.apply?.Invoke(recoil, maxRecoil) ?? 0);
