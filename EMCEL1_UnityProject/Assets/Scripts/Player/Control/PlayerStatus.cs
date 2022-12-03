@@ -42,8 +42,6 @@ namespace Player.Control
         
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            
             playerStatusScriptable.SetPlayer(this);
             playerStatusScriptable.SetHealthBy((int)playerStatusScriptable.maxHealth);
             
@@ -90,7 +88,9 @@ namespace Player.Control
                     CurrentGun = localGuns[i].GetComponent<Shooting>();
                 }
                 else
+                {
                     localGuns[i].SetActive(false);
+                }
             }
         }
         

@@ -1,6 +1,7 @@
 using Gun;
 using Player;
 using Player.Display;
+using SceneController;
 using Shop;
 using TMPro;
 using UnityEngine;
@@ -22,12 +23,16 @@ namespace UI
         public TextMeshProUGUI ammo;
         public TextMeshProUGUI shopTxt;
         public GameObject dead;
+        public GameObject paused;
 
         private WallShop currentWallShop;
 
         private void OnEnable()
         {
             InspectShopWall.showWallShop += ItemShop;
+            GlobalCommand.setPause += SetPause;
+            
+            paused.SetActive(false);
             onDead += OnDead;
         }
 
@@ -35,6 +40,7 @@ namespace UI
         {
             InspectShopWall.showWallShop -= ItemShop;
             onDead -= OnDead;
+            GlobalCommand.setPause -= SetPause;
         }
 
         private void Start()
@@ -96,6 +102,11 @@ namespace UI
         private void OnDead()
         {
             dead.SetActive(true);
+        }
+
+        private void SetPause(bool value)
+        {
+            paused.SetActive(value);
         }
     }
 }

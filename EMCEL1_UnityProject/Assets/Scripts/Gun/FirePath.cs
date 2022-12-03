@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,12 +18,15 @@ namespace Gun
         private float timer;
         private Vector3 middlePoint;
 
+        private void OnEnable()
+        {
+            tracer.gameObject.SetActive(false);
+        }
+
         private void Update()
         {
             timer = Mathf.Clamp01(timer - Time.deltaTime);
             tracer.gameObject.SetActive(timer > 0);
-            
-            
         }
 
         public void RenderLine(Vector3 endPosition)

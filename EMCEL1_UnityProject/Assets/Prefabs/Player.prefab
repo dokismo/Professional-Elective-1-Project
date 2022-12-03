@@ -406,6 +406,8 @@ GameObject:
   - component: {fileID: 2131667088306124822}
   - component: {fileID: 1302617803}
   - component: {fileID: 1127913459}
+  - component: {fileID: 5829384991313602530}
+  - component: {fileID: 8644561109751904851}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -538,7 +540,6 @@ MonoBehaviour:
     m_Flags: 0
   moveDir: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
-  isClimbing: 0
   isGrounded: 0
 --- !u!114 &5660677681306034387
 MonoBehaviour:
@@ -602,6 +603,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recoilAnimator: {fileID: 566139102}
+--- !u!114 &5829384991313602530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660677681306034385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5094ea37be374ec5b3f95efff25f71d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8644561109751904851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660677681306034385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e37edb9e781451dbfeb5b2f58f19cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5660677682157815405
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,9 @@
+using System;
 using Core;
 using Player.Control;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace Gun
 {
@@ -20,6 +22,7 @@ namespace Gun
 
     public class Shooting : MonoBehaviour
     {
+        
         public float distance;
         public LayerMask targetLayers;
 
@@ -47,12 +50,14 @@ namespace Gun
         public AudioClip gunReloadingSound;
         public AudioSource audiosource;
 
+        private float swapTimer;
+        private bool able;
         public float FireTime => 60f / rpm;
         private float fireTimer;
         private float reloadTimer;
         private bool reloadToggle;
 
-        public bool CanShoot => !IsReloading && fireTimer <= 0 && ammoInMag > 0;
+        public bool CanShoot => !IsReloading && fireTimer <= 0 && ammoInMag > 0 && able;
         public bool IsReloading => reloadTimer > 0;
 
         private GunAnimation gunAnimation;
@@ -67,33 +72,77 @@ namespace Gun
             particleEffect = GetComponent<ParticleEffect>();
             thisCamera = Camera.main;
 
-            gunAnimation = GetComponent<GunAnimation>();
+            gunAnimation ??= GetComponent<GunAnimation>();
             gunLight = GetComponent<GunLight>();
             firePath = GetComponent<FirePath>();
         }
 
         private void OnEnable()
         {
+            gunAnimation ??= GetComponent<GunAnimation>();
+            
             RecoilEffect.setControl?.Invoke(recoilControl);
+            
+            muzzleFlash.SetActive(false);
+            swapTimer = 0.5f;
+            able = false;
+            gunAnimation.SwapEvent();
+        }
+
+        private void OnDisable()
+        {
+            StopReload();
         }
 
         private void Update()
         {
-            if (reloadToggle && !IsReloading)
+            ReloadToggler();
+            Timer();
+            Actions();
+        }
+
+        private void Actions()
+        {
+            if (!able)
             {
-                reloadToggle = false;
-                ReloadMagazine();
+                if (swapTimer <= 0)
+                {
+                    able = true;
+                    gunAnimation.SwapDoneEvent();
+                }
+                return;
             }
-            
-            fireTimer = Mathf.Clamp(fireTimer - Time.deltaTime, 0, 99);
-            reloadTimer = Mathf.Clamp(reloadTimer - Time.deltaTime, 0, 99);
-            
+
             if (Mouse.current.leftButton.isPressed && operation == Operation.Automatic)
                 Fire();
             else if (operation == Operation.SemiAutomatic && Mouse.current.leftButton.wasPressedThisFrame)
                 Fire();
 
             if (Keyboard.current.rKey.wasPressedThisFrame) Reload();
+        }
+
+        public void StopReload()
+        {
+            if (!IsReloading || !reloadToggle) return;
+            
+            reloadToggle = false;
+            reloadTimer = 0;
+        }
+
+        private void ReloadToggler()
+        {
+            if (reloadToggle && !IsReloading)
+            {
+                reloadToggle = false;
+                ReloadMagazine();
+            }
+        }
+
+        private void Timer()
+        {
+            swapTimer = Mathf.Clamp01(swapTimer - Time.deltaTime);
+            fireTimer = Mathf.Clamp(fireTimer - Time.deltaTime, 0, 99);
+            reloadTimer = Mathf.Clamp(reloadTimer - Time.deltaTime, 0, 99);
         }
 
 
@@ -175,6 +224,9 @@ namespace Gun
 
         private void ReloadMagazine()
         {
+            if (!able) return;
+            
+            Debug.Log("test2");
             gunAnimation.ReloadDoneEvent();
             int neededAmmo = ammoPerMag - ammoInMag;
             int gotAmount 

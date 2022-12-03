@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -30,7 +31,6 @@ namespace Player.Control
 
         [HideInInspector] public Vector3 moveDir;
         [HideInInspector] public Vector3 velocity;
-        [HideInInspector] public bool isClimbing;
         private CharacterController controller;
         [HideInInspector] public bool isGrounded;
         private float timer;
@@ -67,8 +67,6 @@ namespace Player.Control
         {
             Gizmos.DrawWireSphere(groundCheck.position, groundDistance);
         }
-        
-        
 
         private void Update()
         {
@@ -89,14 +87,9 @@ namespace Player.Control
         private void FixedUpdate()
         {
             velocity.y += gravity * Time.fixedDeltaTime;
+            Debug.Log($"{Time.fixedDeltaTime} && {Time.deltaTime}");
 
-            Vector3 movementDirection = Vector3.zero;
-            if (isClimbing)
-                movementDirection = new Vector3(moveDir.x, moveDir.z, 0).normalized;
-            else if (CanMove)
-                movementDirection = moveDir.normalized;
-            
-            controller.Move((!isClimbing? velocity : Vector3.zero) + movementDirection * (speed * Time.fixedDeltaTime));
+            controller.Move(velocity + moveDir.normalized * (speed * Time.fixedDeltaTime));
         }
 
         private void CheckFloor(bool checkFloor, Vector3 inputs)

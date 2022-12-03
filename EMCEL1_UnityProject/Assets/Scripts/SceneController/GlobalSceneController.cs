@@ -101,12 +101,12 @@ namespace SceneController
             asyncLoadSingleEvent -= LoadAsyncSingle;
             asyncLoadAdditiveEvent -= LoadAsyncAdditive;
         }
-
+        
         private void Start()
         {
             loadedScenes = new List<SceneGroup>();
         }
-
+        
         private SceneGroup FindSceneGroup(string groupName)
         {
             foreach (var sceneGroup in SceneGroups)
@@ -118,7 +118,7 @@ namespace SceneController
             Debug.LogError($"{groupName} NOT FOUND IN THE LIST {this}");
             return null;
         }
-
+        
         private SceneGroup FindLoadedSceneGroup(string groupName)
         {
             foreach (var sceneGroup in loadedScenes)
@@ -126,16 +126,15 @@ namespace SceneController
                 if (sceneGroup.name == groupName)
                     return sceneGroup;
             }
-
+            
             Debug.LogError($"{groupName} NOT FOUND IN THE LOADED LIST {this}");
             return null;
         }
-
+        
         private void Load(SceneGroup sceneGroup, LoadSceneMode mode)
         {
             if (sceneGroup == null) return;
-            
-            UnloadEverything();
+
             loadedScenes.Add(sceneGroup);
             sceneGroup.LoadEverything(mode);
         }
@@ -149,9 +148,20 @@ namespace SceneController
             sceneGroup.LoadAsynchronousEverything(mode);
         }
 
-        private void LoadSingle(string groupName) => Load(FindSceneGroup(groupName), LoadSceneMode.Single);
+        private void LoadSingle(string groupName)
+        {
+            GlobalCommand.setPause?.Invoke(false);
+            UnloadEverything();
+            Load(FindSceneGroup(groupName), LoadSceneMode.Single);
+        }
         private void LoadAdditive(string groupName) => Load(FindSceneGroup(groupName), LoadSceneMode.Additive);
-        private void LoadAsyncSingle(string groupName) => LoadAsynchronous(FindSceneGroup(groupName), LoadSceneMode.Single);
+
+        private void LoadAsyncSingle(string groupName)
+        {
+            GlobalCommand.setPause?.Invoke(false);
+            UnloadEverything();
+            LoadAsynchronous(FindSceneGroup(groupName), LoadSceneMode.Single);
+        }
         private void LoadAsyncAdditive(string groupName) => LoadAsynchronous(FindSceneGroup(groupName), LoadSceneMode.Additive);
         
         private void Unload(string groupName)
