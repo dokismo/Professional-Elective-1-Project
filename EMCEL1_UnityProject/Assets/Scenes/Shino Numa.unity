@@ -809,15 +809,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.04
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.42
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 2.36
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -847,6 +847,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5660677681306034388, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
+      propertyPath: staminaFullTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5660677681306034388, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
+      propertyPath: playerStatusScriptable
+      value: 
+      objectReference: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
 --- !u!1001 &1680526886

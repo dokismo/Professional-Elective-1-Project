@@ -464,6 +464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
+  sprintingSpeed: 6
   gravity: -0.4
   jumpHeight: 0
   onLandWait: 0
@@ -537,6 +538,23 @@ MonoBehaviour:
       m_Groups: 
       m_Action: Input
       m_Flags: 8
+    m_Flags: 0
+  runInput:
+    m_Name: Run Input
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: d30864a2-fa8e-48fe-9956-9a41b13fad26
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: a0f15366-7c1a-4acd-b4d7-bd0db9a67b43
+      m_Path: <Keyboard>/shift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Run Input
+      m_Flags: 0
     m_Flags: 0
   moveDir: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}

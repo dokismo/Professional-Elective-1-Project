@@ -45,6 +45,7 @@ namespace Player.Control
         {
             playerStatusScriptable.SetPlayer(this);
             playerStatusScriptable.SetHealthBy((int)playerStatusScriptable.maxHealth);
+            playerStatusScriptable.SetStaminaBy(playerStatusScriptable.maxStamina);
             
             if (Camera.main != null)
             {
