@@ -88,7 +88,11 @@ public class ForSpawningScript : MonoBehaviour
 
     public void spawnSfx() //sfx
     {
-        FindObjectOfType<SFXManager>().Play("spawnZ");//sfx
+        SFXManager sfxManager = FindObjectOfType<SFXManager>();//sfx
+
+        if (sfxManager)
+            sfxManager.Play("spawnZ");
+        
         Debug.Log("SPAWN SFX");
     }
 

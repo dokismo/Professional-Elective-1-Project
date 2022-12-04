@@ -15,10 +15,18 @@ public class EnemyHitScript : MonoBehaviour, ITarget
     public bool isInRangeForZ5Effect = false;
 
     public float DmgReductionMultiplier = 1f;
+
+    public bool isBoss;
+    
     void Start()
     {
         delayReset = StartCoroutine(ResetWithDelay());
-        MainEnemyTransform = transform.parent.parent.parent.transform;
+
+        if (isBoss)
+            MainEnemyTransform = transform.parent.parent.parent.transform;
+        else
+            MainEnemyTransform = transform.parent.parent.transform;
+
         ThisEnemyHPScript = MainEnemyTransform.GetComponent<EnemyHpHandler>();
     }
 

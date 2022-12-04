@@ -93,6 +93,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AbilityRange: 5
+  RaycastIgnoreLayer:
+    serializedVersion: 2
+    m_Bits: 0
   StunTime: 5
   ChargeLength: 2
   ChargeSpeed: 20
@@ -164,6 +167,7 @@ MonoBehaviour:
   DmgMultiplier: 1
   isInRangeForZ5Effect: 0
   DmgReductionMultiplier: 1
+  isBoss: 1
 --- !u!114 &7202386451180298758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +241,7 @@ MonoBehaviour:
   DmgMultiplier: 1.5
   isInRangeForZ5Effect: 0
   DmgReductionMultiplier: 1
+  isBoss: 1
 --- !u!1 &8183645757239902941
 GameObject:
   m_ObjectHideFlags: 0

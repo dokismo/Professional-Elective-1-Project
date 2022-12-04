@@ -31,5 +31,10 @@ namespace UI
         {
             foreach (var sceneName in scenesToLoad) GlobalSceneController.asyncLoadAdditiveEvent?.Invoke(sceneName);
         }
+
+        public void ReloadScene()
+        {
+            GlobalSceneController.reloadScene?.Invoke("reload");
+        }
     }
 }

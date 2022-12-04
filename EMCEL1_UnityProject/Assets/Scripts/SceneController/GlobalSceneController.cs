@@ -80,6 +80,7 @@ namespace SceneController
         public static LoadSceneEvent loadAdditiveEvent;
         public static LoadSceneEvent asyncLoadSingleEvent;
         public static LoadSceneEvent asyncLoadAdditiveEvent;
+        public static LoadSceneEvent reloadScene;
         
         [SerializeField] private ScenesListScriptable scenesListScriptable;
         
@@ -92,6 +93,7 @@ namespace SceneController
             loadAdditiveEvent += LoadAdditive;
             asyncLoadSingleEvent += LoadAsyncSingle;
             asyncLoadAdditiveEvent += LoadAsyncAdditive;
+            reloadScene += Reload;
         }
 
         private void OnDisable()
@@ -100,6 +102,7 @@ namespace SceneController
             loadAdditiveEvent -= LoadAdditive;
             asyncLoadSingleEvent -= LoadAsyncSingle;
             asyncLoadAdditiveEvent -= LoadAsyncAdditive;
+            reloadScene -= Reload;
         }
         
         private void Start()
@@ -154,6 +157,7 @@ namespace SceneController
             UnloadEverything();
             Load(FindSceneGroup(groupName), LoadSceneMode.Single);
         }
+        
         private void LoadAdditive(string groupName) => Load(FindSceneGroup(groupName), LoadSceneMode.Additive);
 
         private void LoadAsyncSingle(string groupName)
@@ -172,6 +176,11 @@ namespace SceneController
             
             loadedScenes.Remove(loadedScene);
             FindSceneGroup(groupName).UnloadEverything();
+        }
+
+        private void Reload(string ignore)
+        {
+            foreach (var loadedScene in loadedScenes) Load(loadedScene, LoadSceneMode.Single);
         }
 
         private void UnloadEverything()
