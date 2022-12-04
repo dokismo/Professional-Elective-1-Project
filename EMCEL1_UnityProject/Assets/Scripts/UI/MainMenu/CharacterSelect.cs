@@ -13,11 +13,12 @@ namespace UI.MainMenu
         public static CharacterSelectEvent selectEvent;
         
         public PlayerStatusScriptable playerStatusScriptable;
-        public Sprite characterIcon;
+        public Animator animator;
 
         public Image image;
 
         private bool selected;
+        private static readonly int Play = Animator.StringToHash("Play");
 
         private void OnEnable()
         {
@@ -38,7 +39,7 @@ namespace UI.MainMenu
 
         private void Start()
         {
-            playerStatusScriptable.RemoveSprite();
+            playerStatusScriptable.RemoveAnimatorController();
             Deselect();
         }
 
@@ -54,7 +55,7 @@ namespace UI.MainMenu
             
             selected = true;
             image.color = Color.Lerp(Color.clear, Color.black, 1f);
-            playerStatusScriptable.SetSprite(characterIcon);
+            playerStatusScriptable.SetAnimatorController(animator.runtimeAnimatorController);
             selectEvent?.Invoke(this);
         }
 
@@ -63,6 +64,7 @@ namespace UI.MainMenu
         {
             if (selected) return;
 
+            animator.SetTrigger(Play);
             image.color = Color.Lerp(Color.clear, Color.black, 0.7f);
         }
 
@@ -77,7 +79,7 @@ namespace UI.MainMenu
         {
             if (selected)
             {
-                playerStatusScriptable.RemoveSprite();
+                playerStatusScriptable.RemoveAnimatorController();
                 Deselect();
             }
             else

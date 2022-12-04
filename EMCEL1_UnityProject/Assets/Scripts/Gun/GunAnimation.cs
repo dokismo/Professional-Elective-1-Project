@@ -10,11 +10,14 @@ namespace Gun
         public Animator animator;
         
         private float timer;
+        private Shooting shooting;
         private Movement movement;
         
         private static readonly int Reload = Animator.StringToHash("Reload");
         private static readonly int ReloadDone = Animator.StringToHash("ReloadDone");
         private static readonly int Speed = Animator.StringToHash("Speed");
+        private static readonly int Swap = Animator.StringToHash("Swap");
+        private static readonly int SwapDone = Animator.StringToHash("SwapDone");
 
         private void Start()
         {
@@ -29,6 +32,17 @@ namespace Gun
             animator.enabled = timer <= 0;
         }
 
+        public void Reset()
+        {
+            timer = 0;
+            animator.enabled = true;
+            
+            animator.ResetTrigger(Reload);
+            animator.ResetTrigger(ReloadDone);
+            animator.ResetTrigger(Swap);
+            animator.ResetTrigger(SwapDone);
+        }
+
         public void ShootEvent(Vector3 point)
         {
             timer = shootPauseTime;
@@ -36,15 +50,34 @@ namespace Gun
             transform.LookAt(point);
             
             float angleY = Mathf.Clamp(transform.localRotation.eulerAngles.y - 90, 270, 360);
-            
-            
+
             transform.localRotation = Quaternion.Euler(
                 0,
                 angleY, 
                 Mathf.Clamp(transform.localRotation.eulerAngles.z, -4, 4));
         }
 
-        public void ReloadEvent() => animator.SetTrigger(Reload);
-        public void ReloadDoneEvent() => animator.SetTrigger(ReloadDone);
+        public void ReloadEvent()
+        {
+            Reset();
+            animator.SetTrigger(Reload);
+        }
+        public void ReloadDoneEvent()
+        {
+            Reset();
+            timer = 0;
+            animator.SetTrigger(ReloadDone);
+        }
+
+        public void SwapEvent()
+        {
+            Reset();
+            animator.SetTrigger(Swap);
+        }
+        public void SwapDoneEvent()
+        {
+            Reset();
+            animator.SetTrigger(SwapDone);
+        }
     }
 }

@@ -10,7 +10,6 @@ namespace Player.Animations
 
         private Movement movement;
         private static readonly int Speed = Animator.StringToHash("Speed");
-
         private void Start()
         {
             movement = GetComponent<Movement>();
@@ -19,6 +18,10 @@ namespace Player.Animations
         private void Update()
         {
             recoilAnimator.SetFloat(Speed, movement.moveDir.magnitude);
+
+            recoilAnimator.speed = movement.IsRunning 
+                ? Mathf.Lerp(movement.speed, 2, movement.sprintingSpeed)
+                : 1;
         }
     }
 }

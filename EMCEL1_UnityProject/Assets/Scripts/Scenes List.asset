@@ -19,7 +19,7 @@ MonoBehaviour:
       isLoaded: 0
   - name: Test
     sceneList:
-    - name: SampleScene
+    - name: Shino Numa
       isLoaded: 0
   - name: Credentia
     sceneList:

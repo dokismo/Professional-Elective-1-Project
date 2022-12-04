@@ -21,7 +21,8 @@ namespace Player.Control
         
         private int currentIndex = 0;
         
-        public Shooting CurrentGun { get; private set; }
+        public Shooting PrimaryGun { get; private set; }
+        public Shooting SecondaryGun { get; private set; }
         public bool InventoryIsFull => localGuns.Count >= maxGuns;
 
         public static bool CanShoot => Cursor.lockState == CursorLockMode.Locked;
@@ -42,10 +43,9 @@ namespace Player.Control
         
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            
             playerStatusScriptable.SetPlayer(this);
             playerStatusScriptable.SetHealthBy((int)playerStatusScriptable.maxHealth);
+            playerStatusScriptable.SetStaminaBy(playerStatusScriptable.maxStamina);
             
             if (Camera.main != null)
             {
@@ -65,40 +65,58 @@ namespace Player.Control
                 AddGun(startGun1);
             if (startGun2 != null)
                 AddGun(startGun2);
-            
-            Switch(0);
         }
-
 
         private void Update()
         {
             Selection();
+            
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+            {
+                playerStatusScriptable.AddMoney(2000);
+            }
         }
         
-        public void Switch(int position = -1)
+        public void Switch(int position = 0)
         {
             currentIndex = position < 0 ? currentIndex : position;
                 
-            CurrentGun = null;
+            PrimaryGun = null;
+            SecondaryGun = null;
+            
             for (int i = 0; i < localGuns.Count; i++)
             {
                 if (currentIndex == i)
                 {
                     localGuns[i].SetActive(true);
-                    CurrentGun = localGuns[i].GetComponent<Shooting>();
+                    PrimaryGun = localGuns[i].GetComponent<Shooting>();
                 }
                 else
+                {
                     localGuns[i].SetActive(false);
+                    SecondaryGun = localGuns[i].GetComponent<Shooting>();
+                }
             }
         }
         
         public void AddGun(GameObject gun)
         {
-            if (InventoryIsFull) return;
+            if (InventoryIsFull)
+            {
+                if (PrimaryGun == null) return;
 
-            GameObject instanceGun = Instantiate(gun, gunAnchor);
-            instanceGun.SetActive(false);
-            localGuns.Add(instanceGun);
+                Destroy(PrimaryGun.gameObject);
+                GameObject replacementGun = Instantiate(gun, gunAnchor);
+
+                localGuns[currentIndex] = replacementGun;
+            }
+            else
+            {
+                GameObject instanceGun = Instantiate(gun, gunAnchor);
+                instanceGun.SetActive(false);
+                localGuns.Add(instanceGun);
+            }
+            Switch(currentIndex);
         }
 
         public void RemoveGun(GameObject gun)
@@ -118,10 +136,6 @@ namespace Player.Control
             else if (Keyboard.current.digit2Key.wasPressedThisFrame)
             {
                 Switch(1);
-            }
-            else if (Keyboard.current.digit3Key.wasPressedThisFrame)
-            {
-                Switch(2);
             }
         }
     }

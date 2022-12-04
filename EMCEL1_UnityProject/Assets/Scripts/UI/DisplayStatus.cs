@@ -1,6 +1,7 @@
 using Gun;
 using Player;
 using Player.Display;
+using SceneController;
 using Shop;
 using TMPro;
 using UnityEngine;
@@ -14,20 +15,34 @@ namespace UI
         public static Event onDead;
         
         public PlayerStatusScriptable playerStatusScriptable;
+        public Color staminaFullColor;
 
+        public float blinkHighestRandomInterval = 10f;
+        
         public Image playerHealthBar;
-        public Image playerIcon;
+        public Animator iconAnimator;
         public TextMeshProUGUI txtMoney;
-        public Image gunIcon;
+        public Image primaryIcon, secondaryIcon;
         public TextMeshProUGUI ammo;
         public TextMeshProUGUI shopTxt;
         public GameObject dead;
+        public GameObject paused;
+        public Image staminaBG, staminaBar;
 
+        private float staminaVisibilityTimerA;
+        private float staminaVisibilityTimerB;
+        private float staminaTimer;
         private WallShop currentWallShop;
+        private float randomInterval;
+        private static readonly int Play = Animator.StringToHash("Play");
 
         private void OnEnable()
         {
             InspectShopWall.showWallShop += ItemShop;
+            GlobalCommand.setPause += SetPause;
+            PlayerStatusScriptable.staminaChanged += StaminaChangedEvent;
+            
+            paused.SetActive(false);
             onDead += OnDead;
         }
 
@@ -35,12 +50,22 @@ namespace UI
         {
             InspectShopWall.showWallShop -= ItemShop;
             onDead -= OnDead;
+            GlobalCommand.setPause -= SetPause;
+            PlayerStatusScriptable.staminaChanged -= StaminaChangedEvent;
         }
 
         private void Start()
         {
+            randomInterval = Random.Range(0, blinkHighestRandomInterval);
+            staminaBG.color = staminaBar.color = Color.clear; 
             shopTxt.enabled = false;
-            playerIcon.sprite = playerStatusScriptable.CharacterIcon;
+            iconAnimator.runtimeAnimatorController = playerStatusScriptable.RuntimeAnimatorController;
+        }
+        
+        private void StaminaChangedEvent()
+        {
+            staminaVisibilityTimerA = 0;
+            staminaVisibilityTimerB = 1;
         }
 
         private void Update()
@@ -49,12 +74,47 @@ namespace UI
             Health();
             Ammo();
             GunIcon();
+            SetStamina();
+            Blink();
+        }
+
+        private void Blink()
+        {
+            randomInterval -= Time.deltaTime;
+            
+            if (!(randomInterval <= 0)) return;
+            
+            randomInterval = Random.Range(0, blinkHighestRandomInterval);
+            iconAnimator.SetTrigger(Play);
+        }
+
+        private void SetStamina()
+        {
+            if (staminaVisibilityTimerA < 1)
+            {
+                staminaVisibilityTimerA = Mathf.Clamp01(staminaVisibilityTimerA + Time.deltaTime);
+                staminaTimer = Mathf.Clamp01(staminaTimer + Time.deltaTime);
+            }
+            else
+            {
+                staminaVisibilityTimerB = Mathf.Clamp01(staminaVisibilityTimerB - Time.deltaTime);
+                staminaTimer = Mathf.Clamp01(staminaTimer - Time.deltaTime);;
+            }
+            
+            staminaBar.fillAmount = playerStatusScriptable.stamina / playerStatusScriptable.maxStamina;
+            staminaBG.color = staminaBar.color = Color.Lerp(Color.clear, staminaFullColor, staminaTimer);
         }
 
         private void GunIcon()
         {
-            gunIcon.sprite = playerStatusScriptable.GetCurrentGunIcon();
-            gunIcon.color = gunIcon.sprite != null
+            primaryIcon.sprite = playerStatusScriptable.GetPrimaryIcon();
+            secondaryIcon.sprite = playerStatusScriptable.GetSecondaryIcon();
+            
+            primaryIcon.color = primaryIcon.sprite != null
+                ? Color.white
+                : Color.clear;
+            
+            secondaryIcon.color = secondaryIcon.sprite != null
                 ? Color.white
                 : Color.clear;
         }
@@ -62,7 +122,7 @@ namespace UI
         private void Ammo()
         {
             Shooting gun = playerStatusScriptable.PlayerStatus != null
-                ? playerStatusScriptable.PlayerStatus.CurrentGun
+                ? playerStatusScriptable.PlayerStatus.PrimaryGun
                 : null;
             
             ammo.text = gun != null
@@ -96,6 +156,11 @@ namespace UI
         private void OnDead()
         {
             dead.SetActive(true);
+        }
+
+        private void SetPause(bool value)
+        {
+            paused.SetActive(value);
         }
     }
 }

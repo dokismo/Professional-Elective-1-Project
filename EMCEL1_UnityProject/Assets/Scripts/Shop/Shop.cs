@@ -33,8 +33,8 @@ namespace Shop
         {
             if (playerStatusScriptable.GetMoney(cost) <= 0) return;
             
-            if (PlayerStatus.CurrentGun != null)
-                PlayerStatus.CurrentGun.RefillAmmo();
+            if (PlayerStatus.PrimaryGun != null)
+                PlayerStatus.PrimaryGun.RefillAmmo();
         }
     }
 }
