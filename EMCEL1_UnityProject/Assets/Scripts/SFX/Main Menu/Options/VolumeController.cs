@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using SFX.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,15 +10,25 @@ namespace SFX.Main_Menu.Options
     {
         public List<Sprite> volumeSprites;
         public Image volumeImage;
+        public string mixerName;
 
         [SerializeField]
         private int volume = 5;
         
         private int maxVolume = 10;
         
-        // Use this juswa to get the value
         public float Volume => Muted ? 0 : (float)volume / 10;
         public bool Muted => volume == 0;
+
+        private void OnEnable()
+        {
+            SetValue(Mathf.RoundToInt(PlayerPrefs.GetFloat(mixerName, 1)));
+        }
+
+        private void OnDisable()
+        {
+            VolumeManager.save?.Invoke();
+        }
 
         private void Start()
         {
@@ -28,20 +40,29 @@ namespace SFX.Main_Menu.Options
             volume += value;
             volume = Mathf.Clamp(volume, 0, maxVolume);
             SetSprite();
+            
+            VolumeManager.volumeChangeSearch?.Invoke(mixerName, Volume);
+        }
+
+        public void SetValue(int value)
+        {
+            volume = Mathf.Clamp(value, 0, maxVolume);
+            SetSprite();
+            
+            VolumeManager.volumeChangeSearch?.Invoke(mixerName, Volume);
         }
 
         private void SetSprite() => volumeImage.sprite = volumeSprites[volume];
 
         public void Mute()
         {
-            volume = 0;
-            SetSprite();
+            AddBy(-maxVolume);
         }
 
         public void UnMute()
         {
-            volume = 1;
-            SetSprite();
+            AddBy(-maxVolume);
+            AddBy(1);
         }
     }
 }

@@ -20,26 +20,26 @@ namespace SFX.Main_Menu.Options
 
         private void Update()
         {
-            CheckVolumes();
+            // CheckVolumes();
         }
 
-        private void CheckVolumes()
-        {
-            float checker = music.Volume - sfx.Volume;
-            if (checker > 0) return;
-
-            switch (on)
-            {
-                case false when checker == 0 && music.Volume == 0:
-                    on = false;
-                    Refresh();
-                    break;
-                case true when checker > 0:
-                    on = true;
-                    Refresh();
-                    break;
-            }
-        }
+        // private void CheckVolumes()
+        // {
+        //     float checker = music.Volume - sfx.Volume;
+        //     if (checker > 0) return;
+        //
+        //     switch (on)
+        //     {
+        //         case false when checker == 0 && music.Volume == 0:
+        //             on = false;
+        //             Refresh();
+        //             break;
+        //         case true when checker > 0:
+        //             on = true;
+        //             Refresh();
+        //             break;
+        //     }
+        // }
 
         private void Refresh()
         {

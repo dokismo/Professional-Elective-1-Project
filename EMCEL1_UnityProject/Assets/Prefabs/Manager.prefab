@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 2089445792410423018}
   - component: {fileID: 2089445792410423021}
   - component: {fileID: 4094445340090308527}
+  - component: {fileID: 3749783692150299958}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,3 +59,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e1cf6dcbeb47a993350862a8f40346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3749783692150299958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2089445792410423020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc64966a4f2a8d4aba740048b45a357, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}

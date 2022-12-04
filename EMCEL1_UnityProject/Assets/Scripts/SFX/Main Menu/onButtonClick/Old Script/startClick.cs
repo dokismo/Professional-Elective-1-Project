@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class startClick : MonoBehaviour
 {
-    void Start()
-    {
-        FindObjectOfType<AudioManager>().Play("clickButton");
-    }
+    // void Start()
+    // {
+    //     FindObjectOfType<AudioManager>().Play("clickButton");
+    // }
 
 }

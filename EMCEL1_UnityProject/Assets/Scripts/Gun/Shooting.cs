@@ -61,7 +61,6 @@ namespace Gun
         public bool IsReloading => reloadTimer > 0;
 
         private GunAnimation gunAnimation;
-        private GunLight gunLight;
         private FirePath firePath;
         private Camera thisCamera;
         private ParticleEffect particleEffect;
@@ -73,7 +72,6 @@ namespace Gun
             thisCamera = Camera.main;
 
             gunAnimation ??= GetComponent<GunAnimation>();
-            gunLight = GetComponent<GunLight>();
             firePath = GetComponent<FirePath>();
         }
 
@@ -166,8 +164,8 @@ namespace Gun
             }
             
             audiosource.PlayOneShot(gunFireSound); //SFX
-            gunLight.Light();
             muzzleFlash.gameObject.SetActive(true);
+            GunLight.triggerLight?.Invoke();
             
             for (didntFried++; didntFried > 0; didntFried--)
             for (int i = 0; i < ammoPerFire; i++)

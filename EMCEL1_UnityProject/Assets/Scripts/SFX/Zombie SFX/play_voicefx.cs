@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class play_voicefx : MonoBehaviour
 {
-    void Start()
-    {
-        FindObjectOfType<AudioManager>().Play("zombie_sfx3");
-    }
+    // void Start()
+    // {
+    //     FindObjectOfType<AudioManager>().Play("zombie_sfx3");
+    // }
 }
