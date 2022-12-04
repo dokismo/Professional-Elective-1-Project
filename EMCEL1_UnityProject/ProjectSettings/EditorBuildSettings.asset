@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shino Numa.unity
     guid: e43e01306fafa00419ed34a95ac98793
+  - enabled: 1
+    path: Assets/Scenes/UI/LoadingScene.unity
+    guid: 7c13854faa383f74b978fbb68b1369ca
   m_configObjects: {}

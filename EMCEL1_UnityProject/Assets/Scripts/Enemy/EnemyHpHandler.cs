@@ -28,7 +28,6 @@ public class EnemyHpHandler : MonoBehaviour
                 sfxManager.Play("zombie_death"); //sfx
             Destroy(gameObject);
             DropMoney(Random.Range(MinimumMoney, MaxMoney));
-            Debug.Log("ZOMBIE DIED SFX");
         }
     }
 

@@ -92,8 +92,6 @@ public class ForSpawningScript : MonoBehaviour
 
         if (sfxManager)
             sfxManager.Play("spawnZ");
-        
-        Debug.Log("SPAWN SFX");
     }
 
 

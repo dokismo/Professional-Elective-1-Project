@@ -53,16 +53,5 @@ namespace SFX.Main_Menu.Options
         }
 
         private void SetSprite() => volumeImage.sprite = volumeSprites[volume];
-
-        public void Mute()
-        {
-            AddBy(-maxVolume);
-        }
-
-        public void UnMute()
-        {
-            AddBy(-maxVolume);
-            AddBy(1);
-        }
     }
 }

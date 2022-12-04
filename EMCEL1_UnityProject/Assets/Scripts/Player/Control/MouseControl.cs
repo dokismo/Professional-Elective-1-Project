@@ -1,5 +1,6 @@
 using System;
 using SceneController;
+using UI;
 using UnityEngine;
 
 namespace Player.Control
@@ -9,11 +10,13 @@ namespace Player.Control
         private void OnEnable()
         {
             GlobalCommand.setPause += SetMouseControl;
+            DisplayStatus.onDead += OnDeath;
         }
 
         private void OnDisable()
         {
             GlobalCommand.setPause -= SetMouseControl;
+            DisplayStatus.onDead -= OnDeath;
         }
 
         private void OnDestroy()
@@ -31,6 +34,11 @@ namespace Player.Control
             Cursor.lockState = value
                 ? CursorLockMode.None
                 : CursorLockMode.Locked;
+        }
+
+        private void OnDeath()
+        {
+            SetMouseControl(true);
         }
     }
 }

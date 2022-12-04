@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using SFX.Manager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -155,7 +156,9 @@ namespace SceneController
         {
             GlobalCommand.setPause?.Invoke(false);
             UnloadEverything();
+            VolumeManager.save?.Invoke();
             Load(FindSceneGroup(groupName), LoadSceneMode.Single);
+            VolumeManager.load?.Invoke();
         }
         
         private void LoadAdditive(string groupName) => Load(FindSceneGroup(groupName), LoadSceneMode.Additive);

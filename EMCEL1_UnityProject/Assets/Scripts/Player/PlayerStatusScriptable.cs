@@ -54,11 +54,11 @@ namespace Player
             stamina = Mathf.Clamp(stamina + value, 0, maxStamina);
         }
 
-        public Sprite GetPrimaryIcon() => PlayerStatus.PrimaryGun != null && PlayerStatus.PrimaryGun.icon != null
+        public Sprite GetPrimaryIcon() => PlayerStatus != null && PlayerStatus.PrimaryGun != null && PlayerStatus.PrimaryGun.icon != null
             ? PlayerStatus.PrimaryGun.icon
             : null;
 
-        public Sprite GetSecondaryIcon() => PlayerStatus.SecondaryGun != null && PlayerStatus.SecondaryGun.icon != null
+        public Sprite GetSecondaryIcon() => PlayerStatus != null && PlayerStatus.SecondaryGun != null && PlayerStatus.SecondaryGun.icon != null
             ? PlayerStatus.SecondaryGun.icon
             : null;
 
