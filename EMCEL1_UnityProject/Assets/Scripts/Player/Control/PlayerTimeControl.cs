@@ -22,10 +22,7 @@ namespace Player.Control
         private void Update()
         {
             if (Keyboard.current.escapeKey.wasPressedThisFrame || Keyboard.current.kKey.wasPressedThisFrame)
-            {
-                Debug.Log("test");
                 GlobalCommand.setPause?.Invoke(!isPaused);
-            }
         }
 
         private void SetPause(bool value) => isPaused = value;

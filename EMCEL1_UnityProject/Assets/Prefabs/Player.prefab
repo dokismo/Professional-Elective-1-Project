@@ -556,7 +556,7 @@ MonoBehaviour:
   playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
   startGun1: {fileID: 0}
   startGun2: {fileID: 0}
-  maxGuns: 3
+  maxGuns: 2
   localGuns: []
   gunAnchor: {fileID: 1895527322}
 --- !u!114 &2131667088306124822

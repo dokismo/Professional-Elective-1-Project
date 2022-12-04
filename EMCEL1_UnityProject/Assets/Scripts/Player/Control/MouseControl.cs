@@ -16,6 +16,11 @@ namespace Player.Control
             GlobalCommand.setPause -= SetMouseControl;
         }
 
+        private void OnDestroy()
+        {
+            SetMouseControl(true);
+        }
+
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;

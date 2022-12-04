@@ -43,7 +43,7 @@ namespace Gun
         public FireType fireType = FireType.Linear;
         public Operation operation = Operation.Automatic;
         public Sprite icon;
-        public GameObject muzzleFlash;
+        public MuzzleFlash muzzleFlash;
         
         //For SFX
         public AudioClip gunFireSound;
@@ -83,7 +83,7 @@ namespace Gun
             
             RecoilEffect.setControl?.Invoke(recoilControl);
             
-            muzzleFlash.SetActive(false);
+            muzzleFlash.gameObject.SetActive(false);
             swapTimer = 0.5f;
             able = false;
             gunAnimation.SwapEvent();
@@ -166,12 +166,13 @@ namespace Gun
             }
             
             audiosource.PlayOneShot(gunFireSound); //SFX
+            gunLight.Light();
+            muzzleFlash.gameObject.SetActive(true);
             
             for (didntFried++; didntFried > 0; didntFried--)
             for (int i = 0; i < ammoPerFire; i++)
             {
-                gunLight.Light();
-                muzzleFlash.SetActive(true);
+                
 
                 Vector2 mousePos = Mouse.current.position.ReadValue();
                 Vector2 gotRecoil = new Vector2(0, RecoilEffect.apply?.Invoke(recoil, maxRecoil) ?? 0);
@@ -226,7 +227,6 @@ namespace Gun
         {
             if (!able) return;
             
-            Debug.Log("test2");
             gunAnimation.ReloadDoneEvent();
             int neededAmmo = ammoPerMag - ammoInMag;
             int gotAmount 

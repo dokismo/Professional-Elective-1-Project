@@ -40,8 +40,12 @@ namespace Player
 
         public void RemoveSprite() => CharacterIcon = null;
 
-        public Sprite GetCurrentGunIcon() => PlayerStatus.CurrentGun != null && PlayerStatus.CurrentGun.icon != null
-            ? PlayerStatus.CurrentGun.icon
+        public Sprite GetPrimaryIcon() => PlayerStatus.PrimaryGun != null && PlayerStatus.PrimaryGun.icon != null
+            ? PlayerStatus.PrimaryGun.icon
+            : null;
+
+        public Sprite GetSecondaryIcon() => PlayerStatus.SecondaryGun != null && PlayerStatus.SecondaryGun.icon != null
+            ? PlayerStatus.SecondaryGun.icon
             : null;
 
     }

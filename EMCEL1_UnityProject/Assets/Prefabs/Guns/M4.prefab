@@ -242,7 +242,7 @@ MonoBehaviour:
   fireType: 0
   operation: 0
   icon: {fileID: -268194032, guid: 37948b23e9092d34e827689b9bfcbd19, type: 3}
-  muzzleFlash: {fileID: 7238345107920880162}
+  muzzleFlash: {fileID: 243919733478416897}
   gunFireSound: {fileID: 8300000, guid: 3b69671c3ee6e0b48be92b49d45e4310, type: 3}
   gunReloadingSound: {fileID: 8300000, guid: b0084e608aeb2a447a504233dc66169e, type: 3}
   audiosource: {fileID: 4441497135764967771}
@@ -518,7 +518,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6356273145500351131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.509, y: 0.363, z: 0}
+  m_LocalPosition: {x: 4.671, y: 0.42, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -551,7 +551,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7238345107920880162}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.787, y: 0.236, z: 0}
+  m_LocalPosition: {x: 5.55, y: 0.32, z: 0}
   m_LocalScale: {x: 0.2, y: 0.19999999, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -599,7 +599,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b903492db4e935f42b0048b5be61efca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3767ccf3e5990004691f926caa85f61f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -623,6 +623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: b903492db4e935f42b0048b5be61efca, type: 3}
-  - {fileID: 21300000, guid: 6568df5f63968bb4aad8edf29cfbe242, type: 3}
-  - {fileID: 21300000, guid: 092f4e26922091148b8e243750b33da3, type: 3}
+  - {fileID: 21300000, guid: 3767ccf3e5990004691f926caa85f61f, type: 3}
+  - {fileID: 21300000, guid: 0d1d04910c6ac574d8dbc892fe332906, type: 3}
+  - {fileID: 21300000, guid: a47738001a8048942a096d27a574c737, type: 3}
+  - {fileID: 21300000, guid: f0aba3a737d9d604b817072e783c8ee1, type: 3}

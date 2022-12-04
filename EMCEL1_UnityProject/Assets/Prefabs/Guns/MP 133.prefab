@@ -145,7 +145,7 @@ MonoBehaviour:
   fireType: 1
   operation: 1
   icon: {fileID: -997259595, guid: 37948b23e9092d34e827689b9bfcbd19, type: 3}
-  muzzleFlash: {fileID: 5999134208429018211}
+  muzzleFlash: {fileID: 4421285619244508040}
   gunFireSound: {fileID: 8300000, guid: 3d88a33029a352349a84749b53bdb7e9, type: 3}
   gunReloadingSound: {fileID: 8300000, guid: 2762446086609c64193313797fc842e0, type: 3}
   audiosource: {fileID: 4441497135764967771}

@@ -19,7 +19,7 @@ namespace UI
         public Image playerHealthBar;
         public Image playerIcon;
         public TextMeshProUGUI txtMoney;
-        public Image gunIcon;
+        public Image primaryIcon, secondaryIcon;
         public TextMeshProUGUI ammo;
         public TextMeshProUGUI shopTxt;
         public GameObject dead;
@@ -59,8 +59,14 @@ namespace UI
 
         private void GunIcon()
         {
-            gunIcon.sprite = playerStatusScriptable.GetCurrentGunIcon();
-            gunIcon.color = gunIcon.sprite != null
+            primaryIcon.sprite = playerStatusScriptable.GetPrimaryIcon();
+            secondaryIcon.sprite = playerStatusScriptable.GetSecondaryIcon();
+            
+            primaryIcon.color = primaryIcon.sprite != null
+                ? Color.white
+                : Color.clear;
+            
+            secondaryIcon.color = secondaryIcon.sprite != null
                 ? Color.white
                 : Color.clear;
         }
@@ -68,7 +74,7 @@ namespace UI
         private void Ammo()
         {
             Shooting gun = playerStatusScriptable.PlayerStatus != null
-                ? playerStatusScriptable.PlayerStatus.CurrentGun
+                ? playerStatusScriptable.PlayerStatus.PrimaryGun
                 : null;
             
             ammo.text = gun != null

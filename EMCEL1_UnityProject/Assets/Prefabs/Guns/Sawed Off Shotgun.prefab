@@ -145,7 +145,7 @@ MonoBehaviour:
   fireType: 1
   operation: 1
   icon: {fileID: -1780768298, guid: 37948b23e9092d34e827689b9bfcbd19, type: 3}
-  muzzleFlash: {fileID: 6445444769150705375}
+  muzzleFlash: {fileID: 8583364414444251850}
   gunFireSound: {fileID: 0}
   gunReloadingSound: {fileID: 0}
   audiosource: {fileID: 0}
@@ -502,7 +502,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b903492db4e935f42b0048b5be61efca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 77336b42205558d4186126b7393bdded, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -526,9 +526,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: b903492db4e935f42b0048b5be61efca, type: 3}
-  - {fileID: 21300000, guid: 6568df5f63968bb4aad8edf29cfbe242, type: 3}
-  - {fileID: 21300000, guid: 092f4e26922091148b8e243750b33da3, type: 3}
+  - {fileID: 21300000, guid: 77336b42205558d4186126b7393bdded, type: 3}
+  - {fileID: 21300000, guid: a07eee8221c26cf41ad0c32c391d1182, type: 3}
+  - {fileID: 21300000, guid: d2f18dbcd9d558c4e85a65556337eaa2, type: 3}
+  - {fileID: 21300000, guid: a838ef5f64690954ebe68e4b38606b4e, type: 3}
 --- !u!1 &6914611546137430635
 GameObject:
   m_ObjectHideFlags: 0

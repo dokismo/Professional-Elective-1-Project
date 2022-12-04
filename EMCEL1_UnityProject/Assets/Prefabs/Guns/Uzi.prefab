@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1010900395145667365}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.621, y: 0.075, z: 0}
+  m_LocalPosition: {x: 3.41, y: 0.27, z: 0}
   m_LocalScale: {x: 0.2, y: 0.19999999, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b903492db4e935f42b0048b5be61efca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c0fab05188e36242bc638bf09824a70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -98,9 +98,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: b903492db4e935f42b0048b5be61efca, type: 3}
-  - {fileID: 21300000, guid: 6568df5f63968bb4aad8edf29cfbe242, type: 3}
-  - {fileID: 21300000, guid: 092f4e26922091148b8e243750b33da3, type: 3}
+  - {fileID: 21300000, guid: 7c0fab05188e36242bc638bf09824a70, type: 3}
+  - {fileID: 21300000, guid: a003ff4ad7887ce4a8bbd7187e100096, type: 3}
+  - {fileID: 21300000, guid: 315a75854c178a241a5d85d485f4bb24, type: 3}
+  - {fileID: 21300000, guid: c346f32b63f573f4080d205c576c6cb8, type: 3}
+  - {fileID: 21300000, guid: 825aab1326099f84caa22baed4353eca, type: 3}
+  - {fileID: 21300000, guid: c3ed71dab4c3d6545b675ffe3bcb40c1, type: 3}
+  - {fileID: 21300000, guid: 71eb20b78fec67648878c5dd729ca6e1, type: 3}
+  uzi: 1
 --- !u!1 &4441497135764967775
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +251,7 @@ MonoBehaviour:
   fireType: 0
   operation: 0
   icon: {fileID: 1024295516, guid: 37948b23e9092d34e827689b9bfcbd19, type: 3}
-  muzzleFlash: {fileID: 1010900395145667365}
+  muzzleFlash: {fileID: 2214159028700280311}
   gunFireSound: {fileID: 8300000, guid: 954357bd298008e4e9e04ba4c369bb12, type: 3}
   gunReloadingSound: {fileID: 8300000, guid: 15d95226fa14821429e831eb7a78fc8b, type: 3}
   audiosource: {fileID: 4441497135764967771}
@@ -522,7 +527,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6356273145500351131}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.32, y: 0.21, z: 0}
+  m_LocalPosition: {x: 2.465, y: 0.265, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []

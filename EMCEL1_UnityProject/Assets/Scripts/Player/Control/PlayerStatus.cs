@@ -21,7 +21,8 @@ namespace Player.Control
         
         private int currentIndex = 0;
         
-        public Shooting CurrentGun { get; private set; }
+        public Shooting PrimaryGun { get; private set; }
+        public Shooting SecondaryGun { get; private set; }
         public bool InventoryIsFull => localGuns.Count >= maxGuns;
 
         public static bool CanShoot => Cursor.lockState == CursorLockMode.Locked;
@@ -79,17 +80,20 @@ namespace Player.Control
         {
             currentIndex = position < 0 ? currentIndex : position;
                 
-            CurrentGun = null;
+            PrimaryGun = null;
+            SecondaryGun = null;
+            
             for (int i = 0; i < localGuns.Count; i++)
             {
                 if (currentIndex == i)
                 {
                     localGuns[i].SetActive(true);
-                    CurrentGun = localGuns[i].GetComponent<Shooting>();
+                    PrimaryGun = localGuns[i].GetComponent<Shooting>();
                 }
                 else
                 {
                     localGuns[i].SetActive(false);
+                    SecondaryGun = localGuns[i].GetComponent<Shooting>();
                 }
             }
         }
@@ -98,9 +102,9 @@ namespace Player.Control
         {
             if (InventoryIsFull)
             {
-                if (CurrentGun == null) return;
+                if (PrimaryGun == null) return;
 
-                Destroy(CurrentGun.gameObject);
+                Destroy(PrimaryGun.gameObject);
                 GameObject replacementGun = Instantiate(gun, gunAnchor);
 
                 localGuns[currentIndex] = replacementGun;

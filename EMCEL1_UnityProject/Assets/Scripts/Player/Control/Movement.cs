@@ -28,6 +28,7 @@ namespace Player.Control
         public LayerMask groundLayer;
         [FormerlySerializedAs("inputAction")] 
         public InputAction movementInput;
+        public InputAction runInput;
 
         [HideInInspector] public Vector3 moveDir;
         [HideInInspector] public Vector3 velocity;
@@ -44,12 +45,14 @@ namespace Player.Control
 
         private void OnEnable()
         {
+            runInput.Enable();
             movementInput.Enable();
             getMovement += GetMoveMagnitude;
         }
 
         private void OnDisable()
         {
+            runInput.Disable();
             movementInput.Disable();
             getMovement -= GetMoveMagnitude;
         }
@@ -87,7 +90,6 @@ namespace Player.Control
         private void FixedUpdate()
         {
             velocity.y += gravity * Time.fixedDeltaTime;
-            Debug.Log($"{Time.fixedDeltaTime} && {Time.deltaTime}");
 
             controller.Move(velocity + moveDir.normalized * (speed * Time.fixedDeltaTime));
         }
