@@ -180,7 +180,7 @@ namespace Gun
                                                       ? gotRecoil
                                                       : Random.insideUnitCircle * recoil));
 
-                Physics.Raycast(ray, out var raycastHit, distance, targetLayers);
+                Physics.Raycast(ray, out var raycastHit, distance, targetLayers, QueryTriggerInteraction.Ignore);
                     
                 if (raycastHit.collider != null)
                 {

@@ -48,33 +48,36 @@ public class EnemyNavMeshScript : MonoBehaviour
             EnemyNMAgent.isStopped = true;
         }
 
-
-        if (EnemyNMAgent.enabled && objIdentifier.identifiedObj != null)
+        if(GetComponentInChildren<BossAbilityScript>() == null)
         {
-          
-            if (EnemyNMAgent.remainingDistance <= EnemyNMAgent.stoppingDistance && objIdentifier.identifiedObj.tag == "Player")
+            if (EnemyNMAgent.enabled && objIdentifier.identifiedObj != null)
             {
-                attacking = true;
+
+                if (EnemyNMAgent.remainingDistance <= EnemyNMAgent.stoppingDistance && objIdentifier.identifiedObj.tag == "Player")
+                {
+                    attacking = true;
+                }
+            }
+
+            if (attacking)
+            {
+                if (timeToAttack <= 0)
+                {
+                    timeToAttack = defaultAttackSpeed;
+                    EnemyNMAgent.isStopped = false;
+                    attacking = false;
+                    timeToAttack = defaultAttackSpeed;
+                    attackTarget();
+                }
+                else
+                {
+                    EnemyNMAgent.destination = transform.position;
+                    EnemyNMAgent.destination = GameObject.Find("Player").transform.position;
+                    timeToAttack -= Time.deltaTime;
+                }
             }
         }
-
-        if (attacking)
-        {
-            if (timeToAttack <= 0)
-            {
-                timeToAttack = defaultAttackSpeed;
-                EnemyNMAgent.isStopped = false;
-                attacking = false;
-                timeToAttack = defaultAttackSpeed;
-                attackTarget();
-            }
-            else
-            {
-                EnemyNMAgent.destination = transform.position;
-                EnemyNMAgent.destination = GameObject.Find("Player").transform.position;
-                timeToAttack -= Time.deltaTime;
-            }
-        }
+        
     }
 
 

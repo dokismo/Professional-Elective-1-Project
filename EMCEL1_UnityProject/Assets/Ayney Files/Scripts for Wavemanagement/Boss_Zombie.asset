@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Boss_Zombie
   m_EditorClassIdentifier: 
   Health: 1000
-  Damage: 15
-  Speed: 1
+  Damage: 0
+  Speed: 5
   HealthMultiplier: 1
   DamageMultiplier: 1
   SpeedMultiplier: 1
