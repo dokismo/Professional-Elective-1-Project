@@ -18,7 +18,7 @@ public class EnemyHitScript : MonoBehaviour, ITarget
     void Start()
     {
         delayReset = StartCoroutine(ResetWithDelay());
-        MainEnemyTransform = transform.parent.parent.transform;
+        MainEnemyTransform = transform.parent.parent.parent.transform;
         ThisEnemyHPScript = MainEnemyTransform.GetComponent<EnemyHpHandler>();
     }
 

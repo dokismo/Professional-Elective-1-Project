@@ -699,6 +699,10 @@ PrefabInstance:
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4fa0943fbfc2d644d945188bb8079bb8, type: 3}
+      propertyPath: m_TagString
+      value: Map
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4fa0943fbfc2d644d945188bb8079bb8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
@@ -814,7 +818,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2344444634698050882, guid: a0cf939a80a2d2e4099796bb8efd4343, type: 3}
       propertyPath: WaveNumber
-      value: 99
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2344444634698050883, guid: a0cf939a80a2d2e4099796bb8efd4343, type: 3}
       propertyPath: m_RootOrder

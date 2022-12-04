@@ -41,11 +41,11 @@ public class EnemyApplyStats : MonoBehaviour
     }
     void ApplyStats()
     {
-        EnemyHealthManager.enemyHp = Health * WaveDifficultyManager.HPDifficultyMultiplier;
-        EnemyMainScript.enemyDamage = Damage * WaveDifficultyManager.DmgDifficultyMultiplier;
-
         EnemyNMA.speed = Speed * SpeedMultiplier;
-        EnemyHealthManager.enemyHp = EnemyHealthManager.enemyHp * HealthMultiplier;
-        EnemyMainScript.enemyDamage = EnemyMainScript.enemyDamage * DmgMultiplier;
+        EnemyHealthManager.enemyHp = Health * HealthMultiplier;
+        EnemyMainScript.enemyDamage = Damage * DmgMultiplier;
+
+        EnemyHealthManager.enemyHp *= (WaveDifficultyManager.HPDifficultyMultiplier + 1);
+        EnemyMainScript.enemyDamage *=   (WaveDifficultyManager.DmgDifficultyMultiplier + 1);
     }
 }
