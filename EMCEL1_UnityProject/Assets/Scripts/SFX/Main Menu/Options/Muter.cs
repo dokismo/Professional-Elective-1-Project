@@ -1,4 +1,5 @@
 using System;
+using SFX.Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,55 +9,29 @@ namespace SFX.Main_Menu.Options
     {
         public Sprite onSprite, offSprite;
         public Image image;
-        public VolumeController music, sfx;
 
         public bool on;
+
+        private void Start()
+        {
+            int i = PlayerPrefs.GetInt(VolumeManager.MixerMute, 0);
+
+            on = i == 1;
+            Refresh();
+        }
 
         public void Toggle()
         {
             on = !on;
+            VolumeManager.muteToggle?.Invoke(on);
             Refresh();
         }
-
-        private void Update()
-        {
-            // CheckVolumes();
-        }
-
-        // private void CheckVolumes()
-        // {
-        //     float checker = music.Volume - sfx.Volume;
-        //     if (checker > 0) return;
-        //
-        //     switch (on)
-        //     {
-        //         case false when checker == 0 && music.Volume == 0:
-        //             on = false;
-        //             Refresh();
-        //             break;
-        //         case true when checker > 0:
-        //             on = true;
-        //             Refresh();
-        //             break;
-        //     }
-        // }
 
         private void Refresh()
         {
             image.sprite = on
                 ? onSprite
                 : offSprite;
-            
-            if (on)
-            {
-                music.Mute();
-                sfx.Mute();
-            }
-            else
-            {
-                music.UnMute();
-                sfx.UnMute();
-            }
         }
     }
 }

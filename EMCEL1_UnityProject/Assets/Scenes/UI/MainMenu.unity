@@ -3738,8 +3738,6 @@ MonoBehaviour:
   onSprite: {fileID: -1265021060, guid: b004c995c60202948b88d67d9228f4a6, type: 3}
   offSprite: {fileID: 165655487, guid: b004c995c60202948b88d67d9228f4a6, type: 3}
   image: {fileID: 583388682}
-  music: {fileID: 1893813225}
-  sfx: {fileID: 296569776}
   on: 0
 --- !u!1 &1559861722
 GameObject:

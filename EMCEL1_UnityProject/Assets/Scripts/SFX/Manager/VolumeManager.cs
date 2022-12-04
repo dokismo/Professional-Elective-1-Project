@@ -7,8 +7,7 @@ namespace SFX.Manager
     {
         public delegate void MuteEvent(bool value);
         public static MuteEvent muteToggle;
-        
-        
+
         public delegate void VolumeEvent();
         public static VolumeEvent save;
         public static VolumeEvent load;
