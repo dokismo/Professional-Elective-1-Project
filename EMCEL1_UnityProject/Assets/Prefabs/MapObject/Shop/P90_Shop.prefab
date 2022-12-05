@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     name: P90
-    price: 10
+    price: 750
     gun: {fileID: 4441497135764967775, guid: cc0edacf9aff4ce468883c7590b81258, type: 3}
 --- !u!65 &8907403879710160867
 BoxCollider:

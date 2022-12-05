@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4441497135764967769}
   - component: {fileID: 8619453133615977790}
   m_Layer: 12
-  m_Name: MP 133
+  m_Name: Trench Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,11 +134,11 @@ MonoBehaviour:
   ammoPerMag: 8
   totalAmmo: 46
   maxTotalAmmo: 100
-  rpm: 60
+  rpm: 120
   ammoPerFire: 12
   reloadTime: 1
   recoil: 35
-  maxRecoil: 35
+  maxRecoil: 0
   recoilControl: 10
   fireType: 1
   operation: 1

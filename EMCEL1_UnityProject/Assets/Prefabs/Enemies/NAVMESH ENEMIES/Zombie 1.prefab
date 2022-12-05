@@ -269,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHp: 100
   MinimumMoney: 10
-  MaxMoney: 20
+  MaxMoney: 10
 --- !u!114 &-4495673707811796054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4034e558a7b304243a374e149f761af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultAttackSpeed: 0.7
+  defaultAttackSpeed: 0.5
   timeToAttack: 0
   enemyDamage: 10
   objInRange: {fileID: 0}
@@ -479,6 +479,7 @@ MonoBehaviour:
   DmgMultiplier: 1.5
   isInRangeForZ5Effect: 0
   DmgReductionMultiplier: 1
+  isBoss: 0
 --- !u!1 &7755037353261159377
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,3 +542,4 @@ MonoBehaviour:
   DmgMultiplier: 1
   isInRangeForZ5Effect: 0
   DmgReductionMultiplier: 1
+  isBoss: 0

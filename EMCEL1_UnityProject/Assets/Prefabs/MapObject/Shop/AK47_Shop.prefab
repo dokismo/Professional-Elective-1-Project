@@ -113,5 +113,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     name: AK47
-    price: 10
+    price: 1000
     gun: {fileID: 4441497135764967775, guid: 2711db4aea016bd4c9050bfb4b77bf8d, type: 3}

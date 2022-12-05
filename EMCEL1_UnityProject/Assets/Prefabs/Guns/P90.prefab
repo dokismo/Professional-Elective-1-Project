@@ -226,16 +226,16 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 2368
-  damage: 30
-  ammoInMag: 45
-  ammoPerMag: 45
-  totalAmmo: 360
-  maxTotalAmmo: 0
+  damage: 18
+  ammoInMag: 50
+  ammoPerMag: 50
+  totalAmmo: 350
+  maxTotalAmmo: 350
   rpm: 800
   ammoPerFire: 1
   reloadTime: 1
-  recoil: 5
-  maxRecoil: 28
+  recoil: 3
+  maxRecoil: 10
   recoilControl: 10
   fireType: 0
   operation: 0

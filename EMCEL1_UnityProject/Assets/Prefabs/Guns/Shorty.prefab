@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 4441497135764967769}
   - component: {fileID: 8619453133615977790}
   m_Layer: 12
-  m_Name: Sawed Off Shotgun
+  m_Name: Shorty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,16 +129,16 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 2368
-  damage: 40
-  ammoInMag: 8
-  ammoPerMag: 8
-  totalAmmo: 46
-  maxTotalAmmo: 100
-  rpm: 60
-  ammoPerFire: 12
+  damage: 20
+  ammoInMag: 2
+  ammoPerMag: 2
+  totalAmmo: 16
+  maxTotalAmmo: 16
+  rpm: 100
+  ammoPerFire: 6
   reloadTime: 1
-  recoil: 35
-  maxRecoil: 35
+  recoil: 50
+  maxRecoil: 0
   recoilControl: 10
   fireType: 1
   operation: 1

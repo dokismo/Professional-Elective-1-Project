@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     name: G36
-    price: 10
+    price: 600
     gun: {fileID: 4441497135764967775, guid: 077328f195e80c9499abab109e3803d5, type: 3}
 --- !u!65 &8907403879710160867
 BoxCollider:

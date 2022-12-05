@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 4441497135764967769}
   - component: {fileID: 8619453133615977790}
   m_Layer: 12
-  m_Name: G36
+  m_Name: G36K
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,15 +329,15 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 2368
-  damage: 45
-  ammoInMag: 45
-  ammoPerMag: 45
-  totalAmmo: 360
-  maxTotalAmmo: 360
-  rpm: 600
+  damage: 24
+  ammoInMag: 25
+  ammoPerMag: 25
+  totalAmmo: 275
+  maxTotalAmmo: 275
+  rpm: 450
   ammoPerFire: 1
   reloadTime: 1
-  recoil: 5
+  recoil: 2
   maxRecoil: 28
   recoilControl: 10
   fireType: 0
