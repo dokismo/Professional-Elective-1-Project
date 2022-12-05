@@ -9,32 +9,26 @@ public class ButtonSFX : MonoBehaviour
 
     public void onClick()
     {
-        audiosource.clip = clickSelect;
-        audiosource.Play();
+        audiosource.PlayOneShot(clickSelect);
     }
     public void onClickBack()
     {
-        audiosource.clip = clickBack;
-        audiosource.Play();
+        audiosource.PlayOneShot(clickBack);
     }
     public void onClickRun()
     {
-        audiosource.clip = clickRun;
-        audiosource.Play();
+        audiosource.PlayOneShot(clickRun);
     }
     public void onClickTick()
     {
-        audiosource.clip = clickVolume;
-        audiosource.Play();
+        audiosource.PlayOneShot(clickVolume);
     }
     public void onClickMute()
     {
-        audiosource.clip = clickMute;
-        audiosource.Play();
+        audiosource.PlayOneShot(clickMute);
     }
     public void onCharHover()
     {
-        audiosource.clip = charHover;
-        audiosource.Play();
+        audiosource.PlayOneShot(charHover);
     }
 }
