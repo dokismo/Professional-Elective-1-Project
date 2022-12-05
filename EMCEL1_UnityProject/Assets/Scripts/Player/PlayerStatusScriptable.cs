@@ -55,7 +55,7 @@ namespace Player
         {
             if (value < 0)
                 staminaChanged?.Invoke();
-            
+
             stamina = Mathf.Clamp(stamina + value, 0, maxStamina);
         }
 
