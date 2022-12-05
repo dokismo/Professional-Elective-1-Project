@@ -1,18 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GunSound : MonoBehaviour
+namespace Gun
 {
-    // Start is called before the first frame update
-    void Start()
+    public class GunSound : MonoBehaviour
     {
-        
-    }
+        public delegate void GunEvent();
+        public static GunEvent shootEvent;
+        public static GunEvent reloadEvent;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public AudioClip shoot, reload;
+        public AudioSource audiosource;
+
+        private Shooting gunShooting;
+
+        private void OnEnable()
+        {
+            shootEvent += Shoot;
+            reloadEvent += Reload;
+        }
+        private void OnDisable()
+        {
+            shootEvent -= Shoot;
+            reloadEvent -= Reload;
+        }
+        private void Start()
+        {
+            gunShooting = GetComponent<Shooting>();
+        }
+        private void Reload()
+        {
+            audiosource.PlayOneShot(reload);
+        }
+        private void Shoot()
+        {
+            audiosource.PlayOneShot(shoot);
+        }
     }
+    
+   
 }

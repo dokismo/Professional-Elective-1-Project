@@ -52,7 +52,8 @@ namespace UI.MainMenu
         private void Select()
         {
             if (selected) return;
-            
+
+            CharacterSelectSFX.selectCharEvent?.Invoke();//SFX
             selected = true;
             image.color = Color.Lerp(Color.clear, Color.black, 1f);
             playerStatusScriptable.SetAnimatorController(animator.runtimeAnimatorController);

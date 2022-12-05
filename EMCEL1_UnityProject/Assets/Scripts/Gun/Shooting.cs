@@ -44,11 +44,7 @@ namespace Gun
         public Operation operation = Operation.Automatic;
         public Sprite icon;
         public MuzzleFlash muzzleFlash;
-        
-        //For SFX
-        public AudioClip gunFireSound;
-        public AudioClip gunReloadingSound;
-        public AudioSource audiosource;
+       
 
         private float swapTimer;
         private bool able;
@@ -64,6 +60,7 @@ namespace Gun
         private FirePath firePath;
         private Camera thisCamera;
         private ParticleEffect particleEffect;
+        private GunSound gunSound; //SFX
         private int didntFried;
         
         private void Start()
@@ -162,8 +159,9 @@ namespace Gun
                 didntFried += Mathf.RoundToInt(excessFire);
                 fireTimer += Time.deltaTime % FireTime;
             }
-            
-            audiosource.PlayOneShot(gunFireSound); //SFX
+
+
+            GunSound.shootEvent?.Invoke();
             muzzleFlash.gameObject.SetActive(true);
             GunLight.triggerLight?.Invoke();
             
@@ -215,7 +213,7 @@ namespace Gun
         {
             if (totalAmmo <= 0 || ammoInMag == ammoPerMag || IsReloading) return;
 
-            audiosource.PlayOneShot(gunReloadingSound);
+            GunSound.reloadEvent?.Invoke();
             gunAnimation.ReloadEvent();
             reloadToggle = true;
             reloadTimer += reloadTime;
