@@ -4991,10 +4991,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5660677681306034385, guid: cc61533487a15674288eb6e2a9a393c7, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: cc61533487a15674288eb6e2a9a393c7, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -5040,13 +5036,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034388, guid: cc61533487a15674288eb6e2a9a393c7, type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5660677681306034389, guid: cc61533487a15674288eb6e2a9a393c7, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: playerStatusScriptable
+      value: 
+      objectReference: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc61533487a15674288eb6e2a9a393c7, type: 3}
 --- !u!1 &1870280050 stripped
