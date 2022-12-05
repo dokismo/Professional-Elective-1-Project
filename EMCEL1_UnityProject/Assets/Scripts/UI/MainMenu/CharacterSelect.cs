@@ -13,6 +13,7 @@ namespace UI.MainMenu
         public static CharacterSelectEvent selectEvent;
         
         public PlayerStatusScriptable playerStatusScriptable;
+        public string controllerName;
         public Animator animator;
 
         public Image image;
@@ -56,7 +57,7 @@ namespace UI.MainMenu
             CharacterSelectSFX.selectCharEvent?.Invoke();//SFX
             selected = true;
             image.color = Color.Lerp(Color.clear, Color.black, 1f);
-            playerStatusScriptable.SetAnimatorController(animator.runtimeAnimatorController);
+            playerStatusScriptable.SetAnimatorController(controllerName);
             selectEvent?.Invoke(this);
         }
 

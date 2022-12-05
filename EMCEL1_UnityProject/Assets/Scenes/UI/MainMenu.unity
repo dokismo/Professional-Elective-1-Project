@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
+  controllerName: Rouper
   animator: {fileID: 64250287}
   image: {fileID: 9473333}
 --- !u!114 &9473336
@@ -729,6 +730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
+  controllerName: Judy
   animator: {fileID: 1811598790}
   image: {fileID: 283634991}
 --- !u!114 &283634994
@@ -2008,7 +2010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &715553548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4986,7 +4988,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1780559083
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5444,6 +5446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
+  controllerName: Rebecca
   animator: {fileID: 1775781522}
   image: {fileID: 1874851326}
 --- !u!114 &1874851329
@@ -5881,6 +5884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
+  controllerName: Karl
   animator: {fileID: 345641755}
   image: {fileID: 2070124508}
 --- !u!114 &2070124511
