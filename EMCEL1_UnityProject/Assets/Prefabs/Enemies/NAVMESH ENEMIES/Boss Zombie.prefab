@@ -104,6 +104,7 @@ MonoBehaviour:
   DoingAbility: 0
   Charging: 0
   isStunned: 0
+  isAiming: 0
   ForwardTransform: {fileID: 8183645757239902940}
 --- !u!1 &7812528569951740635
 GameObject:

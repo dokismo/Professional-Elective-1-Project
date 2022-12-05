@@ -11,7 +11,7 @@ public class SimpleAiScript : MonoBehaviour
     public AIDestinationSetter aiSetterScript;
     public AIPath aiPathScript;
     public SimpleEnemyColScript enemyColScript;
-    public ObjectIdentifier objIdentifier;
+    public AttackRange objIdentifier;
     public ForSpawningScript forSpawnScript;
 
     public SphereCollider objIdentifierSphere;

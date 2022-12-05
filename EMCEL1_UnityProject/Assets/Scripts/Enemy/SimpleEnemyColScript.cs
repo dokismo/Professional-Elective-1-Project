@@ -17,7 +17,7 @@ public class SimpleEnemyColScript : MonoBehaviour
     public AIDestinationSetter aiSetterScript;
     public AIPath aiPathScript;
     public SimpleEnemyColScript enemyColScript;
-    public ObjectIdentifier objIdentifier;
+    public AttackRange objIdentifier;
     public ForSpawningScript forSpawnScript;
 
     public SphereCollider objIdentifierSphere;
@@ -30,7 +30,7 @@ public class SimpleEnemyColScript : MonoBehaviour
         aiSetterScript = transform.GetComponent<AIDestinationSetter>();
         aiPathScript = transform.GetComponent<AIPath>();
         enemyColScript = transform.GetComponent<SimpleEnemyColScript>();
-        objIdentifier = transform.GetChild(0).GetComponent<ObjectIdentifier>();
+        objIdentifier = transform.GetChild(0).GetComponent<AttackRange>();
         objIdentifierSphere = transform.GetChild(0).GetComponent<SphereCollider>();
         aiSetterScript.target = GameObject.Find("Player").transform;
 

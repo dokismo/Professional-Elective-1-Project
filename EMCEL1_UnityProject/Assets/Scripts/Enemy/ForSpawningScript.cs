@@ -20,6 +20,8 @@ public class ForSpawningScript : MonoBehaviour
     public bool CanSpawnBossEnemy = false;
     public int NumberOfBossToSpawn = 1;
     public int BossesSpawned = 0;
+
+    public bool CanSpawnZombie4and5 = false;
     private void Start()
     {
         WaveDifficultyManager = GameObject.Find("For Wave Management").GetComponent<WaveDifficultyIncrement>();

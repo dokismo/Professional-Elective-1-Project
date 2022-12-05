@@ -14,7 +14,7 @@ public class EnemyHpHandler : MonoBehaviour
     public int MinimumMoney, MaxMoney;
 
     private SFXManager sfxManager;
-
+    bool isAlive = true;
     private void Start()
     {
         sfxManager = FindObjectOfType<SFXManager>();//sfx
@@ -27,7 +27,12 @@ public class EnemyHpHandler : MonoBehaviour
             if (sfxManager)
                 sfxManager.Play("zombie_death"); //sfx
             Destroy(gameObject);
-            DropMoney(Random.Range(MinimumMoney, MaxMoney));
+            if (isAlive)
+            {
+                int MoneyDropped = Random.Range(MinimumMoney, MaxMoney);
+                DropMoney(MoneyDropped); 
+            }
+            isAlive = false;
         }
     }
 

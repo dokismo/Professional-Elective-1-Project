@@ -8,6 +8,8 @@ public class Zombie4Script : MonoBehaviour
 
     public float HalfHP;
     public bool EffectsApplied = false;
+
+    
     private void Start()
     {
         
@@ -17,6 +19,7 @@ public class Zombie4Script : MonoBehaviour
     {
         if (GetComponent<EnemyHpHandler>().enemyHp <= HalfHP && !EffectsApplied)
         {
+            
             ApplyZombie4Effect();
         }
     }
@@ -24,6 +27,7 @@ public class Zombie4Script : MonoBehaviour
 
     void ApplyZombie4Effect()
     {
+        GetComponentInChildren<Animator>().speed = 2;
         GetComponent<EnemyNavMeshScript>().enemyDamage *= 1.5f;
         GetComponent<NavMeshAgent>().speed *= 3f;
         EffectsApplied = true;
