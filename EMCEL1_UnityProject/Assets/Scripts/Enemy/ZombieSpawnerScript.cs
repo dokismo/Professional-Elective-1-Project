@@ -17,7 +17,6 @@ public class ZombieSpawnerScript : MonoBehaviour
     public bool canSpawn = true;
 
 
-
     void Start()
     {
         transform.SetParent(GameObject.Find("SPAWNERS").transform);
@@ -31,12 +30,11 @@ public class ZombieSpawnerScript : MonoBehaviour
     {
         if (canSpawn)
         {
-            SpawnZombie(Random.Range(0, 10));
+            SpawnZombie(Random.Range(1, 10 + WaveDifficultyManager.Z4And5BalancingNum));
         }
-        
     }
 
-    void SpawnZombie(int RandomNum)
+    void SpawnZombie(float RandomNum)
     {
         
         if (timeToSpawn > 0f)
@@ -63,28 +61,23 @@ public class ZombieSpawnerScript : MonoBehaviour
                 forSpawnScript.BossesSpawned = 0;
             }
 
-
             // Spawn Zombies
-            if(RandomNum >= 0 && RandomNum<= 6)
+            if(RandomNum >= 1 && RandomNum<= 6)
             {
                 int RandomPicker = Random.Range(0,2);
                 Instantiate(zombieGameObjects[RandomPicker], transform.position, Quaternion.identity);
-            } else if (RandomNum >= 7 && RandomNum <=8)
+            } else if (RandomNum > 6 && RandomNum <=8)
             {
                 Instantiate(zombieGameObjects[2], transform.position, Quaternion.identity);
-            } else if (RandomNum == 9)
+            } else
             {
-                if (WaveDifficultyManager.WaveNumber >= 6 && WaveDifficultyManager.WaveNumber < 10)
-                {
-                    Instantiate(zombieGameObjects[3], transform.position, Quaternion.identity);
-                } else if (WaveDifficultyManager.WaveNumber >= 10)
+                if (forSpawnScript.CanSpawnZombie4and5)
                 {
                     int RandomNum2 = Random.Range(3, 5);
                     Instantiate(zombieGameObjects[RandomNum2], transform.position, Quaternion.identity);
                 }
-                
             }
-
+            
             timeToSpawn = defaultTimeToSpawn;
         }
 

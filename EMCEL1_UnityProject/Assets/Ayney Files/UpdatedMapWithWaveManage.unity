@@ -605,63 +605,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7666887008978304310, guid: 688927b1f4058434495308d876959ad8, type: 3}
---- !u!1001 &271477073
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 26.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 54.48469
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8183645757868395780, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
-      propertyPath: m_Name
-      value: Boss Zombie
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
 --- !u!4 &278547025 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7049841134369756820, guid: f91c5fcd9dd0b9544be9beeae1057688, type: 3}
@@ -2493,6 +2436,63 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1767822856525343386, guid: 688927b1f4058434495308d876959ad8, type: 3}
+--- !u!1001 &1380663783
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.886623
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 53.771877
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183645757868395779, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8183645757868395780, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
+      propertyPath: m_Name
+      value: Boss Zombie
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a6c302b1ebed60b44a922ca2698dfbf0, type: 3}
 --- !u!1 &1387099839
 GameObject:
   m_ObjectHideFlags: 0
@@ -3173,7 +3173,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 688927b1f4058434495308d876959ad8, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 688927b1f4058434495308d876959ad8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4993,7 +4993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: cc61533487a15674288eb6e2a9a393c7, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5660677681306034386, guid: cc61533487a15674288eb6e2a9a393c7, type: 3}
       propertyPath: m_LocalPosition.x

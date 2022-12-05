@@ -17,7 +17,7 @@ public class EnemyNavMeshScript : MonoBehaviour
     public bool attacking = false;
 
     [Header("Script For Referencing")]
-    public ObjectIdentifier objIdentifier;
+    public AttackRange objIdentifier;
     public ForSpawningScript forSpawnScript;
 
     public SphereCollider objIdentifierSphere;
@@ -26,9 +26,10 @@ public class EnemyNavMeshScript : MonoBehaviour
     {
 
         EnemyNMAgent = transform.GetComponent<NavMeshAgent>();
-        transform.SetParent(GameObject.Find("Enemies").transform);
 
-        objIdentifier = transform.GetChild(0).GetComponent<ObjectIdentifier>();
+        if(!transform.name.Contains("Lilnerd")) transform.SetParent(GameObject.Find("Enemies").transform);
+
+        objIdentifier = transform.GetChild(0).GetComponent<AttackRange>();
         objIdentifierSphere = transform.GetChild(0).GetComponent<SphereCollider>();
 
         timeToAttack = defaultAttackSpeed;
@@ -38,15 +39,19 @@ public class EnemyNavMeshScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(EnemyNMAgent.isStopped == false && !attacking)
+        if(EnemyNMAgent.isOnNavMesh)
         {
-            EnemyNMAgent.destination = GameObject.Find("Player").transform.position;
+            if (EnemyNMAgent.isStopped == false && !attacking)
+            {
+                if(GameObject.Find("Player") != null) EnemyNMAgent.destination = GameObject.Find("Player").transform.position;
+            }
+            else
+            {
+                EnemyNMAgent.destination = transform.position;
+                EnemyNMAgent.isStopped = true;
+            }
         }
-        else
-        {
-            EnemyNMAgent.destination = transform.position;
-            EnemyNMAgent.isStopped = true;
-        }
+        
 
         if(GetComponentInChildren<BossAbilityScript>() == null)
         {

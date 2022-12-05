@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconsAnimatorControllers: {fileID: 11400000, guid: f08f590f33516a44193385065ee365d7, type: 2}
   runtimeAnimatorController: {fileID: 22100000, guid: 52ad3229023ca8e448d447a85a01c1fd, type: 2}
-  money: 115
-  health: 75
+  money: 10000
+  health: 80
   maxHealth: 100
-  stamina: 0.079123065
+  stamina: 2.9578075
   maxStamina: 4
   mouseSensitivity: 10
