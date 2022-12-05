@@ -50,7 +50,8 @@ namespace UI.MainMenu
         private void Select()
         {
             if (selected) return;
-            
+
+            CharacterSelectSFX.selectCharEvent?.Invoke();
             selected = true;
             image.color = Color.Lerp(Color.clear, Color.black, 1f);
             InformationHolder.setAnimatorController?.Invoke(controllerName);
