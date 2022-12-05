@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
     name: Desert Eagle
-    price: 10
+    price: 210
     gun: {fileID: 4441497135764967775, guid: 66dc9a022f963ae4488934b8b70be79b, type: 3}
 --- !u!65 &4168405198597906363
 BoxCollider:

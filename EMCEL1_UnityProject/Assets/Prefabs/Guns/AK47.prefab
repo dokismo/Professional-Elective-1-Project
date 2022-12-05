@@ -234,15 +234,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2368
   damage: 45
-  ammoInMag: 30
-  ammoPerMag: 60
-  totalAmmo: 360
-  maxTotalAmmo: 360
-  rpm: 600
+  ammoInMag: 25
+  ammoPerMag: 25
+  totalAmmo: 275
+  maxTotalAmmo: 275
+  rpm: 450
   ammoPerFire: 1
   reloadTime: 1
-  recoil: 5
-  maxRecoil: 25
+  recoil: 20
+  maxRecoil: 30
   recoilControl: 10
   fireType: 0
   operation: 0

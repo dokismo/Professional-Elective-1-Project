@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7049841134369756817}
   - component: {fileID: 8907403879710160867}
   m_Layer: 13
-  m_Name: MP 133_Shop
+  m_Name: Shorty_Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1644541377, guid: ecf00929e16366d4eb8102da4ff929c5, type: 3}
+  m_Sprite: {fileID: 577078633, guid: ecf00929e16366d4eb8102da4ff929c5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    name: MP 133
-    price: 10
-    gun: {fileID: 4441497135764967775, guid: 71725a8d8e6cb8a4ab74c9dfb5d7701c, type: 3}
+    name: Shorty
+    price: 120
+    gun: {fileID: 4441497135764967775, guid: c04c2e0ca4da82d409eb0bc31ab29a0f, type: 3}
 --- !u!65 &8907403879710160867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,5 +113,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.03125, y: 0.5, z: 0.2}
+  m_Size: {x: 1.78125, y: 0.4375, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}

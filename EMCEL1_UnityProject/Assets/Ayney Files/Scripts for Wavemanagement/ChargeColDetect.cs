@@ -12,17 +12,15 @@ public class ChargeColDetect : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Collided with   " + other.transform.name);
         if(other.transform.tag == "Player" && BossScript.Charging)
         {
-            
-            BossScript.StopAllCoroutines();
             BossScript.Charging = false;
             BossScript.DoingAbility = false;
+            BossScript.StopAllCoroutines();
+            
             PlayerStatus.changeHealth?.Invoke(-(int)BossScript.ChargeDamage);
         }else if(other.transform.tag == "Map" && BossScript.Charging)
         {
-            Debug.Log("COLLIDED WITH MAP");
             BossScript.StartCoroutine(BossScript.StunTimer());
             BossScript.Charging = false;
             BossScript.DoingAbility = false;

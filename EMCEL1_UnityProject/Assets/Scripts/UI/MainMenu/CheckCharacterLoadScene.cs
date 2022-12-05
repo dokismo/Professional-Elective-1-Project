@@ -17,7 +17,7 @@ namespace UI.MainMenu
 
         public void CheckThenLoadSingle()
         {
-            if (playerStatusScriptable.RuntimeAnimatorController == null)
+            if (playerStatusScriptable.runtimeAnimatorController == null)
                 return;
             
             uiLoadScene.LoadSingle();

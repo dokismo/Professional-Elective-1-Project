@@ -63,6 +63,7 @@ MonoBehaviour:
   DmgMultiplier: 1
   isInRangeForZ5Effect: 0
   DmgReductionMultiplier: 1
+  isBoss: 0
 --- !u!54 &4834852848498473173
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,6 +142,7 @@ MonoBehaviour:
   DmgMultiplier: 1.5
   isInRangeForZ5Effect: 0
   DmgReductionMultiplier: 1
+  isBoss: 0
 --- !u!54 &916056567492756032
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -226,8 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d82c45610595094ea96efe13b09ede9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHp: 100
-  MinimumMoney: 10
+  enemyHp: 200
+  MinimumMoney: 20
   MaxMoney: 20
 --- !u!114 &7443272462612821630
 MonoBehaviour:
@@ -259,7 +261,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.1
-  m_Speed: 3.5
+  m_Speed: 2.45
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
