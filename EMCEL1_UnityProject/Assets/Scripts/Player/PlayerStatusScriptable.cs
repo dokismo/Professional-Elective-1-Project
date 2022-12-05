@@ -1,5 +1,6 @@
 using Player.Control;
 using UI;
+using UI.MainMenu;
 using UnityEngine;
 
 namespace Player
@@ -12,9 +13,9 @@ namespace Player
 
         public delegate void SetStatus(float value);
         public static SetStatus setSensitivity;
-        
-        public RuntimeAnimatorController RuntimeAnimatorController{ get; private set; }
 
+        public IconsAnimatorControllers iconsAnimatorControllers;
+        public RuntimeAnimatorController runtimeAnimatorController;
         public int money;
         public float health;
         public float maxHealth;
@@ -46,9 +47,9 @@ namespace Player
             if (health <= 0) DisplayStatus.onDead?.Invoke();
         }
 
-        public void SetAnimatorController(RuntimeAnimatorController controller) => RuntimeAnimatorController = controller;
+        public void SetAnimatorController(string controller) => runtimeAnimatorController = iconsAnimatorControllers.GetController(controller);
 
-        public void RemoveAnimatorController() => RuntimeAnimatorController = null;
+        public void RemoveAnimatorController() => runtimeAnimatorController = null;
 
         public void SetStaminaBy(float value)
         {

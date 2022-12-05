@@ -362,6 +362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
+  iconsAnimatorControllers: {fileID: 11400000, guid: f08f590f33516a44193385065ee365d7, type: 2}
   staminaFullColor: {r: 1, g: 1, b: 1, a: 0.19607843}
   blinkHighestRandomInterval: 10
   playerHealthBar: {fileID: 1460848243}

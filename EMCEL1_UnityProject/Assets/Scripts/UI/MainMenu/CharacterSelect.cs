@@ -6,11 +6,6 @@ using Image = UnityEngine.UI.Image;
 
 namespace UI.MainMenu
 {
-    [Serializable]
-    public struct RunTimeControllerValue
-    {
-        public RuntimeAnimatorController runtimeAnimatorController;
-    }
 
     public class CharacterSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
@@ -19,7 +14,7 @@ namespace UI.MainMenu
         
         public PlayerStatusScriptable playerStatusScriptable;
         public Animator animator;
-        public RunTimeControllerValue runTime;
+        public string controllerName;
 
         public Image image;
 
@@ -59,7 +54,7 @@ namespace UI.MainMenu
             if (selected) return;
             selected = true;
             image.color = Color.Lerp(Color.clear, Color.black, 1f);
-            playerStatusScriptable.SetAnimatorController(runTime.runtimeAnimatorController);
+            playerStatusScriptable.SetAnimatorController(controllerName);
             selectEvent?.Invoke(this);
         }
 
