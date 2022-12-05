@@ -1,3 +1,4 @@
+using SceneController;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,9 +8,11 @@ namespace Player.Control
     {
         public Transform playerBody;
         public Vector2 clamp = new(-85, 85);
-        public PlayerStatusScriptable playerStatusScriptable;
+
+        private float Sensitivity => InformationHolder.getMouseSensitivity != null
+            ? InformationHolder.getMouseSensitivity.Invoke()
+            : 10f;
         
-        private float Sensitivity => playerStatusScriptable.mouseSensitivity;
         public InputAction mouseX, mouseY;
         private float xRotation;
 

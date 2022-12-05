@@ -1,5 +1,6 @@
 using System;
 using Player;
+using SceneController;
 using UnityEngine;
 
 namespace UI.MainMenu
@@ -17,7 +18,7 @@ namespace UI.MainMenu
 
         public void CheckThenLoadSingle()
         {
-            if (playerStatusScriptable.runtimeAnimatorController == null)
+            if (InformationHolder.getAnimatorController?.Invoke() == null)
                 return;
             
             uiLoadScene.LoadSingle();

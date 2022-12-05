@@ -12,11 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0650e015af4855850caeee33aa34e6, type: 3}
   m_Name: PlayerStatus
   m_EditorClassIdentifier: 
-  iconsAnimatorControllers: {fileID: 11400000, guid: f08f590f33516a44193385065ee365d7, type: 2}
-  runtimeAnimatorController: {fileID: 22100000, guid: 52ad3229023ca8e448d447a85a01c1fd, type: 2}
-  money: 115
-  health: 75
+  money: 75
+  health: 85
   maxHealth: 100
-  stamina: 0.079123065
+  stamina: 0.1084999
   maxStamina: 4
-  mouseSensitivity: 10

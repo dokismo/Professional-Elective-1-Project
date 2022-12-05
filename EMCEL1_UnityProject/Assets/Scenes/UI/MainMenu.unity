@@ -214,7 +214,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a30afde57b48d2a9b82af130f8c5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
   animator: {fileID: 64250287}
   controllerName: Rouper
   image: {fileID: 9473333}
@@ -608,7 +607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b0afec98a9827459298758f9b4d634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 116874998}
 --- !u!1 &283634989
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +698,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a30afde57b48d2a9b82af130f8c5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
   animator: {fileID: 1811598790}
   controllerName: Judy
   image: {fileID: 283634991}
@@ -918,7 +915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07cdf1de441c7345be91a6c8e464063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 325248994}
 --- !u!1 &345641751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,7 +1519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b0afec98a9827459298758f9b4d634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 419579139}
 --- !u!1 &495480478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,11 +2000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b0919ee93b69014a95054476897b844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playing: 0
-  musicSource: {fileID: 545320058}
-  musicClips:
-  - {fileID: 8300000, guid: ba5427362a496f24a80bb287231204e2, type: 3}
-  - {fileID: 8300000, guid: 43cb8e2300bf25642b81b5c077f4c651, type: 3}
 --- !u!1 &573304585
 GameObject:
   m_ObjectHideFlags: 0
@@ -2193,7 +2183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff67eb7aa8357c4b96d958f1223442f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 583388681}
 --- !u!1 &588961124
 GameObject:
   m_ObjectHideFlags: 0
@@ -3816,7 +3805,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3227781f4344b8a458bb3c7460343782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 1026817945}
 --- !u!114 &1026817950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4052,7 +4040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cb1233595d55c4e96da6c7783b0afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 1042092132}
 --- !u!1 &1075635896
 GameObject:
   m_ObjectHideFlags: 0
@@ -4680,7 +4667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07cdf1de441c7345be91a6c8e464063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 1339054543}
 --- !u!1 &1388928914
 GameObject:
   m_ObjectHideFlags: 0
@@ -4839,7 +4825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07cdf1de441c7345be91a6c8e464063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 1388928916}
 --- !u!1 &1427543021
 GameObject:
   m_ObjectHideFlags: 0
@@ -4998,7 +4983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b0afec98a9827459298758f9b4d634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 1427543023}
 --- !u!1 &1470672764
 GameObject:
   m_ObjectHideFlags: 0
@@ -5442,7 +5426,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cb1233595d55c4e96da6c7783b0afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 1676964499}
 --- !u!1 &1708420206
 GameObject:
   m_ObjectHideFlags: 0
@@ -5985,7 +5968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cb1233595d55c4e96da6c7783b0afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 1769744747}
 --- !u!1 &1775781518
 GameObject:
   m_ObjectHideFlags: 0
@@ -6140,7 +6122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1996057463}
-  playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
 --- !u!1 &1811598786
 GameObject:
   m_ObjectHideFlags: 0
@@ -6569,7 +6550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a30afde57b48d2a9b82af130f8c5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
   animator: {fileID: 1775781522}
   controllerName: Rebecca
   image: {fileID: 1874851326}
@@ -6887,7 +6867,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00012207031}
+  m_AnchoredPosition: {x: 0, y: -0.000061035156}
   m_SizeDelta: {x: 0, y: 1937.025}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1976108894
@@ -7088,7 +7068,7 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 5
   m_MaxValue: 25
-  m_WholeNumbers: 1
+  m_WholeNumbers: 0
   m_Value: 25
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7184,7 +7164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a30afde57b48d2a9b82af130f8c5fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
   animator: {fileID: 345641755}
   controllerName: Karl
   image: {fileID: 2070124508}
@@ -7469,4 +7448,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cb1233595d55c4e96da6c7783b0afc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonsUI: {fileID: 2123376331}

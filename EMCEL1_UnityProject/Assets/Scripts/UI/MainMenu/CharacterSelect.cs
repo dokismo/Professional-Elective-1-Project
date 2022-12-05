@@ -1,4 +1,5 @@
 using Player;
+using SceneController;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Image = UnityEngine.UI.Image;
@@ -10,7 +11,6 @@ namespace UI.MainMenu
         public delegate void CharacterSelectEvent(CharacterSelect sender);
         public static CharacterSelectEvent selectEvent;
         
-        public PlayerStatusScriptable playerStatusScriptable;
         public Animator animator;
         public string controllerName;
 
@@ -53,7 +53,7 @@ namespace UI.MainMenu
             
             selected = true;
             image.color = Color.Lerp(Color.clear, Color.black, 1f);
-            playerStatusScriptable.SetAnimatorController(controllerName);
+            InformationHolder.setAnimatorController?.Invoke(controllerName);
             selectEvent?.Invoke(this);
         }
 
@@ -77,7 +77,7 @@ namespace UI.MainMenu
         {
             if (selected)
             {
-                playerStatusScriptable.RemoveAnimatorController();
+                InformationHolder.removeIcon?.Invoke();
                 Deselect();
             }
             else
