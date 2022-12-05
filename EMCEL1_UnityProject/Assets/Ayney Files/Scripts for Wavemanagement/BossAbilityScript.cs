@@ -5,7 +5,10 @@ using UnityEngine.AI;
 using _2._5D_Objects;
 public class BossAbilityScript : MonoBehaviour
 {
+    public Animator BossAnimator;
     NavMeshAgent BossNavmeshAgent;
+
+
 
     public float AbilityRange;
     SphereCollider BossAbilityCollider;
@@ -27,8 +30,11 @@ public class BossAbilityScript : MonoBehaviour
     Transform target;
     public Transform ForwardTransform;
 
+    Vector3 DashDirection;
+
     void Start()
     {
+
         ForwardTransform = transform.parent.Find("Sprite");
         BossNavmeshAgent = GetComponentInParent<NavMeshAgent>();
 
@@ -47,9 +53,12 @@ public class BossAbilityScript : MonoBehaviour
     {
         if(Charging)
         {
-            Debug.Log("CHARGING");
             BossNavmeshAgent.destination = Vector3.zero;
+
             transform.parent.transform.Translate(-ForwardTransform.forward * ChargeSpeed * Time.deltaTime);
+
+
+
         }
 
         if (isStunned)
@@ -57,6 +66,7 @@ public class BossAbilityScript : MonoBehaviour
             BossNavmeshAgent.speed = 0f;
             ForwardTransform.GetComponent<SpriteBillboard>().enabled = false;
         }
+       
 
         
     }
@@ -89,21 +99,29 @@ public class BossAbilityScript : MonoBehaviour
     IEnumerator ChargeAbility()
     {
         //Freeze the boss.
+
         BossNavmeshAgent.speed = 0f;
 
         yield return new WaitForSeconds(AimTime);
+        //for 2 points
+        //DashDirection = transform.position - GameObject.Find("Player").transform.position;
 
         // Set rotation to look at player then freeze.
         ForwardTransform.GetComponent<SpriteBillboard>().enabled = false;
         BossNavmeshAgent.updateRotation = false;
 
         Charging = true;
-
+        BossAnimator.SetBool("isCharging", true);
         yield return new WaitForSeconds(ChargeLength);
 
         // Set Everything back on
         BossNavmeshAgent.updateRotation = false;
+        
         ForwardTransform.GetComponent<SpriteBillboard>().enabled = true;
+
+        if(!isStunned) BossAnimator.SetBool("isCharging", false);
+
+
 
         Charging = false;
 
@@ -118,6 +136,7 @@ public class BossAbilityScript : MonoBehaviour
         yield return new WaitForSeconds(StunTime);
         ForwardTransform.GetComponent<SpriteBillboard>().enabled = true;
         BossNavmeshAgent.speed = BossSpeed;
+        BossAnimator.SetBool("isCharging", Charging);
         isStunned = false;
     }
 }
