@@ -130,7 +130,7 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 2368
-  damage: 65
+  damage: 20
   ammoInMag: 8
   ammoPerMag: 8
   totalAmmo: 46

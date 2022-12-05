@@ -13,6 +13,7 @@ namespace UI.MainMenu
         public static CharacterSelectEvent selectEvent;
         
         public PlayerStatusScriptable playerStatusScriptable;
+        public string controllerName;
         public Animator animator;
         public string controllerName;
 
