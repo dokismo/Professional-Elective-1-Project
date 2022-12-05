@@ -9,6 +9,9 @@ namespace Player
     {
         public delegate void StatChanged();
         public static StatChanged staminaChanged;
+
+        public delegate void SetStatus(float value);
+        public static SetStatus setSensitivity;
         
         public RuntimeAnimatorController RuntimeAnimatorController{ get; private set; }
 
@@ -17,6 +20,7 @@ namespace Player
         public float maxHealth;
         public float stamina;
         public float maxStamina = 4;
+        public float mouseSensitivity = 10;
 
         public PlayerStatus PlayerStatus { get; private set; }
         public bool CanSprint => stamina > 0;
@@ -62,5 +66,9 @@ namespace Player
             ? PlayerStatus.SecondaryGun.icon
             : null;
 
+        public void SetMouseSensitivity(float value)
+        {
+            mouseSensitivity = value;
+        }
     }
 }

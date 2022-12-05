@@ -7,8 +7,9 @@ namespace Player.Control
     {
         public Transform playerBody;
         public Vector2 clamp = new(-85, 85);
-        [SerializeField] private float sensitivity = 5;
-    
+        public PlayerStatusScriptable playerStatusScriptable;
+        
+        private float Sensitivity => playerStatusScriptable.mouseSensitivity;
         public InputAction mouseX, mouseY;
         private float xRotation;
 
@@ -31,10 +32,10 @@ namespace Player.Control
 
         private void MouseLook()
         {
-            transform.Rotate(Vector3.up, mouseX.ReadValue<float>() * sensitivity * Time.deltaTime);
+            transform.Rotate(Vector3.up, mouseX.ReadValue<float>() * Sensitivity * Time.deltaTime);
         
-            float x = mouseX.ReadValue<float>() * sensitivity * Time.deltaTime;
-            float y = mouseY.ReadValue<float>() * sensitivity * Time.deltaTime;
+            float x = mouseX.ReadValue<float>() * Sensitivity * Time.deltaTime;
+            float y = mouseY.ReadValue<float>() * Sensitivity * Time.deltaTime;
 
             xRotation -= y;
             xRotation = Mathf.Clamp(xRotation, clamp.x, clamp.y);

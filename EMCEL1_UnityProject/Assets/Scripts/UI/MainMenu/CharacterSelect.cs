@@ -2,11 +2,16 @@ using System;
 using Player;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 
 namespace UI.MainMenu
 {
+    [Serializable]
+    public struct RunTimeControllerValue
+    {
+        public RuntimeAnimatorController runtimeAnimatorController;
+    }
+
     public class CharacterSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         public delegate void CharacterSelectEvent(CharacterSelect sender);
@@ -14,6 +19,7 @@ namespace UI.MainMenu
         
         public PlayerStatusScriptable playerStatusScriptable;
         public Animator animator;
+        public RunTimeControllerValue runTime;
 
         public Image image;
 
@@ -39,7 +45,6 @@ namespace UI.MainMenu
 
         private void Start()
         {
-            playerStatusScriptable.RemoveAnimatorController();
             Deselect();
         }
 
@@ -52,10 +57,9 @@ namespace UI.MainMenu
         private void Select()
         {
             if (selected) return;
-            
             selected = true;
             image.color = Color.Lerp(Color.clear, Color.black, 1f);
-            playerStatusScriptable.SetAnimatorController(animator.runtimeAnimatorController);
+            playerStatusScriptable.SetAnimatorController(runTime.runtimeAnimatorController);
             selectEvent?.Invoke(this);
         }
 
