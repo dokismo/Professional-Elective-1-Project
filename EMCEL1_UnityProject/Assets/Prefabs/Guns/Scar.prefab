@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 2543953916339691553}
   - component: {fileID: 4441497135764967749}
   - component: {fileID: 4441497135764967771}
+  - component: {fileID: 5649821122310973973}
   - component: {fileID: 4441497135764967770}
   - component: {fileID: 4441497135764967769}
   - component: {fileID: 8619453133615977790}
@@ -247,9 +248,6 @@ MonoBehaviour:
   operation: 0
   icon: {fileID: 1336476545, guid: 37948b23e9092d34e827689b9bfcbd19, type: 3}
   muzzleFlash: {fileID: 6395060712922794005}
-  gunFireSound: {fileID: 8300000, guid: d98c74345c58f2941a8f8eb337fd5534, type: 3}
-  gunReloadingSound: {fileID: 8300000, guid: 8c5c63884a164d14cb2d0f909e823f97, type: 3}
-  audiosource: {fileID: 4441497135764967771}
 --- !u!82 &4441497135764967771
 AudioSource:
   m_ObjectHideFlags: 0
@@ -346,6 +344,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5649821122310973973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4441497135764967775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29749c6e46d53784496cfd6f22b9711e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoot: {fileID: 8300000, guid: d98c74345c58f2941a8f8eb337fd5534, type: 3}
+  reload: {fileID: 8300000, guid: 8c5c63884a164d14cb2d0f909e823f97, type: 3}
+  audiosource: {fileID: 4441497135764967771}
 --- !u!114 &4441497135764967770
 MonoBehaviour:
   m_ObjectHideFlags: 0

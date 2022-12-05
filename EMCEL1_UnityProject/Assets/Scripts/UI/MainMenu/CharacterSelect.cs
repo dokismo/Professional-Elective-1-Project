@@ -2,11 +2,11 @@ using System;
 using Player;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 
 namespace UI.MainMenu
 {
-
     public class CharacterSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
         public delegate void CharacterSelectEvent(CharacterSelect sender);
@@ -14,7 +14,6 @@ namespace UI.MainMenu
         
         public PlayerStatusScriptable playerStatusScriptable;
         public Animator animator;
-        public string controllerName;
 
         public Image image;
 
@@ -40,6 +39,7 @@ namespace UI.MainMenu
 
         private void Start()
         {
+            playerStatusScriptable.RemoveAnimatorController();
             Deselect();
         }
 
@@ -52,9 +52,11 @@ namespace UI.MainMenu
         private void Select()
         {
             if (selected) return;
+
+            CharacterSelectSFX.selectCharEvent?.Invoke();//SFX
             selected = true;
             image.color = Color.Lerp(Color.clear, Color.black, 1f);
-            playerStatusScriptable.SetAnimatorController(controllerName);
+            playerStatusScriptable.SetAnimatorController(animator.runtimeAnimatorController);
             selectEvent?.Invoke(this);
         }
 
