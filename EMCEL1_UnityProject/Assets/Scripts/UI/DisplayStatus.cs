@@ -26,6 +26,7 @@ namespace UI
         public Image primaryIcon, secondaryIcon;
         public TextMeshProUGUI ammo;
         public TextMeshProUGUI shopTxt;
+        public TextMeshProUGUI killCountTxt;
         public GameObject dead;
         public GameObject paused;
         public Image staminaBG, staminaBar;
@@ -78,6 +79,12 @@ namespace UI
             GunIcon();
             SetStamina();
             Blink();
+            SetKillCount();
+        }
+
+        private void SetKillCount()
+        {
+            killCountTxt.text = $"Kill Count: {playerStatusScriptable.killCount}";
         }
 
         private void Blink()

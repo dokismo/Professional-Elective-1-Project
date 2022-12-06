@@ -94,7 +94,7 @@ public class WaveDifficultyIncrement : MonoBehaviour
         HPDifficultyMultiplier = HPIncrementDifficulty * (int)(WaveNumber / IncreaseAllEnemyHealthWAVE);
 
 
-        SpawningScript.maxZombiesSpawned += WaveNumber * ZombieIncrementEveryRound;
+        SpawningScript.maxZombiesSpawned += ZombieIncrementEveryRound;
         Debug.Log("DIFFICULTY INCREASED");
     }
 }

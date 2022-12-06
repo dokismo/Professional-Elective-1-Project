@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Player.Control;
@@ -8,23 +6,21 @@ public class EnemyNavMeshScript : MonoBehaviour
 {
     private NavMeshAgent EnemyNMAgent;
 
-
     [Header("Attacking Variables")]
     public float defaultAttackSpeed = 5f, timeToAttack;
     public float enemyDamage = 10;
-    public GameObject objInRange;
 
     public bool attacking = false;
 
     [Header("Script For Referencing")]
     public AttackRange objIdentifier;
     public ForSpawningScript forSpawnScript;
-
     public SphereCollider objIdentifierSphere;
+    
+    private GameObject player;
 
     void Start()
     {
-
         EnemyNMAgent = transform.GetComponent<NavMeshAgent>();
 
         if(!transform.name.Contains("Lilnerd")) transform.SetParent(GameObject.Find("Enemies").transform);
@@ -34,20 +30,26 @@ public class EnemyNavMeshScript : MonoBehaviour
 
         timeToAttack = defaultAttackSpeed;
 
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (player == null)
+        {
+            player ??= GameObject.FindGameObjectWithTag("Player");
+            return;
+        }
+        
         if(EnemyNMAgent.isOnNavMesh)
         {
-            if (EnemyNMAgent.isStopped == false && !attacking)
+            if (!attacking)
             {
-                if(GameObject.Find("Player") != null) EnemyNMAgent.destination = GameObject.Find("Player").transform.position;
+                EnemyNMAgent.destination = player.transform.position;
             }
             else
             {
-                EnemyNMAgent.destination = transform.position;
                 EnemyNMAgent.isStopped = true;
             }
         }
@@ -55,17 +57,16 @@ public class EnemyNavMeshScript : MonoBehaviour
 
         if(GetComponentInChildren<BossAbilityScript>() == null)
         {
-            if (EnemyNMAgent.enabled && objIdentifier.identifiedObj != null)
+            
+            if (objIdentifier.identifiedObj != null)
             {
-
-                if (EnemyNMAgent.remainingDistance <= EnemyNMAgent.stoppingDistance && objIdentifier.identifiedObj.tag == "Player")
-                {
-                    attacking = true;
-                }
+                attacking = EnemyNMAgent.remainingDistance <= EnemyNMAgent.stoppingDistance &&
+                            objIdentifier.identifiedObj == player;
             }
 
             if (attacking)
             {
+                timeToAttack -= Time.deltaTime;
                 if (timeToAttack <= 0)
                 {
                     timeToAttack = defaultAttackSpeed;
@@ -73,12 +74,6 @@ public class EnemyNavMeshScript : MonoBehaviour
                     attacking = false;
                     timeToAttack = defaultAttackSpeed;
                     attackTarget();
-                }
-                else
-                {
-                    EnemyNMAgent.destination = transform.position;
-                    EnemyNMAgent.destination = GameObject.Find("Player").transform.position;
-                    timeToAttack -= Time.deltaTime;
                 }
             }
         }
@@ -88,19 +83,12 @@ public class EnemyNavMeshScript : MonoBehaviour
 
     public void attackTarget()
     {
-        if (objInRange != null)
+        if (objIdentifier.identifiedObj == player)
         {
-            if (objInRange.gameObject.tag == "Player")
-            {
-                PlayerStatus.changeHealth?.Invoke(-(int)enemyDamage);
-                attacking = false;
-            }
+            PlayerStatus.changeHealth?.Invoke(-(int)enemyDamage);
+            attacking = false;
         }
-        else
-        {
-            Debug.Log("Enemy attack MISSED!");
-        }
-
+        
         if (GetComponent<ZombieBossScript>() != null)
         {
             EnemyNMAgent.speed = GetComponent<ZombieBossScript>().StartSpeed;

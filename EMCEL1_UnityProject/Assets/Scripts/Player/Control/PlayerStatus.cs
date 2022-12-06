@@ -32,6 +32,7 @@ namespace Player.Control
             Enemy.OnDeathEvent.givePlayerMoney += playerStatusScriptable.AddMoney;
             changeHealth += playerStatusScriptable.SetHealthBy;
             getMoney += playerStatusScriptable.PutMoney;
+            EnemyHpHandler.OnTheDeath += KilledAZombie;
         }
 
         private void OnDisable()
@@ -39,10 +40,14 @@ namespace Player.Control
             Enemy.OnDeathEvent.givePlayerMoney -= playerStatusScriptable.AddMoney;
             changeHealth -= playerStatusScriptable.SetHealthBy;
             getMoney -= playerStatusScriptable.PutMoney;
+            EnemyHpHandler.OnTheDeath -= KilledAZombie;
         }
         
         private void Start()
         {
+            playerStatusScriptable.money = 0;
+            playerStatusScriptable.killCount = 0;
+            
             playerStatusScriptable.SetPlayer(this);
             playerStatusScriptable.SetHealthBy((int)playerStatusScriptable.maxHealth);
             playerStatusScriptable.SetStaminaBy(playerStatusScriptable.maxStamina);
@@ -65,6 +70,11 @@ namespace Player.Control
                 AddGun(startGun1);
             if (startGun2 != null)
                 AddGun(startGun2);
+        }
+
+        private void KilledAZombie()
+        {
+            playerStatusScriptable.killCount++;
         }
 
         private void Update()

@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ZombieSpawnerScript : MonoBehaviour
 {
+    public static event Action SpawnedZombie;
+    
     public float defaultTimeToSpawn = 2f;
     float timeToSpawn;
 
@@ -53,7 +57,7 @@ public class ZombieSpawnerScript : MonoBehaviour
             //Spawn Boss 
             if(forSpawnScript.CanSpawnBossEnemy && forSpawnScript.zombiesSpawnedCount >= forSpawnScript.maxZombiesSpawned / 2 && forSpawnScript.BossesSpawned < forSpawnScript.NumberOfBossToSpawn)
             {
-                 Instantiate(BossZombies[0], transform.position, Quaternion.identity);
+                 Spawn(BossZombies[0]);
                  forSpawnScript.BossesSpawned++;
             } else if (forSpawnScript.BossesSpawned >= forSpawnScript.NumberOfBossToSpawn)
             {
@@ -65,16 +69,16 @@ public class ZombieSpawnerScript : MonoBehaviour
             if(RandomNum >= 1 && RandomNum<= 6)
             {
                 int RandomPicker = Random.Range(0,2);
-                Instantiate(zombieGameObjects[RandomPicker], transform.position, Quaternion.identity);
+                Spawn(zombieGameObjects[RandomPicker]);
             } else if (RandomNum > 6 && RandomNum <=8)
             {
-                Instantiate(zombieGameObjects[2], transform.position, Quaternion.identity);
+                Spawn(zombieGameObjects[2]);
             } else
             {
                 if (forSpawnScript.CanSpawnZombie4and5)
                 {
                     int RandomNum2 = Random.Range(3, 5);
-                    Instantiate(zombieGameObjects[RandomNum2], transform.position, Quaternion.identity);
+                    Spawn(zombieGameObjects[RandomNum2]);
                 }
             }
             
@@ -83,6 +87,12 @@ public class ZombieSpawnerScript : MonoBehaviour
 
         
 
+    }
+
+    private void Spawn(GameObject objToSpawn)
+    {
+        Instantiate(objToSpawn, transform.position, Quaternion.identity);
+        SpawnedZombie?.Invoke();
     }
 
     

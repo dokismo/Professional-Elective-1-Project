@@ -1,13 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ForSpawningScript : MonoBehaviour
 {
     public delegate void callableFunction();
     public callableFunction functionToCall;
 
-    public int zombiesSpawnedCount, maxZombiesSpawned = 30;
+    public int zombiesSpawnedCount, maxZombiesSpawned = 30, deadZombie;
 
     WaveDifficultyIncrement WaveDifficultyManager;
 
@@ -22,59 +24,91 @@ public class ForSpawningScript : MonoBehaviour
     public int BossesSpawned = 0;
 
     public bool CanSpawnZombie4and5 = false;
+
+    private bool roundIsStarting;
+
+    private void OnEnable()
+    {
+        ZombieSpawnerScript.SpawnedZombie += AddZombie;
+        EnemyHpHandler.OnTheDeath += DeadZombie;
+    }
+
+    private void OnDisable()
+    {
+        ZombieSpawnerScript.SpawnedZombie += AddZombie;
+        EnemyHpHandler.OnTheDeath -= DeadZombie;
+    }
+
+    private void AddZombie()
+    {
+        zombiesSpawnedCount++;
+
+        if (zombiesSpawnedCount == maxZombiesSpawned)
+            DeactivateSpawners();
+    }
+
+    private void DeadZombie()
+    {
+        deadZombie++;
+
+        if (deadZombie != maxZombiesSpawned || deadZombie != zombiesSpawnedCount) return;
+        
+        deadZombie = 0;
+        zombiesSpawnedCount = 0;
+        Reset();
+    }
+
     private void Start()
     {
         WaveDifficultyManager = GameObject.Find("For Wave Management").GetComponent<WaveDifficultyIncrement>();
 
         waitTime = defaultWaitTime;
         Spawners = GameObject.FindGameObjectsWithTag("spawner");
-        DeactivateSpawners();
         EnemiesStorer = GameObject.Find("Enemies");
+        
+        Reset();
     }
+    
     private void Update()
     {
-        checkZombieCount();
-    }
-
-    public void checkZombieCount()
-    {
-        zombiesSpawnedCount = EnemiesStorer.transform.childCount;
-        if(zombiesSpawnedCount <= 0)
-        {
-            WaveDifficultyManager.RoundEnd();
-            functionToCall = SetSpawnersActive;
-            StartWaitTimer(functionToCall);
-        }
         ZombieLimiter();
-        
+        StartWaitTimer();
     }
 
-    public void StartWaitTimer(callableFunction function)
+    public void Reset()
     {
+        WaveDifficultyManager.RoundEnd();
+        roundIsStarting = true;
+    }
+
+    public void StartWaitTimer()
+    {
+        if (!roundIsStarting) return;
+        
         if (waitTime >= 0)
         {
             waitTime -= Time.deltaTime;
         }
         else
         {
+            roundIsStarting = false;
             WaveDifficultyManager.RoundStart();
             waitTime = defaultWaitTime;
-            function();
+            SetSpawnersActive();
         }
     }
 
     
     public void DeactivateSpawners()
     {
-        
         Debug.Log("Round Over, SPAWNING ZOMBIES");
+        
         for (int i = 0; i < Spawners.Length; i++)
         {
             spawnSfx();
             Spawners[i].SetActive(false);
             Spawners[i].GetComponent<ZombieSpawnerScript>().canSpawn = false;
         }
-
     }
     public void SetSpawnersActive()
     {
@@ -84,7 +118,6 @@ public class ForSpawningScript : MonoBehaviour
             spawnSfx();
             Spawners[i].SetActive(true);
             Spawners[i].GetComponent<ZombieSpawnerScript>().canSpawn = true;
-           
         }
     }
 

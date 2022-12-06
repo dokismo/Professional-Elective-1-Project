@@ -16,6 +16,7 @@ namespace Player
         public float maxHealth;
         public float stamina;
         public float maxStamina = 4;
+        public int killCount;
 
         public PlayerStatus PlayerStatus { get; private set; }
         public bool CanSprint => stamina > 0;

@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 
 public class EnemyHpHandler : MonoBehaviour
 {
+    public static event Action OnTheDeath;
+    
     public float enemyHp = 100;
 
     public int MinimumMoney, MaxMoney;
@@ -34,6 +36,11 @@ public class EnemyHpHandler : MonoBehaviour
             }
             isAlive = false;
         }
+    }
+
+    private void OnDestroy()
+    {
+        OnTheDeath?.Invoke();
     }
 
 

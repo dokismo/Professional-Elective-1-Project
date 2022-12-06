@@ -1,34 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Pathfinding;
 
 public class AttackRange : MonoBehaviour
 {
     public GameObject identifiedObj;
     public float AttackRangeRadius;
+
+    // Added by jay for optimization reasons
+    private NavMeshAgent navMeshAgent;
+    private GameObject target;
+    
     private void Start()
     {
         transform.GetComponent<SphereCollider>().radius = AttackRangeRadius;
+        navMeshAgent = GetComponentInParent<NavMeshAgent>();
+        target = GameObject.FindGameObjectWithTag("Player");
     }
+
+    private void Update()
+    {
+        target ??= GameObject.FindGameObjectWithTag("Player");
+    }
+
     private void OnTriggerStay(Collider other)
     {
-        if (other != null)
+        if (other.gameObject == target)
         {
-            GetComponentInParent<EnemyNavMeshScript>().objInRange = other.gameObject;
-            transform.parent.GetComponent<NavMeshAgent>().isStopped = true;
+            navMeshAgent.isStopped = true;
             identifiedObj = other.gameObject;
-            GetComponentInParent<EnemyNavMeshScript>().objInRange = other.gameObject;
         }    
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.tag =="Player")
+        if(other.gameObject == target)
         {
-            GetComponentInParent<EnemyNavMeshScript>().objInRange = null;
-            transform.parent.GetComponent<NavMeshAgent>().isStopped = false;
+            navMeshAgent.isStopped = false;
             identifiedObj = null;
         }
     }
