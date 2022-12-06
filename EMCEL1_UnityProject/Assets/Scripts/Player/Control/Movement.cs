@@ -10,7 +10,7 @@ namespace Player.Control
     {
         public delegate Movement GetEvent();
         public static GetEvent getMovement;
-        
+
         public delegate void OnAction();
         public static OnAction onJump;
         public static OnAction onLand;
@@ -78,6 +78,7 @@ namespace Player.Control
 
         private void Update()
         {
+            
             if (!playerStatusScriptable.PlayerStatus.Alive) return;
             
             timer = Mathf.Clamp(timer - Time.deltaTime, 0, 20);
