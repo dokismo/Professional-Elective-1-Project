@@ -1,10 +1,8 @@
-using System;
-using Player;
 using SceneController;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.MainMenu
 {
     public class CameraMouseSensitivity : MonoBehaviour
     {

@@ -1,11 +1,8 @@
-using System;
 using Player.Control;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-
-namespace UI
+namespace UI.PlayerScreen
 {
     public class BloodEffect : MonoBehaviour
     {

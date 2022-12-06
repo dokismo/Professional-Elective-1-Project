@@ -16,6 +16,8 @@ namespace Shop
     
     public class WallShop : MonoBehaviour
     {
+        public static Action itemBought;
+        
         public ShopItem item;
 
         public String GetMessage() => 
@@ -23,10 +25,18 @@ namespace Shop
 
         public GameObject InspectItem() => item.gun;
 
-        public GameObject BuyItem(PlayerStatusScriptable pScript) =>
-            pScript.GetMoney(item.price) < 0 
-                ? null 
-                : item.gun;
+        public GameObject BuyItem(PlayerStatusScriptable pScript)
+        {
+            GameObject boughtGun = pScript.GetMoney(item.price) < 0 ? null : item.gun;
+
+            if (boughtGun != null)
+            {
+                itemBought?.Invoke();
+            }
+
+            return boughtGun;
+        }
+            
 
         public bool BuyRefill(PlayerStatusScriptable pScript) => pScript.GetMoney(item.RefillPrice) >= 0;
     }

@@ -65,8 +65,8 @@ namespace SceneController
 
         private void Awake()
         {
-            if (Instance != null && Instance != this)
-                Destroy(this);
+            if (Instance != null)
+                Destroy(gameObject);
             else
             {
                 Instance = this;

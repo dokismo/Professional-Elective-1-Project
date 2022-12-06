@@ -507,7 +507,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4354400067401786824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000035762787, y: 1.9999998, z: 0}
+  m_LocalPosition: {x: -0.00000035762787, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -523,8 +523,8 @@ AudioSource:
   m_GameObject: {fileID: 4354400067401786824}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 1994221992768966153, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 428fb42f85a06a94dbc9729fdcf382f6, type: 3}
+  OutputAudioMixerGroup: {fileID: -6856959710701501096, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 357836ac73d114646a57bf02705e82f1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -570,7 +570,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -628,6 +628,7 @@ GameObject:
   - component: {fileID: 1127913459}
   - component: {fileID: 5829384991313602530}
   - component: {fileID: 8644561109751904851}
+  - component: {fileID: -8844490224253524989}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -884,6 +885,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e37edb9e781451dbfeb5b2f58f19cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8844490224253524989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660677681306034385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6045d303d834469b88309a221a805f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomDialogueInterval: {x: 25, y: 45}
 --- !u!1 &5660677682157815405
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +954,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7880493771606091778}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000035762787, y: 1.9999998, z: 0}
+  m_LocalPosition: {x: -0.00000035762787, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -956,7 +970,7 @@ AudioSource:
   m_GameObject: {fileID: 7880493771606091778}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 1994221992768966153, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}
+  OutputAudioMixerGroup: {fileID: -6856959710701501096, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}
   m_audioClip: {fileID: 8300000, guid: 482e53345a624d54b8f1b3a877388f7f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -1003,7 +1017,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c0650e015af4855850caeee33aa34e6, type: 3}
-  m_Name: PlayerStatus
+  m_Script: {fileID: 11500000, guid: cf98ff210e2d4ce1954c05353cee0920, type: 3}
+  m_Name: Rebecca
   m_EditorClassIdentifier: 
-  money: 0
-  health: 0
-  maxHealth: 100
-  stamina: 2.4007769
-  maxStamina: 4
-  killCount: 11
+  onSpawn: 
+  onKill: 
+  onBossKill: 
+  lowHealth: 
+  boughtGun: 
+  randomMessages: []

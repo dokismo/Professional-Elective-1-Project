@@ -21,22 +21,8 @@ namespace Player.Control
 
         void Update()
         {
-            if (playerMovement.IsMoving)
-            {
-                walkStep.SetActive(true);
-                Debug.Log("WALK SFX");
-            }
-            if (playerMovement.IsRunning)
-            {
-                walkStep.SetActive(false);
-                runningStep.SetActive(true);
-                Debug.Log("RUN SFX");
-            }
-            else if (!playerMovement.IsMoving)
-            {
-                walkStep.SetActive(false);
-                runningStep.SetActive(false);
-            }
+            runningStep.SetActive(playerMovement.isGrounded && playerMovement.IsRunning);
+            walkStep.SetActive(playerMovement.isGrounded && playerMovement.IsMoving && !playerMovement.IsRunning);
         }
     }
 }

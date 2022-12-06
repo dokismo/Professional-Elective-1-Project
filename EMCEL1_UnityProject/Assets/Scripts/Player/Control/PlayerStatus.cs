@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Gun;
 using UI;
+using UI.PlayerScreen;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,7 +26,7 @@ namespace Player.Control
         private float takeDamageTimer;
 
         public Shooting CurrentGun { get; private set; }
-        public bool Alive { get; private set; }
+        public bool Alive => playerStatusScriptable.health > 0;
         public Shooting PrimaryGun { get; private set; }
         public Shooting SecondaryGun { get; private set; }
         
@@ -39,7 +40,6 @@ namespace Player.Control
             changeHealth += OnTakeDamage;
             getMoney += playerStatusScriptable.PutMoney;
             EnemyHpHandler.OnTheDeath += KilledAZombie;
-            DisplayStatus.onDead += PlayerDeath;
         }
 
         private void OnDisable()
@@ -48,20 +48,12 @@ namespace Player.Control
             changeHealth -= OnTakeDamage;
             getMoney -= playerStatusScriptable.PutMoney;
             EnemyHpHandler.OnTheDeath -= KilledAZombie;
-            DisplayStatus.onDead -= PlayerDeath;
-        }
-        
-        
-        private void PlayerDeath()
-        {
-            Alive = false;
         }
         
         private void Start()
         {
             playerStatusScriptable.money = 0;
             playerStatusScriptable.killCount = 0;
-            Alive = true;
             
             playerStatusScriptable.SetPlayer(this);
             playerStatusScriptable.SetHealthBy((int)playerStatusScriptable.maxHealth);

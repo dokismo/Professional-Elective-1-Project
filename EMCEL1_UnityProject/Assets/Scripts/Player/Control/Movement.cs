@@ -78,11 +78,8 @@ namespace Player.Control
 
         private void Update()
         {
-            
-            if (!playerStatusScriptable.PlayerStatus.Alive) return;
-            
             timer = Mathf.Clamp(timer - Time.deltaTime, 0, 20);
-            Vector3 inputs = movementInput.ReadValue<Vector3>();
+            Vector3 inputs = playerStatusScriptable.PlayerStatus.Alive ? movementInput.ReadValue<Vector3>() : Vector3.zero;
 
             SetSprintStatus();
 
@@ -115,7 +112,7 @@ namespace Player.Control
 
         private void FixedUpdate()
         {
-            velocity.y = Mathf.Clamp(velocity.y + gravity * Time.fixedDeltaTime , -0.1f, 0.1f);
+            velocity.y += gravity * Time.fixedDeltaTime;
 
             var motion = velocity + moveDir.normalized *
                 ((IsRunning && playerStatusScriptable.CanSprint
@@ -130,7 +127,7 @@ namespace Player.Control
             if (!checkFloor) return;
                 
             if (velocity.y < 0)
-                velocity.y = -0.01f;
+                velocity.y = -0.2f;
 
             if (inputs.y > 0 && CanMove)
             {

@@ -319,6 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1539092602}
+  dialogueScriptable: {fileID: 11400000, guid: ce1f091d5c118aa43bd33232c9076547, type: 2}
   controllerName: Rebecca
   image: {fileID: 69681038}
 --- !u!114 &69681038
@@ -5619,6 +5620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2020051482}
+  dialogueScriptable: {fileID: 11400000, guid: e0d0da1a2d9938148acd7146ef86b6ef, type: 2}
   controllerName: Judy
   image: {fileID: 1678308512}
 --- !u!114 &1678308512
@@ -7351,6 +7353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1155761825}
+  dialogueScriptable: {fileID: 11400000, guid: 59c323a2876e1dc408acdf8b11cb69e0, type: 2}
   controllerName: Rouper
   image: {fileID: 2011815628}
 --- !u!114 &2011815628
@@ -7572,6 +7575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1563322701}
+  dialogueScriptable: {fileID: 11400000, guid: bf6cdfc0996c2e14f889c3831a5e0ff2, type: 2}
   controllerName: Karl
   image: {fileID: 2025002986}
 --- !u!114 &2025002986

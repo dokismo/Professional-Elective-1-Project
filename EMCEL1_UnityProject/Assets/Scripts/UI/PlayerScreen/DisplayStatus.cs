@@ -4,11 +4,10 @@ using Player.Display;
 using SceneController;
 using Shop;
 using TMPro;
-using UI.MainMenu;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.PlayerScreen
 {
     public class DisplayStatus : MonoBehaviour
     {

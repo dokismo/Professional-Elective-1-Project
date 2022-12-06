@@ -1,4 +1,5 @@
 using System;
+using Player.Dialogue;
 using UI.MainMenu;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace SceneController
         
         public static Action removeIcon;
         
-        public static Action<string> setAnimatorController;
+        public static Action<string, DialogueScriptable> setAnimatorController;
         public static Action<float> setMouseSensitivity;
         
         public static Func<RuntimeAnimatorController> getAnimatorController;
@@ -18,6 +19,7 @@ namespace SceneController
 
         public IconsAnimatorControllers iconsAnimatorControllers;
         public RuntimeAnimatorController runtimeAnimatorController;
+        public DialogueScriptable dialogueScriptable;
         private float mouseSensitivity;
 
         private void Awake()
@@ -66,7 +68,11 @@ namespace SceneController
             return runtimeAnimatorController;
         }
         
-        private void SetController(string controllerName) => 
+        private void SetController(string controllerName, DialogueScriptable dlgScriptable)
+        { 
             runtimeAnimatorController = iconsAnimatorControllers.GetController(controllerName);
+            dialogueScriptable = dlgScriptable;
+        } 
+            
     }
 }
