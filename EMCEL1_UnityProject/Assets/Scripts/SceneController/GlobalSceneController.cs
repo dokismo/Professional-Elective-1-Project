@@ -183,7 +183,11 @@ namespace SceneController
 
         private void Reload(string ignore)
         {
-            foreach (var loadedScene in loadedScenes) Load(loadedScene, LoadSceneMode.Single);
+            var mainScene = loadedScenes[0];
+            
+            UnloadEverything();
+            
+            Load(mainScene, LoadSceneMode.Single);
         }
 
         private void UnloadEverything()

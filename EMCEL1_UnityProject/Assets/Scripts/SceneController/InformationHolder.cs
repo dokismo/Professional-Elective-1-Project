@@ -6,22 +6,29 @@ namespace SceneController
 {
     public class InformationHolder : MonoBehaviour
     {
+        public static InformationHolder instance; 
+        
         public static Action removeIcon;
+        
         public static Action<string> setAnimatorController;
         public static Action<float> setMouseSensitivity;
+        
         public static Func<RuntimeAnimatorController> getAnimatorController;
         public static Func<float> getMouseSensitivity;
 
         public IconsAnimatorControllers iconsAnimatorControllers;
-        
-        private RuntimeAnimatorController runtimeAnimatorController;
+        public RuntimeAnimatorController runtimeAnimatorController;
         private float mouseSensitivity;
+
+        private void Awake()
+        {
+            if (instance == null) instance = this;
+        }
 
         private void Start()
         {
             mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 10f);
         }
-
 
         private void OnEnable()
         {
@@ -30,8 +37,7 @@ namespace SceneController
             removeIcon -= RemoveIcon;
             
             setMouseSensitivity = SetMouseSensitivity;
-            getMouseSensitivity = GetMouseSensitivity;
-            
+            getMouseSensitivity = GetSensitivity;
         }
 
         private void OnDisable()
@@ -41,18 +47,25 @@ namespace SceneController
             removeIcon -= RemoveIcon;
             
             setMouseSensitivity -= SetMouseSensitivity;
-            getMouseSensitivity -= GetMouseSensitivity;
-            
+            getMouseSensitivity -= GetSensitivity;
         }
 
-        private float GetMouseSensitivity() => mouseSensitivity;
+        private float GetSensitivity() => 
+            mouseSensitivity;
+        private void SetMouseSensitivity(float obj) => 
+            mouseSensitivity = obj;
 
-        private void SetMouseSensitivity(float obj) => mouseSensitivity = obj;
+        private void RemoveIcon()
+        {
+            Debug.Log($"Remove Icon");
+            runtimeAnimatorController = null;
+        }
 
-        private void RemoveIcon() => runtimeAnimatorController = null;
-
-        private RuntimeAnimatorController GetController() => runtimeAnimatorController;
-
+        private RuntimeAnimatorController GetController()
+        {
+            return runtimeAnimatorController;
+        }
+        
         private void SetController(string controllerName) => 
             runtimeAnimatorController = iconsAnimatorControllers.GetController(controllerName);
     }

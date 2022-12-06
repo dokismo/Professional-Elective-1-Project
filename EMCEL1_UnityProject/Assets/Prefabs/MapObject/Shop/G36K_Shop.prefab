@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7049841134369756817}
   - component: {fileID: 8907403879710160867}
   m_Layer: 13
-  m_Name: G36_Shop
+  m_Name: G36K_Shop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    name: G36
+    name: G36K
     price: 600
     gun: {fileID: 4441497135764967775, guid: 077328f195e80c9499abab109e3803d5, type: 3}
 --- !u!65 &8907403879710160867

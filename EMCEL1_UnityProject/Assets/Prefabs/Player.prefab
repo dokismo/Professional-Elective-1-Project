@@ -311,8 +311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 5660677681306034386}
-  clamp: {x: -60, y: 60}
   playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
+  clamp: {x: -80, y: 80}
   mouseX:
     m_Name: Mouse X
     m_Type: 0
@@ -665,9 +665,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
-  startGun1: {fileID: 0}
-  startGun2: {fileID: 0}
+  startGun1: {fileID: 4441497135764967775, guid: 7e4c530ff1bc57949895a3b4fc4d1d7c, type: 3}
+  startGun2: {fileID: 4441497135764967775, guid: 7e4c530ff1bc57949895a3b4fc4d1d7c, type: 3}
   maxGuns: 2
+  onTakeDamageInvulnerableTime: 1
   localGuns: []
   gunAnchor: {fileID: 1895527322}
 --- !u!114 &2131667088306124822

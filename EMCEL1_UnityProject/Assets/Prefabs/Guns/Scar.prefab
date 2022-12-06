@@ -229,6 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90cc1b4248a12243b60953751f95d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunName: Scar
   distance: 45
   targetLayers:
     serializedVersion: 2
@@ -236,8 +237,8 @@ MonoBehaviour:
   damage: 24
   ammoInMag: 25
   ammoPerMag: 25
-  totalAmmo: 275
-  maxTotalAmmo: 275
+  totalAmmo: 300
+  maxTotalAmmo: 300
   rpm: 450
   ammoPerFire: 1
   reloadTime: 1

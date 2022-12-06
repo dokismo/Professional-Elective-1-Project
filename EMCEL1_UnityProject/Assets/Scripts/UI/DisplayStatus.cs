@@ -62,7 +62,10 @@ namespace UI
             staminaBG.color = staminaBar.color = Color.clear; 
             shopTxt.enabled = false;
 
-            iconAnimator.runtimeAnimatorController = InformationHolder.getAnimatorController?.Invoke();
+            var test = InformationHolder.instance.runtimeAnimatorController;
+            iconAnimator.runtimeAnimatorController = test;
+
+            Debug.Log(test.name);
         }
         
         private void StaminaChangedEvent()

@@ -223,6 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90cc1b4248a12243b60953751f95d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunName: Desert Eagle
   distance: 45
   targetLayers:
     serializedVersion: 2
@@ -230,8 +231,8 @@ MonoBehaviour:
   damage: 35
   ammoInMag: 7
   ammoPerMag: 7
-  totalAmmo: 35
-  maxTotalAmmo: 35
+  totalAmmo: 63
+  maxTotalAmmo: 63
   rpm: 210
   ammoPerFire: 1
   reloadTime: 1

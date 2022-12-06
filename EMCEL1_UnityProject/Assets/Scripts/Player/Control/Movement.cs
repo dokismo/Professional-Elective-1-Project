@@ -1,3 +1,4 @@
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -61,15 +62,14 @@ namespace Player.Control
             movementInput.Disable();
             getMovement -= GetMoveMagnitude;
         }
-
-        private Movement GetMoveMagnitude() => this;
         
-
         private void Start()
         {
             timer = 0f;
             controller = GetComponent<CharacterController>();
         }
+        
+        private Movement GetMoveMagnitude() => this;
 
         private void OnDrawGizmosSelected()
         {
@@ -78,6 +78,8 @@ namespace Player.Control
 
         private void Update()
         {
+            if (!playerStatusScriptable.PlayerStatus.Alive) return;
+            
             timer = Mathf.Clamp(timer - Time.deltaTime, 0, 20);
             Vector3 inputs = movementInput.ReadValue<Vector3>();
 

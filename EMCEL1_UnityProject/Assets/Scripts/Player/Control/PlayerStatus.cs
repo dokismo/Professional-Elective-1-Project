@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Gun;
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,13 +17,18 @@ namespace Player.Control
         public GameObject startGun2;
 
         public int maxGuns = 3;
+        public float onTakeDamageInvulnerableTime = 1f;
         public List<GameObject> localGuns;
         public Transform gunAnchor;
         
-        private int currentIndex = 0;
-        
+        private int currentIndex;
+        private float takeDamageTimer;
+
+        public Shooting CurrentGun { get; private set; }
+        public bool Alive { get; private set; }
         public Shooting PrimaryGun { get; private set; }
         public Shooting SecondaryGun { get; private set; }
+        
         public bool InventoryIsFull => localGuns.Count >= maxGuns;
 
         public static bool CanShoot => Cursor.lockState == CursorLockMode.Locked;
@@ -30,46 +36,51 @@ namespace Player.Control
         private void OnEnable()
         {
             Enemy.OnDeathEvent.givePlayerMoney += playerStatusScriptable.AddMoney;
-            changeHealth += playerStatusScriptable.SetHealthBy;
+            changeHealth += OnTakeDamage;
             getMoney += playerStatusScriptable.PutMoney;
             EnemyHpHandler.OnTheDeath += KilledAZombie;
+            DisplayStatus.onDead += PlayerDeath;
         }
 
         private void OnDisable()
         {
             Enemy.OnDeathEvent.givePlayerMoney -= playerStatusScriptable.AddMoney;
-            changeHealth -= playerStatusScriptable.SetHealthBy;
+            changeHealth -= OnTakeDamage;
             getMoney -= playerStatusScriptable.PutMoney;
             EnemyHpHandler.OnTheDeath -= KilledAZombie;
+            DisplayStatus.onDead -= PlayerDeath;
+        }
+        
+        
+        private void PlayerDeath()
+        {
+            Alive = false;
         }
         
         private void Start()
         {
             playerStatusScriptable.money = 0;
             playerStatusScriptable.killCount = 0;
+            Alive = true;
             
             playerStatusScriptable.SetPlayer(this);
             playerStatusScriptable.SetHealthBy((int)playerStatusScriptable.maxHealth);
             playerStatusScriptable.SetStaminaBy(playerStatusScriptable.maxStamina);
             
-            if (Camera.main != null)
-            {
-                for (int i = 0; i < Camera.main.gameObject.transform.childCount; i++)
-                {
-                    Shooting shooting = Camera.main.gameObject.transform.GetChild(i).GetComponent<Shooting>();
-                    
-                    if (!shooting) continue;
-                    
-                    localGuns.Add(shooting.gameObject);
-                }
-
-                gunAnchor = Camera.main.gameObject.transform;
-            }
+            gunAnchor = Camera.main.gameObject.transform;
             
             if (startGun1 != null)
                 AddGun(startGun1);
             if (startGun2 != null)
                 AddGun(startGun2);
+        }
+
+        private void OnTakeDamage(int amount)
+        {
+            if (takeDamageTimer > 0) return;
+
+            takeDamageTimer = onTakeDamageInvulnerableTime;
+            playerStatusScriptable.SetHealthBy(amount);
         }
 
         private void KilledAZombie()
@@ -80,17 +91,15 @@ namespace Player.Control
         private void Update()
         {
             Selection();
-            
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                playerStatusScriptable.AddMoney(2000);
-            }
+
+            takeDamageTimer = Mathf.Clamp(takeDamageTimer - Time.deltaTime, 0, onTakeDamageInvulnerableTime);
         }
         
         public void Switch(int position = 0)
         {
             currentIndex = position < 0 ? currentIndex : position;
-                
+
+            CurrentGun = null;
             PrimaryGun = null;
             SecondaryGun = null;
             
@@ -99,7 +108,9 @@ namespace Player.Control
                 if (currentIndex == i)
                 {
                     localGuns[i].SetActive(true);
-                    PrimaryGun = localGuns[i].GetComponent<Shooting>();
+                    Shooting gun = localGuns[i].GetComponent<Shooting>();
+                    PrimaryGun = gun;
+                    CurrentGun = gun;
                 }
                 else
                 {
@@ -139,14 +150,7 @@ namespace Player.Control
 
         private void Selection()
         {
-            if (Keyboard.current.digit1Key.wasPressedThisFrame)
-            {
-                Switch(0);
-            }
-            else if (Keyboard.current.digit2Key.wasPressedThisFrame)
-            {
-                Switch(1);
-            }
+            if (Keyboard.current.qKey.wasPressedThisFrame) Switch(currentIndex == 0 ? 1 : 0);
         }
     }
 }

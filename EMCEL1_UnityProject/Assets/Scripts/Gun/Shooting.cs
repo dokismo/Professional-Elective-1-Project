@@ -1,6 +1,6 @@
-using System;
 using Core;
 using Player.Control;
+using UI;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -22,7 +22,7 @@ namespace Gun
 
     public class Shooting : MonoBehaviour
     {
-        
+        public string gunName = "";
         public float distance;
         public LayerMask targetLayers;
 
@@ -55,6 +55,7 @@ namespace Gun
 
         public bool CanShoot => !IsReloading && fireTimer <= 0 && ammoInMag > 0 && able;
         public bool IsReloading => reloadTimer > 0;
+        public bool CanBuyAmmo => totalAmmo < maxTotalAmmo;
 
         private GunAnimation gunAnimation;
         private FirePath firePath;
@@ -82,11 +83,19 @@ namespace Gun
             swapTimer = 0.5f;
             able = false;
             gunAnimation.SwapEvent();
+
+            DisplayStatus.onDead += PlayerDeath;
         }
 
         private void OnDisable()
         {
             StopReload();
+            DisplayStatus.onDead -= PlayerDeath;
+        }
+
+        private void PlayerDeath()
+        {
+            enabled = false;
         }
 
         private void Update()

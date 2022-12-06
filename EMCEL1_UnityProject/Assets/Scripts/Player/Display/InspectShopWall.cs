@@ -1,4 +1,5 @@
 using System;
+using Gun;
 using Shop;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -24,6 +25,8 @@ namespace Player.Display
 
         private void Update()
         {
+            if (!(Time.timeScale > 0.2f)) return;
+            
             IsLookingAtItem();
             Buy();
         }
@@ -32,14 +35,23 @@ namespace Player.Display
         {
             if (!Keyboard.current.eKey.wasPressedThisFrame || currentWallShop == null) return;
 
-            GameObject boughtGun = currentWallShop.BuyItem(playerStatusScriptable);
+            Shooting currentGun = playerStatusScriptable.PlayerStatus.CurrentGun;
 
-            if (boughtGun == null) 
-                return; 
-            
-            playerStatusScriptable.PlayerStatus.AddGun(boughtGun);
-            
-            
+            if (playerStatusScriptable.PlayerStatus.CurrentGun != null && 
+                currentWallShop.item.name.ToUpper() == currentGun.gunName.ToUpper())
+            {
+                if (!currentWallShop.BuyRefill(playerStatusScriptable) || !currentGun.CanBuyAmmo) return;
+                
+                playerStatusScriptable.PlayerStatus.CurrentGun.RefillAmmo();
+            }
+            else
+            {
+                GameObject boughtItem = currentWallShop.BuyItem(playerStatusScriptable);
+
+                if (boughtItem == null) return;
+                
+                playerStatusScriptable.PlayerStatus.AddGun(boughtItem);
+            }
         }
 
         private void IsLookingAtItem()
