@@ -55,11 +55,10 @@ namespace Player.Display
                     }
                     break;
                 case ItemType.MedKit:
-                    if (playerStatusScriptable.PlayerStatus.MedKitInventoryIsFull) return;
+                    if (playerStatusScriptable.PlayerStatus.MedKitInventoryIsFull && currentWallShop.BuyMedKit(playerStatusScriptable)) return;
                     
-                    GameObject medKitItem = currentWallShop.BuyItem(playerStatusScriptable);
-                    if (medKitItem == null) return;
-                    playerStatusScriptable.PlayerStatus.AddMedKit(medKitItem);
+                    playerStatusScriptable.PlayerStatus.AddMedKit();
+                    
                     break;
             }
         }

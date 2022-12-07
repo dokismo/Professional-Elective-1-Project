@@ -2031,7 +2031,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1237592943, guid: ecf00929e16366d4eb8102da4ff929c5, type: 3}
+  m_Sprite: {fileID: 1097024688, guid: 085b0d2d166a6fb429a92709db3af0f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2053,7 +2053,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.59375, y: 0.75, z: 0.2}
+  m_Size: {x: 0.3750001, y: 0.34375, z: 0.20000005}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &7082256248762998052
 MonoBehaviour:
@@ -2068,10 +2068,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    name: AK47
-    price: 1000
-    itemType: 0
-    gun: {fileID: 4441497135764967775, guid: 2711db4aea016bd4c9050bfb4b77bf8d, type: 3}
+    name: Medkit
+    price: 200
+    itemType: 1
+    gun: {fileID: 0}
 --- !u!1 &7082256248762998053
 GameObject:
   m_ObjectHideFlags: 0
