@@ -195,21 +195,23 @@ namespace Item.Gun
                 if (raycastHit.collider != null)
                 {
                     ITarget target = raycastHit.collider.GetComponent<ITarget>();
+                    
                     SurfaceType surface = target != null
                                 ? SurfaceType.Flesh
                                 : SurfaceType.Wall;
+                    
                     particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal, surface);
+                    
+                    if (surface == SurfaceType.Wall)
+                    {
+                        SurfaceHitSFX.wallEvent?.Invoke(raycastHit.point);
+                    }
+                    if (surface == SurfaceType.Flesh)
+                    {
+                        SurfaceHitSFX.fleshEvent?.Invoke(raycastHit.point);
+                    }
 
-                        if (surface == SurfaceType.Wall)
-                        {
-                            SurfaceHitSFX.wallEvent?.Invoke();
-                        }
-                        if (surface == SurfaceType.Flesh)
-                        {
-                            SurfaceHitSFX.fleshEvent?.Invoke();
-                        }
-
-                        target?.Hit(damage);
+                    target?.Hit(damage);
 
                     gunAnimation.ShootEvent(raycastHit.point);
                     firePath.RenderLine(raycastHit.point);

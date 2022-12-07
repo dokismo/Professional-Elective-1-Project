@@ -815,7 +815,7 @@ MonoBehaviour:
   groundCheck: {fileID: 5660677682157815404}
   cameraAnchor: {fileID: 1404824326}
   playerStatusScriptable: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
-  groundDistance: 0.05
+  groundDistance: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 2112
@@ -984,6 +984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   purchase: {fileID: 8300000, guid: a71d43995b04edb4bb7500d307793676, type: 3}
+  hover: {fileID: 0}
   audiosource: {fileID: 1777234288853643442}
 --- !u!114 &1127913459
 MonoBehaviour:

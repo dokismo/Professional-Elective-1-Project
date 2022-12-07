@@ -633,8 +633,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHp: 2100
-  MinimumMoney: 100
-  MaxMoney: 100
+  MinimumMoney: 250
+  MaxMoney: 500
 --- !u!195 &-7067710175610326969
 NavMeshAgent:
   m_ObjectHideFlags: 0

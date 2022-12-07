@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817230566e0068541ade7675663be29c, type: 3}
   m_Name: Z5MinionStats
   m_EditorClassIdentifier: 
-  Health: 100
-  Damage: 5
+  Health: 1
+  Damage: 1
   Speed: 3
   HealthMultiplier: 0.1
   DamageMultiplier: 1

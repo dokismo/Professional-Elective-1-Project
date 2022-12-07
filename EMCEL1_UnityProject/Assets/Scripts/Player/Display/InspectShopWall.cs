@@ -58,7 +58,8 @@ namespace Player.Display
                     }
                     break;
                 case ItemType.MedKit:
-                    if (playerStatusScriptable.PlayerStatus.MedKitInventoryIsFull && currentWallShop.BuyMedKit(playerStatusScriptable)) return;
+                    if (playerStatusScriptable.PlayerStatus.MedKitInventoryIsFull || !currentWallShop.BuyMedKit(playerStatusScriptable)) return;
+                    
                     playerStatusScriptable.PlayerStatus.AddMedKit();
                     BuySound.buyEvent?.Invoke();
                     break;

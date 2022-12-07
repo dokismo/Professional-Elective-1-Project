@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 817230566e0068541ade7675663be29c, type: 3}
   m_Name: Boss_Zombie
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 2100
   Damage: 20
   Speed: 4
-  HealthMultiplier: 21
+  HealthMultiplier: 0.65
   DamageMultiplier: 1
   SpeedMultiplier: 1

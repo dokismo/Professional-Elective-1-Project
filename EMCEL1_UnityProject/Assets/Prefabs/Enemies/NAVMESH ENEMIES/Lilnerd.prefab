@@ -192,8 +192,8 @@ Transform:
   m_GameObject: {fileID: 4501161590554053540}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1838965933913261264}
   m_Father: {fileID: 4854259000778479741}
@@ -267,9 +267,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d82c45610595094ea96efe13b09ede9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHp: 200
-  MinimumMoney: 3
-  MaxMoney: 3
+  enemyHp: 1
+  MinimumMoney: 1
+  MaxMoney: 1
 --- !u!114 &7443272462612821630
 MonoBehaviour:
   m_ObjectHideFlags: 0

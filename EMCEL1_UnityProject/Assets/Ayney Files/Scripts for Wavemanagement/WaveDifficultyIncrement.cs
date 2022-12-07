@@ -43,7 +43,8 @@ public class WaveDifficultyIncrement : MonoBehaviour
 
     public int ZombieIncrementEveryRound = 2;
 
-    public float HPDifficultyMultiplier, DmgDifficultyMultiplier;
+    public float HPDifficultyMultiplier;
+    public float DmgDifficultyMultiplier;
     
     [Header("       For amount of Increase Every Wave")]
     public float HPIncrementDifficulty = 0.5f;

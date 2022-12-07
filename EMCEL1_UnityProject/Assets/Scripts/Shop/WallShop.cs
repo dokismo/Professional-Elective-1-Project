@@ -48,8 +48,16 @@ namespace Shop
 
             return boughtGun;
         }
-        
-        public bool BuyMedKit(PlayerStatusScriptable pScript) => pScript.GetMoney(item.price) > 1;
+
+        public bool BuyMedKit(PlayerStatusScriptable pScript)
+        {
+            bool bought = pScript.GetMoney(item.price) > 1;
+
+            if (bought)
+                item.price = Mathf.Clamp(item.price + 20, 0, 250);
+
+            return bought;
+        }
 
         public bool Escape(PlayerStatusScriptable pScript) => pScript.GetMoney(item.price) > 1;
         

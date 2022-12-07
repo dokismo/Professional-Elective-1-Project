@@ -1,11 +1,12 @@
 using Item.Gun;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Item.Gun
 {
     public class SurfaceHitSFX : MonoBehaviour
     {
-        public delegate void SurfaceSFXEvent();
+        public delegate void SurfaceSFXEvent(Vector3 position);
         public static SurfaceSFXEvent wallEvent, fleshEvent;
 
         public GameObject WallShot, FleshShot;
@@ -26,14 +27,14 @@ namespace Item.Gun
         {
             surfaceShooting = GetComponent<Shooting>();
         }
-        private void Flesh()
+        private void Flesh(Vector3 position)
         {
-            //GameObject shotFlesh = Instantiate(FleshShot, transform.position, transform.rotation);
+            //GameObject shotFlesh = Instantiate(FleshShot, position, quaternion.identity);
             Debug.Log("Flesh Hit");
         }
-        private void Wall()
+        private void Wall(Vector3 position)
         {
-            GameObject shotWall = Instantiate(WallShot, transform.position, transform.rotation);
+            GameObject shotWall = Instantiate(WallShot, position, quaternion.identity);
             Debug.Log("Wall Hit");
         }
     }

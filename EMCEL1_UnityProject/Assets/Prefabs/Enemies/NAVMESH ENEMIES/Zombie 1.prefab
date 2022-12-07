@@ -268,9 +268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d82c45610595094ea96efe13b09ede9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHp: 100
+  enemyHp: 70
   MinimumMoney: 10
-  MaxMoney: 10
+  MaxMoney: 15
 --- !u!114 &-4495673707811796054
 MonoBehaviour:
   m_ObjectHideFlags: 0
