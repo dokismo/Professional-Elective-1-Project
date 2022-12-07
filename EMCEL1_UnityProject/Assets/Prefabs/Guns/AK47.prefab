@@ -249,6 +249,7 @@ MonoBehaviour:
   operation: 0
   icon: {fileID: 589259216, guid: 37948b23e9092d34e827689b9bfcbd19, type: 3}
   muzzleFlash: {fileID: 9022533235862271177}
+  GunShot: {fileID: 2907657435213018580, guid: e22aa2e7674203d4b849acd897db6b0a, type: 3}
 --- !u!82 &4441497135764967771
 AudioSource:
   m_ObjectHideFlags: 0
@@ -357,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29749c6e46d53784496cfd6f22b9711e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot: {fileID: 8300000, guid: 068ac8a5c0cae204aadd32081f1da42e, type: 3}
+  shoot: {fileID: 0}
   reload: {fileID: 8300000, guid: 97dba74ebff0eab46817570ff4bf9def, type: 3}
   audiosource: {fileID: 4441497135764967771}
 --- !u!114 &4441497135764967770
