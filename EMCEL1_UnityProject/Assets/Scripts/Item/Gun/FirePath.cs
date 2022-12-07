@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
 using UnityEngine;
 
-namespace Gun
+namespace Item.Gun
 {
     public class FirePath : MonoBehaviour
     {

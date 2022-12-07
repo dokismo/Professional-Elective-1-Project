@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Gun
+namespace Item.Gun
 {
     public class MuzzleFlash : MonoBehaviour
     {

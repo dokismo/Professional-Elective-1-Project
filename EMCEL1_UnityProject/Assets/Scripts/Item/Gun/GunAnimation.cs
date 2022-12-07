@@ -1,8 +1,7 @@
-using System;
 using Player.Control;
 using UnityEngine;
 
-namespace Gun
+namespace Item.Gun
 {
     public class GunAnimation : MonoBehaviour
     {

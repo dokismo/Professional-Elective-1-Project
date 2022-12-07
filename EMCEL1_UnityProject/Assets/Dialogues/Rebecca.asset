@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf98ff210e2d4ce1954c05353cee0920, type: 3}
   m_Name: Rebecca
   m_EditorClassIdentifier: 
-  onSpawn: 
-  onKill: 
-  onBossKill: 
-  lowHealth: 
-  boughtGun: 
-  randomMessages: []
+  onSpawn: 'How did I ended up here?  I need to get out of this place. '
+  onKill: Why am I having this feeling like I wanna shoot zombies?
+  onBossKill: I didn't think I would get use to kill zombies and here I am.
+  lowHealth: 'Oh no I''m dying!  I need med kit. '
+  boughtGun: I need a better guns.
+  randomMessages:
+  - 'What the.. where did you come from!?  '
+  - Ugh...
+  - 'Hmm.. '
+  - .......
+  - 'Where are they?  '
+  - I need to find some survivors.

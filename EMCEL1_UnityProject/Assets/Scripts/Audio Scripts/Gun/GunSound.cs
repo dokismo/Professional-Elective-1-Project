@@ -1,3 +1,4 @@
+using Item.Gun;
 using UnityEngine;
 
 namespace Gun

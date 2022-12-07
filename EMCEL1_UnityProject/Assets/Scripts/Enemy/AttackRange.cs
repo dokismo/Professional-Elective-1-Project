@@ -24,7 +24,7 @@ public class AttackRange : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject == target)
+        if (other.gameObject == target && navMeshAgent.isOnNavMesh)
         {
             navMeshAgent.isStopped = true;
             identifiedObj = other.gameObject;

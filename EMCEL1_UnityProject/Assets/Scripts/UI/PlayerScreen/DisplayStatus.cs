@@ -1,4 +1,5 @@
 using Gun;
+using Item.Gun;
 using Player;
 using Player.Display;
 using SceneController;

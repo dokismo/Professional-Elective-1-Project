@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Gun
+namespace Item.Gun
 {
     public class GunLight : MonoBehaviour
     {
