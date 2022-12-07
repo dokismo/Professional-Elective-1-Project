@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf98ff210e2d4ce1954c05353cee0920, type: 3}
   m_Name: Rouper
   m_EditorClassIdentifier: 
-  onSpawn: 
-  onKill: 
-  onBossKill: 
-  lowHealth: 
-  boughtGun: 
-  randomMessages: []
+  onSpawn: Yo pare, what is this place bruh
+  onKill: SHEEEEESH
+  onBossKill: 'sheeesh im finna be rich fr fr '
+  lowHealth: Yo pare, needs to see the doctor
+  boughtGun: Valorant moment
+  randomMessages:
+  - starbs ako later after this
+  - fr fr
+  - omsim pare
+  - lowkey creepy ngl tho fr fr
+  - omw to BGC pare
+  - tryna find some "shorty" pare

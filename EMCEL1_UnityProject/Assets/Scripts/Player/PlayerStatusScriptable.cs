@@ -12,6 +12,7 @@ namespace Player
     {
         public static Action staminaChanged;
         public static Action playerLowHealth;
+        public static Action playerTakeDamage;
         
         public int money;
         public float health;
@@ -43,7 +44,12 @@ namespace Player
         {
             health = Mathf.Clamp(health + amount, 0, maxHealth);
 
-            if (health <= 0) DisplayStatus.onDead?.Invoke();
+            if (amount < 0)
+            {
+                if (health <= 0) DisplayStatus.onDead?.Invoke();
+                else playerTakeDamage?.Invoke();
+            }
+            
             
             switch (amount)
             {
@@ -55,6 +61,8 @@ namespace Player
                     lowHealthEventTrigger = true;
                     break;
             }
+
+            
         }
 
         public void SetStaminaBy(float value)

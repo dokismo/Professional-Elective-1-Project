@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf98ff210e2d4ce1954c05353cee0920, type: 3}
   m_Name: Judy
   m_EditorClassIdentifier: 
-  onSpawn: Where am i?
-  onKill: So that's how its done huh
-  onBossKill: What the hell was that thing?
-  lowHealth: I need health...
-  boughtGun: A perfect tool for saving, my self of course.
+  onSpawn: 'Where am I? How did I get here? '
+  onKill: I can't believe I did this.
+  onBossKill: 'I never thought I could do it '
+  lowHealth: I wanna go home.
+  boughtGun: I don't know how this works.
   randomMessages:
-  - I could've sworn there is something wrong in me.
-  - Maybe, just maybe, I can do it barehands.
-  - 1, 2, 3 how many have I killed?
-  - This is boring...
-  - Maybe I can survive here...
+  - 'Ahhh! '
+  - Get away from me!
+  - Don't come any closer...
+  - I need to survive for my friends and family are looking for me.
+  - Calm down,Judy. We can get out of here.

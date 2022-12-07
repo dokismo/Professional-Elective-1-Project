@@ -8,6 +8,7 @@ namespace Player.Control
 {
     public class PlayerStatus : MonoBehaviour
     {
+        public static Action setItemEvent;
         public delegate void Event(int amount);
         public static Event changeHealth;
         public static Event getMoney;
@@ -105,6 +106,8 @@ namespace Player.Control
             {
                 if (currentIndex == i)
                 {
+                    setItemEvent?.Invoke();
+                    
                     localGuns[i].SetActive(true);
                     Shooting gun = localGuns[i].GetComponent<Shooting>();
                     PrimaryGun = gun;

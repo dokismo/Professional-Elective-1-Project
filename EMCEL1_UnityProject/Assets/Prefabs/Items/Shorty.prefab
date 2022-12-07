@@ -132,11 +132,11 @@ MonoBehaviour:
   targetLayers:
     serializedVersion: 2
     m_Bits: 2368
-  damage: 20
+  damage: 13
   ammoInMag: 2
   ammoPerMag: 2
-  totalAmmo: 30
-  maxTotalAmmo: 30
+  totalAmmo: 32
+  maxTotalAmmo: 32
   rpm: 100
   ammoPerFire: 6
   reloadTime: 1

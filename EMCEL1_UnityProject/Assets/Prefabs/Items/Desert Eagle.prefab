@@ -232,8 +232,8 @@ MonoBehaviour:
   damage: 35
   ammoInMag: 7
   ammoPerMag: 7
-  totalAmmo: 63
-  maxTotalAmmo: 63
+  totalAmmo: 77
+  maxTotalAmmo: 77
   rpm: 210
   ammoPerFire: 1
   reloadTime: 1

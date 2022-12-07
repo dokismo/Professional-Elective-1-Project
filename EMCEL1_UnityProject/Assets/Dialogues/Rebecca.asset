@@ -15,12 +15,12 @@ MonoBehaviour:
   onSpawn: 'How did I ended up here?  I need to get out of this place. '
   onKill: Why am I having this feeling like I wanna shoot zombies?
   onBossKill: I didn't think I would get use to kill zombies and here I am.
-  lowHealth: 'Oh no I''m dying!  I need med kit. '
+  lowHealth: A few scratches won't stop me.
   boughtGun: I need a better guns.
   randomMessages:
   - 'What the.. where did you come from!?  '
-  - Ugh...
-  - 'Hmm.. '
-  - .......
+  - 'You''re ruining my black dress!! '
+  - 'That''s the look my bestfriend gave me before I decapitated her '
+  - 'That one looks pretty! Let''s kill her first '
   - 'Where are they?  '
   - I need to find some survivors.
