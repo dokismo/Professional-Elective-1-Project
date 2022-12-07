@@ -24,6 +24,8 @@ namespace UI.MainMenu
         private void OnEnable()
         {
             selectEvent += Deselect;
+            InformationHolder.removeIcon?.Invoke();
+            InformationHolder.removeDialogue?.Invoke();
         }
 
         private void OnDisable()

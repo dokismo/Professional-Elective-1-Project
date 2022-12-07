@@ -1,6 +1,7 @@
 using System;
 using Gun;
 using Item.Gun;
+using SceneController;
 using Shop;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -58,10 +59,12 @@ namespace Player.Display
                     break;
                 case ItemType.MedKit:
                     if (playerStatusScriptable.PlayerStatus.MedKitInventoryIsFull && currentWallShop.BuyMedKit(playerStatusScriptable)) return;
-
                     playerStatusScriptable.PlayerStatus.AddMedKit();
                     BuySound.buyEvent?.Invoke();
-
+                    break;
+                case ItemType.End:
+                    if (!currentWallShop.Escape(playerStatusScriptable)) return;
+                    GameEnd.endTheGame?.Invoke();
                     break;
             }
         }

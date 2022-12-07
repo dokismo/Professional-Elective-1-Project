@@ -79,8 +79,6 @@ namespace UI.PlayerScreen
 
             var test = InformationHolder.instance.runtimeAnimatorController;
             iconAnimator.runtimeAnimatorController = test;
-
-            Debug.Log(test.name);
         }
         
         private void StaminaChangedEvent()

@@ -29,3 +29,7 @@ MonoBehaviour:
     sceneList:
     - name: LoadingScene
       isLoaded: 0
+  - name: Exit
+    sceneList:
+    - name: Exit
+      isLoaded: 0

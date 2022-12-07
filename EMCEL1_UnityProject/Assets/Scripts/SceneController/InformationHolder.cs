@@ -10,6 +10,7 @@ namespace SceneController
         public static InformationHolder instance; 
         
         public static Action removeIcon;
+        public static Action removeDialogue;
         
         public static Action<string, DialogueScriptable> setAnimatorController;
         public static Action<float> setMouseSensitivity;
@@ -24,7 +25,7 @@ namespace SceneController
 
         private void Awake()
         {
-            if (instance == null) instance = this;
+            if (InformationHolder.instance == null) instance = this;
         }
 
         private void Start()
@@ -34,12 +35,13 @@ namespace SceneController
 
         private void OnEnable()
         {
-            setAnimatorController = SetController;
-            getAnimatorController = GetController;
-            removeIcon -= RemoveIcon;
+            setAnimatorController += SetController;
+            getAnimatorController += GetController;
+            removeIcon += RemoveIcon;
             
-            setMouseSensitivity = SetMouseSensitivity;
-            getMouseSensitivity = GetSensitivity;
+            setMouseSensitivity += SetMouseSensitivity;
+            getMouseSensitivity += GetSensitivity;
+            removeDialogue += RemoveDialogue;
         }
 
         private void OnDisable()
@@ -50,6 +52,12 @@ namespace SceneController
             
             setMouseSensitivity -= SetMouseSensitivity;
             getMouseSensitivity -= GetSensitivity;
+            removeDialogue -= RemoveDialogue;
+        }
+
+        private void RemoveDialogue()
+        {
+            dialogueScriptable = null;
         }
 
         private float GetSensitivity() => 
@@ -59,7 +67,6 @@ namespace SceneController
 
         private void RemoveIcon()
         {
-            Debug.Log($"Remove Icon");
             runtimeAnimatorController = null;
         }
 

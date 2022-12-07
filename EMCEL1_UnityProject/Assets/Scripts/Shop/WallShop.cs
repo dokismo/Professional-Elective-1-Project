@@ -8,7 +8,8 @@ namespace Shop
     public enum ItemType
     {
         Gun,
-        MedKit
+        MedKit,
+        End
     }
     
     [Serializable]
@@ -32,7 +33,9 @@ namespace Shop
         {
             return item.itemType == ItemType.MedKit 
                 ? $"NAME: {item.name}\nPRICE: {item.price}" 
-                : $"NAME: {item.name}\nPRICE: {item.price}\nRefill: {item.RefillPrice}";
+                : item.itemType == ItemType.Gun 
+                ? $"NAME: {item.name}\nPRICE: {item.price}\nRefill: {item.RefillPrice}"
+                : $"ESCAPE!!\nPrice: {item.price}";
         }
 
         public GameObject InspectItem() => item.gun;
@@ -48,7 +51,8 @@ namespace Shop
         
         public bool BuyMedKit(PlayerStatusScriptable pScript) => pScript.GetMoney(item.price) > 1;
 
-
+        public bool Escape(PlayerStatusScriptable pScript) => pScript.GetMoney(item.price) > 1;
+        
         public bool BuyRefill(PlayerStatusScriptable pScript) => pScript.GetMoney(item.RefillPrice) >= 0;
 
     }

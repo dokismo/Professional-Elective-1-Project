@@ -16,7 +16,7 @@ namespace Player.Dialogue
         public Vector2 randomDialogueInterval = new(12f, 25f);
 
         private float timer;
-        private bool isFirstBlood = true, isFirstBossKilled = true, onZombieSpawn, onStarted = true;
+        private bool isFirstBlood = true, isFirstBossKilled = true, onZombieSpawn;
 
         private void OnEnable()
         {
