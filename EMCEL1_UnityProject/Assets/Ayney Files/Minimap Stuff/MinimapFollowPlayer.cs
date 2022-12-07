@@ -21,6 +21,6 @@ public class MinimapFollowPlayer : MonoBehaviour
     }
     void Update()
     {
-        transform.position = new Vector3(Target.position.x, transform.position.y, Target.position.z);
+        // transform.position = new Vector3(Target.position.x, transform.position.y, Target.position.z);
     }
 }

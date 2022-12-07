@@ -500,7 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4034e558a7b304243a374e149f761af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultAttackSpeed: 0.25
+  defaultAttackSpeed: 0.45
   timeToAttack: 0
   enemyDamage: 10
   attacking: 0

@@ -6,12 +6,9 @@ using Random = UnityEngine.Random;
 
 public class ForSpawningScript : MonoBehaviour
 {
-    public delegate void callableFunction();
-    public callableFunction functionToCall;
-
     public int zombiesSpawnedCount, maxZombiesSpawned = 30, deadZombie;
 
-    WaveDifficultyIncrement WaveDifficultyManager;
+    public WaveDifficultyIncrement WaveDifficultyManager;
 
     public float defaultWaitTime = 5;
     float waitTime;

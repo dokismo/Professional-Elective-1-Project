@@ -1,6 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+[Serializable]
+public class EnemyChanceSpawn
+{
+    public int currentChanceSpawn = 0;
+    public int difficulty1, difficulty2, difficulty3;
+    
+
+    public void SetChance(int waveNumber)
+    {
+        if (currentChanceSpawn == 0 && waveNumber >= difficulty1)
+        {
+            currentChanceSpawn++;
+        }
+
+        if (currentChanceSpawn == 1 && waveNumber >= difficulty2)
+        {
+            currentChanceSpawn++;
+        }
+
+        if (currentChanceSpawn == 2 && waveNumber >= difficulty3)
+        {
+            currentChanceSpawn++;
+        }
+    }
+}
 
 public class WaveDifficultyIncrement : MonoBehaviour
 {
@@ -10,23 +37,27 @@ public class WaveDifficultyIncrement : MonoBehaviour
 
     [Header("       Increase Variable Every X Wave")]
     public int SpawnBossWAVE = 5;
-    public int IncreaseBossWAVE = 15;
+    public int IncreaseBossWAVE = 10;
 
     public int IncreaseAllEnemyHealthWAVE = 10;
 
     public int ZombieIncrementEveryRound = 2;
 
-    [HideInInspector]
-    public float Z4And5BalancingNum = 0f;
-
     public float HPDifficultyMultiplier, DmgDifficultyMultiplier;
-
+    
     [Header("       For amount of Increase Every Wave")]
     public float HPIncrementDifficulty = 0.5f;
+
+    public EnemyChanceSpawn advancedEnemyChance;
 
     private void Awake()
     {
         SpawningScript = GameObject.Find("For Spawning").GetComponent<ForSpawningScript>();
+    }
+
+    private void Start()
+    {
+        SpawningScript.maxZombiesSpawned += WaveNumber;
     }
 
     public void RoundStart()
@@ -56,33 +87,27 @@ public class WaveDifficultyIncrement : MonoBehaviour
         }
 
         // Spawn Zombie 4 and 5 at X Wave
-        if(WaveNumber >=8 && WaveNumber <= 9)
+        if(WaveNumber >= 8 && WaveNumber <= 9)
         {
-            Z4And5BalancingNum = 0;
             SpawningScript.CanSpawnZombie4and5 = true;
         } else if (WaveNumber >= 21 && WaveNumber <= 30)
         {
-            Z4And5BalancingNum = 1;
             SpawningScript.CanSpawnZombie4and5 = true;
         } else if (WaveNumber >= 31)
         {
-            Z4And5BalancingNum = 2;
             SpawningScript.CanSpawnZombie4and5 = true;
         }
         else
         {
             SpawningScript.CanSpawnZombie4and5 = false;
         }
-
-
-
-
-
+        
         //
         if (WaveNumber % SpawnBossWAVE == 0 && WaveNumber > 0)
         {
             SpawningScript.CanSpawnBossEnemy = true;
         }
+        
         // Increase Number of bosses every 15 rounds
         SpawningScript.NumberOfBossToSpawn = 1 * (int)(WaveNumber / IncreaseBossWAVE);
         if(SpawningScript.NumberOfBossToSpawn <= 0)
@@ -96,5 +121,7 @@ public class WaveDifficultyIncrement : MonoBehaviour
 
         SpawningScript.maxZombiesSpawned += ZombieIncrementEveryRound;
         Debug.Log("DIFFICULTY INCREASED");
+        
+        advancedEnemyChance.SetChance(WaveNumber);
     }
 }

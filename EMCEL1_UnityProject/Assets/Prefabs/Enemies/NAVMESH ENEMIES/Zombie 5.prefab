@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d82c45610595094ea96efe13b09ede9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHp: 200
+  enemyHp: 700
   MinimumMoney: 20
   MaxMoney: 20
 --- !u!114 &7443272462612821630
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4034e558a7b304243a374e149f761af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultAttackSpeed: 0.7
+  defaultAttackSpeed: 0.5
   timeToAttack: 0
   enemyDamage: 10
   attacking: 0
@@ -346,6 +346,7 @@ MonoBehaviour:
     m_Bits: 64119
   DefaultSpawnRate: 10
   MinionSpawnRadius: 2
+  MinionsPerSpawn: 1
 --- !u!1 &4854259000813312619
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,7 +391,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4854259000813312621
 MonoBehaviour:

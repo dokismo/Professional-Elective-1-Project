@@ -34,7 +34,7 @@ public class ZombieSpawnerScript : MonoBehaviour
     {
         if (canSpawn)
         {
-            SpawnZombie(Random.Range(1, 10 + WaveDifficultyManager.Z4And5BalancingNum));
+            SpawnZombie(Random.Range(1, 11));
         }
     }
 
@@ -66,19 +66,27 @@ public class ZombieSpawnerScript : MonoBehaviour
             }
 
             // Spawn Zombies
-            if(RandomNum >= 1 && RandomNum<= 6)
+
+            if (WaveDifficultyManager.advancedEnemyChance.currentChanceSpawn >= RandomNum)
             {
-                int RandomPicker = Random.Range(0,2);
-                Spawn(zombieGameObjects[RandomPicker]);
-            } else if (RandomNum > 6 && RandomNum <=8)
+                int RandomNum2 = Random.Range(3, 5);
+                Spawn(zombieGameObjects[RandomNum2]);
+            }
+            else
             {
-                Spawn(zombieGameObjects[2]);
-            } else
-            {
-                if (forSpawnScript.CanSpawnZombie4and5)
+                float chance = Mathf.InverseLerp(
+                    WaveDifficultyManager.advancedEnemyChance.currentChanceSpawn + 1,
+                    10,
+                    RandomNum);
+
+                if (chance <= 0.7f)
                 {
-                    int RandomNum2 = Random.Range(3, 5);
-                    Spawn(zombieGameObjects[RandomNum2]);
+                    int RandomPicker = Random.Range(0,2);
+                    Spawn(zombieGameObjects[RandomPicker]);
+                }
+                else
+                {
+                    Spawn(zombieGameObjects[2]);
                 }
             }
             

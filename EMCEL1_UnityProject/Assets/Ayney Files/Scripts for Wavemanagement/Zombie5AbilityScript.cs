@@ -10,9 +10,9 @@ public class Zombie5AbilityScript : MonoBehaviour
 
     public float DefaultSpawnRate = 2;
     public float MinionSpawnRadius = 2f;
+    public int MinionsPerSpawn = 1;
 
     float SpawnrateTimer;
-    int MinionsPerSpawn = 5;
 
     private void Start()
     {
