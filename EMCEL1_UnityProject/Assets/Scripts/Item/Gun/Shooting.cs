@@ -64,8 +64,6 @@ namespace Item.Gun
         private ParticleEffect particleEffect;
         private GunSound gunSound; //SFX
         private int didntFried;
-
-        public GameObject GunShot;
         
         private void Start()
         {
@@ -173,7 +171,7 @@ namespace Item.Gun
             }
 
 
-            GameObject gunShot = Instantiate(GunShot, transform.position, transform.rotation);
+            GunSound.shootEvent?.Invoke();
             muzzleFlash.gameObject.SetActive(true);
             GunLight.triggerLight?.Invoke();
             
