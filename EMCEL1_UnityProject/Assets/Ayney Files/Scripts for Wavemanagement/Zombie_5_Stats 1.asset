@@ -15,6 +15,6 @@ MonoBehaviour:
   Health: 100
   Damage: 10
   Speed: 3
-  HealthMultiplier: 5
+  HealthMultiplier: 2
   DamageMultiplier: 1
   SpeedMultiplier: 0.7

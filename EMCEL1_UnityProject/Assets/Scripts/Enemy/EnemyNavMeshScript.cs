@@ -58,7 +58,7 @@ public class EnemyNavMeshScript : MonoBehaviour
         if(GetComponentInChildren<BossAbilityScript>() == null)
         {
             
-            if (objIdentifier.identifiedObj != null)
+            if (objIdentifier.identifiedObj != null && EnemyNMAgent.isOnNavMesh)
             {
                 attacking = EnemyNMAgent.remainingDistance <= EnemyNMAgent.stoppingDistance &&
                             objIdentifier.identifiedObj == player;

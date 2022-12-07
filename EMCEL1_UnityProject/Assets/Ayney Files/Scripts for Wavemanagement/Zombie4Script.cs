@@ -17,7 +17,7 @@ public class Zombie4Script : MonoBehaviour
     }
     void Update()
     {
-        if (GetComponent<EnemyHpHandler>().enemyHp <= HalfHP && !EffectsApplied)
+        if (GetComponent<EnemyHpHandler>().enemyHp <= HalfHP &&  !GetComponentInChildren<EnemyHitScript>().isSlowed)
         {
             
             ApplyZombie4Effect();
@@ -28,8 +28,8 @@ public class Zombie4Script : MonoBehaviour
     void ApplyZombie4Effect()
     {
         GetComponentInChildren<Animator>().speed = 2;
-        GetComponent<EnemyNavMeshScript>().enemyDamage *= 1.5f;
-        GetComponent<NavMeshAgent>().speed *= 3f;
+        GetComponent<EnemyNavMeshScript>().enemyDamage = (GetComponent<EnemyApplyStats>().FinalDmg * 1.5f);
+        GetComponent<NavMeshAgent>().speed = (GetComponent<EnemyApplyStats>().FinalSpeed * 3);
         EffectsApplied = true;
     }
 }

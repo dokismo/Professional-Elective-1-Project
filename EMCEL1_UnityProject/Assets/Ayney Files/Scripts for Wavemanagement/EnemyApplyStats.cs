@@ -15,6 +15,8 @@ public class EnemyApplyStats : MonoBehaviour
     float Health, Damage, Speed;
     float HealthMultiplier, DmgMultiplier, SpeedMultiplier;
 
+    public float FinalSpeed, FinalHealth, FinalDmg;
+
     private void Awake()
     {
         WaveDifficultyManager = GameObject.Find("For Wave Management").GetComponent<WaveDifficultyIncrement>();
@@ -38,12 +40,16 @@ public class EnemyApplyStats : MonoBehaviour
         DmgMultiplier = EnemyStats.DamageMultiplier;
         SpeedMultiplier = EnemyStats.SpeedMultiplier;
 
+        FinalSpeed = Speed * SpeedMultiplier;
+        FinalHealth = Health * HealthMultiplier;
+        FinalDmg = Damage * DmgMultiplier;
+
     }
     void ApplyStats()
     {
-        EnemyNMA.speed = Speed * SpeedMultiplier;
-        EnemyHealthManager.enemyHp = Health * HealthMultiplier;
-        EnemyMainScript.enemyDamage = Damage * DmgMultiplier;
+        EnemyNMA.speed = FinalSpeed;
+        EnemyHealthManager.enemyHp = FinalHealth;
+        EnemyMainScript.enemyDamage = FinalDmg;
 
         EnemyHealthManager.enemyHp *= (WaveDifficultyManager.HPDifficultyMultiplier + 1);
         EnemyMainScript.enemyDamage *=   (WaveDifficultyManager.DmgDifficultyMultiplier + 1);
