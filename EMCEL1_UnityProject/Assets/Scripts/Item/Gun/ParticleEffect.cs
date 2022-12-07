@@ -21,6 +21,7 @@ namespace Item.Gun
             var instance = Instantiate(surfaceType == SurfaceType.Wall
                 ? bulletImpact : bloodImpact, point, quaternion.identity);
             instance.transform.LookAt(normal + instance.transform.position);
+
         }
     }
 }

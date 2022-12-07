@@ -173,7 +173,7 @@ namespace Item.Gun
             }
 
 
-            GameObject gunShot = Instantiate(GunShot, transform.position, transform.rotation); Debug.Log("Gun Sound");
+            GameObject gunShot = Instantiate(GunShot, transform.position, transform.rotation);
             muzzleFlash.gameObject.SetActive(true);
             GunLight.triggerLight?.Invoke();
             

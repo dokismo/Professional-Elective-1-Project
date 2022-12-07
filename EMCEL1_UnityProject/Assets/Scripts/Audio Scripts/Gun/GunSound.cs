@@ -6,22 +6,19 @@ namespace Gun
     public class GunSound : MonoBehaviour
     {
         public delegate void GunEvent();
-        public static GunEvent shootEvent;
         public static GunEvent reloadEvent;
 
-        public AudioClip shoot, reload;
+        public AudioClip reload;
         public AudioSource audiosource;
 
         private Shooting gunShooting;
 
         private void OnEnable()
         {
-            shootEvent += Shoot;
             reloadEvent += Reload;
         }
         private void OnDisable()
         {
-            shootEvent -= Shoot;
             reloadEvent -= Reload;
         }
         private void Start()
@@ -31,10 +28,6 @@ namespace Gun
         private void Reload()
         {
             audiosource.PlayOneShot(reload);
-        }
-        private void Shoot()
-        {
-            audiosource.PlayOneShot(shoot);
         }
     }
     

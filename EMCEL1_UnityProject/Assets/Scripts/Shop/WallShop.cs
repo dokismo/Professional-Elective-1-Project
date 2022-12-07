@@ -50,5 +50,6 @@ namespace Shop
 
 
         public bool BuyRefill(PlayerStatusScriptable pScript) => pScript.GetMoney(item.RefillPrice) >= 0;
+
     }
 }

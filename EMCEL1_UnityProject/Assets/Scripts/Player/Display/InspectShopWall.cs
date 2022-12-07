@@ -46,19 +46,22 @@ namespace Player.Display
                     {
                         if (!currentWallShop.BuyRefill(playerStatusScriptable) || !currentGun.CanBuyAmmo) return;
                         playerStatusScriptable.PlayerStatus.CurrentGun.RefillAmmo();
+                        BuySound.buyEvent?.Invoke();
                     }
                     else
                     {
                         GameObject gunItem = currentWallShop.BuyItem(playerStatusScriptable);
                         if (gunItem == null) return;
                         playerStatusScriptable.PlayerStatus.AddGun(gunItem);
+                        BuySound.buyEvent?.Invoke();
                     }
                     break;
                 case ItemType.MedKit:
                     if (playerStatusScriptable.PlayerStatus.MedKitInventoryIsFull && currentWallShop.BuyMedKit(playerStatusScriptable)) return;
-                    
+
                     playerStatusScriptable.PlayerStatus.AddMedKit();
-                    
+                    BuySound.buyEvent?.Invoke();
+
                     break;
             }
         }
@@ -66,6 +69,7 @@ namespace Player.Display
         private void IsLookingAtItem()
         {
             Ray ray = localCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
 
             if (!Physics.Raycast(ray, out var raycastHit, distance, targetlayer))
             {
@@ -82,7 +86,7 @@ namespace Player.Display
            
             if (currentWallShop == wallShop)
                 return;
-
+            BuySound.lookEvent?.Invoke();
             currentWallShop = wallShop;
             showWallShop?.Invoke(currentWallShop);
         }
