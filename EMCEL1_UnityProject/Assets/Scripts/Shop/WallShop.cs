@@ -28,8 +28,12 @@ namespace Shop
         
         public ShopItem item;
 
-        public String GetMessage() => 
-            $"NAME: {item.name}\nPRICE: {item.price}\nRefill: {item.RefillPrice}";
+        public string GetMessage()
+        {
+            return item.itemType == ItemType.MedKit 
+                ? $"NAME: {item.name}\nPRICE: {item.price}" 
+                : $"NAME: {item.name}\nPRICE: {item.price}\nRefill: {item.RefillPrice}";
+        }
 
         public GameObject InspectItem() => item.gun;
 
@@ -41,7 +45,9 @@ namespace Shop
 
             return boughtGun;
         }
-            
+        
+        public bool BuyMedKit(PlayerStatusScriptable pScript) => pScript.GetMoney(item.price) > 1;
+
 
         public bool BuyRefill(PlayerStatusScriptable pScript) => pScript.GetMoney(item.RefillPrice) >= 0;
     }

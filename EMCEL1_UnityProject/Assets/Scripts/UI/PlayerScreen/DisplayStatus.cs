@@ -1,4 +1,5 @@
-using Gun;
+using System;
+using System.Collections.Generic;
 using Item.Gun;
 using Player;
 using Player.Display;
@@ -7,9 +8,21 @@ using Shop;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace UI.PlayerScreen
 {
+    [Serializable]
+    public class HealthPacks
+    {
+        public List<GameObject> icons;
+
+        public void SetActive(int amount)
+        {
+            for (var i = 0; i < icons.Count; i++) icons[i].SetActive(i < amount);
+        }
+    }
+    
     public class DisplayStatus : MonoBehaviour
     {
         public delegate void Event();
@@ -29,7 +42,9 @@ namespace UI.PlayerScreen
         public TextMeshProUGUI killCountTxt;
         public GameObject dead;
         public GameObject paused;
-        public Image staminaBG, staminaBar;
+        public GameObject options;
+        public Image staminaBg, staminaBar;
+        public HealthPacks healthPacks;
 
         private float staminaVisibilityTimerA;
         private float staminaVisibilityTimerB;
@@ -59,7 +74,7 @@ namespace UI.PlayerScreen
         private void Start()
         {
             randomInterval = Random.Range(0, blinkHighestRandomInterval);
-            staminaBG.color = staminaBar.color = Color.clear; 
+            staminaBg.color = staminaBar.color = Color.clear; 
             shopTxt.enabled = false;
 
             var test = InformationHolder.instance.runtimeAnimatorController;
@@ -83,6 +98,12 @@ namespace UI.PlayerScreen
             SetStamina();
             Blink();
             SetKillCount();
+            HealthPack();
+        }
+
+        private void HealthPack()
+        {
+            healthPacks.SetActive(playerStatusScriptable.PlayerStatus.medKitCount);
         }
 
         private void SetKillCount()
@@ -110,11 +131,11 @@ namespace UI.PlayerScreen
             else
             {
                 staminaVisibilityTimerB = Mathf.Clamp01(staminaVisibilityTimerB - Time.deltaTime);
-                staminaTimer = Mathf.Clamp01(staminaTimer - Time.deltaTime);;
+                staminaTimer = Mathf.Clamp01(staminaTimer - Time.deltaTime);
             }
             
             staminaBar.fillAmount = playerStatusScriptable.stamina / playerStatusScriptable.maxStamina;
-            staminaBG.color = staminaBar.color = Color.Lerp(Color.clear, staminaFullColor, staminaTimer);
+            staminaBg.color = staminaBar.color = Color.Lerp(Color.clear, staminaFullColor, staminaTimer);
         }
 
         private void GunIcon()
@@ -173,6 +194,7 @@ namespace UI.PlayerScreen
         private void SetPause(bool value)
         {
             paused.SetActive(value);
+            options.SetActive(false);
         }
     }
 }

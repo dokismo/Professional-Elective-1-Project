@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HealthPAck
+      name: HealthPacks
       rect:
         serializedVersion: 2
         x: 0
@@ -179,8 +179,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       PlayerBG: 1748009032
-      HealthPAck: 1097024688
       Player_HP: 1157787802
+      HealthPacks: 1097024688
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
