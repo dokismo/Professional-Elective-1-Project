@@ -63,6 +63,8 @@ namespace Item.Gun
         private Camera thisCamera;
         private ParticleEffect particleEffect;
         private GunSound gunSound; //SFX
+        private SurfaceHitSFX surfaceSound;
+
         private int didntFried;
         
         private void Start()
@@ -193,12 +195,21 @@ namespace Item.Gun
                 if (raycastHit.collider != null)
                 {
                     ITarget target = raycastHit.collider.GetComponent<ITarget>();
-                    particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal, 
-                        target != null 
-                            ? SurfaceType.Flesh
-                            : SurfaceType.Wall);
-                
-                    target?.Hit(damage);
+                    SurfaceType surface = target != null
+                                ? SurfaceType.Flesh
+                                : SurfaceType.Wall;
+                    particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal, surface);
+
+                        if (surface == SurfaceType.Wall)
+                        {
+                            SurfaceHitSFX.wallEvent?.Invoke();
+                        }
+                        if (surface == SurfaceType.Flesh)
+                        {
+                            SurfaceHitSFX.fleshEvent?.Invoke();
+                        }
+
+                        target?.Hit(damage);
 
                     gunAnimation.ShootEvent(raycastHit.point);
                     firePath.RenderLine(raycastHit.point);
