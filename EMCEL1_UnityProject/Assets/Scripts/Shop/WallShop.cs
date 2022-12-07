@@ -2,14 +2,22 @@ using System;
 using Player;
 using UnityEngine;
 
+
 namespace Shop
 {
+    public enum ItemType
+    {
+        Gun,
+        MedKit
+    }
+    
     [Serializable]
     public class ShopItem
     {
         public string name;
         public int price;
         public int RefillPrice => Mathf.RoundToInt(price * 0.4f);
+        public ItemType itemType = ItemType.Gun;
             
         public GameObject gun;
     }
@@ -29,10 +37,7 @@ namespace Shop
         {
             GameObject boughtGun = pScript.GetMoney(item.price) < 0 ? null : item.gun;
 
-            if (boughtGun != null)
-            {
-                itemBought?.Invoke();
-            }
+            if (boughtGun != null) itemBought?.Invoke();
 
             return boughtGun;
         }

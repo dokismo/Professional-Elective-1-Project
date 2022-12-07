@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-namespace Gun
+namespace Item.Gun
 {
     public class RecoilEffect : MonoBehaviour
     {

@@ -1,5 +1,6 @@
 using System;
 using Gun;
+using Item.Gun;
 using Shop;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -37,20 +38,29 @@ namespace Player.Display
 
             Shooting currentGun = playerStatusScriptable.PlayerStatus.CurrentGun;
 
-            if (playerStatusScriptable.PlayerStatus.CurrentGun != null && 
-                currentWallShop.item.name.ToUpper() == currentGun.gunName.ToUpper())
+            switch (currentWallShop.item.itemType)
             {
-                if (!currentWallShop.BuyRefill(playerStatusScriptable) || !currentGun.CanBuyAmmo) return;
-                
-                playerStatusScriptable.PlayerStatus.CurrentGun.RefillAmmo();
-            }
-            else
-            {
-                GameObject boughtItem = currentWallShop.BuyItem(playerStatusScriptable);
-
-                if (boughtItem == null) return;
-                
-                playerStatusScriptable.PlayerStatus.AddGun(boughtItem);
+                case ItemType.Gun:
+                    if (currentGun != null && 
+                        currentWallShop.item.name.ToUpper() == currentGun.gunName.ToUpper())
+                    {
+                        if (!currentWallShop.BuyRefill(playerStatusScriptable) || !currentGun.CanBuyAmmo) return;
+                        playerStatusScriptable.PlayerStatus.CurrentGun.RefillAmmo();
+                    }
+                    else
+                    {
+                        GameObject gunItem = currentWallShop.BuyItem(playerStatusScriptable);
+                        if (gunItem == null) return;
+                        playerStatusScriptable.PlayerStatus.AddGun(gunItem);
+                    }
+                    break;
+                case ItemType.MedKit:
+                    if (playerStatusScriptable.PlayerStatus.MedKitInventoryIsFull) return;
+                    
+                    GameObject medKitItem = currentWallShop.BuyItem(playerStatusScriptable);
+                    if (medKitItem == null) return;
+                    playerStatusScriptable.PlayerStatus.AddMedKit(medKitItem);
+                    break;
             }
         }
 

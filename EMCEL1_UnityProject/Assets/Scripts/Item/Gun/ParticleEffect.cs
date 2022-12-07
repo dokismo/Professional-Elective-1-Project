@@ -1,7 +1,7 @@
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace Gun
+namespace Item.Gun
 {
     public enum SurfaceType
     {

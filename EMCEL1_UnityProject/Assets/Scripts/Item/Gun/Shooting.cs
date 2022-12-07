@@ -1,12 +1,12 @@
 using Core;
+using Gun;
 using Player.Control;
-using UI;
 using UI.PlayerScreen;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
 
-namespace Gun
+namespace Item.Gun
 {
     public enum FireType
     {

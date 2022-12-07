@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using Gun;
-using UI;
-using UI.PlayerScreen;
+using Item.Gun;
+using Item.MedKit;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,10 +16,14 @@ namespace Player.Control
         public GameObject startGun1;
         public GameObject startGun2;
 
-        public int maxGuns = 3;
+        public int maxGuns = 2;
+        public int maxMedKit = 3;
         public float onTakeDamageInvulnerableTime = 1f;
+        
         public List<GameObject> localGuns;
-        public Transform gunAnchor;
+        public List<GameObject> localMeds;
+        
+        public Transform itemAnchor;
         
         private int currentIndex;
         private float takeDamageTimer;
@@ -30,7 +33,8 @@ namespace Player.Control
         public Shooting PrimaryGun { get; private set; }
         public Shooting SecondaryGun { get; private set; }
         
-        public bool InventoryIsFull => localGuns.Count >= maxGuns;
+        public bool GunInventoryIsFull => localGuns.Count >= maxGuns;
+        public bool MedKitInventoryIsFull => localMeds.Count >= maxMedKit;
 
         public static bool CanShoot => Cursor.lockState == CursorLockMode.Locked;
 
@@ -40,6 +44,7 @@ namespace Player.Control
             changeHealth += OnTakeDamage;
             getMoney += playerStatusScriptable.PutMoney;
             EnemyHpHandler.OnTheDeath += KilledAZombie;
+            MedKit.itemHeal += UseMedKit;
         }
 
         private void OnDisable()
@@ -48,8 +53,9 @@ namespace Player.Control
             changeHealth -= OnTakeDamage;
             getMoney -= playerStatusScriptable.PutMoney;
             EnemyHpHandler.OnTheDeath -= KilledAZombie;
+            MedKit.itemHeal -= UseMedKit;
         }
-        
+
         private void Start()
         {
             playerStatusScriptable.money = 0;
@@ -58,9 +64,10 @@ namespace Player.Control
             playerStatusScriptable.SetPlayer(this);
             playerStatusScriptable.SetHealthBy((int)playerStatusScriptable.maxHealth);
             playerStatusScriptable.SetStaminaBy(playerStatusScriptable.maxStamina);
-            
-            gunAnchor = Camera.main.gameObject.transform;
-            
+
+            if (Camera.main != null) 
+                itemAnchor = Camera.main.gameObject.transform;
+
             if (startGun1 != null)
                 AddGun(startGun1);
             if (startGun2 != null)
@@ -91,6 +98,8 @@ namespace Player.Control
         {
             currentIndex = position < 0 ? currentIndex : position;
 
+            DisableEverything();
+            
             CurrentGun = null;
             PrimaryGun = null;
             SecondaryGun = null;
@@ -111,21 +120,34 @@ namespace Player.Control
                 }
             }
         }
+
+        private void DisableEverything()
+        {
+            foreach (var obj in localGuns)
+            {
+                obj.SetActive(false);
+            }
+
+            foreach (var obj in localMeds)
+            {
+                obj.SetActive(false);
+            }
+        }
         
         public void AddGun(GameObject gun)
         {
-            if (InventoryIsFull)
+            if (GunInventoryIsFull)
             {
                 if (PrimaryGun == null) return;
 
                 Destroy(PrimaryGun.gameObject);
-                GameObject replacementGun = Instantiate(gun, gunAnchor);
+                GameObject replacementGun = Instantiate(gun, itemAnchor);
 
                 localGuns[currentIndex] = replacementGun;
             }
             else
             {
-                GameObject instanceGun = Instantiate(gun, gunAnchor);
+                GameObject instanceGun = Instantiate(gun, itemAnchor);
                 instanceGun.SetActive(false);
                 localGuns.Add(instanceGun);
             }
@@ -143,6 +165,30 @@ namespace Player.Control
         private void Selection()
         {
             if (Keyboard.current.qKey.wasPressedThisFrame) Switch(currentIndex == 0 ? 1 : 0);
+            if (Keyboard.current.cKey.wasPressedThisFrame) GetMedKit();
+        }
+
+        private void GetMedKit()
+        {
+            if (localMeds.Count <= 0) return;
+            
+            DisableEverything();
+            
+            localMeds[0].SetActive(true);
+        }
+
+        public void AddMedKit(GameObject med)
+        {
+            if (MedKitInventoryIsFull) return;
+            
+            GameObject instanceMed = Instantiate(med, itemAnchor);
+            instanceMed.SetActive(false);
+            localMeds.Add(instanceMed);
+        }
+        
+        private void UseMedKit()
+        {
+            Switch(currentIndex);
         }
     }
 }
