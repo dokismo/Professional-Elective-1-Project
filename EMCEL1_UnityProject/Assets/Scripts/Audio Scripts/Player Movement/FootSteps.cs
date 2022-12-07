@@ -13,7 +13,6 @@ namespace Player.Control
 
         void Start()
         {
-            Debug.Log("start sfx");
             walkStep.SetActive(false);
             runningStep.SetActive(false);
             playerMovement = GetComponent<Movement>();
