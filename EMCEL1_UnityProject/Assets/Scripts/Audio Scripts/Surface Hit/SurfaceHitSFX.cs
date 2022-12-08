@@ -30,12 +30,10 @@ namespace Item.Gun
         private void Flesh(Vector3 position)
         {
             GameObject shotFlesh = Instantiate(FleshShot, position, quaternion.identity);
-            Debug.Log("Flesh Hit");
         }
         private void Wall(Vector3 position)
         {
             GameObject shotWall = Instantiate(WallShot, position, quaternion.identity);
-            Debug.Log("Wall Hit");
         }
     }
 
