@@ -287,13 +287,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultAttackSpeed: 0.5
-  timeToAttack: 0
+  timeToAttack: 0.3
   enemyDamage: 10
+  reloadTime: 1
   attacking: 0
   objIdentifier: {fileID: 0}
   forSpawnScript: {fileID: 0}
   objIdentifierSphere: {fileID: 0}
-  grunt: {fileID: 4854259000778479738}
+  grunt: {fileID: 7600979713323351708, guid: 77eaf53735af1cf4899ecca2ed0da3f3, type: 3}
 --- !u!195 &4122579920279828591
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -350,7 +351,6 @@ MonoBehaviour:
     m_Bits: 64119
   DefaultSpawnRate: 10
   MinionSpawnRadius: 2
-  MinionsPerSpawn: 1
 --- !u!82 &7594682284796504623
 AudioSource:
   m_ObjectHideFlags: 0
