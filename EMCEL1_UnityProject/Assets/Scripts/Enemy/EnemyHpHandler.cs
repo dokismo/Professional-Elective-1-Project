@@ -15,24 +15,22 @@ public class EnemyHpHandler : MonoBehaviour
 
     public int MinimumMoney, MaxMoney;
 
-    private SFXManager sfxManager;
-    bool isAlive = true;
-    private void Start()
-    {
-        sfxManager = FindObjectOfType<SFXManager>();//sfx
-    }
+    public AudioClip died;
+    public AudioSource source;
 
+    private OnEnemyInteract enemySound;
+    bool isAlive = true;
+    
     public void checkHealth()
     {   
         if(enemyHp <= 0f)
         {
-            if (sfxManager)
-                sfxManager.Play("zombie_death"); //sfx
+            
             Destroy(gameObject);
             if (isAlive)
             {
                 int MoneyDropped = Random.Range(MinimumMoney, MaxMoney);
-                DropMoney(MoneyDropped); 
+                DropMoney(MoneyDropped);
             }
             isAlive = false;
         }
@@ -42,7 +40,6 @@ public class EnemyHpHandler : MonoBehaviour
     {
         OnTheDeath?.Invoke();
     }
-
 
     void DropMoney(int money)
     {
