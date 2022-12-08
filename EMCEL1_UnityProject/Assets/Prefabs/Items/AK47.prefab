@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WallShot: {fileID: 4797603147938342748, guid: 1e2d3221d513d194990191e74f5b456f, type: 3}
-  FleshShot: {fileID: 0}
+  FleshShot: {fileID: 7600979713323351708, guid: 712ae0fe11701de4eb098779e0f427c7, type: 3}
 --- !u!1 &6356273145500351131
 GameObject:
   m_ObjectHideFlags: 0
