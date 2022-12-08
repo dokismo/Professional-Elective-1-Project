@@ -2044,7 +2044,7 @@ RectTransform:
   m_Father: {fileID: 1059566079}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.8156048}
+  m_AnchorMin: {x: 0, y: 0.82319576}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -2918,7 +2918,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.000061035156}
-  m_SizeDelta: {x: 0, y: 2274.2075}
+  m_SizeDelta: {x: 0, y: 2393.9243}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &699361358
 MonoBehaviour:
@@ -2947,14 +2947,14 @@ MonoBehaviour:
     Audio Developer\r\nJoshua Ver S. Dela Pe\xF1a\r\nYlijah York Yardley U. Mendez\r\n\r\n>
     Story Designer\r\nCharlene Flor C. Lapasigue\r\nJhosen Victor L. Pamesa\r\n\r\n>
     Play Tester\n\"Nanesan\"\n\n> Our Advisor\r\nProf. Pasiol, Yumie M.\r\n\r\n>>
-    Thirdparty Assets\r\n> A* Pathfinding\r\nhttps://arongranberg.com/astar/\r\n\r\n>
-    Particle VFX\r\nCartoon FX Remaster FREE\r\nWar FX\r\njean.moreno.public+unity@gmail.com\r\n\r\n>
-    Skybox Series Free\r\nhttps://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633\r\nAvain.x@outlook.com\r\navainx.wordpress.com\r\n\r\n>
+    Thirdparty Assets\r\n> A* Pathfinding\r\nhttps://arongranberg.com/astar/\r\n\n>Batte
+    Music\nMusic by DavidKBD\n\r\n> Particle VFX\r\nCartoon FX Remaster FREE\r\nWar
+    FX\r\njean.moreno.public+unity@gmail.com\r\n\r\n> Skybox Series Free\r\nhttps://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633\r\nAvain.x@outlook.com\r\navainx.wordpress.com\r\n\r\n>
     Sprites Muzzle Flash\r\nhttps://assetstore.unity.com/packages/2d/textures-materials/sprite-muzzle-flashes-83068\r\nwww.artstation.com/vitalykuznetsov\r\nkuzen.art@gmail.com\r\n\r\n>
     30+ Unique Modern Guns Asset Pack Pixel art\r\nhttps://searcher2d.itch.io/gun-asset-pack-pixel-art\r\nhttps://searcher2d.itch.io/\r\n\r\n>
     Software Used\r\nUnity 2021.3.10f1\r\nBlender\r\nAseprite\r\nSprytile\r\nPiskel\n\nIf
     you found assets that are used in the game but not credited, please email us
-    novalostj@gmail.com so we can help you.\n\n\"To everyone who helped us along
+    novalostj@gmail.com so we can help you.\n\n\"To everyone who supported us along
     the way during this 1 month of development, thank you.\" - Jay"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7cf2c9c972c24ff459b53efd7df3b1c9, type: 2}
@@ -3936,7 +3936,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 461877874}
   m_Direction: 2
   m_Value: 1.0000001
-  m_Size: 0.18439521
+  m_Size: 0.17680423
   m_NumberOfSteps: 1
   m_OnValueChanged:
     m_PersistentCalls:
