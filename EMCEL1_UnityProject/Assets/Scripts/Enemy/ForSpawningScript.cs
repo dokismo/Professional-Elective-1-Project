@@ -96,8 +96,6 @@ public class ForSpawningScript : MonoBehaviour
     
     public void DeactivateSpawners()
     {
-        Debug.Log("Round Over, SPAWNING ZOMBIES");
-        
         for (int i = 0; i < Spawners.Length; i++)
         {
             spawnSfx();
@@ -107,7 +105,6 @@ public class ForSpawningScript : MonoBehaviour
     }
     public void SetSpawnersActive()
     {
-        Debug.Log("Round Over, SPAWNING ZOMBIES");
         for (int i = 0; i < Spawners.Length; i++)
         {
             spawnSfx();

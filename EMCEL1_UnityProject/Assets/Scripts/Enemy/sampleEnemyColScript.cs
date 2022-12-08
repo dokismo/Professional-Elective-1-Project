@@ -79,7 +79,7 @@ public class sampleEnemyColScript : MonoBehaviour
 
         if(collObj.gameObject.tag == "Player")
         {
-            Debug.Log("ENEMY ATTACKING " + collObj.gameObject.name);
+            
         }
     }
 }

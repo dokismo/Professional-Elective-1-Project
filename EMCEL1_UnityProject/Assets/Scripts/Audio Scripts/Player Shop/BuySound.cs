@@ -32,7 +32,6 @@ namespace Player.Display
         private void buy()
         {
             audiosource.PlayOneShot(purchase);
-            Debug.Log("Coins");
         }
         private void look()
         {

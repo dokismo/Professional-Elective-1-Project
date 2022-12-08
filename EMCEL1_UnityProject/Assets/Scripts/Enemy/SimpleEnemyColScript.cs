@@ -81,9 +81,6 @@ public class SimpleEnemyColScript : MonoBehaviour
                 PlayerStatus.changeHealth?.Invoke(enemyDamage);
                 attacking = false;
             }
-        } else
-        {
-            Debug.Log("Enemy attack MISSED!");
         }
 
         if(GetComponent<ZombieBossScript>() != null)
