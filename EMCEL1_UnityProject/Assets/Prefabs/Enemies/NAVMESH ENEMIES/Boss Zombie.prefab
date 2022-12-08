@@ -132,7 +132,7 @@ MonoBehaviour:
   StunTime: 5
   ChargeLength: 2
   ChargeSpeed: 20
-  ChargeDamage: 20
+  ChargeDamage: 13
   DoingAbility: 0
   Charging: 0
   isStunned: 0
