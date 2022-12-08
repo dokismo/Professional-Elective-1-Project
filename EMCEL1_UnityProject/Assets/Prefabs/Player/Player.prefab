@@ -1245,7 +1245,7 @@ MonoBehaviour:
   audioSource: {fileID: 446296230}
   takeDamage: {fileID: 8300000, guid: d74c28c504b74a840b0996b3ddaa891f, type: 3}
   death: {fileID: 8300000, guid: c4b29d31510c6554da1b04106dcf28cc, type: 3}
-  swapGun: {fileID: 8300000, guid: 6e240c3f644ab1542a8c1441dd6fb919, type: 3}
+  swapGun: {fileID: 8300000, guid: f5c34566459414847b4895bca402b069, type: 3}
 --- !u!1 &5660677682157815405
 GameObject:
   m_ObjectHideFlags: 0
