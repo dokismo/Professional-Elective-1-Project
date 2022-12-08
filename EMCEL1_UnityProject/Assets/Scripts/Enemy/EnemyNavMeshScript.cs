@@ -11,6 +11,7 @@ public class EnemyNavMeshScript : MonoBehaviour
     public float defaultAttackSpeed = 5f, timeToAttack;
     public float enemyDamage = 10;
 
+    public float reloadTime = 1;
     public bool attacking = false;
 
     [Header("Script For Referencing")]
@@ -19,6 +20,7 @@ public class EnemyNavMeshScript : MonoBehaviour
     public SphereCollider objIdentifierSphere;
     
     private GameObject player;
+    private float reloadTimer;
     
     // For sounds
     public GameObject grunt;
@@ -69,9 +71,12 @@ public class EnemyNavMeshScript : MonoBehaviour
                             objIdentifier.identifiedObj == player;
             }
 
-            if (attacking)
+            if (reloadTimer > 0)
             {
-                
+                reloadTimer -= Time.deltaTime;
+            }
+            else if (attacking)
+            {
                 if (!attackToggle)
                 {
                     attackToggle = true;
@@ -87,6 +92,7 @@ public class EnemyNavMeshScript : MonoBehaviour
                     attacking = false;
                     timeToAttack = defaultAttackSpeed;
                     attackToggle = false;
+                    reloadTimer = reloadTime;
                     attackTarget();
                 }
             }

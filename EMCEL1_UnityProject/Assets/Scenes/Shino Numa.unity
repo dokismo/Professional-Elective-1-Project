@@ -1113,7 +1113,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891188168}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4175542429010671556, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}
   m_audioClip: {fileID: 8300000, guid: 788da923d4144ac449054e1612e7fb05, type: 3}
@@ -2259,6 +2259,10 @@ PrefabInstance:
       propertyPath: dialogueScriptable
       value: 
       objectReference: {fileID: 11400000, guid: e0d0da1a2d9938148acd7146ef86b6ef, type: 2}
+    - target: {fileID: 5016286832553150551, guid: d18b9d61a8e855d40bf8317a847857ec, type: 3}
+      propertyPath: runtimeAnimatorController
+      value: 
+      objectReference: {fileID: 22100000, guid: 5ef2e577b6c30004cb3d0fad64097240, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d18b9d61a8e855d40bf8317a847857ec, type: 3}
 --- !u!1001 &1843883572
@@ -2538,18 +2542,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5660677681306034387, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
-      propertyPath: startGun1
-      value: 
-      objectReference: {fileID: 4441497135764967775, guid: 7e4c530ff1bc57949895a3b4fc4d1d7c, type: 3}
-    - target: {fileID: 5660677681306034387, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
-      propertyPath: startGun2
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5794444396666309853, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
-      propertyPath: hover
-      value: 
-      objectReference: {fileID: 8300000, guid: eb8f61549a88a1647b2b38262767ca4a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
 --- !u!1001 &1990644653
