@@ -1098,7 +1098,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891188168}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 4175542429010671556, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}
   m_audioClip: {fileID: 8300000, guid: 788da923d4144ac449054e1612e7fb05, type: 3}
@@ -1463,6 +1463,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4137329151798101455, guid: 9088cf352fe75b04a82235553ac46d1b, type: 3}
   m_PrefabInstance: {fileID: 1944995231}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1159331703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1159331705}
+  - component: {fileID: 1159331704}
+  m_Layer: 0
+  m_Name: GlobalSFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1159331704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159331703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab61591c84a020c4990c0140600e83df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallShot: {fileID: 4797603147938342748, guid: 1e2d3221d513d194990191e74f5b456f, type: 3}
+  fleshShot: {fileID: 7600979713323351708, guid: 712ae0fe11701de4eb098779e0f427c7, type: 3}
+--- !u!4 &1159331705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159331703}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.0761185, y: -124.02639, z: 116.2518}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1293887175
 GameObject:
   m_ObjectHideFlags: 0

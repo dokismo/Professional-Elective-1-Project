@@ -114,7 +114,6 @@ GameObject:
   - component: {fileID: 4441497135764967770}
   - component: {fileID: 4441497135764967769}
   - component: {fileID: 8619453133615977790}
-  - component: {fileID: 3491674889151773694}
   m_Layer: 12
   m_Name: P90
   m_TagString: Untagged
@@ -399,20 +398,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPauseTime: 0.3
   animator: {fileID: 2543953916339691553}
---- !u!114 &3491674889151773694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4441497135764967775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab61591c84a020c4990c0140600e83df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WallShot: {fileID: 4797603147938342748, guid: 1e2d3221d513d194990191e74f5b456f, type: 3}
-  FleshShot: {fileID: 7600979713323351708, guid: 712ae0fe11701de4eb098779e0f427c7, type: 3}
 --- !u!1 &6356273145500351131
 GameObject:
   m_ObjectHideFlags: 0

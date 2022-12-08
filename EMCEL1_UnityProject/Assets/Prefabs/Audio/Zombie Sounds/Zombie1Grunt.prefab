@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9104824968316614092}
   - component: {fileID: -97661637013712950}
   m_Layer: 0
-  m_Name: FleshHit
+  m_Name: Zombie1Grunt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 1994221992768966153, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 204c39776334baa48a7d403b5fd4fc4d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 933b963f82d5dee4e8e84d4ebab8cabc, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -54,7 +54,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0

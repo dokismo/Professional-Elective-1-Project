@@ -1,3 +1,4 @@
+using Audio_Scripts.Surface_Hit;
 using UnityEngine;
 using UnityEngine.AI;
 using Player.Control;
@@ -18,6 +19,10 @@ public class EnemyNavMeshScript : MonoBehaviour
     public SphereCollider objIdentifierSphere;
     
     private GameObject player;
+    
+    // For sounds
+    public GameObject grunt;
+    private bool attackToggle;
 
     void Start()
     {
@@ -66,13 +71,22 @@ public class EnemyNavMeshScript : MonoBehaviour
 
             if (attacking)
             {
+                
+                if (!attackToggle)
+                {
+                    attackToggle = true;
+                    ThisIsGlobalSfx.grunt?.Invoke(transform.position, grunt);
+                }
+                
                 timeToAttack -= Time.deltaTime;
+                
                 if (timeToAttack <= 0)
                 {
                     timeToAttack = defaultAttackSpeed;
                     EnemyNMAgent.isStopped = false;
                     attacking = false;
                     timeToAttack = defaultAttackSpeed;
+                    attackToggle = false;
                     attackTarget();
                 }
             }

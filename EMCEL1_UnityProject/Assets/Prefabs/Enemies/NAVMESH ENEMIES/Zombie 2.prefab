@@ -250,7 +250,6 @@ GameObject:
   - component: {fileID: -2375219631235813328}
   - component: {fileID: 5172531825142885077}
   - component: {fileID: 4793497126593642872}
-  - component: {fileID: 4208747074665045528}
   m_Layer: 8
   m_Name: Zombie 2
   m_TagString: Enemy
@@ -308,8 +307,7 @@ MonoBehaviour:
   enemyHp: 70
   MinimumMoney: 10
   MaxMoney: 15
-  died: {fileID: 0}
-  source: {fileID: 0}
+  deathSound: {fileID: 7600979713323351708, guid: ad237398a1ac6ea4f8f52faa122df59e, type: 3}
 --- !u!195 &-4337750517666689925
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -351,6 +349,7 @@ MonoBehaviour:
   objIdentifier: {fileID: 0}
   forSpawnScript: {fileID: 0}
   objIdentifierSphere: {fileID: 0}
+  grunt: {fileID: 7600979713323351708, guid: 77eaf53735af1cf4899ecca2ed0da3f3, type: 3}
 --- !u!114 &3625847979744858023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -584,21 +583,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4208747074665045528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459204624250079201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d998a61707e80a74bbcc7490d58c00f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grunt: {fileID: 0}
-  died: {fileID: 8300000, guid: 220703ae6e1a37b4d872a4d136a5a028, type: 3}
-  audiosource: {fileID: 4793497126593642872}
 --- !u!1 &3999093372025166878
 GameObject:
   m_ObjectHideFlags: 0

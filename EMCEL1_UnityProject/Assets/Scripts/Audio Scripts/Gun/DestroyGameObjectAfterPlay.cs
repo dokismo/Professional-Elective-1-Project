@@ -5,18 +5,20 @@ using UnityEngine;
 public class DestroyGameObjectAfterPlay : MonoBehaviour
 {
     private float totalTimeBeforeDestroy;
+
+    private AudioSource audioSource;
+    
     void Start()
     {
-        var sound = this.GetComponent<AudioSource>();
-        totalTimeBeforeDestroy = sound.clip.length;
+        audioSource = GetComponent<AudioSource>();
+        totalTimeBeforeDestroy = audioSource.clip.length;
     }
-
     
     void Update()
     {
         totalTimeBeforeDestroy -= Time.deltaTime;
 
         if (totalTimeBeforeDestroy <= 0f)
-            Destroy(this.gameObject);
+            Destroy(gameObject);
     }
 }
