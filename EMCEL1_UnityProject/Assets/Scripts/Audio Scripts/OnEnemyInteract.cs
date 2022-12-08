@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +6,8 @@ public class OnEnemyInteract : MonoBehaviour
 {
     private EnemyHpHandler onEnemyStatus;
 
-    public delegate void EnemyEvent();
-    public static EnemyEvent gruntEvent, deathEvent;
+    public delegate void ZombieEvent();
+    public static ZombieEvent gruntEvent, deathEvent;
 
     public AudioClip grunt, died;
     public AudioSource audiosource;
@@ -34,8 +33,6 @@ public class OnEnemyInteract : MonoBehaviour
     {
         Debug.Log("Died Zombs");
         audiosource.clip = died;
-        audiosource.Play();
+        audiosource.PlayOneShot(died);
     }
 }
-
-

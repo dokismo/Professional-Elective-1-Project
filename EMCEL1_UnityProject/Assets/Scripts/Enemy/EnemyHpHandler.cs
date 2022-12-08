@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyHpHandler : MonoBehaviour
 {
-    public static event Action OnTheDeath;
+    public static Action OnTheDeath;
     
     public float enemyHp = 100;
 
@@ -18,7 +18,9 @@ public class EnemyHpHandler : MonoBehaviour
     public AudioClip died;
     public AudioSource source;
 
-    private OnEnemyInteract enemySound;
+    private OnEnemyInteract interact;
+    public Action ondeathEvent;
+
     bool isAlive = true;
     
     public void checkHealth()
@@ -38,6 +40,7 @@ public class EnemyHpHandler : MonoBehaviour
 
     private void OnDestroy()
     {
+        OnEnemyInteract.deathEvent?.Invoke();
         OnTheDeath?.Invoke();
     }
 
