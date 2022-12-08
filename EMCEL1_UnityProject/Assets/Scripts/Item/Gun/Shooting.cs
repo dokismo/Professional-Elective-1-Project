@@ -1,4 +1,4 @@
-using Audio_Scripts.Surface_Hit;
+using Audio_Scripts;
 using Core;
 using Gun;
 using Player.Control;
@@ -64,7 +64,7 @@ namespace Item.Gun
         private Camera thisCamera;
         private ParticleEffect particleEffect;
         private GunSound gunSound; //SFX
-        private ThisIsGlobalSfx surfaceSound;
+        private GlobalSfx surfaceSound;
 
         private int didntFried;
         
@@ -205,11 +205,11 @@ namespace Item.Gun
                     
                     if (surface == SurfaceType.Wall)
                     {
-                        ThisIsGlobalSfx.wallEvent?.Invoke(raycastHit.point);
+                        GlobalSfx.wallEvent?.Invoke(raycastHit.point);
                     }
                     if (surface == SurfaceType.Flesh)
                     {
-                        ThisIsGlobalSfx.fleshEvent?.Invoke(raycastHit.point);
+                        GlobalSfx.fleshEvent?.Invoke(raycastHit.point);
                     }
 
                     target?.Hit(damage);

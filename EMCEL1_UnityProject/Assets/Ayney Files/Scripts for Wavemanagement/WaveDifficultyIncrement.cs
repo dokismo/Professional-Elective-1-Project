@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -31,6 +29,8 @@ public class EnemyChanceSpawn
 
 public class WaveDifficultyIncrement : MonoBehaviour
 {
+    public static Action waveStart;
+    
     ForSpawningScript SpawningScript;
 
     public int WaveNumber = 0;
@@ -64,6 +64,8 @@ public class WaveDifficultyIncrement : MonoBehaviour
     public void RoundStart()
     {
         WaveNumber++;
+        waveStart?.Invoke();
+        
         IncreaseDifficulty();
     }
 

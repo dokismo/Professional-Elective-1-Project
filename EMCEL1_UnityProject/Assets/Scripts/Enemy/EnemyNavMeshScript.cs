@@ -1,4 +1,4 @@
-using Audio_Scripts.Surface_Hit;
+using Audio_Scripts;
 using UnityEngine;
 using UnityEngine.AI;
 using Player.Control;
@@ -75,7 +75,7 @@ public class EnemyNavMeshScript : MonoBehaviour
                 if (!attackToggle)
                 {
                     attackToggle = true;
-                    ThisIsGlobalSfx.grunt?.Invoke(transform.position, grunt);
+                    GlobalSfx.grunt?.Invoke(transform.position, grunt);
                 }
                 
                 timeToAttack -= Time.deltaTime;

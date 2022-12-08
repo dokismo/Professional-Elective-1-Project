@@ -81,11 +81,9 @@ public class ForSpawningScript : MonoBehaviour
     public void StartWaitTimer()
     {
         if (!roundIsStarting) return;
-        
+
         if (waitTime >= 0)
-        {
             waitTime -= Time.deltaTime;
-        }
         else
         {
             roundIsStarting = false;
