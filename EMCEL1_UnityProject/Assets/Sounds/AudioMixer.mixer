@@ -34,6 +34,20 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-5688838653281547096
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 7868f3df494d82a40ae142209691f04f
+  m_EffectName: Attenuation
+  m_MixLevel: 128c67cc2664a214281b684a92b74430
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-4226724949622565439
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -134,6 +148,7 @@ AudioMixerController:
     - d6dc307666252aa418ff5780df124e9f
     - 06d875c3d208aee4b9517a0594025f6b
     - 3591b21cdbb131345aadf49e9d487abc
+    - 38002580de1d6aa48b57582d4cf6ccc5
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -226,6 +241,7 @@ AudioMixerGroupController:
   m_GroupID: 01ef6380fcd322345bbeaa9d6ec11097
   m_Children:
   - {fileID: -6856959710701501096}
+  - {fileID: 7298851354718210634}
   m_Volume: 1666ca434c3bd864ba53b3943ace8a14
   m_Pitch: 50212ec8ee1b41f4c8ab066c81bbe630
   m_Send: 00000000000000000000000000000000
@@ -334,6 +350,25 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 5609799343977896385}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!243 &7298851354718210634
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Boss Zombie
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 38002580de1d6aa48b57582d4cf6ccc5
+  m_Children: []
+  m_Volume: 920371c1c36b6b542a234fcd4ca27cef
+  m_Pitch: 36f122a376375ca4199f6a84ccd46c6d
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -5688838653281547096}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
