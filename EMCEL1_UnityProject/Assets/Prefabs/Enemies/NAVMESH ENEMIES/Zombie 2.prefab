@@ -307,7 +307,7 @@ MonoBehaviour:
   enemyHp: 70
   MinimumMoney: 10
   MaxMoney: 15
-  deathSound: {fileID: 7600979713323351708, guid: ad237398a1ac6ea4f8f52faa122df59e, type: 3}
+  deathSound: {fileID: 7832098071009525099, guid: cd889de78f7ce06468ecfa5901da7b9c, type: 3}
 --- !u!195 &-4337750517666689925
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   objIdentifier: {fileID: 0}
   forSpawnScript: {fileID: 0}
   objIdentifierSphere: {fileID: 0}
-  grunt: {fileID: 7600979713323351708, guid: 77eaf53735af1cf4899ecca2ed0da3f3, type: 3}
+  grunt: {fileID: 4053496499142724171, guid: 163a8c65b68f8f14b8fe82a195d19282, type: 3}
 --- !u!114 &3625847979744858023
 MonoBehaviour:
   m_ObjectHideFlags: 0
