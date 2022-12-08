@@ -9,6 +9,7 @@ namespace Player.Control
     public class PlayerStatus : MonoBehaviour
     {
         public static Action setItemEvent;
+        public static Action heal;
         public delegate void Event(int amount);
         public static Event changeHealth;
         public static Event getMoney;
@@ -160,6 +161,7 @@ namespace Player.Control
             if (medKitCount <= 0 || Math.Abs(playerStatusScriptable.health - playerStatusScriptable.maxHealth) < 0.1) return;
 
             medKitCount--;
+            heal?.Invoke();
             playerStatusScriptable.SetHealthBy(medKitHealAmount);
         }
 

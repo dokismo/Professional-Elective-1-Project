@@ -10,7 +10,7 @@ namespace Audio_Scripts
     {
         public AudioSource audioSource;
 
-        public AudioClip takeDamage, death, swapGun;
+        public AudioClip takeDamage, death, swapGun, heal;
 
         private bool firstTimeSwap = true;
         private bool onlyPlayDeathOnce;
@@ -20,6 +20,7 @@ namespace Audio_Scripts
             DisplayStatus.onDead += PlayDead;
             PlayerStatusScriptable.playerTakeDamage += PlayDamage;
             PlayerStatus.setItemEvent += SwapItem;
+            PlayerStatus.heal += PlayHeal;
         }
 
         private void OnDisable()
@@ -27,6 +28,7 @@ namespace Audio_Scripts
             DisplayStatus.onDead -= PlayDead;
             PlayerStatusScriptable.playerTakeDamage -= PlayDamage;
             PlayerStatus.setItemEvent -= SwapItem;
+            PlayerStatus.heal -= PlayHeal;
         }
 
         private void SwapItem()
@@ -51,6 +53,11 @@ namespace Audio_Scripts
         private void PlayDamage()
         {
             audioSource.PlayOneShot(death);
+        }
+
+        private void PlayHeal()
+        {
+            audioSource.PlayOneShot(heal);
         }
     }
 }

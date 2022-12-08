@@ -7,6 +7,8 @@ public class Destroyer : MonoBehaviour
 {
     private UILoadScene uiLoadScene;
 
+    public string player = "Player";
+
     private void Start()
     {
         uiLoadScene = GetComponent<UILoadScene>();
@@ -14,6 +16,9 @@ public class Destroyer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        uiLoadScene.LoadSingle();
+        if (other.transform.CompareTag(player))
+            uiLoadScene.LoadSingle();
+        else
+            Destroy(other.gameObject);
     }
 }

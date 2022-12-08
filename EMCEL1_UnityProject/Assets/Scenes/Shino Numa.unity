@@ -1039,6 +1039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e315e980aff46743aa77ec76f4a6f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: Player
 --- !u!114 &698942261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2494,6 +2495,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 446296231, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
+      propertyPath: heal
+      value: 
+      objectReference: {fileID: 8300000, guid: 7cdced061e218ea4d876d71fd02e1cd4, type: 3}
     - target: {fileID: 5660677681306034385, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
       propertyPath: m_Name
       value: Player
