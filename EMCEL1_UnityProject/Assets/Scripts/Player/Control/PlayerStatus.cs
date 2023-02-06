@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Item.Gun;
+using Player.Status_Effects.AppliedStatus;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +23,7 @@ namespace Player.Control
         public int maxMedKit = 3;
         public int medKitHealAmount = 50;
         public float onTakeDamageInvulnerableTime = 1f;
+        public BaseAppliedStatusScriptable applyStatus;
         
         public List<GameObject> localGuns;
         public int medKitCount;

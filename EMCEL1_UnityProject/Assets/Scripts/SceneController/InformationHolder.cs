@@ -1,5 +1,6 @@
 using System;
 using Player.Dialogue;
+using Player.Status_Effects.AppliedStatus;
 using UI.MainMenu;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ namespace SceneController
         public IconsAnimatorControllers iconsAnimatorControllers;
         public RuntimeAnimatorController runtimeAnimatorController;
         public DialogueScriptable dialogueScriptable;
+        public BaseAppliedStatusScriptable baseAppliedStatusScriptable;
         private float mouseSensitivity;
 
         private void Awake()
