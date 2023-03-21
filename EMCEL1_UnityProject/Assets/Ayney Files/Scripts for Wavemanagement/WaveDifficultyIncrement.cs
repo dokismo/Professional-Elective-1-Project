@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [Serializable]
 public class EnemyChanceSpawn
@@ -31,6 +32,8 @@ public class EnemyChanceSpawn
 
 public class WaveDifficultyIncrement : MonoBehaviour
 {
+    public GameObject RoundNumAnim;
+    
     ForSpawningScript SpawningScript;
 
     public int WaveNumber = 0;
@@ -53,6 +56,7 @@ public class WaveDifficultyIncrement : MonoBehaviour
 
     private void Awake()
     {
+        RoundNumAnim = GameObject.Find("RoundNumberAnim");
         SpawningScript = GameObject.Find("For Spawning").GetComponent<ForSpawningScript>();
     }
 
@@ -63,8 +67,10 @@ public class WaveDifficultyIncrement : MonoBehaviour
 
     public void RoundStart()
     {
+
         WaveNumber++;
         IncreaseDifficulty();
+        StartWaveNumChange();
     }
 
     public void RoundEnd()
@@ -124,5 +130,11 @@ public class WaveDifficultyIncrement : MonoBehaviour
         Debug.Log("DIFFICULTY INCREASED");
         
         advancedEnemyChance.SetChance(WaveNumber);
+    }
+
+    public void StartWaveNumChange()
+    {
+        RoundNumAnim.GetComponent<TextMeshProUGUI>().text = "WAVE " + WaveNumber;
+        RoundNumAnim.GetComponent<Animator>().Play("Change Number",0,0);
     }
 }
