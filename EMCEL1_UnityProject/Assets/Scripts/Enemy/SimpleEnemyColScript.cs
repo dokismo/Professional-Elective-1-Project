@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Audio_Scripts.Surface_Hit;
 using UnityEngine;
 using Pathfinding;
 using Player.Control;
@@ -82,9 +81,6 @@ public class SimpleEnemyColScript : MonoBehaviour
                 PlayerStatus.changeHealth?.Invoke(enemyDamage);
                 attacking = false;
             }
-        } else
-        {
-            Debug.Log("Enemy attack MISSED!");
         }
 
         if(GetComponent<ZombieBossScript>() != null)

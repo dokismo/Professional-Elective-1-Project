@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Audio_Scripts.Surface_Hit;
+using Audio_Scripts;
 using UnityEngine;
 using Core;
 using Enemy.Animation;
@@ -23,8 +23,9 @@ public class EnemyHpHandler : MonoBehaviour
     public void checkHealth()
     {
         if (!(enemyHp <= 0f)) return;
-        
-        ThisIsGlobalSfx.death?.Invoke(transform.position, deathSound);
+
+        if (deathSound != null) 
+            GlobalSfx.death?.Invoke(transform.position, deathSound);
         Destroy(gameObject);
         
         if (isAlive)

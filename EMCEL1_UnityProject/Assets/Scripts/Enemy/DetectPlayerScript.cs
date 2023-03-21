@@ -66,7 +66,7 @@ public class DetectPlayerScript : MonoBehaviour
 
         if(objIdentifier.identifiedObj != null)
         {
-            Debug.Log("IN COLLIDER: " + objIdentifier.identifiedObj);
+            
         }
 
         if (aiSetterScript.target != null && objIdentifier.identifiedObj != null)

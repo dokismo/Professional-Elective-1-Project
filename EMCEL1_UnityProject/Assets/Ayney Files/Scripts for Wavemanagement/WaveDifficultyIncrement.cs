@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -32,6 +30,8 @@ public class EnemyChanceSpawn
 
 public class WaveDifficultyIncrement : MonoBehaviour
 {
+    public static Action waveStart;
+    
     public GameObject RoundNumAnim;
     
     ForSpawningScript SpawningScript;
@@ -69,6 +69,8 @@ public class WaveDifficultyIncrement : MonoBehaviour
     {
 
         WaveNumber++;
+        waveStart?.Invoke();
+        
         IncreaseDifficulty();
         StartWaveNumChange();
     }
@@ -127,7 +129,6 @@ public class WaveDifficultyIncrement : MonoBehaviour
 
 
         SpawningScript.maxZombiesSpawned += ZombieIncrementEveryRound;
-        Debug.Log("DIFFICULTY INCREASED");
         
         advancedEnemyChance.SetChance(WaveNumber);
     }

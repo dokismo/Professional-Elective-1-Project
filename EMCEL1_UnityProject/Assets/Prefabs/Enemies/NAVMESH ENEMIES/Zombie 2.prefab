@@ -307,7 +307,7 @@ MonoBehaviour:
   enemyHp: 70
   MinimumMoney: 10
   MaxMoney: 15
-  deathSound: {fileID: 7600979713323351708, guid: ad237398a1ac6ea4f8f52faa122df59e, type: 3}
+  deathSound: {fileID: 7832098071009525099, guid: cd889de78f7ce06468ecfa5901da7b9c, type: 3}
 --- !u!195 &-4337750517666689925
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ MonoBehaviour:
   objIdentifier: {fileID: 0}
   forSpawnScript: {fileID: 0}
   objIdentifierSphere: {fileID: 0}
-  grunt: {fileID: 7600979713323351708, guid: 77eaf53735af1cf4899ecca2ed0da3f3, type: 3}
+  grunt: {fileID: 4053496499142724171, guid: 163a8c65b68f8f14b8fe82a195d19282, type: 3}
 --- !u!114 &3625847979744858023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,7 +387,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 4
+  MaxDistance: 10
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -397,26 +397,17 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.25
-      value: 1
-      inSlope: -4.0016
-      outSlope: -4.0016
+      time: 0.29975128
+      value: 0.6553383
+      inSlope: -2.1363173
+      outSlope: -2.1363173
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.64606476
-      value: 0.16666412
-      inSlope: -1.0004
-      outSlope: -1.0004
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      outWeight: 0.24689157
     - serializedVersion: 3
       time: 1
-      value: 0.024993896
+      value: 0
       inSlope: -0.2501
       outSlope: -0.2501
       tangentMode: 0
