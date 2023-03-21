@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using TMPro;
 
 [Serializable]
 public class EnemyChanceSpawn
@@ -31,6 +32,8 @@ public class WaveDifficultyIncrement : MonoBehaviour
 {
     public static Action waveStart;
     
+    public GameObject RoundNumAnim;
+    
     ForSpawningScript SpawningScript;
 
     public int WaveNumber = 0;
@@ -53,6 +56,7 @@ public class WaveDifficultyIncrement : MonoBehaviour
 
     private void Awake()
     {
+        RoundNumAnim = GameObject.Find("RoundNumberAnim");
         SpawningScript = GameObject.Find("For Spawning").GetComponent<ForSpawningScript>();
     }
 
@@ -63,10 +67,12 @@ public class WaveDifficultyIncrement : MonoBehaviour
 
     public void RoundStart()
     {
+
         WaveNumber++;
         waveStart?.Invoke();
         
         IncreaseDifficulty();
+        StartWaveNumChange();
     }
 
     public void RoundEnd()
@@ -125,5 +131,11 @@ public class WaveDifficultyIncrement : MonoBehaviour
         SpawningScript.maxZombiesSpawned += ZombieIncrementEveryRound;
         
         advancedEnemyChance.SetChance(WaveNumber);
+    }
+
+    public void StartWaveNumChange()
+    {
+        RoundNumAnim.GetComponent<TextMeshProUGUI>().text = "WAVE " + WaveNumber;
+        RoundNumAnim.GetComponent<Animator>().Play("Change Number",0,0);
     }
 }
