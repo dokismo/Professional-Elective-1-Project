@@ -43,6 +43,7 @@ namespace UI.PlayerScreen
         public GameObject dead;
         public GameObject paused;
         public GameObject options;
+        public GameObject WaveNumber;
         public Image staminaBg, staminaBar;
         public HealthPacks healthPacks;
 
@@ -193,6 +194,7 @@ namespace UI.PlayerScreen
         {
             paused.SetActive(value);
             options.SetActive(false);
+            WaveNumber.SetActive(true);
         }
     }
 }

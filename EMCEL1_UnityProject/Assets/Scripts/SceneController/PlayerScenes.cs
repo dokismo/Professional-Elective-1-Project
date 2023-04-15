@@ -9,9 +9,13 @@ namespace SceneController
     {
         public List<string> scenesName;
 
-        private void Start()
+        private void Awake()
         {
             LoadScenes();
+        }
+        private void Start()
+        {
+            
         }
 
         private void LoadScenes()

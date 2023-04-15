@@ -53,7 +53,7 @@ public class EnemyHitScript : MonoBehaviour, ITarget
         StartCoroutine(SlowDown());
         float TotalDmg = (dmg * DmgMultiplier) * DmgReductionMultiplier;
         ThisEnemyHPScript.enemyHp -= TotalDmg;
-        MainEnemyTransform.GetComponentInChildren<ChangeSpriteColorOnHit>().ApplyEffect();
+        // THIS LINE ONLY WORKS ON 2.5D ENEMIES ->  MainEnemyTransform.GetComponentInChildren<ChangeSpriteColorOnHit>().ApplyEffect();
         ThisEnemyHPScript.checkHealth();
     }
 
