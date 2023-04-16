@@ -24,6 +24,10 @@ public class ForSpawningScript : MonoBehaviour
 
     private bool roundIsStarting;
 
+
+
+    public int zombieToSpawnNumNEW = 0;
+
     private void OnEnable()
     {
         ZombieSpawnerScript.SpawnedZombie += AddZombie;
@@ -49,9 +53,12 @@ public class ForSpawningScript : MonoBehaviour
         deadZombie++;
 
         if (deadZombie != maxZombiesSpawned || deadZombie != zombiesSpawnedCount) return;
+
+
         
         deadZombie = 0;
         zombiesSpawnedCount = 0;
+        WaveDifficultyManager.RoundEnd();
         Reset();
     }
 
@@ -62,8 +69,9 @@ public class ForSpawningScript : MonoBehaviour
         waitTime = defaultWaitTime;
         Spawners = GameObject.FindGameObjectsWithTag("spawner");
         EnemiesStorer = GameObject.Find("Enemies");
-        
-        Reset();
+
+        roundIsStarting = true;
+        //Reset();
     }
     
     private void Update()
@@ -101,6 +109,7 @@ public class ForSpawningScript : MonoBehaviour
             spawnSfx();
             Spawners[i].SetActive(false);
             Spawners[i].GetComponent<ZombieSpawnerScript>().canSpawn = false;
+            Spawners[i].GetComponent<NewZombieSpawnerScript>().canSpawn = false;
         }
     }
     public void SetSpawnersActive()
@@ -110,6 +119,7 @@ public class ForSpawningScript : MonoBehaviour
             spawnSfx();
             Spawners[i].SetActive(true);
             Spawners[i].GetComponent<ZombieSpawnerScript>().canSpawn = true;
+            Spawners[i].GetComponent<NewZombieSpawnerScript>().canSpawn = true;
         }
     }
 

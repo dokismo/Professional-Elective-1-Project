@@ -62,12 +62,11 @@ public class WaveDifficultyIncrement : MonoBehaviour
 
     private void Start()
     {
-        SpawningScript.maxZombiesSpawned += WaveNumber;
+        //SpawningScript.maxZombiesSpawned += WaveNumber;
     }
 
     public void RoundStart()
     {
-
         WaveNumber++;
         waveStart?.Invoke();
         
@@ -77,6 +76,10 @@ public class WaveDifficultyIncrement : MonoBehaviour
 
     public void RoundEnd()
     {
+        Debug.Log("Round end Called");
+        //SpawningScript.zombieToSpawnNumNEW++;
+
+
         
     }
 
@@ -128,7 +131,7 @@ public class WaveDifficultyIncrement : MonoBehaviour
         HPDifficultyMultiplier = HPIncrementDifficulty * (int)(WaveNumber / IncreaseAllEnemyHealthWAVE);
 
 
-        SpawningScript.maxZombiesSpawned += ZombieIncrementEveryRound;
+        //SpawningScript.maxZombiesSpawned += ZombieIncrementEveryRound;
         
         advancedEnemyChance.SetChance(WaveNumber);
     }

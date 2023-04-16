@@ -7,6 +7,8 @@ public class EnemyNavMeshScript : MonoBehaviour
 {
     private NavMeshAgent EnemyNMAgent;
 
+    public Animator ZombieAnimatorController;
+
     [Header("Attacking Variables")]
     public float defaultAttackSpeed = 5f, timeToAttack;
     public float enemyDamage = 10;
@@ -20,11 +22,9 @@ public class EnemyNavMeshScript : MonoBehaviour
     public SphereCollider objIdentifierSphere;
     
     private GameObject player;
-    private float reloadTimer;
     
     // For sounds
     public GameObject grunt;
-    private bool attackToggle;
 
     void Start()
     {
@@ -40,7 +40,6 @@ public class EnemyNavMeshScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (player == null)
@@ -48,8 +47,15 @@ public class EnemyNavMeshScript : MonoBehaviour
             player ??= GameObject.FindGameObjectWithTag("Player");
             return;
         }
-        
-        if(EnemyNMAgent.isOnNavMesh)
+
+        MoveToPlayerNavMesh();
+        DetectIfPlayerInRange();
+        AnimationSetter();
+    }
+
+    void MoveToPlayerNavMesh()
+    {
+        if (EnemyNMAgent.isOnNavMesh)
         {
             if (!attacking)
             {
@@ -60,58 +66,47 @@ public class EnemyNavMeshScript : MonoBehaviour
                 EnemyNMAgent.isStopped = true;
             }
         }
-        
-
-        if(GetComponentInChildren<BossAbilityScript>() == null)
+    }
+    void DetectIfPlayerInRange()
+    {
+        if (GetComponentInChildren<BossAbilityScript>() == null)
         {
-            
+
             if (objIdentifier.identifiedObj != null && EnemyNMAgent.isOnNavMesh)
             {
                 attacking = EnemyNMAgent.remainingDistance <= EnemyNMAgent.stoppingDistance &&
                             objIdentifier.identifiedObj == player;
             }
-
-            if (reloadTimer > 0)
-            {
-                reloadTimer -= Time.deltaTime;
-            }
-            else if (attacking)
-            {
-                if (!attackToggle)
-                {
-                    attackToggle = true;
-                    GlobalSfx.grunt?.Invoke(transform.position, grunt);
-                }
-                
-                timeToAttack -= Time.deltaTime;
-                
-                if (timeToAttack <= 0)
-                {
-                    timeToAttack = defaultAttackSpeed;
-                    EnemyNMAgent.isStopped = false;
-                    attacking = false;
-                    timeToAttack = defaultAttackSpeed;
-                    attackToggle = false;
-                    reloadTimer = reloadTime;
-                    attackTarget();
-                }
-            }
         }
-        
     }
+    void AnimationSetter()
+    {
+        if(!ZombieAnimatorController.GetBool("IsDead"))
+        {
+            ZombieAnimatorController.SetBool("IsWalking", !attacking);
+            ZombieAnimatorController.SetBool("IsAttacking", attacking);
+        }
 
-
+    }
     public void attackTarget()
     {
         if (objIdentifier.identifiedObj == player)
         {
+            GlobalSfx.grunt?.Invoke(transform.position, grunt);
             PlayerStatus.changeHealth?.Invoke(-(int)enemyDamage);
-            attacking = false;
         }
         
         if (GetComponent<ZombieBossScript>() != null)
         {
             EnemyNMAgent.speed = GetComponent<ZombieBossScript>().StartSpeed;
         }
+    }
+
+    public void ResetVariables()
+    {
+        attacking = false;
+        timeToAttack = defaultAttackSpeed;
+        EnemyNMAgent.isStopped = false;
+        timeToAttack = defaultAttackSpeed;
     }
 }

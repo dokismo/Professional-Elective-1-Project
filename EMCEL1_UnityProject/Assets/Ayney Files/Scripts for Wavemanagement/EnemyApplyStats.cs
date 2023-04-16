@@ -7,6 +7,7 @@ public class EnemyApplyStats : MonoBehaviour
     public ZombieStats EnemyStats;
 
     WaveDifficultyIncrement WaveDifficultyManager;
+    WaveManagerScript WaveManager;
 
     NavMeshAgent EnemyNMA;
     EnemyNavMeshScript EnemyMainScript;
@@ -19,8 +20,9 @@ public class EnemyApplyStats : MonoBehaviour
 
     private void Awake()
     {
-        WaveDifficultyManager = GameObject.Find("For Wave Management").GetComponent<WaveDifficultyIncrement>();
+        //WaveDifficultyManager = GameObject.Find("For Wave Management").GetComponent<WaveDifficultyIncrement>();
 
+        WaveManager = GameObject.Find("Wave Manager").GetComponent<WaveManagerScript>();
         EnemyNMA = GetComponent<NavMeshAgent>();
         EnemyHealthManager = GetComponent<EnemyHpHandler>();
         EnemyMainScript = GetComponent<EnemyNavMeshScript>();
@@ -51,7 +53,7 @@ public class EnemyApplyStats : MonoBehaviour
         EnemyHealthManager.enemyHp = FinalHealth;
         EnemyMainScript.enemyDamage = FinalDmg;
 
-        EnemyHealthManager.enemyHp *= (WaveDifficultyManager.HPDifficultyMultiplier + 1);
-        EnemyMainScript.enemyDamage *=   (WaveDifficultyManager.DmgDifficultyMultiplier + 1);
+        EnemyHealthManager.enemyHp *= (WaveManager.HPMultiplier + 1);
+        EnemyMainScript.enemyDamage *=   (WaveManager.DMGMultiplier + 1);
     }
 }
