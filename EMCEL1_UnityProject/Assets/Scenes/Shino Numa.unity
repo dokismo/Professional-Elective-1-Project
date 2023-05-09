@@ -6513,7 +6513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BossHPBar: {fileID: 0}
   HitEffect: []
-  BossHP: 1000
+  BossHP: 3
 --- !u!114 &1048259805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9858,15 +9858,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8906514241001364560, guid: 6681f6046ef85034292c8903768089ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.1
+      value: 12.675784
       objectReference: {fileID: 0}
     - target: {fileID: 8906514241001364560, guid: 6681f6046ef85034292c8903768089ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -18.896976
+      value: -18.89685
       objectReference: {fileID: 0}
     - target: {fileID: 8906514241001364560, guid: 6681f6046ef85034292c8903768089ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.58
+      value: -30.393492
       objectReference: {fileID: 0}
     - target: {fileID: 8906514241001364560, guid: 6681f6046ef85034292c8903768089ba, type: 3}
       propertyPath: m_LocalRotation.w

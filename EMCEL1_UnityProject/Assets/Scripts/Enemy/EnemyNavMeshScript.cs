@@ -62,7 +62,7 @@ public class EnemyNavMeshScript : MonoBehaviour
             }
             else
             {
-                transform.LookAt(player.transform);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(player.transform.position - transform.position), Time.deltaTime * 1.5f );
                 EnemyNMAgent.isStopped = true;
             }
         }

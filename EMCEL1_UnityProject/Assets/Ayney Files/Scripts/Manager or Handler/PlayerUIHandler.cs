@@ -4,22 +4,23 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-    public class PlayerUIHandler : MonoBehaviour
-    {
-        public static PlayerUIHandler Instance;
+public class PlayerUIHandler : MonoBehaviour
+{
+    public static PlayerUIHandler Instance;
 
-        public delegate void OnRetry();
-        public static event OnRetry onRetry;
+    public delegate void OnRetry();
+    public static event OnRetry onRetry;
 
-        public GameObject[] UIObjects;
+    public GameObject[] UIObjects;
 
-        public GameObject Manager;
+    public GameObject Manager;
+    public GameObject GameManager;
 
-    
+
     void Awake()
-        {
+    {
 
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
@@ -27,24 +28,24 @@ using UnityEngine.UI;
         CheckForOtherInstance();
 
         UIObjects = new GameObject[transform.childCount];
-            for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            UIObjects[i] = transform.GetChild(i).gameObject;
+
+            //Assign disabled gameobject to boss fight manager variable.
+            if (UIObjects[i].name == "Boss Fight UI")
             {
-                UIObjects[i] = transform.GetChild(i).gameObject;
+                BossFightManager.Instance.BossFightUI = UIObjects[i];
+                BossFightManager.Instance.BossNameText = UIObjects[i].transform.Find("Boss Name").GetComponent<TextMeshProUGUI>();
+            }
 
-                //Assign disabled gameobject to boss fight manager variable.
-                if (UIObjects[i].name == "Boss Fight UI")
-                {
-                    BossFightManager.Instance.BossFightUI = UIObjects[i];
-                    BossFightManager.Instance.BossNameText = UIObjects[i].transform.Find("Boss Name").GetComponent<TextMeshProUGUI>();
-                }
-
-                if (UIObjects[i].name == "Loading Screen")
-                {
-                    SceneLoader.Instance.LoadingScreen = UIObjects[i];
-                    SceneLoader.Instance.LoadingSlider = UIObjects[i].GetComponentInChildren<Slider>();
-                }
+            if (UIObjects[i].name == "Loading Screen")
+            {
+                SceneLoader.Instance.LoadingScreen = UIObjects[i];
+                SceneLoader.Instance.LoadingSlider = UIObjects[i].GetComponentInChildren<Slider>();
             }
         }
+    }
     private void OnEnable()
     {
         SceneManager.sceneLoaded += ResetUIActiveForOnSceneLoadAndStartWaveNumAnim;
@@ -67,91 +68,95 @@ using UnityEngine.UI;
         }
         DontDestroyOnLoad(this);
     }
-       
-        
+
+
     public void EnableGameObject(string name)
     {
         for (int i = 0; i < UIObjects.Length; i++)
         {
             if (UIObjects[i].name == name)
-                {
-                    UIObjects[i].SetActive(true);
-                    break;
-                }
-            }
-        }
-
-        public void DisableGameObject(string name)
-        {
-            for (int i = 0; i < UIObjects.Length; i++)
             {
-                if (UIObjects[i].name == name)
-                {
-                    UIObjects[i].SetActive(false);
-                    break;
-                }
+                UIObjects[i].SetActive(true);
+                break;
             }
         }
-        public void ResetManagers()
-        {
-            Destroy(GameObject.Find("Manager"));
-            Instantiate(Manager, Vector3.zero, Quaternion.identity);
-        }
+    }
 
-        public void AssignVariables()
+    public void DisableGameObject(string name)
+    {
+        for (int i = 0; i < UIObjects.Length; i++)
         {
-            for (int i = 0; i < UIObjects.Length; i++)
+            if (UIObjects[i].name == name)
             {
-                //Assign disabled gameobject to boss fight manager variable.
-                if (UIObjects[i].name == "Boss Fight UI")
-                {
-                    BossFightManager.Instance.BossFightUI = UIObjects[i];
-                    BossFightManager.Instance.BossNameText = UIObjects[i].transform.Find("Boss Name").GetComponent<TextMeshProUGUI>();
-                }
-
-                if (UIObjects[i].name == "Loading Screen")
-                {
-                    SceneLoader.Instance.LoadingScreen = UIObjects[i];
-                    SceneLoader.Instance.LoadingSlider = UIObjects[i].GetComponentInChildren<Slider>();
-                }
+                UIObjects[i].SetActive(false);
+                break;
             }
         }
+    }
+    public void ResetManagers()
+    {
+        Destroy(GameObject.Find("Game Manager"));
+        Instantiate(Manager, Vector3.zero, Quaternion.identity);
+        Instantiate(GameManager, Vector3.zero, Quaternion.identity);
+    }
 
-        public void ResetUIActiveForOnSceneLoadAndStartWaveNumAnim(Scene sceneName, LoadSceneMode mode)
+    public void AssignVariables()
+    {
+        Debug.Log("Assigning Variables");
+        for (int i = 0; i < UIObjects.Length; i++)
         {
-            ResetUIActive();
-            WaveManagerScript.Instance?.StartWaveNumChange();
-        }
-        public void ResetUIActive()
-        {
-            for (int i = 0; i < UIObjects.Length; i++)
+            //Assign disabled gameobject to boss fight manager variable.
+            if (UIObjects[i].name == "Boss Fight UI")
             {
-                if (UIObjects[i].name == "Boss Fight UI") UIObjects[i].SetActive(false);
-                else if (UIObjects[i].name == "Paused") UIObjects[i].SetActive(false);
-                else if (UIObjects[i].name == "Options Menu") UIObjects[i].SetActive(false);
-                else if (UIObjects[i].name == "GameOver") UIObjects[i].SetActive(false);
-                else if (UIObjects[i].name == "Loading Screen") return;
-                else UIObjects[i].SetActive(true);
+                BossFightManager.Instance.BossFightUI = UIObjects[i];
+                BossFightManager.Instance.BossNameText = UIObjects[i].transform.Find("Boss Name").GetComponent<TextMeshProUGUI>();
             }
-        }
 
-        void ResetRoundNum()
-        {
-            for (int i = 0; i < UIObjects.Length; i++)
+            if (UIObjects[i].name == "Loading Screen")
             {
-                if (UIObjects[i].name == "Round Handler")
-                {
-                    UIObjects[i].transform.Find("RoundNumber").GetComponent<TextMeshProUGUI>().text = "";
-                }
+                SceneLoader.Instance.LoadingScreen = UIObjects[i];
+                SceneLoader.Instance.LoadingSlider = UIObjects[i].GetComponentInChildren<Slider>();
             }
         }
-        public void Retry()
-        {
-            ResetManagers();
-            ResetUIActive();
-            ResetRoundNum();
+        BossFightManager.Instance?.AssignBossVar();
+        Debug.Log("DONE");
+    }
 
-            onRetry?.Invoke();
+    public void ResetUIActiveForOnSceneLoadAndStartWaveNumAnim(Scene sceneName, LoadSceneMode mode)
+    {
+        ResetUIActive();
+        WaveManagerScript.Instance?.StartWaveNumChange();
+    }
+    public void ResetUIActive()
+    {
+        for (int i = 0; i < UIObjects.Length; i++)
+        {
+            if (UIObjects[i].name == "Boss Fight UI") UIObjects[i].SetActive(false);
+            else if (UIObjects[i].name == "Paused") UIObjects[i].SetActive(false);
+            else if (UIObjects[i].name == "Options Menu") UIObjects[i].SetActive(false);
+            else if (UIObjects[i].name == "GameOver") UIObjects[i].SetActive(false);
+            else if (UIObjects[i].name == "Loading Screen") return;
+            else UIObjects[i].SetActive(true);
         }
+    }
+
+    void ResetRoundNum()
+    {
+        for (int i = 0; i < UIObjects.Length; i++)
+        {
+            if (UIObjects[i].name == "Round Handler")
+            {
+                UIObjects[i].transform.Find("RoundNumber").GetComponent<TextMeshProUGUI>().text = "";
+            }
+        }
+    }
+    public void Retry()
+    {
+        ResetManagers();
+        ResetUIActive();
+        ResetRoundNum();
+
+        onRetry?.Invoke();
+    }
 }
 

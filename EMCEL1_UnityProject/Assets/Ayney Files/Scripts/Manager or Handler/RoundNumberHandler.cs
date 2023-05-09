@@ -16,7 +16,7 @@ public class RoundNumberHandler : MonoBehaviour
     }
     private void OnDisable()
     {
-        SceneManager.sceneLoaded -= ResetWaveOnSceneLoad;
+        
         //SceneManager.sceneLoaded -= ChangeWaveNumberOnSceneLoad;
     }
 
@@ -52,5 +52,10 @@ public class RoundNumberHandler : MonoBehaviour
     void ResetWaveOnSceneLoad(Scene sceneName, LoadSceneMode mode)
     {
         RoundNumberText.text = "";
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= ResetWaveOnSceneLoad;
     }
 }

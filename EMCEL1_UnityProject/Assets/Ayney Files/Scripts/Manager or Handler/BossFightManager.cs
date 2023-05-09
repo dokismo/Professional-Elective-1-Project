@@ -25,20 +25,29 @@ public class BossFightManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
+    private void OnEnable()
     {
+        SceneManager.sceneLoaded += GetBossOnScene;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= GetBossOnScene;
     }
 
-    
+
     public void AssignBossVar()
     {
-        PlayerUIHandler.Instance?.AssignVariables();
+        
         BossGameObject = GameObject.FindWithTag("Boss").gameObject;
-        BossNameText.text = BossGameObject.name;
-        BossGameObject.GetComponent<BossHPHandler>().BossHPBar = BossFightUI.transform.Find("Boss HP Bar").GetComponent<Slider>();
-        BossGameObject.GetComponent<BossHPHandler>().BossHPBar.maxValue = BossGameObject.GetComponent<BossHPHandler>().BossHP;
-        BossGameObject.GetComponent<BossHPHandler>().BossHPBar.value = BossGameObject.GetComponent<BossHPHandler>().BossHP;
-        BossGameObject.GetComponent<Boss1Script>().Player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if(BossGameObject.GetComponent<BossHPHandler>() != null)
+        {
+            BossGameObject.GetComponent<BossHPHandler>().BossHPBar = BossFightUI.transform.Find("Boss HP Bar").GetComponent<Slider>();
+            BossGameObject.GetComponent<BossHPHandler>().BossHPBar.maxValue = BossGameObject.GetComponent<BossHPHandler>().BossHP;
+            BossGameObject.GetComponent<BossHPHandler>().BossHPBar.value = BossGameObject.GetComponent<BossHPHandler>().BossHP;
+            BossGameObject.GetComponent<Boss1Script>().Player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+        
     }
 
     public void StartBossFight()
@@ -53,18 +62,14 @@ public class BossFightManager : MonoBehaviour
     public void GetBossOnScene(Scene scene, LoadSceneMode mode)
     {
         BossGameObject = GameObject.FindWithTag("Boss");
-
-        if (BossGameObject != null)
+        PlayerUIHandler.Instance?.AssignVariables();
+        if (BossGameObject != null && BossNameText != null)
         {
-            BossNameText.text = BossGameObject.name;
-
             
-
+            BossNameText.text = BossGameObject.name;
             Debug.Log("Boss found!");
         }
             
-
-
         else Debug.Log("CAN'T FIND BOSS");
     }
 

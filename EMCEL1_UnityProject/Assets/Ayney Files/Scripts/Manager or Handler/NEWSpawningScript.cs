@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using UnityEngine.SceneManagement;
 
 public class NEWSpawningScript : MonoBehaviour
 {
@@ -22,30 +23,38 @@ public class NEWSpawningScript : MonoBehaviour
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance != null) Destroy(gameObject);
+        else
         {
             Instance = this;
+            DontDestroyOnLoad(this);
         }
 
-        DontDestroyOnLoad(gameObject);
+        DEFAULTSpawnInterval = SpawnInterval;
     }
     private void OnEnable()
     {
+        SceneManager.sceneLoaded += SetUpSpawner;
         zombieDeathDelegate += AddDeadZombie;
     }
     private void OnDisable()
     {
+        SceneManager.sceneLoaded -= SetUpSpawner;
         zombieDeathDelegate -= AddDeadZombie;
     }
-    void Start()
+
+    private void Start()
     {
-        CanSpawn = true;
-        DEFAULTSpawnInterval = SpawnInterval;
-        // Fetches the list of transform of the spawn location.
         SpawnLocations = new List<Transform>(GameObject.Find("SPAWNERS").GetComponentsInChildren<Transform>());
 
         // Removes the parents transform that is wrongfully fetched by "GetComponentsInChildren".
         SpawnLocations.RemoveAt(0);
+
+        ZombiesSpawned = 0;
+        MaxZombieToSpawn = 5;
+        SpawnInterval = DEFAULTSpawnInterval;
+
+        CanSpawn = true;
     }
 
     void Update()
@@ -76,5 +85,22 @@ public class NEWSpawningScript : MonoBehaviour
     {
 
         ZombieDead++;
+    }
+
+    void SetUpSpawner(Scene sceneName, LoadSceneMode mode)
+    {
+        Debug.Log("SETTING UP");
+        // Fetches the list of transform of the spawn location.
+        SpawnLocations = new List<Transform>(GameObject.Find("SPAWNERS").GetComponentsInChildren<Transform>());
+
+        // Removes the parents transform that is wrongfully fetched by "GetComponentsInChildren".
+        SpawnLocations.RemoveAt(0);
+
+        ZombiesSpawned = 0;
+        MaxZombieToSpawn = 5;
+        SpawnInterval = DEFAULTSpawnInterval;
+        
+        CanSpawn = true;
+        Debug.Log("Done");
     }
 }

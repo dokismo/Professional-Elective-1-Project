@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class WaveManagerScript : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class WaveManagerScript : MonoBehaviour
         }
 
         RoundNumAnim = GameObject.Find("RoundNumberAnim");
+        
         DEFAULTRestTime = RestTime + 1;
     }
 
