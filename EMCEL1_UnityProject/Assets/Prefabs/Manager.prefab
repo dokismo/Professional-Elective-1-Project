@@ -87,3 +87,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   iconsAnimatorControllers: {fileID: 11400000, guid: f08f590f33516a44193385065ee365d7, type: 2}
   runtimeAnimatorController: {fileID: 0}
+  dialogueScriptable: {fileID: 0}
+  PlayerStats: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}

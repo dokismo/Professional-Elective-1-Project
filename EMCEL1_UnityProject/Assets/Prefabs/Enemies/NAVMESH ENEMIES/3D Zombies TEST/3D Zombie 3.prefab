@@ -361,6 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4034e558a7b304243a374e149f761af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyNMAgent: {fileID: 0}
   ZombieAnimatorController: {fileID: 5632715645417101703}
   defaultAttackSpeed: 0.7
   timeToAttack: 0
@@ -368,7 +369,6 @@ MonoBehaviour:
   reloadTime: 1
   attacking: 0
   objIdentifier: {fileID: 0}
-  forSpawnScript: {fileID: 0}
   objIdentifierSphere: {fileID: 0}
   grunt: {fileID: 4053496499142724171, guid: 163a8c65b68f8f14b8fe82a195d19282, type: 3}
 --- !u!114 &3625847979744858023
@@ -1012,6 +1012,8 @@ MonoBehaviour:
   DmgReductionMultiplier: 1
   isBoss: 0
   isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
   SlowDownTime: 0.3
   SlowEffectMultiplier: 0.3
   SlowedSpeed: 0
@@ -1585,6 +1587,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4812281598323964626}
   - component: {fileID: 7235401050130512481}
+  - component: {fileID: 6278127354590120505}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -1627,7 +1630,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: a57c47341910a1942a7651020c71dd6f, type: 3}
+  - {fileID: 2100000, guid: 77fad863701bec84ba241e55c1c58070, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1687,6 +1690,20 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00047549326, y: 0.0039144433, z: 0.0022452865}
     m_Extent: {x: 0.0063228365, y: 0.008655418, z: 0.006007394}
   m_DirtyAABB: 0
+--- !u!114 &6278127354590120505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6694184359572775726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487f70238c4edf349970772114e5b11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColorTime: 0.2
+  HitColorValue: {r: 1, g: 0.48490566, b: 0.48490566, a: 1}
 --- !u!1 &6882339854571128075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,6 +1927,8 @@ MonoBehaviour:
   DmgReductionMultiplier: 1
   isBoss: 0
   isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
   SlowDownTime: 0.3
   SlowEffectMultiplier: 0.3
   SlowedSpeed: 0

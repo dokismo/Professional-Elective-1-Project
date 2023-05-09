@@ -7,6 +7,11 @@ public class ButtonSFX : MonoBehaviour
     public AudioSource audiosource;
     public AudioClip clickSelect, clickBack, clickRun, clickVolume, clickMute, charHover;
 
+    private void Awake()
+    {
+        
+    }
+
     public void onClick()
     {
         audiosource.PlayOneShot(clickSelect);

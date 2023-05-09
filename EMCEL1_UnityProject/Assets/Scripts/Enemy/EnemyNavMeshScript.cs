@@ -5,7 +5,7 @@ using Player.Control;
 
 public class EnemyNavMeshScript : MonoBehaviour
 {
-    private NavMeshAgent EnemyNMAgent;
+    public NavMeshAgent EnemyNMAgent;
 
     public Animator ZombieAnimatorController;
 
@@ -18,7 +18,6 @@ public class EnemyNavMeshScript : MonoBehaviour
 
     [Header("Script For Referencing")]
     public AttackRange objIdentifier;
-    public ForSpawningScript forSpawnScript;
     public SphereCollider objIdentifierSphere;
     
     private GameObject player;
@@ -29,7 +28,7 @@ public class EnemyNavMeshScript : MonoBehaviour
     void Start()
     {
         EnemyNMAgent = transform.GetComponent<NavMeshAgent>();
-
+        
         if(!transform.name.Contains("Lilnerd")) transform.SetParent(GameObject.Find("Enemies").transform);
 
         objIdentifier = transform.GetChild(0).GetComponent<AttackRange>();
@@ -57,12 +56,13 @@ public class EnemyNavMeshScript : MonoBehaviour
     {
         if (EnemyNMAgent.isOnNavMesh)
         {
-            if (!attacking)
+            if (!attacking )
             {
                 EnemyNMAgent.destination = player.transform.position;
             }
             else
             {
+                transform.LookAt(player.transform);
                 EnemyNMAgent.isStopped = true;
             }
         }
@@ -71,11 +71,10 @@ public class EnemyNavMeshScript : MonoBehaviour
     {
         if (GetComponentInChildren<BossAbilityScript>() == null)
         {
-
             if (objIdentifier.identifiedObj != null && EnemyNMAgent.isOnNavMesh)
             {
                 attacking = EnemyNMAgent.remainingDistance <= EnemyNMAgent.stoppingDistance &&
-                            objIdentifier.identifiedObj == player;
+                            objIdentifier.identifiedObj == player; 
             }
         }
     }
@@ -106,7 +105,8 @@ public class EnemyNavMeshScript : MonoBehaviour
     {
         attacking = false;
         timeToAttack = defaultAttackSpeed;
-        EnemyNMAgent.isStopped = false;
+        if(EnemyNMAgent.isOnNavMesh) EnemyNMAgent.isStopped = false;
+
         timeToAttack = defaultAttackSpeed;
     }
 }

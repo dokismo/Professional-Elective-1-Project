@@ -17,12 +17,12 @@ namespace Player.Display
         public float distance = 5f;
         public LayerMask targetlayer;
         
-        private Camera localCamera;
+        [SerializeField] Camera localCamera;
         private WallShop currentWallShop;
 
         private void Start()
         {
-            localCamera = Camera.main;
+            //localCamera = Camera.main;
         }
 
         private void Update()
@@ -65,7 +65,8 @@ namespace Player.Display
                     break;
                 case ItemType.End:
                     if (!currentWallShop.Escape(playerStatusScriptable)) return;
-                    GameEnd.endTheGame?.Invoke();
+                    GameObject.Find("End Door").GetComponent<Animator>().SetBool("Escape", true);
+                    //GameEnd.endTheGame?.Invoke();
                     break;
             }
         }

@@ -22,7 +22,7 @@ public class EnemyApplyStats : MonoBehaviour
     {
         //WaveDifficultyManager = GameObject.Find("For Wave Management").GetComponent<WaveDifficultyIncrement>();
 
-        WaveManager = GameObject.Find("Wave Manager").GetComponent<WaveManagerScript>();
+        WaveManager = GameObject.Find("Game Manager").GetComponent<WaveManagerScript>();
         EnemyNMA = GetComponent<NavMeshAgent>();
         EnemyHealthManager = GetComponent<EnemyHpHandler>();
         EnemyMainScript = GetComponent<EnemyNavMeshScript>();

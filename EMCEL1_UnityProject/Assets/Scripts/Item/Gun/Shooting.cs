@@ -79,6 +79,8 @@ namespace Item.Gun
 
         private void OnEnable()
         {
+            PlayerUIHandler.onRetry += RefillAmmo;
+
             gunAnimation ??= GetComponent<GunAnimation>();
             
             RecoilEffect.setControl?.Invoke(recoilControl);
@@ -93,6 +95,7 @@ namespace Item.Gun
 
         private void OnDisable()
         {
+            
             StopReload();
             DisplayStatus.onDead -= PlayerDeath;
         }
@@ -123,6 +126,8 @@ namespace Item.Gun
 
             if (Mouse.current.leftButton.isPressed && operation == Operation.Automatic)
                 Fire();
+            
+                
             else if (operation == Operation.SemiAutomatic && Mouse.current.leftButton.wasPressedThisFrame)
                 Fire();
 
@@ -231,6 +236,7 @@ namespace Item.Gun
         {
             ammoInMag = ammoPerMag;
             totalAmmo = maxTotalAmmo;
+            Debug.Log("CALLED REFILL");
         }
 
         private void Reload()
@@ -256,6 +262,11 @@ namespace Item.Gun
             
             totalAmmo -= gotAmount;
             ammoInMag += gotAmount;
+        }
+
+        private void OnDestroy()
+        {
+            PlayerUIHandler.onRetry -= RefillAmmo;
         }
     }
 }

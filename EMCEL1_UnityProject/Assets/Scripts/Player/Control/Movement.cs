@@ -1,7 +1,9 @@
 using UI;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using UnityEngine.SceneManagement;
 
 namespace Player.Control
 {
@@ -49,8 +51,11 @@ namespace Player.Control
         public bool IsMoving => moveDir.magnitude > 0.1f;
         public bool IsFalling => velocity.y < -0.02f;
 
+        bool IsStunned = false;
+
         private void OnEnable()
         {
+            SceneManager.sceneLoaded += GoToStartingPoint;
             runInput.Enable();
             movementInput.Enable();
             getMovement += GetMoveMagnitude;
@@ -58,15 +63,31 @@ namespace Player.Control
 
         private void OnDisable()
         {
+            SceneManager.sceneLoaded -= GoToStartingPoint;
             runInput.Disable();
             movementInput.Disable();
             getMovement -= GetMoveMagnitude;
         }
         
-        private void Start()
+        private void Awake()
         {
             timer = 0f;
             controller = GetComponent<CharacterController>();
+        }
+        
+        public void GoToStartingPoint(Scene scene, LoadSceneMode mode)
+        {
+            Transform startingPoint = GameObject.Find("Player Starting Position").transform;
+
+            if(startingPoint != null)
+            {
+                controller.enabled = false;
+
+                transform.position = startingPoint ? startingPoint.position : transform.position;
+
+                controller.enabled = true;
+            }
+            
         }
         
         private Movement GetMoveMagnitude() => this;
@@ -79,7 +100,9 @@ namespace Player.Control
         private void Update()
         {
             timer = Mathf.Clamp(timer - Time.deltaTime, 0, 20);
-            Vector3 inputs = playerStatusScriptable.PlayerStatus.Alive ? movementInput.ReadValue<Vector3>() : Vector3.zero;
+
+            
+            Vector3 inputs = (playerStatusScriptable.PlayerStatus.Alive && !IsStunned) ? movementInput.ReadValue<Vector3>() : Vector3.zero;
 
             SetSprintStatus();
 
@@ -140,6 +163,22 @@ namespace Player.Control
                 onLand?.Invoke();
                 timer = onLandWait;
             }
+        }
+        
+        public IEnumerator Stunned(float StunDuration)
+        {
+            IsStunned = true;
+            float duration = StunDuration;
+
+            while(duration > 0)
+            {
+                duration -= Time.deltaTime;
+                yield return null;
+            }
+
+            IsStunned = false;
+
+            yield break;
         }
     }
 }

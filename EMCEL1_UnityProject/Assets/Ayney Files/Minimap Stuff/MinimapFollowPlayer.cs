@@ -5,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class MinimapFollowPlayer : MonoBehaviour
 {
-    Transform Target;
+    [SerializeField] Transform Target;
     Camera MinimapCam;
 
     public Shader RenderShader;
@@ -13,7 +13,6 @@ public class MinimapFollowPlayer : MonoBehaviour
     private void Start()
     {
         transform.position += Vector3.up * 30;
-        Target = GameObject.Find("Player").transform;
         MinimapCam = GetComponent<Camera>();
 
         MinimapCam.SetReplacementShader(RenderShader, "");

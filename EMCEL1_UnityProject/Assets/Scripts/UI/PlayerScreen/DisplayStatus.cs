@@ -56,6 +56,7 @@ namespace UI.PlayerScreen
 
         private void OnEnable()
         {
+            PlayerUIHandler.onRetry += ResetNeeded;
             InspectShopWall.showWallShop += ItemShop;
             GlobalCommand.setPause += SetPause;
             PlayerStatusScriptable.staminaChanged += StaminaChangedEvent;
@@ -66,6 +67,7 @@ namespace UI.PlayerScreen
 
         private void OnDisable()
         {
+            PlayerUIHandler.onRetry -= ResetNeeded;
             InspectShopWall.showWallShop -= ItemShop;
             onDead -= OnDead;
             GlobalCommand.setPause -= SetPause;
@@ -195,6 +197,11 @@ namespace UI.PlayerScreen
             paused.SetActive(value);
             options.SetActive(false);
             WaveNumber.SetActive(true);
+        }
+
+        public void ResetNeeded()
+        {
+            playerStatusScriptable.killCount = 0;
         }
     }
 }

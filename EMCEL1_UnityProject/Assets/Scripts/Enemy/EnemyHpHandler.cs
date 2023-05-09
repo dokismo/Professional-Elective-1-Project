@@ -30,6 +30,7 @@ public class EnemyHpHandler : MonoBehaviour
         {
             int MoneyDropped = Random.Range(MinimumMoney, MaxMoney);
             DropMoney(MoneyDropped);
+            EnemyDeath();
         }
         
         isAlive = false;
@@ -37,10 +38,9 @@ public class EnemyHpHandler : MonoBehaviour
 
     IEnumerator Death()
     {
-        Debug.Log("DEATH ZOMBIE CALLED");
         GetComponent<EnemyNavMeshScript>().ZombieAnimatorController.Play("zombie_death_standing");
         GetComponent<EnemyNavMeshScript>().ZombieAnimatorController.SetBool("IsDead", true);
-        GetComponent<EnemyNavMeshScript>().enabled = false;
+        GetComponent<EnemyNavMeshScript>().EnemyNMAgent.enabled = false;
         transform.Find("Colliders").gameObject.SetActive(false);
         transform.Find("Attack Range").gameObject.SetActive(false);
         yield return new WaitForSeconds(3f);
@@ -51,9 +51,10 @@ public class EnemyHpHandler : MonoBehaviour
 
     }
 
-    private void OnDestroy()
+
+    void EnemyDeath()
     {
-        if(NEWSpawningScript.zombieDeathDelegate != null) NEWSpawningScript.zombieDeathDelegate();
+        NEWSpawningScript.zombieDeathDelegate?.Invoke();
         OnTheDeath?.Invoke();
     }
 
