@@ -9,11 +9,16 @@ public class BossHPHandler : MonoBehaviour
 
     [SerializeField] EnemyHitEffect[] HitEffect;
 
+    
     public float BossHP = 1000;
+    public float BossMaxHp;
+
+    public bool HasRaged = false;
     private void Start()
     {
         BossFightManager.Instance?.AssignBossVar();
         HitEffect = GetComponentsInChildren<EnemyHitEffect>();
+        BossMaxHp = BossHP;
     }
     public void TakeDamage(int Dmg)
     {
@@ -25,11 +30,26 @@ public class BossHPHandler : MonoBehaviour
         BossHP -= Dmg;
         BossHPBar.value = BossHP;
 
+
+        if (GetComponent<Boss2Script>() && BossHP <= BossMaxHp / 2 && !HasRaged)
+        {
+
+            GetComponent<Boss2Script>().Scream();
+            GetComponent<Boss2Script>().ApplyEnragedStats();
+            HasRaged = true;
+        }
         if(BossHP < 0f)
         {
-            Destroy(gameObject);
-            NextSceneNameHolder.Instance.NextSceneName = "NextSceneSample";
-            SceneLoader.Instance.NextScene();
+            if(!GetComponent<Boss2Script>())
+            {
+                Destroy(gameObject);
+                NextSceneNameHolder.Instance.NextSceneName = "NextSceneSample";
+                SceneLoader.Instance.NextScene();
+            } else
+            {
+                GetComponent<Boss2Script>().IsDead = true;
+            }
+            
         }
     }
 }

@@ -6,7 +6,8 @@ using Player;
 
 public class CameraEffectsHandler : MonoBehaviour
 {
-    
+    public static CameraEffectsHandler Instance;
+
     [Header("References")]
     [SerializeField] Transform OriginalCameraPosition;
     [SerializeField] Transform CameraTransform;
@@ -40,6 +41,13 @@ public class CameraEffectsHandler : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else Destroy(gameObject);
+
+
         PostProcessingVolume = GameObject.Find("PostFX").GetComponent<PostProcessVolume>();
         GameObject Player = GameObject.FindGameObjectWithTag("Player");
         if (Player != null && Player != gameObject)

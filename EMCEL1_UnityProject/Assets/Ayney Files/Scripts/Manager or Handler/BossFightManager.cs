@@ -45,7 +45,10 @@ public class BossFightManager : MonoBehaviour
             BossGameObject.GetComponent<BossHPHandler>().BossHPBar = BossFightUI.transform.Find("Boss HP Bar").GetComponent<Slider>();
             BossGameObject.GetComponent<BossHPHandler>().BossHPBar.maxValue = BossGameObject.GetComponent<BossHPHandler>().BossHP;
             BossGameObject.GetComponent<BossHPHandler>().BossHPBar.value = BossGameObject.GetComponent<BossHPHandler>().BossHP;
-            BossGameObject.GetComponent<Boss1Script>().Player = GameObject.FindGameObjectWithTag("Player").transform;
+            if(FindObjectOfType<Boss1Script>()) BossGameObject.GetComponent<Boss1Script>().Player = GameObject.FindGameObjectWithTag("Player").transform;
+            else if (FindObjectOfType<Boss2Script>()) BossGameObject.GetComponent<Boss2Script>().Player = GameObject.FindGameObjectWithTag("Player").transform;
+            
+                
         }
         
     }
@@ -67,7 +70,6 @@ public class BossFightManager : MonoBehaviour
         {
             
             BossNameText.text = BossGameObject.name;
-            Debug.Log("Boss found!");
         }
             
         else Debug.Log("CAN'T FIND BOSS");

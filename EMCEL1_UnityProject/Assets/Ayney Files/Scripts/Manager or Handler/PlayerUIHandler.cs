@@ -102,7 +102,6 @@ public class PlayerUIHandler : MonoBehaviour
 
     public void AssignVariables()
     {
-        Debug.Log("Assigning Variables");
         for (int i = 0; i < UIObjects.Length; i++)
         {
             //Assign disabled gameobject to boss fight manager variable.
@@ -119,7 +118,6 @@ public class PlayerUIHandler : MonoBehaviour
             }
         }
         BossFightManager.Instance?.AssignBossVar();
-        Debug.Log("DONE");
     }
 
     public void ResetUIActiveForOnSceneLoadAndStartWaveNumAnim(Scene sceneName, LoadSceneMode mode)
@@ -158,5 +156,6 @@ public class PlayerUIHandler : MonoBehaviour
 
         onRetry?.Invoke();
     }
+
 }
 

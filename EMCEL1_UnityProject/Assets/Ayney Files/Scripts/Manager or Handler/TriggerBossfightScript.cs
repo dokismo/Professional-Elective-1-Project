@@ -8,6 +8,7 @@ public class TriggerBossfightScript : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            if (FindObjectOfType<Boss2Script>()) FindObjectOfType<Boss2Script>().IsScreaming = true;
             BossFightManager.Instance.StartBossFight();
             Destroy(gameObject);
         }

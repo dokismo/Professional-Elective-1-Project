@@ -89,7 +89,6 @@ public class NEWSpawningScript : MonoBehaviour
 
     void SetUpSpawner(Scene sceneName, LoadSceneMode mode)
     {
-        Debug.Log("SETTING UP");
         // Fetches the list of transform of the spawn location.
         SpawnLocations = new List<Transform>(GameObject.Find("SPAWNERS").GetComponentsInChildren<Transform>());
 
@@ -101,6 +100,5 @@ public class NEWSpawningScript : MonoBehaviour
         SpawnInterval = DEFAULTSpawnInterval;
         
         CanSpawn = true;
-        Debug.Log("Done");
     }
 }

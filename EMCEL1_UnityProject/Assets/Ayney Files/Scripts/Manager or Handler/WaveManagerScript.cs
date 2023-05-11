@@ -125,8 +125,4 @@ public class WaveManagerScript : MonoBehaviour
         RoundNumAnim.transform.parent.gameObject.SetActive(true);
     }
 
-    private void OnDestroy()
-    {
-        Debug.Log("WAVE MANAGER DESTROYED");
-    }
 }
