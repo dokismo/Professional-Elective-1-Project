@@ -2,13 +2,14 @@ using System;
 using Player.Dialogue;
 using UI.MainMenu;
 using UnityEngine;
+using Player;
 
 namespace SceneController
 {
     public class InformationHolder : MonoBehaviour
     {
         public static InformationHolder instance; 
-        
+      
         public static Action removeIcon;
         public static Action removeDialogue;
         
@@ -21,11 +22,14 @@ namespace SceneController
         public IconsAnimatorControllers iconsAnimatorControllers;
         public RuntimeAnimatorController runtimeAnimatorController;
         public DialogueScriptable dialogueScriptable;
+        public PlayerStatusScriptable PlayerStats;
+
         private float mouseSensitivity;
 
         private void Awake()
         {
             if (InformationHolder.instance == null) instance = this;
+            ResetPlayerStats();
         }
 
         private void Start()
@@ -35,6 +39,7 @@ namespace SceneController
 
         private void OnEnable()
         {
+
             setAnimatorController += SetController;
             getAnimatorController += GetController;
             removeIcon += RemoveIcon;
@@ -46,6 +51,7 @@ namespace SceneController
 
         private void OnDisable()
         {
+
             setAnimatorController -= SetController;
             getAnimatorController -= GetController;
             removeIcon -= RemoveIcon;
@@ -80,6 +86,11 @@ namespace SceneController
             runtimeAnimatorController = iconsAnimatorControllers.GetController(controllerName);
             dialogueScriptable = dlgScriptable;
         } 
+
+        public void ResetPlayerStats()
+        {
+            PlayerStats.killCount = 0;
+        }
             
     }
 }

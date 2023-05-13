@@ -202,6 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4034e558a7b304243a374e149f761af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyNMAgent: {fileID: 0}
   ZombieAnimatorController: {fileID: 6370941747725670391}
   defaultAttackSpeed: 0.7
   timeToAttack: 0
@@ -209,7 +210,6 @@ MonoBehaviour:
   reloadTime: 1
   attacking: 0
   objIdentifier: {fileID: 0}
-  forSpawnScript: {fileID: 0}
   objIdentifierSphere: {fileID: 0}
   grunt: {fileID: 4053496499142724171, guid: 163a8c65b68f8f14b8fe82a195d19282, type: 3}
 --- !u!114 &3625847979744858023
@@ -462,7 +462,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3999093372025166878}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.048, z: 0}
+  m_LocalPosition: {x: -0.051, y: 0.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -499,6 +499,9 @@ MonoBehaviour:
   DmgReductionMultiplier: 1
   isBoss: 0
   isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect:
+  - {fileID: 0}
   SlowDownTime: 0.3
   SlowEffectMultiplier: 0.3
   SlowedSpeed: 0
@@ -682,6 +685,9 @@ MonoBehaviour:
   DmgReductionMultiplier: 1
   isBoss: 0
   isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect:
+  - {fileID: 0}
   SlowDownTime: 0.3
   SlowEffectMultiplier: 0.3
   SlowedSpeed: 0
@@ -746,6 +752,25 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8bb32a8ee4dc4ff44a5a34df282131ba, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+--- !u!1 &2540524493194265164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5755049525349597631, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+  m_PrefabInstance: {fileID: 7827197456394241011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8687583909810239989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540524493194265164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487f70238c4edf349970772114e5b11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColorTime: 0.2
+  HitColorValue: {r: 1, g: 0.42830187, b: 0.42830187, a: 1}
 --- !u!1 &6944167222855433890 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}

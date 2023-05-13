@@ -22,6 +22,8 @@ namespace SceneController
         {
             Time.timeScale = value ? 0 : 1;
         }
+
+        
     
     }
 }

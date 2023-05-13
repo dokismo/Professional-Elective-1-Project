@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4034e558a7b304243a374e149f761af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemyNMAgent: {fileID: 0}
   ZombieAnimatorController: {fileID: 7589244525731669123}
   defaultAttackSpeed: 0.7
   timeToAttack: 0
@@ -154,7 +155,6 @@ MonoBehaviour:
   reloadTime: 1
   attacking: 0
   objIdentifier: {fileID: 0}
-  forSpawnScript: {fileID: 0}
   objIdentifierSphere: {fileID: 0}
   grunt: {fileID: 7600979713323351708, guid: 77eaf53735af1cf4899ecca2ed0da3f3, type: 3}
 --- !u!195 &-1413851870121030345
@@ -531,6 +531,8 @@ MonoBehaviour:
   DmgReductionMultiplier: 1
   isBoss: 0
   isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
   SlowDownTime: 0.3
   SlowEffectMultiplier: 0.3
   SlowedSpeed: 0
@@ -598,6 +600,8 @@ MonoBehaviour:
   DmgReductionMultiplier: 1
   isBoss: 0
   isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
   SlowDownTime: 0.3
   SlowEffectMultiplier: 0.3
   SlowedSpeed: 0
@@ -1210,6 +1214,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8145fd98e506094980d05080bde9072, type: 3}
+--- !u!1 &7494705296030537585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1120782106132314, guid: a8145fd98e506094980d05080bde9072, type: 3}
+  m_PrefabInstance: {fileID: 7494396163197364267}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6233541485554038307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494705296030537585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487f70238c4edf349970772114e5b11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ColorTime: 0.2
+  HitColorValue: {r: 1, g: 0.40943396, b: 0.40943396, a: 1}
 --- !u!1 &7495479905655519085 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1190601789873990, guid: a8145fd98e506094980d05080bde9072, type: 3}

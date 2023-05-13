@@ -3,6 +3,8 @@ using UnityEngine;
 using Enemy.Animation;
 using Core;
 using UnityEngine.AI;
+using UnityEditor;
+
 public class EnemyHitScript : MonoBehaviour, ITarget
 {
     Transform MainEnemyTransform;
@@ -19,6 +21,9 @@ public class EnemyHitScript : MonoBehaviour, ITarget
     public float DmgReductionMultiplier = 1f;
 
     public bool isBoss, isSlowed = false;
+
+    [SerializeField] GameObject RootObject;
+    [SerializeField] EnemyHitEffect[] HitEffect;
 
     float DefaultSpeed;
     public float SlowDownTime = 0.3f, SlowEffectMultiplier = 0.3f;
@@ -38,6 +43,10 @@ public class EnemyHitScript : MonoBehaviour, ITarget
         DefaultSpeed = (transform.parent.parent.GetComponent<EnemyApplyStats>() != null) ? transform.parent.parent.GetComponent<EnemyApplyStats>().FinalSpeed : transform.parent.parent.parent.GetComponent<EnemyApplyStats>().FinalSpeed;
 
         SlowedSpeed = DefaultSpeed * SlowEffectMultiplier;
+
+        
+
+        HitEffect = RootObject.GetComponentsInChildren<EnemyHitEffect>();
     }
 
     private void Update()
@@ -51,6 +60,11 @@ public class EnemyHitScript : MonoBehaviour, ITarget
     {
         StopAllCoroutines();
         StartCoroutine(SlowDown());
+        for (int i = 0; i<HitEffect.Length; i++)
+        {
+            HitEffect[i].HitEffectOnMat();
+        }
+        
         float TotalDmg = (dmg * DmgMultiplier) * DmgReductionMultiplier;
         ThisEnemyHPScript.enemyHp -= TotalDmg;
         // THIS LINE ONLY WORKS ON 2.5D ENEMIES ->  MainEnemyTransform.GetComponentInChildren<ChangeSpriteColorOnHit>().ApplyEffect();

@@ -23,7 +23,7 @@ namespace Audio_Scripts
         private const string AudioMixerParam = "HeartBeatPitch";
         private float Health => playerStatusScriptable.health;
         private float MaxHealth => playerStatusScriptable.maxHealth;
-        private float HealthPercent => Health / MaxHealth;
+        public float HealthPercent => Health / MaxHealth;
         private bool InRange => HealthPercent <= beatPercent;
         private float Pitch => startPitch + Mathf.Lerp(0, 1f, audioSource.volume);
         

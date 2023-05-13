@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Item.Gun;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 namespace Player.Control
 {
     public class PlayerStatus : MonoBehaviour
@@ -41,8 +41,11 @@ namespace Player.Control
 
         public static bool CanShoot => Cursor.lockState == CursorLockMode.Locked;
 
+
         private void OnEnable()
         {
+            SceneManager.sceneLoaded += ResetPlayerStatsOnSceneLoad;
+            PlayerUIHandler.onRetry += Retry;
             Enemy.OnDeathEvent.givePlayerMoney += playerStatusScriptable.AddMoney;
             changeHealth += OnTakeDamage;
             getMoney += playerStatusScriptable.PutMoney;
@@ -51,6 +54,8 @@ namespace Player.Control
 
         private void OnDisable()
         {
+            SceneManager.sceneLoaded -= ResetPlayerStatsOnSceneLoad;
+            PlayerUIHandler.onRetry -= Retry;
             Enemy.OnDeathEvent.givePlayerMoney -= playerStatusScriptable.AddMoney;
             changeHealth -= OnTakeDamage;
             getMoney -= playerStatusScriptable.PutMoney;
@@ -91,7 +96,6 @@ namespace Player.Control
         private void Update()
         {
             Selection();
-
             takeDamageTimer = Mathf.Clamp(takeDamageTimer - Time.deltaTime, 0, onTakeDamageInvulnerableTime);
         }
         
@@ -168,6 +172,25 @@ namespace Player.Control
         public void AddMedKit()
         {
             medKitCount++;
+        }
+
+        public void Retry()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            playerStatusScriptable.health = playerStatusScriptable.maxHealth;
+
+            Shooting[] ShootScripts = FindObjectsOfType<Shooting>();
+            
+            foreach(Shooting script in ShootScripts)
+            {
+                script.enabled = true;
+            }
+        }
+
+        void ResetPlayerStatsOnSceneLoad(Scene sceneName, LoadSceneMode mode)
+        {
+            playerStatusScriptable.health = playerStatusScriptable.maxHealth;
+            playerStatusScriptable.killCount = 0;
         }
     }
 }

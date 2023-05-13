@@ -894,6 +894,7 @@ GameObject:
   - component: {fileID: 1777234288853643442}
   - component: {fileID: 446296230}
   - component: {fileID: 446296231}
+  - component: {fileID: 4246633353993277823}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1119,6 +1120,7 @@ MonoBehaviour:
   targetlayer:
     serializedVersion: 2
     m_Bits: 8192
+  localCamera: {fileID: 1895527324}
 --- !u!114 &5794444396666309853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1393,6 +1395,72 @@ MonoBehaviour:
   death: {fileID: 8300000, guid: c4b29d31510c6554da1b04106dcf28cc, type: 3}
   swapGun: {fileID: 8300000, guid: f5c34566459414847b4895bca402b069, type: 3}
   heal: {fileID: 8300000, guid: 7cdced061e218ea4d876d71fd02e1cd4, type: 3}
+--- !u!114 &4246633353993277823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5660677681306034385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaf4c7992566cad46902e1dc5b97dc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OriginalCameraPosition: {fileID: 1404824326}
+  CameraTransform: {fileID: 1895527322}
+  PostProcessingVolume: {fileID: 0}
+  EffectsProfile: {fileID: 0}
+  ScreenShakeAnimCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.9370332
+      outSlope: 2.9370332
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.34047964
+      value: 1
+      inSlope: -0.66820455
+      outSlope: -0.66820455
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.7206832
+    - serializedVersion: 3
+      time: 0.4669739
+      value: 0.3292325
+      inSlope: -1.9028794
+      outSlope: -1.9028794
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.113225944
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.6176668
+      outSlope: -0.6176668
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  CameraVignette: {fileID: 0}
+  PlayerStats: {fileID: 11400000, guid: 528a663648d51b145addae73977af499, type: 2}
+  MinVignetteIntensity: 0
+  MaxVignetteIntensity: 0.1
+  MinVignetteFrequency: 0.1
+  MaxVignetteFrequency: 0.5
+  VignetteFrequency: 0
+  test: 1
 --- !u!1 &5660677682157815405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,6 +1800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minimap CAM
       objectReference: {fileID: 0}
+    - target: {fileID: 2450628563511304340, guid: 056cb8be2abcc494b8f79327351dcaae, type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 5660677681306034386}
     - target: {fileID: 2450628563511304343, guid: 056cb8be2abcc494b8f79327351dcaae, type: 3}
       propertyPath: m_RootOrder
       value: 6
