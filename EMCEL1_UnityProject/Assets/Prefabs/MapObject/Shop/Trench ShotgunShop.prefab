@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item:
-    name: MP 133
+    name: Trench Shotgun
     price: 1250
     gun: {fileID: 4441497135764967775, guid: 71725a8d8e6cb8a4ab74c9dfb5d7701c, type: 3}
 --- !u!65 &8907403879710160867

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf98ff210e2d4ce1954c05353cee0920, type: 3}
+  m_Name: Rouper
+  m_EditorClassIdentifier: 
+  onSpawn: Yo pare, what is this place bruh
+  onKill: SHEEEEESH
+  onBossKill: 'sheeesh im finna be rich fr fr '
+  lowHealth: Yo pare, needs to see the doctor
+  boughtGun: Banorant moment
+  randomMessages:
+  - starbs ako later after this
+  - fr fr
+  - omsim pare
+  - lowkey creepy ngl tho fr fr
+  - omw to BGC pare
+  - tryna find some "shorty" pare

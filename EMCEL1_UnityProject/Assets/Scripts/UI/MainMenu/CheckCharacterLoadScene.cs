@@ -1,5 +1,4 @@
 using System;
-using Player;
 using SceneController;
 using UnityEngine;
 
@@ -7,8 +6,6 @@ namespace UI.MainMenu
 {
     public class CheckCharacterLoadScene : MonoBehaviour
     {
-        public PlayerStatusScriptable playerStatusScriptable;
-        
         private UILoadScene uiLoadScene;
 
         private void Start()

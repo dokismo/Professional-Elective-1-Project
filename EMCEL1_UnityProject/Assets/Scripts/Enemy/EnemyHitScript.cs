@@ -1,12 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Enemy.Animation;
 using Core;
+using UnityEngine.AI;
+using UnityEditor;
+
 public class EnemyHitScript : MonoBehaviour, ITarget
 {
     Transform MainEnemyTransform;
     EnemyHpHandler ThisEnemyHPScript;
+
+    NavMeshAgent EnemyNavmeshAgent;
 
     public Coroutine delayReset;
 
@@ -16,11 +20,16 @@ public class EnemyHitScript : MonoBehaviour, ITarget
 
     public float DmgReductionMultiplier = 1f;
 
-    public bool isBoss;
-    
+    public bool isBoss, isSlowed = false;
+
+    [SerializeField] GameObject RootObject;
+    [SerializeField] EnemyHitEffect[] HitEffect;
+
+    float DefaultSpeed;
+    public float SlowDownTime = 0.3f, SlowEffectMultiplier = 0.3f;
+    public float SlowedSpeed;
     void Start()
     {
-        delayReset = StartCoroutine(ResetWithDelay());
 
         if (isBoss)
             MainEnemyTransform = transform.parent.parent.parent.transform;
@@ -28,30 +37,49 @@ public class EnemyHitScript : MonoBehaviour, ITarget
             MainEnemyTransform = transform.parent.parent.transform;
 
         ThisEnemyHPScript = MainEnemyTransform.GetComponent<EnemyHpHandler>();
+
+        EnemyNavmeshAgent = (transform.parent.parent.GetComponent<NavMeshAgent>() != null) ? transform.parent.parent.GetComponent<NavMeshAgent>() : transform.parent.parent.parent.GetComponent<NavMeshAgent>();
+
+        DefaultSpeed = (transform.parent.parent.GetComponent<EnemyApplyStats>() != null) ? transform.parent.parent.GetComponent<EnemyApplyStats>().FinalSpeed : transform.parent.parent.parent.GetComponent<EnemyApplyStats>().FinalSpeed;
+
+        SlowedSpeed = DefaultSpeed * SlowEffectMultiplier;
+
+        
+
+        HitEffect = RootObject.GetComponentsInChildren<EnemyHitEffect>();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        delayReset = StartCoroutine(ResetWithDelay());
+        if(isSlowed)
+        {
+            EnemyNavmeshAgent.speed = SlowedSpeed;
+        }
     }
     public void Hit(int dmg)
     {
+        StopAllCoroutines();
+        StartCoroutine(SlowDown());
+        for (int i = 0; i<HitEffect.Length; i++)
+        {
+            HitEffect[i].HitEffectOnMat();
+        }
+        
         float TotalDmg = (dmg * DmgMultiplier) * DmgReductionMultiplier;
         ThisEnemyHPScript.enemyHp -= TotalDmg;
-        MainEnemyTransform.GetComponentInChildren<ChangeSpriteColorOnHit>().ApplyEffect();
-        Debug.Log("ENEMY TOOK DAMAGE OF    " + TotalDmg);
+        // THIS LINE ONLY WORKS ON 2.5D ENEMIES ->  MainEnemyTransform.GetComponentInChildren<ChangeSpriteColorOnHit>().ApplyEffect();
         ThisEnemyHPScript.checkHealth();
     }
 
-    public void StoppingTheCoroutine()
+    
+  
+
+    IEnumerator SlowDown()
     {
-        StopAllCoroutines();
-    }
-    public IEnumerator ResetWithDelay()
-    {
-        yield return new WaitForSeconds(1f);
-        isInRangeForZ5Effect = false;
-        DmgReductionMultiplier = 1f;
+        isSlowed = true;
+        yield return new WaitForSeconds(SlowDownTime);
+        isSlowed = false;
+        EnemyNavmeshAgent.speed = DefaultSpeed;
     }
 
    

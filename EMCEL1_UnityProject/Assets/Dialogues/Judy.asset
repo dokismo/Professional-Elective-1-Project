@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf98ff210e2d4ce1954c05353cee0920, type: 3}
+  m_Name: Judy
+  m_EditorClassIdentifier: 
+  onSpawn: 'Where am I? How did I get here? '
+  onKill: I can't believe I did this.
+  onBossKill: 'I never thought I could do it '
+  lowHealth: I wanna go home.
+  boughtGun: I don't know how this works.
+  randomMessages:
+  - 'Ahhh! '
+  - Get away from me!
+  - Don't come any closer...
+  - I need to survive. My friends and family are looking for me.
+  - Calm down, Judy. We can get out of here.

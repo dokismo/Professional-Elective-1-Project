@@ -99,16 +99,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  sprintingSpeed: 15
+  staminaFullTime: 4
   gravity: -0.4
   jumpHeight: 0
   onLandWait: 0
   groundCheck: {fileID: 1800715481788894944}
+  cameraAnchor: {fileID: 0}
+  playerStatusScriptable: {fileID: 0}
   groundDistance: 0.05
-  wallDistance: 0.6
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  cam: {fileID: 2968882306276579492}
   movementInput:
     m_Name: Input
     m_Type: 0
@@ -174,9 +176,17 @@ MonoBehaviour:
       m_Action: Input
       m_Flags: 8
     m_Flags: 0
+  runInput:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 656f2a30-d5a1-4b17-be9c-cd833a627be3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   moveDir: {x: 0, y: 0, z: 0}
   velocity: {x: 0, y: 0, z: 0}
-  isClimbing: 0
   isGrounded: 0
 --- !u!54 &1991960663
 Rigidbody:
@@ -290,7 +300,7 @@ SpriteRenderer:
   m_Size: {x: 2.625, y: 0.8125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &2968882306251300823
@@ -305,27 +315,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90cc1b4248a12243b60953751f95d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunName: 
   distance: 25
   targetLayers:
     serializedVersion: 2
     m_Bits: 64
-  fireInput:
-    m_Name: Fire Input
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 898cd589-7ad9-4f06-b9f9-918af0f26658
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 449e8bd4-9ca5-4e2f-b6d9-5d83d841c01c
-      m_Path: <Mouse>/leftButton
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Fire Input
-      m_Flags: 0
-    m_Flags: 0
+  damage: 20
+  ammoInMag: 0
+  ammoPerMag: 0
+  totalAmmo: 0
+  maxTotalAmmo: 0
+  rpm: 60
+  ammoPerFire: 1
+  reloadTime: 1
+  recoil: 0
+  maxRecoil: 0
+  recoilControl: 0
+  fireType: 0
+  operation: 0
+  icon: {fileID: 0}
+  muzzleFlash: {fileID: 0}
 --- !u!1 &2968882306276579489
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,8 +434,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 1800715482825173086}
+  playerStatusScriptable: {fileID: 0}
   clamp: {x: -60, y: 60}
-  sensitivity: 10
   mouseX:
     m_Name: Mouse X
     m_Type: 0

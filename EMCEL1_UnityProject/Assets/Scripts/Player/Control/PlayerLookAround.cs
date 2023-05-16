@@ -7,6 +7,7 @@ namespace Player.Control
     public class PlayerLookAround : MonoBehaviour
     {
         public Transform playerBody;
+        public PlayerStatusScriptable playerStatusScriptable;
         public Vector2 clamp = new(-85, 85);
 
         private float Sensitivity => InformationHolder.getMouseSensitivity != null
@@ -30,6 +31,8 @@ namespace Player.Control
     
         private void Update()
         {
+            if (!playerStatusScriptable.PlayerStatus.Alive) return;
+            
             MouseLook();
         }
 

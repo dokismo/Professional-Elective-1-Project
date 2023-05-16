@@ -22,7 +22,7 @@ namespace Shop
         {
             Item item = itemsScriptable.GetItem(position);
             
-            if (item.gameObject == null || PlayerStatus.InventoryIsFull)
+            if (item.gameObject == null || PlayerStatus.GunInventoryIsFull)
                 return;
         
             if (playerStatusScriptable.GetMoney(item.value) > -1 ? item.gameObject : null) 
