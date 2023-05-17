@@ -7,6 +7,7 @@ public class EnemyApplyStats : MonoBehaviour
     public ZombieStats EnemyStats;
 
     WaveDifficultyIncrement WaveDifficultyManager;
+    WaveManagerScript WaveManager;
 
     NavMeshAgent EnemyNMA;
     EnemyNavMeshScript EnemyMainScript;
@@ -15,10 +16,13 @@ public class EnemyApplyStats : MonoBehaviour
     float Health, Damage, Speed;
     float HealthMultiplier, DmgMultiplier, SpeedMultiplier;
 
+    public float FinalSpeed, FinalHealth, FinalDmg;
+
     private void Awake()
     {
-        WaveDifficultyManager = GameObject.Find("For Wave Management").GetComponent<WaveDifficultyIncrement>();
+        //WaveDifficultyManager = GameObject.Find("For Wave Management").GetComponent<WaveDifficultyIncrement>();
 
+        WaveManager = GameObject.Find("Game Manager").GetComponent<WaveManagerScript>();
         EnemyNMA = GetComponent<NavMeshAgent>();
         EnemyHealthManager = GetComponent<EnemyHpHandler>();
         EnemyMainScript = GetComponent<EnemyNavMeshScript>();
@@ -38,14 +42,18 @@ public class EnemyApplyStats : MonoBehaviour
         DmgMultiplier = EnemyStats.DamageMultiplier;
         SpeedMultiplier = EnemyStats.SpeedMultiplier;
 
+        FinalSpeed = Speed * SpeedMultiplier;
+        FinalHealth = Health * HealthMultiplier;
+        FinalDmg = Damage * DmgMultiplier;
+
     }
     void ApplyStats()
     {
-        EnemyNMA.speed = Speed * SpeedMultiplier;
-        EnemyHealthManager.enemyHp = Health * HealthMultiplier;
-        EnemyMainScript.enemyDamage = Damage * DmgMultiplier;
+        EnemyNMA.speed = FinalSpeed;
+        EnemyHealthManager.enemyHp = FinalHealth;
+        EnemyMainScript.enemyDamage = FinalDmg;
 
-        EnemyHealthManager.enemyHp *= (WaveDifficultyManager.HPDifficultyMultiplier + 1);
-        EnemyMainScript.enemyDamage *=   (WaveDifficultyManager.DmgDifficultyMultiplier + 1);
+        EnemyHealthManager.enemyHp *= (WaveManager.HPMultiplier + 1);
+        EnemyMainScript.enemyDamage *=   (WaveManager.DMGMultiplier + 1);
     }
 }

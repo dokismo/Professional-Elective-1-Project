@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2490203890099077546
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2490203890099077536}
+  - component: {fileID: 2490203890099077537}
+  - component: {fileID: 2490203890099077542}
+  - component: {fileID: 2490203890099077543}
+  - component: {fileID: 2490203890099077540}
+  - component: {fileID: 2490203890099077541}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2490203890099077536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490203890099077546}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 540.596, y: 250.5018, z: -113.04358}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2490203890099077537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490203890099077546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69966bfe59d9b4d48955a6ba706baff6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPrefab: {fileID: 5660677681306034385, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
+--- !u!114 &2490203890099077542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490203890099077546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf63bfc8335711a4587965ee0e3f140a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadingSlider: {fileID: 0}
+  LoadingScreen: {fileID: 0}
+--- !u!114 &2490203890099077543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490203890099077546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04af8908fd5397b49a4a84baef7c17c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnLocations: []
+  ZombieType:
+  - {fileID: 1459204624250079201, guid: a86dd4585d5cee14b9f049e92ff60a72, type: 3}
+  - {fileID: 1459204624250079201, guid: 136ba97e31d40b54cbe3656715d0b5f7, type: 3}
+  - {fileID: 1459204624250079201, guid: d87d1a01e563ff84383a7c9f732b3b0f, type: 3}
+  SpawnInterval: 1
+  MaxZombieToSpawn: 5
+  ZombiesSpawned: 0
+  ZombieDead: 0
+  CanSpawn: 0
+--- !u!114 &2490203890099077540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490203890099077546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248c0f07653caa345ab51361bac99a23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BossGameObject: {fileID: 0}
+  BossFightUI: {fileID: 0}
+  BossNameText: {fileID: 0}
+  BossFightStarted: 0
+--- !u!114 &2490203890099077541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490203890099077546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e7e104a7e6d0464a81758a6c0f7a0e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RoundNumAnim: {fileID: 0}
+  SpawningScript: {fileID: 0}
+  WaveNumber: 0
+  RestTime: 10
+  DEFAULTRestTime: 0
+  HPMultiplier: 0
+  DMGMultiplier: 0

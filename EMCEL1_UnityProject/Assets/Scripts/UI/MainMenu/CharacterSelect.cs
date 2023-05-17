@@ -1,4 +1,6 @@
+using System;
 using Player;
+using Player.Dialogue;
 using SceneController;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,10 +10,10 @@ namespace UI.MainMenu
 {
     public class CharacterSelect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
     {
-        public delegate void CharacterSelectEvent(CharacterSelect sender);
-        public static CharacterSelectEvent selectEvent;
+        public static Action<CharacterSelect> selectEvent;
         
         public Animator animator;
+        public DialogueScriptable dialogueScriptable;
         public string controllerName;
 
         public Image image;
@@ -22,6 +24,8 @@ namespace UI.MainMenu
         private void OnEnable()
         {
             selectEvent += Deselect;
+            InformationHolder.removeIcon?.Invoke();
+            InformationHolder.removeDialogue?.Invoke();
         }
 
         private void OnDisable()
@@ -50,10 +54,11 @@ namespace UI.MainMenu
         private void Select()
         {
             if (selected) return;
-            
+
+            CharacterSelectSFX.selectCharEvent?.Invoke();
             selected = true;
             image.color = Color.Lerp(Color.clear, Color.black, 1f);
-            InformationHolder.setAnimatorController?.Invoke(controllerName);
+            InformationHolder.setAnimatorController?.Invoke(controllerName, dialogueScriptable);
             selectEvent?.Invoke(this);
         }
 

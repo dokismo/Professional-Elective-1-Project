@@ -1,4 +1,7 @@
 using System;
+using Gun;
+using Item.Gun;
+using SceneController;
 using Shop;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -14,16 +17,18 @@ namespace Player.Display
         public float distance = 5f;
         public LayerMask targetlayer;
         
-        private Camera localCamera;
+        [SerializeField] Camera localCamera;
         private WallShop currentWallShop;
 
         private void Start()
         {
-            localCamera = Camera.main;
+            //localCamera = Camera.main;
         }
 
         private void Update()
         {
+            if (!(Time.timeScale > 0.2f)) return;
+            
             IsLookingAtItem();
             Buy();
         }
@@ -32,19 +37,44 @@ namespace Player.Display
         {
             if (!Keyboard.current.eKey.wasPressedThisFrame || currentWallShop == null) return;
 
-            GameObject boughtGun = currentWallShop.BuyItem(playerStatusScriptable);
+            Shooting currentGun = playerStatusScriptable.PlayerStatus.CurrentGun;
 
-            if (boughtGun == null) 
-                return; 
-            
-            playerStatusScriptable.PlayerStatus.AddGun(boughtGun);
-            
-            
+            switch (currentWallShop.item.itemType)
+            {
+                case ItemType.Gun:
+                    if (currentGun != null && 
+                        currentWallShop.item.name.ToUpper() == currentGun.gunName.ToUpper())
+                    {
+                        if (!currentWallShop.BuyRefill(playerStatusScriptable) || !currentGun.CanBuyAmmo) return;
+                        playerStatusScriptable.PlayerStatus.CurrentGun.RefillAmmo();
+                        BuySound.buyEvent?.Invoke();
+                    }
+                    else
+                    {
+                        GameObject gunItem = currentWallShop.BuyItem(playerStatusScriptable);
+                        if (gunItem == null) return;
+                        playerStatusScriptable.PlayerStatus.AddGun(gunItem);
+                        BuySound.buyEvent?.Invoke();
+                    }
+                    break;
+                case ItemType.MedKit:
+                    if (playerStatusScriptable.PlayerStatus.MedKitInventoryIsFull || !currentWallShop.BuyMedKit(playerStatusScriptable)) return;
+                    
+                    playerStatusScriptable.PlayerStatus.AddMedKit();
+                    BuySound.buyEvent?.Invoke();
+                    break;
+                case ItemType.End:
+                    if (!currentWallShop.Escape(playerStatusScriptable)) return;
+                    GameObject.Find("End Door").GetComponent<Animator>().SetBool("Escape", true);
+                    //GameEnd.endTheGame?.Invoke();
+                    break;
+            }
         }
 
         private void IsLookingAtItem()
         {
             Ray ray = localCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
 
             if (!Physics.Raycast(ray, out var raycastHit, distance, targetlayer))
             {
@@ -61,7 +91,7 @@ namespace Player.Display
            
             if (currentWallShop == wallShop)
                 return;
-
+            BuySound.lookEvent?.Invoke();
             currentWallShop = wallShop;
             showWallShop?.Invoke(currentWallShop);
         }

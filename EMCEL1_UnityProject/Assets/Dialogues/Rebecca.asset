@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf98ff210e2d4ce1954c05353cee0920, type: 3}
+  m_Name: Rebecca
+  m_EditorClassIdentifier: 
+  onSpawn: 'How did I ended up here?  I need to get out of this place. '
+  onKill: Why am I having this feeling like I wanna shoot zombies?
+  onBossKill: I didn't think I would get use to kill zombies and here I am.
+  lowHealth: A few scratches won't stop me.
+  boughtGun: I need a better guns.
+  randomMessages:
+  - 'What the.. where did you come from!?  '
+  - 'You''re ruining my black dress!! '
+  - 'That''s the look my bestfriend gave me before I decapitated her '
+  - 'That one looks pretty! Let''s kill her first '
+  - 'Where are they?  '
+  - I need to find some survivors.
