@@ -4,7 +4,7 @@ using UI;
 using UI.MainMenu;
 using UI.PlayerScreen;
 using UnityEngine;
-
+using SceneController;
 namespace Player
 {
     [CreateAssetMenu(menuName = "Player/Status", fileName = "PlayerStatus")]
@@ -22,6 +22,7 @@ namespace Player
         public int killCount;
 
         public PlayerStatus PlayerStatus { get; private set; }
+        public CharacterStatsMultiplier CharacterStatsMultiplier;
         public bool CanSprint => stamina > 0;
 
         private bool lowHealthEventTrigger = true;
@@ -36,12 +37,16 @@ namespace Player
             return amount;
         }
 
-        public void PutMoney(int amount) => money += amount;
+        public void PutMoney(int amount) => money += (int)(amount * CharacterStatsMultiplier.MoneyMultiplier);
 
         public void AddMoney(int amount) => money += amount;
 
         public void SetHealthBy(int amount)
         {
+            if(amount < 0)
+            {
+                amount = (int)(amount * CharacterStatsMultiplier.DamageReductionMultiplier);
+            }
             health = Mathf.Clamp(health + amount, 0, maxHealth);
 
             if (amount < 0)
@@ -69,6 +74,8 @@ namespace Player
         {
             if (value < 0)
                 staminaChanged?.Invoke();
+
+            if (value > 0) value = value * CharacterStatsMultiplier.StaminaRegenMultiplier;
 
             stamina = Mathf.Clamp(stamina + value, 0, maxStamina);
         }

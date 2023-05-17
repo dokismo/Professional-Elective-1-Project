@@ -28,19 +28,24 @@ public class EnemyHitScript : MonoBehaviour, ITarget
     float DefaultSpeed;
     public float SlowDownTime = 0.3f, SlowEffectMultiplier = 0.3f;
     public float SlowedSpeed;
+
+    bool IsGameManagerPresent = false;
     void Start()
     {
+        if (GameObject.Find("Game Manager")) IsGameManagerPresent = true;
+        else IsGameManagerPresent = false;
+
 
         if (isBoss)
             MainEnemyTransform = transform.parent.parent.parent.transform;
         else
             MainEnemyTransform = transform.parent.parent.transform;
 
-        ThisEnemyHPScript = MainEnemyTransform.GetComponent<EnemyHpHandler>();
+        ThisEnemyHPScript = RootObject.GetComponent<EnemyHpHandler>();
 
-        EnemyNavmeshAgent = (transform.parent.parent.GetComponent<NavMeshAgent>() != null) ? transform.parent.parent.GetComponent<NavMeshAgent>() : transform.parent.parent.parent.GetComponent<NavMeshAgent>();
+        EnemyNavmeshAgent = (RootObject.GetComponent<NavMeshAgent>() != null) ? RootObject.GetComponent<NavMeshAgent>() : RootObject.GetComponent<NavMeshAgent>();
 
-        DefaultSpeed = (transform.parent.parent.GetComponent<EnemyApplyStats>() != null) ? transform.parent.parent.GetComponent<EnemyApplyStats>().FinalSpeed : transform.parent.parent.parent.GetComponent<EnemyApplyStats>().FinalSpeed;
+        DefaultSpeed = (RootObject.GetComponent<EnemyApplyStats>() != null) ? RootObject.GetComponent<EnemyApplyStats>().FinalSpeed : RootObject.GetComponent<EnemyApplyStats>().FinalSpeed;
 
         SlowedSpeed = DefaultSpeed * SlowEffectMultiplier;
 
@@ -65,10 +70,14 @@ public class EnemyHitScript : MonoBehaviour, ITarget
             HitEffect[i].HitEffectOnMat();
         }
         
-        float TotalDmg = (dmg * DmgMultiplier) * DmgReductionMultiplier;
-        ThisEnemyHPScript.enemyHp -= TotalDmg;
-        // THIS LINE ONLY WORKS ON 2.5D ENEMIES ->  MainEnemyTransform.GetComponentInChildren<ChangeSpriteColorOnHit>().ApplyEffect();
-        ThisEnemyHPScript.checkHealth();
+        if(IsGameManagerPresent)
+        {
+            float TotalDmg = (dmg * DmgMultiplier) * DmgReductionMultiplier;
+            ThisEnemyHPScript.enemyHp -= TotalDmg;
+            // THIS LINE ONLY WORKS ON 2.5D ENEMIES ->  MainEnemyTransform.GetComponentInChildren<ChangeSpriteColorOnHit>().ApplyEffect();
+            ThisEnemyHPScript.checkHealth();
+        }
+        
     }
 
     

@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6214241838891051256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3794168367628305516}
-  m_Layer: 0
+  - component: {fileID: 13570841981232097}
+  - component: {fileID: 4443770077008907738}
+  m_Layer: 8
   m_Name: LowerArm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,6 +98,42 @@ Transform:
   m_Father: {fileID: 6913447744223360189}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &13570841981232097
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640461641845818209}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.001
+  m_Height: 0.004
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.001, z: 0}
+--- !u!114 &4443770077008907738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640461641845818209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &705545943210442483
 GameObject:
   m_ObjectHideFlags: 0
@@ -105,7 +143,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4243788205239411240}
-  m_Layer: 0
+  - component: {fileID: 8181255580132737917}
+  - component: {fileID: 3189388086026828773}
+  m_Layer: 8
   m_Name: LowerLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,6 +168,42 @@ Transform:
   m_Father: {fileID: 3906279339453912474}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &8181255580132737917
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705545943210442483}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.001
+  m_Height: 0.0035
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.001, z: 0}
+--- !u!114 &3189388086026828773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705545943210442483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &778175713078623719
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5413605983031288146}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerLeg.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +245,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1871523435914133020}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IKLegPole.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,7 +680,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1192502439341706708}
-  m_Layer: 0
+  - component: {fileID: 8154376546055458042}
+  - component: {fileID: 3058812635644077722}
+  m_Layer: 8
   m_Name: Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -629,6 +707,41 @@ Transform:
   m_Father: {fileID: 3100338327814486463}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8154376546055458042
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469127983169098223}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.005, y: 0.007, z: 0.003}
+  m_Center: {x: 0, y: -0.001, z: 0}
+--- !u!114 &3058812635644077722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469127983169098223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &1510197910196670577
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +751,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 346201741151225936}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IKLegPole.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +783,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8531684571567296492}
-  m_Layer: 0
+  - component: {fileID: 8129343113358080218}
+  - component: {fileID: 2358619415446150218}
+  m_Layer: 8
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -693,6 +808,41 @@ Transform:
   m_Father: {fileID: 1192502439341706708}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &8129343113358080218
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810233313406495499}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.003
+  m_Center: {x: 0, y: 0.0035, z: 0.0005}
+--- !u!114 &2358619415446150218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1810233313406495499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1.5
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &2155947124001610729
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,7 +852,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8966061413003099693}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerArm.L_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +885,7 @@ GameObject:
   - component: {fileID: 1491315197930669434}
   - component: {fileID: 5632715645417101703}
   - component: {fileID: 4972834592856640433}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowPolyZombieV2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,7 +950,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5223040325611607340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IKLegPole.R_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -831,7 +981,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3916673813856713267}
-  m_Layer: 0
+  - component: {fileID: 5285783562320807075}
+  - component: {fileID: 1306388932897599257}
+  m_Layer: 8
   m_Name: UpperLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -854,6 +1006,42 @@ Transform:
   m_Father: {fileID: 7494801320900515300}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &5285783562320807075
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506611700491260753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.001
+  m_Height: 0.003
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.001, z: 0}
+--- !u!114 &1306388932897599257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3506611700491260753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &3641607771521460431
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,7 +1051,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8581603745622031990}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerLeg.L_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +1082,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8902909394388233039}
-  m_Layer: 0
+  - component: {fileID: 7663582438342998404}
+  - component: {fileID: 3495913921341390012}
+  m_Layer: 8
   m_Name: UpperArm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -917,6 +1107,42 @@ Transform:
   m_Father: {fileID: 5002365883994308156}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &7663582438342998404
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842460362894866887}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.001
+  m_Height: 0.005
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.001, z: 0}
+--- !u!114 &3495913921341390012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842460362894866887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &3855271538693154460
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,7 +1152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3100338327814486463}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1252,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1922787344620696655}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IkLegTarget.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1058,7 +1284,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6913447744223360189}
-  m_Layer: 0
+  - component: {fileID: 4999497968356684135}
+  - component: {fileID: 5298426089082542509}
+  m_Layer: 8
   m_Name: UpperArm.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1081,6 +1309,42 @@ Transform:
   m_Father: {fileID: 3725732729503359496}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &4999497968356684135
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4121789644449767228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.001
+  m_Height: 0.005
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.001, z: 0}
+--- !u!114 &5298426089082542509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4121789644449767228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &4349443319716789617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3971225393779871382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerArm.R_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1121,7 +1385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3725732729503359496}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shoulder.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1153,7 +1417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6928080390847886751}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IKLegPole.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1185,7 +1449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7993200814558373866}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IkLegTarget.L_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1216,7 +1480,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4629455961618444008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IkLegTarget.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1248,7 +1512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5384225766279373518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IkLegTarget.R_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1363,7 +1627,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5002365883994308156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Shoulder.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1395,7 +1659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3849762464213573217}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IKLegPole.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1427,7 +1691,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8904085674855356488}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerArm.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1459,7 +1723,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7540023964768483271}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerLeg.R_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1490,7 +1754,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1609754213610755891}
-  m_Layer: 0
+  - component: {fileID: 5266040386325030108}
+  - component: {fileID: 2375940765136874656}
+  m_Layer: 8
   m_Name: LowerLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1513,6 +1779,42 @@ Transform:
   m_Father: {fileID: 3916673813856713267}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &5266040386325030108
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5741901043723286984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.001
+  m_Height: 0.0035
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.001, z: 0}
+--- !u!114 &2375940765136874656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5741901043723286984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &6039852315168746508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1522,7 +1824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7508869591148424653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Head_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1554,7 +1856,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4083825784892680549}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IkLegTarget.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1890,7 @@ GameObject:
   - component: {fileID: 4812281598323964626}
   - component: {fileID: 7235401050130512481}
   - component: {fileID: 6278127354590120505}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1713,7 +2015,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6667412173390503090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1745,7 +2047,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6548639043513092776}
-  m_Layer: 0
+  - component: {fileID: 443269352025734873}
+  - component: {fileID: 1198690867975146413}
+  m_Layer: 8
   m_Name: LowerArm.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1768,6 +2072,42 @@ Transform:
   m_Father: {fileID: 8902909394388233039}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &443269352025734873
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965014247808974261}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.001
+  m_Height: 0.004
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.001, z: 0}
+--- !u!114 &1198690867975146413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965014247808974261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &7043550275566561805
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,7 +2117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2854467497787748146}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IKLegPole.L_end_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1808,7 +2148,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3906279339453912474}
-  m_Layer: 0
+  - component: {fileID: 7890453789561995363}
+  - component: {fileID: 4222361067733735485}
+  m_Layer: 8
   m_Name: UpperLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1831,6 +2173,42 @@ Transform:
   m_Father: {fileID: 7494801320900515300}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &7890453789561995363
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107614002204931403}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.001
+  m_Height: 0.003
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.001, z: 0}
+--- !u!114 &4222361067733735485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7107614002204931403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &7358808893026428702
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,7 +2319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4864617860751846165}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerArm.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1973,7 +2351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7494801320900515300}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2011,7 +2389,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3574749031358921147}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IkLegTarget.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2043,7 +2421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2164707232755297908}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LowerLeg.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,8 +21,8 @@ public class EnemyApplyStats : MonoBehaviour
     private void Awake()
     {
         //WaveDifficultyManager = GameObject.Find("For Wave Management").GetComponent<WaveDifficultyIncrement>();
+        if(GameObject.Find("Game Manager") != null) WaveManager = GameObject.Find("Game Manager").GetComponent<WaveManagerScript>();
 
-        WaveManager = GameObject.Find("Game Manager").GetComponent<WaveManagerScript>();
         EnemyNMA = GetComponent<NavMeshAgent>();
         EnemyHealthManager = GetComponent<EnemyHpHandler>();
         EnemyMainScript = GetComponent<EnemyNavMeshScript>();
@@ -53,7 +53,10 @@ public class EnemyApplyStats : MonoBehaviour
         EnemyHealthManager.enemyHp = FinalHealth;
         EnemyMainScript.enemyDamage = FinalDmg;
 
-        EnemyHealthManager.enemyHp *= (WaveManager.HPMultiplier + 1);
-        EnemyMainScript.enemyDamage *=   (WaveManager.DMGMultiplier + 1);
+        if(WaveManager != null)
+        {
+            EnemyHealthManager.enemyHp *= (WaveManager.HPMultiplier + 1);
+            EnemyMainScript.enemyDamage *= (WaveManager.DMGMultiplier + 1);
+        }
     }
 }

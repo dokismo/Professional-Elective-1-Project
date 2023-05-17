@@ -14,6 +14,7 @@ namespace UI.MainMenu
         
         public Animator animator;
         public DialogueScriptable dialogueScriptable;
+        public CharacterStatsMultiplier CharacterMultiplier;
         public string controllerName;
 
         public Image image;
@@ -56,6 +57,7 @@ namespace UI.MainMenu
             if (selected) return;
 
             CharacterSelectSFX.selectCharEvent?.Invoke();
+            InformationHolder.instance.CharacterMultiplier = CharacterMultiplier;
             selected = true;
             image.color = Color.Lerp(Color.clear, Color.black, 1f);
             InformationHolder.setAnimatorController?.Invoke(controllerName, dialogueScriptable);

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2490203890099077536}
   - component: {fileID: 2490203890099077537}
-  - component: {fileID: 2490203890099077542}
   - component: {fileID: 2490203890099077543}
   - component: {fileID: 2490203890099077540}
   - component: {fileID: 2490203890099077541}
@@ -49,20 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPrefab: {fileID: 5660677681306034385, guid: 841b2ebb3a5dfd346809dd471f3a9e7f, type: 3}
---- !u!114 &2490203890099077542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2490203890099077546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf63bfc8335711a4587965ee0e3f140a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LoadingSlider: {fileID: 0}
-  LoadingScreen: {fileID: 0}
 --- !u!114 &2490203890099077543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,6 +70,7 @@ MonoBehaviour:
   ZombiesSpawned: 0
   ZombieDead: 0
   CanSpawn: 0
+  IsEndDoorOpen: 0
 --- !u!114 &2490203890099077540
 MonoBehaviour:
   m_ObjectHideFlags: 0
