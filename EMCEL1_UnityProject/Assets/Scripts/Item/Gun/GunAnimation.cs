@@ -49,13 +49,12 @@ namespace Item.Gun
             transform.LookAt(point);
 
 
-            //float angleY = Mathf.Clamp(transform.localRotation.eulerAngles.y - 90, 270, 360);
+            float angleY = Mathf.Clamp(transform.localRotation.eulerAngles.y - 90, 270, 360);
 
             transform.localRotation = Quaternion.Euler(
                 0,
-                180, 
-                //angleY
-                Mathf.Clamp(transform.localRotation.eulerAngles.z, -4, 4));
+                angleY,
+                Mathf.Clamp(transform.localRotation.eulerAngles.z, -4, 4)) ;
         }
 
         public void ReloadEvent()
@@ -73,7 +72,7 @@ namespace Item.Gun
         public void SwapEvent()
         {
             Reset();
-            //animator.SetTrigger(Swap);
+            animator.SetTrigger(Swap);
         }
         public void SwapDoneEvent()
         {

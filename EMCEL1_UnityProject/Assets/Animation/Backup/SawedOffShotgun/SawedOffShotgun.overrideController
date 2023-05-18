@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SawedOffShotgun
+  m_Controller: {fileID: 9100000, guid: f0f7fa53ac43c454faec8d0603fa8ba9, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 4a7b0ba3676e180458e776b3e99b2076, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fc199bd8d4caa154faf7d6169a643508, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 42441d376b36aaf42a805b0c9696b27a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 6ac5c1f2e6118be48a59c9a97bd2e25c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: fba922dfa4003c645a9e4a6b98fc1c1c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d9305e13580f46b4c89094f4da209eac, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: cfd7e289db7ad7347a85c8774b80e334, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ec030b7f4e00733489790010f4805aeb, type: 2}
