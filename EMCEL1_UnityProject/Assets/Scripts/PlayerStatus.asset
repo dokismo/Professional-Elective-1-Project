@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c0650e015af4855850caeee33aa34e6, type: 3}
   m_Name: PlayerStatus
   m_EditorClassIdentifier: 
-  money: 56290
-  health: 100
+  money: 95
+  health: 85
   maxHealth: 100
-  stamina: 999998.25
-  maxStamina: 1e+16
+  stamina: 0
+  maxStamina: 0
   killCount: 0
+  CharacterStatsMultiplier: {fileID: 11400000, guid: 1a882330a2ac5ae41b45988acfad4e9d, type: 2}
