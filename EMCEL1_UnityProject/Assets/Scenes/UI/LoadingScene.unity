@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -331,14 +331,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   messages:
-  - What is this place? A city? Zone? Area? Whatever it is, no one knows where this
-    place came from.
-  - You wanted to unravel the mystery of missing people in your town.
-  - The thing is, your town is not the only one with news about missing people.
-  - Other cities are also looking for people who have gone missing from their daily
-    lives, as if they simply vanished.
-  - You want to learn more about the disappearance, even though most people would
-    prefer to pretend nothing happened until you wake up in a dark place.
+  - 'My friends and I are lost in this town, and there''s a zombie apocalypse happening. '
+  - We're trying to find our way out, but we keep getting turned around. Every sound
+    makes me jump, and I'm terrified that one of those things is going to get us.
+  - 'I don''t know how much longer we can keep this up, but I know we have to try. '
+  - 'As long as there''s even a chance of survival, we have to take it. '
+  - "We're in this together, and I'm not giving up on them \u2013 or on us \u2013
+    without a fight!"
   textMeshProUGUI: {fileID: 1597300322}
   next: {fileID: 1354462066}
 --- !u!114 &285266155
