@@ -23,9 +23,12 @@ public class RoundNumberHandler : MonoBehaviour
 
     private void Awake()
     {
-        GameObject.Find("Game Manager").GetComponent<WaveManagerScript>().RoundNumAnim = gameObject;
-        RoundAnim = GameObject.Find("RoundNumberAnim").GetComponent<TextMeshProUGUI>();
-        RoundNumberText = GameObject.Find("RoundNumber").GetComponent<TextMeshProUGUI>();
+        if(GameObject.Find("Game Manager") != null)
+        {
+            GameObject.Find("Game Manager").GetComponent<WaveManagerScript>().RoundNumAnim = gameObject;
+            RoundAnim = GameObject.Find("RoundNumberAnim").GetComponent<TextMeshProUGUI>();
+            RoundNumberText = GameObject.Find("RoundNumber").GetComponent<TextMeshProUGUI>();
+        }
     }
     void Start()
     {
@@ -51,7 +54,7 @@ public class RoundNumberHandler : MonoBehaviour
 
     void ResetWaveOnSceneLoad(Scene sceneName, LoadSceneMode mode)
     {
-        RoundNumberText.text = "";
+        if(RoundNumberText!= null) RoundNumberText.text = "";
     }
 
     private void OnDestroy()

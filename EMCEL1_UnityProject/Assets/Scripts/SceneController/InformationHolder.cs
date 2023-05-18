@@ -23,6 +23,7 @@ namespace SceneController
         public RuntimeAnimatorController runtimeAnimatorController;
         public DialogueScriptable dialogueScriptable;
         public PlayerStatusScriptable PlayerStats;
+        public CharacterStatsMultiplier CharacterMultiplier;
 
         private float mouseSensitivity;
 

@@ -11,6 +11,9 @@ public class PlayerUIHandler : MonoBehaviour
     public delegate void OnRetry();
     public static event OnRetry onRetry;
 
+    public delegate void OnMainMenu();
+    public static event OnMainMenu onMainMenu;
+
     public GameObject[] UIObjects;
 
     public GameObject Manager;
@@ -33,7 +36,7 @@ public class PlayerUIHandler : MonoBehaviour
             UIObjects[i] = transform.GetChild(i).gameObject;
 
             //Assign disabled gameobject to boss fight manager variable.
-            if (UIObjects[i].name == "Boss Fight UI")
+            if (UIObjects[i].name == "Boss Fight UI" && BossFightManager.Instance != null)
             {
                 BossFightManager.Instance.BossFightUI = UIObjects[i];
                 BossFightManager.Instance.BossNameText = UIObjects[i].transform.Find("Boss Name").GetComponent<TextMeshProUGUI>();
@@ -105,13 +108,13 @@ public class PlayerUIHandler : MonoBehaviour
         for (int i = 0; i < UIObjects.Length; i++)
         {
             //Assign disabled gameobject to boss fight manager variable.
-            if (UIObjects[i].name == "Boss Fight UI")
+            if (UIObjects[i] != null && UIObjects[i].name == "Boss Fight UI")
             {
                 BossFightManager.Instance.BossFightUI = UIObjects[i];
                 BossFightManager.Instance.BossNameText = UIObjects[i].transform.Find("Boss Name").GetComponent<TextMeshProUGUI>();
             }
 
-            if (UIObjects[i].name == "Loading Screen")
+            if (UIObjects[i] != null && UIObjects[i].name == "Loading Screen")
             {
                 SceneLoader.Instance.LoadingScreen = UIObjects[i];
                 SceneLoader.Instance.LoadingSlider = UIObjects[i].GetComponentInChildren<Slider>();
@@ -155,6 +158,12 @@ public class PlayerUIHandler : MonoBehaviour
         ResetRoundNum();
 
         onRetry?.Invoke();
+    }
+
+    public void MainMenuButton()
+    {
+        onMainMenu?.Invoke();
+        Destroy(gameObject);
     }
 
 }

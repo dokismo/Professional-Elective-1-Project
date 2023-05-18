@@ -4,6 +4,7 @@ using Item.Gun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using SceneController;
 namespace Player.Control
 {
     public class PlayerStatus : MonoBehaviour
@@ -44,6 +45,7 @@ namespace Player.Control
 
         private void OnEnable()
         {
+            PlayerUIHandler.onMainMenu += DestroyPlayer;
             SceneManager.sceneLoaded += ResetPlayerStatsOnSceneLoad;
             PlayerUIHandler.onRetry += Retry;
             Enemy.OnDeathEvent.givePlayerMoney += playerStatusScriptable.AddMoney;
@@ -54,6 +56,7 @@ namespace Player.Control
 
         private void OnDisable()
         {
+            PlayerUIHandler.onMainMenu -= DestroyPlayer;
             SceneManager.sceneLoaded -= ResetPlayerStatsOnSceneLoad;
             PlayerUIHandler.onRetry -= Retry;
             Enemy.OnDeathEvent.givePlayerMoney -= playerStatusScriptable.AddMoney;
@@ -64,6 +67,9 @@ namespace Player.Control
 
         private void Start()
         {
+            playerStatusScriptable.CharacterStatsMultiplier = InformationHolder.instance.CharacterMultiplier;
+            GetComponent<Movement>().speed *= playerStatusScriptable.CharacterStatsMultiplier.SpeedMultiplier;
+            GetComponent<Movement>().sprintingSpeed *= playerStatusScriptable.CharacterStatsMultiplier.SpeedMultiplier;
             playerStatusScriptable.money = 0;
             playerStatusScriptable.killCount = 0;
             
@@ -192,6 +198,11 @@ namespace Player.Control
         {
             playerStatusScriptable.health = playerStatusScriptable.maxHealth;
             playerStatusScriptable.killCount = 0;
+        }
+
+        public void DestroyPlayer()
+        {
+            Destroy(gameObject);
         }
     }
 }

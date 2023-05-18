@@ -29,11 +29,13 @@ public class WaveManagerScript : MonoBehaviour
 
     private void OnEnable()
     {
+        PlayerUIHandler.onMainMenu += DestroyThis;
         BossFightManager.OnBossStart += DisableWaveText;
     }
 
     private void OnDisable()
     {
+        PlayerUIHandler.onMainMenu -= DestroyThis;
         BossFightManager.OnBossStart -= DisableWaveText;
     }
 
@@ -125,4 +127,8 @@ public class WaveManagerScript : MonoBehaviour
         RoundNumAnim.transform.parent.gameObject.SetActive(true);
     }
 
+    public void DestroyThis()
+    {
+        Destroy(gameObject);
+    }
 }

@@ -66,6 +66,7 @@ namespace Player.Display
                 case ItemType.End:
                     if (!currentWallShop.Escape(playerStatusScriptable)) return;
                     GameObject.Find("End Door").GetComponent<Animator>().SetBool("Escape", true);
+                    NEWSpawningScript.Instance.IsEndDoorOpen = true;
                     //GameEnd.endTheGame?.Invoke();
                     break;
             }
