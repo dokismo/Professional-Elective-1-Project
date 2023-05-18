@@ -140,6 +140,7 @@ namespace Player.Control
             else
             {
                 GameObject instanceGun = Instantiate(gun, itemAnchor);
+                //instanceGun.transform.localPosition = Vector3.zero;
                 instanceGun.SetActive(false);
                 localGuns.Add(instanceGun);
             }

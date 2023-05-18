@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2086255356936561159}
-  m_LocalRotation: {x: 0.21381481, y: -0.6740054, z: -0.6740054, w: 0.21381477}
-  m_LocalPosition: {x: -0.07764, y: -0.00028, z: 0.0122}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0}
+  m_LocalRotation: {x: -0.52032954, y: 0.50851, z: 0.4942324, w: 0.47582474}
+  m_LocalPosition: {x: -0.0643, y: 0.0009, z: 0.0097}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8899637179837572840}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -86.212, y: -152.598, z: 242.976}
 --- !u!1 &4686528125407238021
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,13 +145,13 @@ GameObject:
   - component: {fileID: 8899637179837572840}
   - component: {fileID: 3753744923590583449}
   - component: {fileID: 3786230146454741895}
-  - component: {fileID: 7567330311279112752}
   - component: {fileID: 7947737253428038351}
   - component: {fileID: 2773908173101354173}
   - component: {fileID: 3410248435015026283}
   - component: {fileID: 7763219579234185448}
   - component: {fileID: 5200871570727671746}
-  - component: {fileID: 5835792335107613663}
+  - component: {fileID: 2055734661552405198}
+  - component: {fileID: 410734454742948421}
   m_Layer: 12
   m_Name: Desert_Eagle
   m_TagString: Untagged
@@ -166,9 +166,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8509000721493031715}
-  m_LocalRotation: {x: -0.5011456, y: 0.4961294, z: 0.49883255, w: 0.50385994}
-  m_LocalPosition: {x: 0.1569, y: -0.1874, z: -0.096}
-  m_LocalScale: {x: 10.953875, y: 12.4714, z: 10.532}
+  m_LocalRotation: {x: -0.52032954, y: 0.50851, z: 0.4942324, w: 0.47582474}
+  m_LocalPosition: {x: 0.05100076, y: -0.02899996, z: 0.2030004}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1425280964215854176}
@@ -176,7 +176,7 @@ Transform:
   - {fileID: 3046291236980454912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.31, y: 179.83, z: -90.406006}
+  m_LocalEulerAnglesHint: {x: -86.212, y: -152.598, z: 242.976}
 --- !u!33 &3753744923590583449
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -228,26 +228,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &7567330311279112752
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8509000721493031715}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 98689f12eab478443a545496c5855fc7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7947737253428038351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,25 +240,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90cc1b4248a12243b60953751f95d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunName: Desert Eagle
+  gunName: Desert
   distance: 45
   targetLayers:
     serializedVersion: 2
     m_Bits: 2368
-  damage: 35
+  damage: 20
   ammoInMag: 7
   ammoPerMag: 7
-  totalAmmo: 77
-  maxTotalAmmo: 77
-  rpm: 210
+  totalAmmo: 91
+  maxTotalAmmo: 91
+  rpm: 240
   ammoPerFire: 1
   reloadTime: 1
-  recoil: 5
-  maxRecoil: 20
-  recoilControl: 10
+  recoil: 1
+  maxRecoil: 5
+  recoilControl: 25
   fireType: 0
   operation: 1
-  icon: {fileID: -563190851, guid: 37948b23e9092d34e827689b9bfcbd19, type: 3}
+  icon: {fileID: -1177312054, guid: 37948b23e9092d34e827689b9bfcbd19, type: 3}
   muzzleFlash: {fileID: 3184018040782136120}
 --- !u!82 &2773908173101354173
 AudioSource:
@@ -421,20 +401,40 @@ MonoBehaviour:
   lineStart: {fileID: 1819044863846646415}
   distanceToRender: 5
   lifeTime: 0.05
---- !u!114 &5835792335107613663
+--- !u!114 &2055734661552405198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8509000721493031715}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a23f220a741a489683ce52a79437b644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shootPauseTime: 0.3
-  animator: {fileID: 7567330311279112752}
+  animator: {fileID: 410734454742948421}
+--- !u!95 &410734454742948421
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8509000721493031715}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: 98689f12eab478443a545496c5855fc7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9084984661318838581
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,14 +461,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9084984661318838581}
-  m_LocalRotation: {x: 0.21381481, y: -0.6740054, z: -0.6740054, w: 0.21381477}
-  m_LocalPosition: {x: 0.0405, y: -0.0234, z: 0.004}
+  m_LocalRotation: {x: -0.24392101, y: -0.38299838, z: -0.6567055, w: 0.60212344}
+  m_LocalPosition: {x: 0.025100011, y: -0.0068000024, z: 0.0036000032}
   m_LocalScale: {x: 0.00049999997, y: 0.00049999997, z: 0.0005}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8899637179837572840}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -52.823, y: -13.48, z: -88.247}
 --- !u!33 &3069535957366487895
 MeshFilter:
   m_ObjectHideFlags: 0
