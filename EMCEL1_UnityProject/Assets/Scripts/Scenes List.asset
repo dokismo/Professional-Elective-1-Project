@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Scenes List
   m_EditorClassIdentifier: 
   sceneGroups:
-  - name: Main Menu
+  - name: MainMenu 3
     sceneList:
-    - name: MainMenu
+    - name: MainMenu 3
       isLoaded: 0
   - name: Test
     sceneList:
