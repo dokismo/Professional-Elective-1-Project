@@ -36,12 +36,14 @@ public class NEWSpawningScript : MonoBehaviour
     }
     private void OnEnable()
     {
+        BossFightManager.OnBossStart += BossStartFunc;
         PlayerUIHandler.onMainMenu += DestroyThis;
         SceneManager.sceneLoaded += SetUpSpawner;
         zombieDeathDelegate += AddDeadZombie;
     }
     private void OnDisable()
     {
+        BossFightManager.OnBossStart -= BossStartFunc;
         PlayerUIHandler.onMainMenu -= DestroyThis;
         SceneManager.sceneLoaded -= SetUpSpawner;
         zombieDeathDelegate -= AddDeadZombie;
@@ -102,6 +104,22 @@ public class NEWSpawningScript : MonoBehaviour
         SpawnInterval = DEFAULTSpawnInterval;
         
         CanSpawn = true;
+    }
+
+    public void BossStartFunc()
+    {
+        CanSpawn = false;
+        DestroyAllZombiesOnScene();
+    }
+
+    void DestroyAllZombiesOnScene()
+    {
+        GameObject[] Zombies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        foreach(GameObject zombs in Zombies)
+        {
+            Destroy(zombs);
+        }
     }
 
     public void DestroyThis()

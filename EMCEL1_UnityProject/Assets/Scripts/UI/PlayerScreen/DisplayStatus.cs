@@ -56,6 +56,7 @@ namespace UI.PlayerScreen
 
         private void OnEnable()
         {
+            InspectShopWall.onEndBought += EndBought;
             PlayerUIHandler.onRetry += ResetNeeded;
             InspectShopWall.showWallShop += ItemShop;
             GlobalCommand.setPause += SetPause;
@@ -67,6 +68,7 @@ namespace UI.PlayerScreen
 
         private void OnDisable()
         {
+            InspectShopWall.onEndBought -= EndBought;
             PlayerUIHandler.onRetry -= ResetNeeded;
             InspectShopWall.showWallShop -= ItemShop;
             onDead -= OnDead;
@@ -202,6 +204,11 @@ namespace UI.PlayerScreen
         public void ResetNeeded()
         {
             playerStatusScriptable.killCount = 0;
+        }
+
+        public void EndBought()
+        {
+            shopTxt.text = "";
         }
     }
 }
