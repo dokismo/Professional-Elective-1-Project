@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6362723748151396456}
   - component: {fileID: 2981009382827809265}
   m_Layer: 0
-  m_Name: BOSSDied
+  m_Name: Smash Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,8 +42,8 @@ AudioSource:
   m_GameObject: {fileID: 1523546766058017597}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7298851354718210634, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 23b9a859c1d5aae4a893082aae980839, type: 3}
+  OutputAudioMixerGroup: {fileID: 1994221992768966153, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 3025664a524b1464581567056be0d168, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -89,7 +89,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.847
       inSlope: 0
       outSlope: 0
       tangentMode: 0

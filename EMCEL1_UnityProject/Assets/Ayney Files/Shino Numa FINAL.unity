@@ -514,7 +514,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &339514412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3163,6 +3163,11 @@ MonoBehaviour:
   PlayerInRange: 0
   AppliedEnrage: 0
   RandomAttackVar: 0
+  bossAttack: {fileID: 1523546766058017597, guid: 5556a8f1c0e6fef47bdb2056b207072a, type: 3}
+  bossScream: {fileID: 2439891312176218936, guid: 6397fa1f42f2b70478c87112aab18b6d, type: 3}
+  bossDied: {fileID: 1523546766058017597, guid: b5c72330d320cfe47a89f1a24d20bc7c, type: 3}
+  bossSmash: {fileID: 1523546766058017597, guid: 891b95c83b8aff04d9caaebd2d91364d, type: 3}
+  enraged: {fileID: 1523546766058017597, guid: 01bdb6938c4e274429b361cf54781468, type: 3}
   Speed: 7
 --- !u!114 &2023361637798402548
 MonoBehaviour:
@@ -5818,6 +5823,10 @@ PrefabInstance:
     - target: {fileID: 8906514241001364561, guid: 6681f6046ef85034292c8903768089ba, type: 3}
       propertyPath: m_Name
       value: Player Starting Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 8906514241001364561, guid: 6681f6046ef85034292c8903768089ba, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6681f6046ef85034292c8903768089ba, type: 3}

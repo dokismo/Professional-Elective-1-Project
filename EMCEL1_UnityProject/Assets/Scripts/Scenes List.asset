@@ -15,7 +15,7 @@ MonoBehaviour:
   sceneGroups:
   - name: Main Menu
     sceneList:
-    - name: MainMenu
+    - name: MainMenu 3
       isLoaded: 0
   - name: Test
     sceneList:
