@@ -12,24 +12,18 @@ EditorBuildSettings:
     path: Assets/Scenes/UI/MainMenu 3.unity
     guid: 186100caf06d7a54c8df9ed77628e166
   - enabled: 1
-    path: Assets/Scenes/UI/PlayerScreen.unity
-    guid: 602729146da9c7444972798dc4beb032
+    path: Assets/Scenes/UI/LoadingScene.unity
+    guid: 7c13854faa383f74b978fbb68b1369ca
   - enabled: 1
     path: Assets/Ayney Files/Shino Numa FINAL.unity
     guid: 2a413b4062ea79e4893e3fdda02854c2
-  - enabled: 1
-    path: Assets/Scenes/UI/LoadingScene.unity
-    guid: 7c13854faa383f74b978fbb68b1369ca
   - enabled: 1
     path: Assets/Ayney Files/Practice Range.unity
     guid: 3fa5692fdbbcb4249bd0a032589d3cda
   - enabled: 1
     path: Assets/Scenes/UI/Exit.unity
     guid: 599c6d01d7c872e46a88720e07ac0e53
-  - enabled: 0
-    path: Assets/Scenes/DummyTestScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: Assets/Scenes/UI/MainMenu.unity
-    guid: 962662061e7cfde329912a4e8bcd973e
+  - enabled: 1
+    path: Assets/Scenes/UI/PlayerScreen.unity
+    guid: 602729146da9c7444972798dc4beb032
   m_configObjects: {}
