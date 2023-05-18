@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Player.Control;
+using Audio_Scripts;
 public class Boss2Script : MonoBehaviour
 {
     [SerializeField] Animator BossAnimator;
@@ -19,6 +20,14 @@ public class Boss2Script : MonoBehaviour
 
     public float RandomAttackVar;
 
+    //sfx
+    public GameObject bossAttack;
+    public GameObject bossScream;
+    public GameObject bossDied;
+    public GameObject bossSmash;
+    public GameObject enraged;
+
+    [SerializeField] float Speed;
     float NormalAttackDmg = 20f;
     float SmashDmg = 40f;
     float SmashRadius = 4f;
@@ -26,6 +35,8 @@ public class Boss2Script : MonoBehaviour
     float EnragedMultiplier = 1.5f;
     void Start()
     {
+        BossAnimator.speed = 1.2f;
+        BossNavmesh.speed = Speed;
         BossFightManager.Instance?.AssignBossVar();
     }
 
@@ -58,6 +69,7 @@ public class Boss2Script : MonoBehaviour
                 IsAttacking = false;
                 IsScreaming = false;
                 PlayerInRange = false;
+                GlobalSfx.bossDied?.Invoke(transform.position, bossDied);//sfx
             }
         }
 
@@ -86,6 +98,7 @@ public class Boss2Script : MonoBehaviour
         IsIdle = false;
         IsAttacking = false;
         IsScreaming = true;
+
     }
     public void StopScream()
     {
@@ -103,6 +116,7 @@ public class Boss2Script : MonoBehaviour
         GameObject obj = Instantiate(SmashParticle, SmashLocation.position, SmashParticle.transform.rotation);
         obj.GetComponent<SphereCollider>().radius = SmashRadius;
         obj.GetComponent<SmashDetect>().SmashDmg = SmashDmg;
+        GlobalSfx.smashRocks?.Invoke(transform.position, bossSmash); //sfx  
     }
 
     public void AttackPlayer()
@@ -111,6 +125,7 @@ public class Boss2Script : MonoBehaviour
         {
             StartCoroutine(CameraEffectsHandler.Instance?.CameraShake(1, 2));
             PlayerStatus.changeHealth?.Invoke(-(int)NormalAttackDmg);
+            GlobalSfx.bossGrunt?.Invoke(transform.position, bossAttack); //sfx
         }
     }
 
@@ -141,6 +156,8 @@ public class Boss2Script : MonoBehaviour
             SmashDmg = SmashDmg * EnragedMultiplier;
             SmashRadius = SmashRadius * EnragedMultiplier;
             AppliedEnrage = true;
+            BossNavmesh.speed = Speed * EnragedMultiplier;
+            BossAnimator.speed = 1.7f;
             TransformEnrageMode();
         }
     }
@@ -148,16 +165,19 @@ public class Boss2Script : MonoBehaviour
     public void ScreamEffects()
     {
         StartCoroutine(CameraEffectsHandler.Instance?.CameraShake(2f, 0.5f));
+        GlobalSfx.bossScream?.Invoke(transform.position, bossScream); //sfx
     }
 
     public void TransformEnrageMode()
     {
         StartCoroutine(StartTransformToEnrage());
+        
     }
 
 
     IEnumerator StartTransformToEnrage()
     {
+        GlobalSfx.enraged?.Invoke(transform.position, enraged);//sfx
         float TransformDuration = 2f;
         float TimeElapsed = 0f;
 

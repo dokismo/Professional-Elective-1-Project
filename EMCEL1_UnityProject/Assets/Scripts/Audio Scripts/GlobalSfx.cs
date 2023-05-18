@@ -7,7 +7,7 @@ namespace Audio_Scripts
     public class GlobalSfx : MonoBehaviour
     {
         public static Action<Vector3> wallEvent, fleshEvent;
-        public static Action<Vector3, GameObject> grunt, death;
+        public static Action<Vector3, GameObject> grunt, death, bossScream, bossGrunt, bossDied, smashRocks, enraged;
 
         public GameObject wallShot, fleshShot;
 
@@ -19,6 +19,11 @@ namespace Audio_Scripts
             fleshEvent += Flesh;
             grunt += PlaceObjAt;
             death += PlaceObjAt;
+            bossScream += PlaceObjAt;
+            bossGrunt += PlaceObjAt;
+            bossDied += PlaceObjAt;
+            smashRocks += PlaceObjAt;
+            enraged += PlaceObjAt;
             WaveDifficultyIncrement.waveStart += WaveStart;
         }
 
@@ -28,6 +33,11 @@ namespace Audio_Scripts
             fleshEvent -= Flesh;
             grunt -= PlaceObjAt;
             death -= PlaceObjAt;
+            bossScream -= PlaceObjAt;
+            bossGrunt -= PlaceObjAt;
+            bossDied -= PlaceObjAt;
+            smashRocks -= PlaceObjAt;
+            enraged -= PlaceObjAt;
             WaveDifficultyIncrement.waveStart -= WaveStart;
         }
 

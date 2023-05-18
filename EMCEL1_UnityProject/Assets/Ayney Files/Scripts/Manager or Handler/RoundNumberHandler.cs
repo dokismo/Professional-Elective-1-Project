@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+using Player.Display;
 public class RoundNumberHandler : MonoBehaviour
 {
     public TextMeshProUGUI RoundAnim;
@@ -11,12 +11,13 @@ public class RoundNumberHandler : MonoBehaviour
 
     private void OnEnable()
     {
+        InspectShopWall.onEndBought += OnOpenDoor;
         SceneManager.sceneLoaded += ResetWaveOnSceneLoad;
         //SceneManager.sceneLoaded += ChangeWaveNumberOnSceneLoad;
     }
     private void OnDisable()
     {
-        
+        InspectShopWall.onEndBought -= OnOpenDoor;
         //SceneManager.sceneLoaded -= ChangeWaveNumberOnSceneLoad;
     }
 
@@ -57,6 +58,10 @@ public class RoundNumberHandler : MonoBehaviour
         if(RoundNumberText!= null) RoundNumberText.text = "";
     }
 
+    public void OnOpenDoor()
+    {
+        RoundNumberText.text = "";
+    }
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= ResetWaveOnSceneLoad;

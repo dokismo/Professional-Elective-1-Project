@@ -22,34 +22,39 @@ public class BossHPHandler : MonoBehaviour
     }
     public void TakeDamage(int Dmg)
     {
-        for (int i = 0; i < HitEffect.Length; i++)
+        if(BossFightManager.Instance.BossFightStarted)
         {
-            HitEffect[i].HitEffectOnMat();
-        }
-
-        BossHP -= Dmg;
-        BossHPBar.value = BossHP;
-
-
-        if (GetComponent<Boss2Script>() && BossHP <= BossMaxHp / 2 && !HasRaged)
-        {
-
-            GetComponent<Boss2Script>().Scream();
-            GetComponent<Boss2Script>().ApplyEnragedStats();
-            HasRaged = true;
-        }
-        if(BossHP < 0f)
-        {
-            if(!GetComponent<Boss2Script>())
+            for (int i = 0; i < HitEffect.Length; i++)
             {
-                Destroy(gameObject);
-                NextSceneNameHolder.Instance.NextSceneName = "NextSceneSample";
-                SceneLoader.Instance.NextScene();
-            } else
-            {
-                GetComponent<Boss2Script>().IsDead = true;
+                HitEffect[i].HitEffectOnMat();
             }
-            
+
+            BossHP -= Dmg;
+            BossHPBar.value = BossHP;
+
+
+            if (GetComponent<Boss2Script>() && BossHP <= BossMaxHp / 2 && !HasRaged)
+            {
+
+                GetComponent<Boss2Script>().Scream();
+                GetComponent<Boss2Script>().ApplyEnragedStats();
+                HasRaged = true;
+            }
+            if (BossHP < 0f)
+            {
+                if (!GetComponent<Boss2Script>())
+                {
+                    Destroy(gameObject);
+                    NextSceneNameHolder.Instance.NextSceneName = "NextSceneSample";
+                    SceneLoader.Instance.NextScene();
+                }
+                else
+                {
+                    GetComponent<Boss2Script>().IsDead = true;
+                }
+
+            }
         }
+        
     }
 }

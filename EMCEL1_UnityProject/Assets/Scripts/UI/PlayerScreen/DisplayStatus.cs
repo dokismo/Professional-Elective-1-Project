@@ -46,6 +46,7 @@ namespace UI.PlayerScreen
         public GameObject WaveNumber;
         public Image staminaBg, staminaBar;
         public HealthPacks healthPacks;
+        public GameObject Message;
 
         private float staminaVisibilityTimerA;
         private float staminaVisibilityTimerB;
@@ -56,6 +57,7 @@ namespace UI.PlayerScreen
 
         private void OnEnable()
         {
+            InspectShopWall.onEndBought += EndBought;
             PlayerUIHandler.onRetry += ResetNeeded;
             InspectShopWall.showWallShop += ItemShop;
             GlobalCommand.setPause += SetPause;
@@ -67,6 +69,7 @@ namespace UI.PlayerScreen
 
         private void OnDisable()
         {
+            InspectShopWall.onEndBought -= EndBought;
             PlayerUIHandler.onRetry -= ResetNeeded;
             InspectShopWall.showWallShop -= ItemShop;
             onDead -= OnDead;
@@ -199,9 +202,20 @@ namespace UI.PlayerScreen
             WaveNumber.SetActive(true);
         }
 
+        public void SendMessageToPlayer(string msg, Color txtColor)
+        {
+            Message.GetComponent<TextMeshProUGUI>().color = txtColor;
+            Message.GetComponent<TextMeshProUGUI>().text = msg;
+            Message.GetComponent<Animator>().Play("Goal",-1,0f);
+        }
         public void ResetNeeded()
         {
             playerStatusScriptable.killCount = 0;
+        }
+
+        public void EndBought()
+        {
+            shopTxt.text = "";
         }
     }
 }

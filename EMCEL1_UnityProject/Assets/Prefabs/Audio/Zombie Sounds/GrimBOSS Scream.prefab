@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -944016971365851460}
   - component: {fileID: 6600708266212213414}
   m_Layer: 0
-  m_Name: BOSSGrunt
+  m_Name: GrimBOSS Scream
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,8 +42,8 @@ AudioSource:
   m_GameObject: {fileID: 2439891312176218936}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 7298851354718210634, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}
-  m_audioClip: {fileID: 8300000, guid: e2d0c305391d10e4aac31d55d6d7f6f4, type: 3}
+  OutputAudioMixerGroup: {fileID: 1994221992768966153, guid: 7dd4259f16cd1e64e82e62b9af2acc22, type: 2}
+  m_audioClip: {fileID: 8300000, guid: a48a637b17eb50949ae676b63eb34a80, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -89,7 +89,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.27
       inSlope: 0
       outSlope: 0
       tangentMode: 0

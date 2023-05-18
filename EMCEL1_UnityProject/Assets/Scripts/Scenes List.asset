@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Scenes List
   m_EditorClassIdentifier: 
   sceneGroups:
-  - name: Main Menu
+  - name: Main Menu 3
     sceneList:
-    - name: MainMenu
+    - name: MainMenu 3
       isLoaded: 0
   - name: Test
     sceneList:
-    - name: Shino Numa
+    - name: Shino Numa FINAL
       isLoaded: 0
   - name: Credentia
     sceneList:
@@ -32,4 +32,8 @@ MonoBehaviour:
   - name: Exit
     sceneList:
     - name: Exit
+      isLoaded: 0
+  - name: Practice Range
+    sceneList:
+    - name: Practice Range
       isLoaded: 0

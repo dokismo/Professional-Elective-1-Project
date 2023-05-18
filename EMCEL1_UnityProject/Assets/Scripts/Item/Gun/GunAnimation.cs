@@ -34,7 +34,7 @@ namespace Item.Gun
         public void Reset()
         {
             timer = 0;
-            animator.enabled = true;
+            animator.enabled = true; //true
             
             animator.ResetTrigger(Reload);
             animator.ResetTrigger(ReloadDone);
@@ -47,13 +47,14 @@ namespace Item.Gun
             timer = shootPauseTime;
             
             transform.LookAt(point);
-            
+
+
             float angleY = Mathf.Clamp(transform.localRotation.eulerAngles.y - 90, 270, 360);
 
             transform.localRotation = Quaternion.Euler(
                 0,
-                angleY, 
-                Mathf.Clamp(transform.localRotation.eulerAngles.z, -4, 4));
+                angleY,
+                Mathf.Clamp(transform.localRotation.eulerAngles.z, -4, 4)) ;
         }
 
         public void ReloadEvent()

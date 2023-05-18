@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ColorTime: 0.2
-  HitColorValue: {r: 1, g: 0.40943396, b: 0.40943396, a: 1}
+  HitColorValue: {r: 0.6792453, g: 0.30373797, b: 0.30373797, a: 1}
 --- !u!1 &7494770082969013997 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1042560595928774, guid: a8145fd98e506094980d05080bde9072, type: 3}
