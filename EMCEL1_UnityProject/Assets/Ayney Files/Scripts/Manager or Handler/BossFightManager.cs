@@ -27,10 +27,12 @@ public class BossFightManager : MonoBehaviour
 
     private void OnEnable()
     {
+        PlayerUIHandler.onMainMenu += DestroyThis;
         SceneManager.sceneLoaded += GetBossOnScene;
     }
     private void OnDisable()
     {
+        PlayerUIHandler.onMainMenu -= DestroyThis;
         SceneManager.sceneLoaded -= GetBossOnScene;
     }
 
@@ -40,7 +42,7 @@ public class BossFightManager : MonoBehaviour
         
         BossGameObject = GameObject.FindWithTag("Boss").gameObject;
 
-        if(BossGameObject.GetComponent<BossHPHandler>() != null)
+        if(BossGameObject.GetComponent<BossHPHandler>() != null && BossFightUI != null)
         {
             BossGameObject.GetComponent<BossHPHandler>().BossHPBar = BossFightUI.transform.Find("Boss HP Bar").GetComponent<Slider>();
             BossGameObject.GetComponent<BossHPHandler>().BossHPBar.maxValue = BossGameObject.GetComponent<BossHPHandler>().BossHP;
@@ -75,5 +77,8 @@ public class BossFightManager : MonoBehaviour
         else Debug.Log("CAN'T FIND BOSS");
     }
 
-
+    public void DestroyThis()
+    {
+        Destroy(gameObject);
+    }
 }

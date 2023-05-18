@@ -17,7 +17,8 @@ public class NEWSpawningScript : MonoBehaviour
     [SerializeField] GameObject[] ZombieType;
     [SerializeField] float SpawnInterval = 1f;
     public int MaxZombieToSpawn = 5, ZombiesSpawned, ZombieDead;
-    public bool CanSpawn;
+    int DefaultMaxSpawn;
+    public bool CanSpawn, IsEndDoorOpen = false;
     float DEFAULTSpawnInterval;
 
 
@@ -30,15 +31,18 @@ public class NEWSpawningScript : MonoBehaviour
             DontDestroyOnLoad(this);
         }
 
+        DefaultMaxSpawn = MaxZombieToSpawn;
         DEFAULTSpawnInterval = SpawnInterval;
     }
     private void OnEnable()
     {
+        PlayerUIHandler.onMainMenu += DestroyThis;
         SceneManager.sceneLoaded += SetUpSpawner;
         zombieDeathDelegate += AddDeadZombie;
     }
     private void OnDisable()
     {
+        PlayerUIHandler.onMainMenu -= DestroyThis;
         SceneManager.sceneLoaded -= SetUpSpawner;
         zombieDeathDelegate -= AddDeadZombie;
     }
@@ -51,7 +55,6 @@ public class NEWSpawningScript : MonoBehaviour
         SpawnLocations.RemoveAt(0);
 
         ZombiesSpawned = 0;
-        MaxZombieToSpawn = 5;
         SpawnInterval = DEFAULTSpawnInterval;
 
         CanSpawn = true;
@@ -59,7 +62,7 @@ public class NEWSpawningScript : MonoBehaviour
 
     void Update()
     {
-        if(CanSpawn) StartSpawning();
+        if(CanSpawn && !IsEndDoorOpen) StartSpawning();
     }
 
     void StartSpawning()
@@ -83,7 +86,6 @@ public class NEWSpawningScript : MonoBehaviour
 
     void AddDeadZombie()
     {
-
         ZombieDead++;
     }
 
@@ -96,9 +98,14 @@ public class NEWSpawningScript : MonoBehaviour
         SpawnLocations.RemoveAt(0);
 
         ZombiesSpawned = 0;
-        MaxZombieToSpawn = 5;
+        MaxZombieToSpawn = DefaultMaxSpawn;
         SpawnInterval = DEFAULTSpawnInterval;
         
         CanSpawn = true;
+    }
+
+    public void DestroyThis()
+    {
+        Destroy(gameObject);
     }
 }

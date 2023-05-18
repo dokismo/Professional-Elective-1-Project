@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1432840525630537636
 Transform:
   m_ObjectHideFlags: 0
@@ -698,6 +698,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1459204624250079206}
     m_Modifications:
+    - target: {fileID: -8693097206844968066, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -742,9 +746,125 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8491621057233565286, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7215912017741602320, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -7173912171692861285, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -6034526818138711538, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5891325977771096572, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3782689615593923082, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1780416209552420184, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1036989553019873318, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 562319690253120224, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
       propertyPath: m_Name
       value: zombie
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870168708774813558, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1941636877928324194, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2562956086780064192, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2768490493610040150, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790018665771910157, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3029523901680860589, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3098589006599668199, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4677361591963209373, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5528860797864257434, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5755049525349597631, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074292858617069820, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6131025411390244722, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502572131011616075, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6672041804652862297, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6863900144210360410, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124172819930776712, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7373723835858586177, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8327223564818308900, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8597865178428971248, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -752,6 +872,88 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8bb32a8ee4dc4ff44a5a34df282131ba, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+--- !u!1 &2090820192502141993 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1036989553019873318, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+  m_PrefabInstance: {fileID: 7827197456394241011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &3446942492969860222
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090820192502141993}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.11
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.09, z: 0}
+--- !u!114 &7631877803102341068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090820192502141993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
+--- !u!1 &2238279306926726359 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8327223564818308900, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+  m_PrefabInstance: {fileID: 7827197456394241011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &7790149711668848590
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238279306926726359}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.45
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.15, z: 0}
+--- !u!114 &4092914801236819346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238279306926726359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &2540524493194265164 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5755049525349597631, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
@@ -771,6 +973,170 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ColorTime: 0.2
   HitColorValue: {r: 1, g: 0.42830187, b: 0.42830187, a: 1}
+--- !u!1 &3461034138215880874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6672041804652862297, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+  m_PrefabInstance: {fileID: 7827197456394241011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &4092885757249950895
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461034138215880874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.35
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.12, z: 0}
+--- !u!114 &8774835731685157304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3461034138215880874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
+--- !u!1 &5085915769674825310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3029523901680860589, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+  m_PrefabInstance: {fileID: 7827197456394241011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1845047659821671082
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5085915769674825310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.6
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5599325380645013733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5085915769674825310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
+--- !u!1 &5401062740692588709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2768490493610040150, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+  m_PrefabInstance: {fileID: 7827197456394241011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &5949952785287792337
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5401062740692588709}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.6
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8006348392021542295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5401062740692588709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
+--- !u!1 &5696693329317278259 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2562956086780064192, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+  m_PrefabInstance: {fileID: 7827197456394241011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1810664606183514458
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5696693329317278259}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.11
+  m_Height: 0.3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.09, z: 0}
+--- !u!114 &2188718827552912589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5696693329317278259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!1 &6944167222855433890 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
@@ -808,8 +1174,170 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fef1ea7dc00d1c4b8570feda4c1f931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7401799296177506921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8491621057233565286, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+  m_PrefabInstance: {fileID: 7827197456394241011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &8431062430793244381
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401799296177506921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.3
+  m_Center: {x: 0, y: 0.3, z: 0}
+--- !u!114 &6440318213604048714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401799296177506921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1.5
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
 --- !u!4 &7716200945591591960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
   m_PrefabInstance: {fileID: 7827197456394241011}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7765367633132187789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8693097206844968066, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+  m_PrefabInstance: {fileID: 7827197456394241011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3013120030289894669
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7765367633132187789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.48, y: 0.52, z: 0.25}
+  m_Center: {x: 0, y: -0.06, z: 0}
+--- !u!114 &5388595546808583616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7765367633132187789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
+--- !u!1 &8533721964476309393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1941636877928324194, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+  m_PrefabInstance: {fileID: 7827197456394241011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &6151434314201680967
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533721964476309393}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.35
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.12, z: 0}
+--- !u!114 &6312191244052431306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8533721964476309393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0
+--- !u!1 &8594034523139891715 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7215912017741602320, guid: 2fe64239cbd1e1d4fbde67e0cbf28c26, type: 3}
+  m_PrefabInstance: {fileID: 7827197456394241011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &7301731821249892834
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8594034523139891715}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1
+  m_Height: 0.45
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.15, z: 0}
+--- !u!114 &2481061568841088461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8594034523139891715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbc5431dbf610242bf90223c1cd960b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DmgMultiplier: 1
+  isInRangeForZ5Effect: 0
+  DmgReductionMultiplier: 1
+  isBoss: 0
+  isSlowed: 0
+  RootObject: {fileID: 1459204624250079201}
+  HitEffect: []
+  SlowDownTime: 0.3
+  SlowEffectMultiplier: 0.3
+  SlowedSpeed: 0

@@ -41,7 +41,7 @@ public class EnemyHpHandler : MonoBehaviour
         GetComponent<EnemyNavMeshScript>().ZombieAnimatorController.Play("zombie_death_standing");
         GetComponent<EnemyNavMeshScript>().ZombieAnimatorController.SetBool("IsDead", true);
         GetComponent<EnemyNavMeshScript>().EnemyNMAgent.enabled = false;
-        transform.Find("Colliders").gameObject.SetActive(false);
+        DisableAllCollidersOnObject();
         transform.Find("Attack Range").gameObject.SetActive(false);
         yield return new WaitForSeconds(3f);
 
@@ -51,7 +51,15 @@ public class EnemyHpHandler : MonoBehaviour
 
     }
 
+    void DisableAllCollidersOnObject()
+    {
+        Collider[] colliders = GetComponentsInChildren<Collider>();
 
+        foreach(Collider col in colliders)
+        {
+            col.enabled = false;
+        }
+    }
     void EnemyDeath()
     {
         NEWSpawningScript.zombieDeathDelegate?.Invoke();

@@ -5,6 +5,7 @@ using Player.Control;
 using UI.PlayerScreen;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using SceneController;
 using Random = UnityEngine.Random;
 
 namespace Item.Gun
@@ -70,6 +71,7 @@ namespace Item.Gun
         
         private void Start()
         {
+            damage = (int)(damage * InformationHolder.instance.CharacterMultiplier.AttackDamageMultiplier);
             particleEffect = GetComponent<ParticleEffect>();
             thisCamera = Camera.main;
 
