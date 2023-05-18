@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04500930e74343659614debcc50adb98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Main Menu
+  scene: Main Menu 3
   time: 10
 --- !u!4 &1338889544
 Transform:

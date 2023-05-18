@@ -191,6 +191,13 @@ namespace Player.Control
             {
                 script.enabled = true;
             }
+
+            foreach(GameObject gun in localGuns)
+            {
+                Destroy(gun);
+            }
+            localGuns.Clear();
+            AddGun(startGun1);
         }
 
         void ResetPlayerStatsOnSceneLoad(Scene sceneName, LoadSceneMode mode)

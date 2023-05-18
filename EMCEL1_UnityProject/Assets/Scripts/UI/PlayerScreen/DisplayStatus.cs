@@ -46,6 +46,7 @@ namespace UI.PlayerScreen
         public GameObject WaveNumber;
         public Image staminaBg, staminaBar;
         public HealthPacks healthPacks;
+        public GameObject Message;
 
         private float staminaVisibilityTimerA;
         private float staminaVisibilityTimerB;
@@ -201,6 +202,12 @@ namespace UI.PlayerScreen
             WaveNumber.SetActive(true);
         }
 
+        public void SendMessageToPlayer(string msg, Color txtColor)
+        {
+            Message.GetComponent<TextMeshProUGUI>().color = txtColor;
+            Message.GetComponent<TextMeshProUGUI>().text = msg;
+            Message.GetComponent<Animator>().Play("Goal",-1,0f);
+        }
         public void ResetNeeded()
         {
             playerStatusScriptable.killCount = 0;
