@@ -68,10 +68,7 @@ namespace Player.Display
                     break;
                 case ItemType.End:
                     if (!currentWallShop.Escape(playerStatusScriptable)) return;
-                    GameObject.Find("End Door").GetComponent<Animator>().SetBool("Escape", true);
-                    Destroy(GameObject.Find("Open End Door"));
-                    NEWSpawningScript.Instance.IsEndDoorOpen = true;
-                    onEndBought?.Invoke();
+                    OpenEndDoor();
                     //GameEnd.endTheGame?.Invoke();
                     break;
             }
@@ -100,6 +97,16 @@ namespace Player.Display
             BuySound.lookEvent?.Invoke();
             currentWallShop = wallShop;
             showWallShop?.Invoke(currentWallShop);
+        }
+
+        public void OpenEndDoor()
+        {
+            GameObject.Find("End Door").GetComponent<Animator>().SetBool("Escape", true);
+            Destroy(GameObject.Find("Open End Door"));
+            NEWSpawningScript.Instance.IsEndDoorOpen = true;
+            StartCoroutine(CameraEffectsHandler.Instance.CameraShake(10f, 0.1f));
+            GameObject.Find("Door Sound").GetComponent<AudioSource>().Play();
+            onEndBought?.Invoke();
         }
     }
 }
