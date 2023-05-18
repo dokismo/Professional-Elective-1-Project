@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scenesToLoad:
-  - Main Menu
+  - Main Menu 3
 --- !u!114 &158993394
 MonoBehaviour:
   m_ObjectHideFlags: 0
