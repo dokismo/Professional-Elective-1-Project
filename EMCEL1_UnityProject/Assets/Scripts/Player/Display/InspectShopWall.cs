@@ -13,6 +13,9 @@ namespace Player.Display
         public delegate void ShowItemWall(WallShop wallShop);
         public static ShowItemWall showWallShop;
 
+        public delegate void OnEndBought();
+        public static event OnEndBought onEndBought;
+
         public PlayerStatusScriptable playerStatusScriptable;
         public float distance = 5f;
         public LayerMask targetlayer;
@@ -66,7 +69,9 @@ namespace Player.Display
                 case ItemType.End:
                     if (!currentWallShop.Escape(playerStatusScriptable)) return;
                     GameObject.Find("End Door").GetComponent<Animator>().SetBool("Escape", true);
+                    Destroy(GameObject.Find("Open End Door"));
                     NEWSpawningScript.Instance.IsEndDoorOpen = true;
+                    onEndBought?.Invoke();
                     //GameEnd.endTheGame?.Invoke();
                     break;
             }

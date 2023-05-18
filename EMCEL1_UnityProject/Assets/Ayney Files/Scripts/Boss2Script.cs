@@ -19,6 +19,7 @@ public class Boss2Script : MonoBehaviour
 
     public float RandomAttackVar;
 
+    [SerializeField] float Speed;
     float NormalAttackDmg = 20f;
     float SmashDmg = 40f;
     float SmashRadius = 4f;
@@ -26,6 +27,8 @@ public class Boss2Script : MonoBehaviour
     float EnragedMultiplier = 1.5f;
     void Start()
     {
+        BossAnimator.speed = 1.2f;
+        BossNavmesh.speed = Speed;
         BossFightManager.Instance?.AssignBossVar();
     }
 
@@ -141,6 +144,8 @@ public class Boss2Script : MonoBehaviour
             SmashDmg = SmashDmg * EnragedMultiplier;
             SmashRadius = SmashRadius * EnragedMultiplier;
             AppliedEnrage = true;
+            BossNavmesh.speed = Speed * EnragedMultiplier;
+            BossAnimator.speed = 1.7f;
             TransformEnrageMode();
         }
     }
