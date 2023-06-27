@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 
 namespace Item.Gun
 {
+    
     public enum FireType
     {
         Linear,
@@ -41,7 +42,8 @@ namespace Item.Gun
             reloadTime = 1,
             recoil,
             maxRecoil,
-            recoilControl;
+            recoilControl,
+            ImpactForce;
 
         public FireType fireType = FireType.Linear;
         public Operation operation = Operation.Automatic;
@@ -202,13 +204,17 @@ namespace Item.Gun
                     
                 if (raycastHit.collider != null)
                 {
+                    
                     ITarget target = raycastHit.collider.GetComponent<ITarget>();
                     
                     SurfaceType surface = target != null
                                 ? SurfaceType.Flesh
                                 : SurfaceType.Wall;
                     
-                    particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal, surface);
+                    particleEffect.SpawnEffect(raycastHit.point, raycastHit.normal, surface, raycastHit.collider.transform);
+
+                    Rigidbody targetRb = raycastHit.collider.GetComponent<Rigidbody>();
+                    if (targetRb != null && raycastHit.collider.gameObject.layer == 8) targetRb.AddForce(raycastHit.point + (-raycastHit.normal * ImpactForce * damage), ForceMode.Force);
                     
                     if (surface == SurfaceType.Wall)
                     {

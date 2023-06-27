@@ -48,7 +48,7 @@ public class CameraEffectsHandler : MonoBehaviour
         else Destroy(gameObject);
 
 
-        PostProcessingVolume = GameObject.Find("PostFX").GetComponent<PostProcessVolume>();
+        PostProcessingVolume = GameObject.Find("Post Processing").GetComponent<PostProcessVolume>();
         GameObject Player = GameObject.FindGameObjectWithTag("Player");
         if (Player != null && Player != gameObject)
         {

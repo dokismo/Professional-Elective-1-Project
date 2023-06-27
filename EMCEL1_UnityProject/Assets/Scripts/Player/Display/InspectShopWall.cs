@@ -1,6 +1,7 @@
 using System;
 using Gun;
 using Item.Gun;
+using Item.Melee;
 using SceneController;
 using Shop;
 using UnityEngine;
@@ -40,23 +41,23 @@ namespace Player.Display
         {
             if (!Keyboard.current.eKey.wasPressedThisFrame || currentWallShop == null) return;
 
-            Shooting currentGun = playerStatusScriptable.PlayerStatus.CurrentGun;
-
+            Shooting currentGun = playerStatusScriptable.PlayerStatus.CurrentWeapon != null ? playerStatusScriptable.PlayerStatus.CurrentWeapon: null;
+            Melee currentMelee = playerStatusScriptable.PlayerStatus.CurrentMelee != null ? playerStatusScriptable.PlayerStatus.CurrentMelee : null;
             switch (currentWallShop.item.itemType)
             {
-                case ItemType.Gun:
+                case ItemType.Weapon:
                     if (currentGun != null && 
                         currentWallShop.item.name.ToUpper() == currentGun.gunName.ToUpper())
                     {
                         if (!currentWallShop.BuyRefill(playerStatusScriptable) || !currentGun.CanBuyAmmo) return;
-                        playerStatusScriptable.PlayerStatus.CurrentGun.RefillAmmo();
+                        playerStatusScriptable.PlayerStatus.CurrentWeapon.RefillAmmo();
                         BuySound.buyEvent?.Invoke();
                     }
                     else
                     {
                         GameObject gunItem = currentWallShop.BuyItem(playerStatusScriptable);
                         if (gunItem == null) return;
-                        playerStatusScriptable.PlayerStatus.AddGun(gunItem);
+                        playerStatusScriptable.PlayerStatus.AddWeapon(gunItem);
                         BuySound.buyEvent?.Invoke();
                     }
                     break;

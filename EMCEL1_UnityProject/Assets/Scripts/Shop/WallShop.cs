@@ -7,7 +7,7 @@ namespace Shop
 {
     public enum ItemType
     {
-        Gun,
+        Weapon,
         MedKit,
         End
     }
@@ -18,7 +18,7 @@ namespace Shop
         public string name;
         public int price;
         public int RefillPrice => Mathf.RoundToInt(price * 0.4f);
-        public ItemType itemType = ItemType.Gun;
+        public ItemType itemType = ItemType.Weapon;
             
         public GameObject gun;
     }
@@ -33,7 +33,7 @@ namespace Shop
         {
             return item.itemType == ItemType.MedKit 
                 ? $"NAME: {item.name}\nPRICE: {item.price}" 
-                : item.itemType == ItemType.Gun 
+                : item.itemType == ItemType.Weapon 
                 ? $"NAME: {item.name}\nPRICE: {item.price}\nRefill: {item.RefillPrice}"
                 : $"ESCAPE!!\nPrice: {item.price}";
         }

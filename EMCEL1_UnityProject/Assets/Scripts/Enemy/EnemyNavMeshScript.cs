@@ -17,8 +17,8 @@ public class EnemyNavMeshScript : MonoBehaviour
     public bool attacking = false;
 
     [Header("Script For Referencing")]
-    public AttackRange objIdentifier;
-    public SphereCollider objIdentifierSphere;
+    public AttackRange AttackRangeScript;
+    public SphereCollider AttackColliderRange;
     
     private GameObject player;
     
@@ -31,8 +31,8 @@ public class EnemyNavMeshScript : MonoBehaviour
         
         if(!transform.name.Contains("Lilnerd")) transform.SetParent(GameObject.Find("Enemies").transform);
 
-        objIdentifier = transform.GetChild(0).GetComponent<AttackRange>();
-        objIdentifierSphere = transform.GetChild(0).GetComponent<SphereCollider>();
+        AttackRangeScript = transform.GetChild(0).GetComponent<AttackRange>();
+        AttackColliderRange = transform.GetChild(0).GetComponent<SphereCollider>();
 
         timeToAttack = defaultAttackSpeed;
 
@@ -71,10 +71,10 @@ public class EnemyNavMeshScript : MonoBehaviour
     {
         if (GetComponentInChildren<BossAbilityScript>() == null)
         {
-            if (objIdentifier.identifiedObj != null && EnemyNMAgent.isOnNavMesh)
+            if (AttackRangeScript.identifiedObj != null && EnemyNMAgent.isOnNavMesh)
             {
                 attacking = EnemyNMAgent.remainingDistance <= EnemyNMAgent.stoppingDistance &&
-                            objIdentifier.identifiedObj == player; 
+                            AttackRangeScript.identifiedObj == player; 
             }
         }
     }
@@ -89,7 +89,7 @@ public class EnemyNavMeshScript : MonoBehaviour
     }
     public void attackTarget()
     {
-        if (objIdentifier.identifiedObj == player)
+        if (AttackRangeScript.identifiedObj == player)
         {
             GlobalSfx.grunt?.Invoke(transform.position, grunt);
             PlayerStatus.changeHealth?.Invoke(-(int)enemyDamage);

@@ -9,8 +9,6 @@ namespace Player.Control
         private Movement playerMovement;
         public GameObject walkStep;
         public GameObject runningStep;
-
-
         void Start()
         {
             walkStep.SetActive(false);
@@ -23,6 +21,8 @@ namespace Player.Control
             runningStep.SetActive(playerMovement.isGrounded && playerMovement.IsRunning);
             walkStep.SetActive(playerMovement.isGrounded && playerMovement.IsMoving && !playerMovement.IsRunning);
         }
+
+       
     }
 }
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5690076870305926952}
   - component: {fileID: -5155529499013882984}
   - component: {fileID: -1379998220010948375}
+  - component: {fileID: 3051347979842799483}
   m_Layer: 0
   m_Name: BulletRichoetWall
   m_TagString: Untagged
@@ -141,3 +142,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8f6940406aedc44a69874858a2ed5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3051347979842799483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4797603147938342748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52402dd0250ce454089ff536adf961a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MinPitch: 0.7
+  MaxPitch: 1

@@ -26,7 +26,7 @@ namespace Shop
                 return;
         
             if (playerStatusScriptable.GetMoney(item.value) > -1 ? item.gameObject : null) 
-                PlayerStatus.AddGun(item.gameObject);
+                PlayerStatus.AddWeapon(item.gameObject);
         }
 
         public void RefillAmmo(int cost)

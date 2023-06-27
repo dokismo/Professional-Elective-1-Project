@@ -142,6 +142,7 @@ MonoBehaviour:
   recoil: 50
   maxRecoil: 0
   recoilControl: 10
+  ImpactForce: 0
   fireType: 1
   operation: 1
   icon: {fileID: -1780768298, guid: 37948b23e9092d34e827689b9bfcbd19, type: 3}
@@ -269,8 +270,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5af641f76df54e9bafb31ecb1f67ec62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponType: 0
   bulletImpact: {fileID: 100002, guid: fc7f8379080d0a844ad699b91bfd56f0, type: 3}
   bloodImpact: {fileID: 6823200998282874702, guid: 8f8fe12323625f5499b2853dd2ad3e58, type: 3}
+  WallShotDecal: {fileID: 8521694584627540545, guid: ed97ee04244b8ab44bb0ec44a75562c1, type: 3}
+  FleshShotDecal: {fileID: 8521694584627540545, guid: 294889bdea867fa4ba17c8e65e24d5a4, type: 3}
+  WallSlashDecal: {fileID: 8521694584627540545, guid: d31c53397d9721e44913242d5976baf5, type: 3}
+  FleshSlashDecal: {fileID: 8521694584627540545, guid: e848ff36693ae0142a985c9d7a2d7c5b, type: 3}
 --- !u!114 &4441497135764967769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,7 +452,6 @@ GameObject:
   - component: {fileID: 6733645701988360485}
   - component: {fileID: 630196546067740368}
   - component: {fileID: 3458309967708497361}
-  - component: {fileID: 6305154597769240880}
   m_Layer: 14
   m_Name: Tracer
   m_TagString: Untagged
@@ -519,16 +524,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6305154597769240880
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6914611546137430635}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

@@ -43,35 +43,39 @@ public class Boss2Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BossFightManager.Instance.BossFightStarted)
+        if(BossFightManager.Instance)
         {
-            if (!BossNavmesh.isStopped && !IsIdle && !IsScreaming && !IsAttacking && !IsDead)
+            if (BossFightManager.Instance.BossFightStarted)
             {
-                IsRunning = true;
-                BossNavmesh.destination = Player.position;
-            }
+                if (!BossNavmesh.isStopped && !IsIdle && !IsScreaming && !IsAttacking && !IsDead)
+                {
+                    IsRunning = true;
+                    BossNavmesh.destination = Player.position;
+                }
 
-            if (IsStunned) BossNavmesh.isStopped = true;
+                if (IsStunned) BossNavmesh.isStopped = true;
 
-            if(IsAttacking)
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Player.transform.position - transform.position), Time.deltaTime * 1.5f);
-                BossNavmesh.isStopped = true;
-            }
+                if (IsAttacking)
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(Player.transform.position - transform.position), Time.deltaTime * 1.5f);
+                    BossNavmesh.isStopped = true;
+                }
 
-            if(IsDead)
-            {
-                BossNavmesh.isStopped = true;
-                IsRunning = false;
-                IsIdle = false;
-                IsStunned = false;
-                IsSmashing = false;
-                IsAttacking = false;
-                IsScreaming = false;
-                PlayerInRange = false;
-                GlobalSfx.bossDied?.Invoke(transform.position, bossDied);//sfx
+                if (IsDead)
+                {
+                    BossNavmesh.isStopped = true;
+                    IsRunning = false;
+                    IsIdle = false;
+                    IsStunned = false;
+                    IsSmashing = false;
+                    IsAttacking = false;
+                    IsScreaming = false;
+                    PlayerInRange = false;
+                    GlobalSfx.bossDied?.Invoke(transform.position, bossDied);//sfx
+                }
             }
         }
+        
 
         
         AnimationSetter();

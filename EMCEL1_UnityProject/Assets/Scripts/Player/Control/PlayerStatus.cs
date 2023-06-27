@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Item.Gun;
+using Item.Melee;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -24,7 +25,7 @@ namespace Player.Control
         public int medKitHealAmount = 50;
         public float onTakeDamageInvulnerableTime = 1f;
         
-        public List<GameObject> localGuns;
+        public List<GameObject> localWeapons;
         public int medKitCount;
         
         public Transform itemAnchor;
@@ -32,12 +33,15 @@ namespace Player.Control
         private int currentIndex;
         private float takeDamageTimer;
 
-        public Shooting CurrentGun { get; private set; }
+        public Shooting CurrentWeapon { get; private set; }
+        public Melee CurrentMelee { get; private set; }
         public bool Alive => playerStatusScriptable.health > 0;
         public Shooting PrimaryGun { get; private set; }
+        public Melee PrimaryMelee { get; private set; }
         public Shooting SecondaryGun { get; private set; }
-        
-        public bool GunInventoryIsFull => localGuns.Count >= maxGuns;
+        public Melee SecondaryMelee { get; private set; }
+
+        public bool GunInventoryIsFull => localWeapons.Count >= maxGuns;
         public bool MedKitInventoryIsFull => medKitCount >= maxMedKit;
 
         public static bool CanShoot => Cursor.lockState == CursorLockMode.Locked;
@@ -81,9 +85,9 @@ namespace Player.Control
                 itemAnchor = Camera.main.gameObject.transform;
 
             if (startGun1 != null)
-                AddGun(startGun1);
+                AddWeapon(startGun1);
             if (startGun2 != null)
-                AddGun(startGun2);
+                AddWeapon(startGun2);
         }
 
         private void OnTakeDamage(int amount)
@@ -109,55 +113,62 @@ namespace Player.Control
         {
             currentIndex = position < 0 ? currentIndex : position;
 
-            CurrentGun = null;
+            CurrentWeapon = null;
+            CurrentMelee = null;
             PrimaryGun = null;
             SecondaryGun = null;
+            PrimaryMelee = null;
+            SecondaryMelee = null;
             
-            for (int i = 0; i < localGuns.Count; i++)
+            for (int i = 0; i < localWeapons.Count; i++)
             {
                 if (currentIndex == i)
                 {
                     setItemEvent?.Invoke();
                     
-                    localGuns[i].SetActive(true);
-                    Shooting gun = localGuns[i].GetComponent<Shooting>();
+                    localWeapons[i].SetActive(true);
+                    Shooting gun = localWeapons[i].GetComponent<Shooting>();
+                    Melee melee = localWeapons[i].GetComponent<Melee>();
+                    PrimaryMelee = melee;
                     PrimaryGun = gun;
-                    CurrentGun = gun;
+                    CurrentWeapon = gun;
+                    CurrentMelee = melee;
                 }
                 else
                 {
-                    localGuns[i].SetActive(false);
-                    SecondaryGun = localGuns[i].GetComponent<Shooting>();
+                    localWeapons[i].SetActive(false);
+                    SecondaryGun = localWeapons[i].GetComponent<Shooting>();
+                    SecondaryMelee = localWeapons[i].GetComponent<Melee>();
                 }
             }
         }
         
-        public void AddGun(GameObject gun)
+        public void AddWeapon(GameObject gun)
         {
             if (GunInventoryIsFull)
             {
-                if (PrimaryGun == null) return;
+                if (PrimaryGun == null && PrimaryMelee == null) return;
 
-                Destroy(PrimaryGun.gameObject);
+                Destroy(PrimaryGun != null ? PrimaryGun.gameObject : PrimaryMelee.gameObject);
                 GameObject replacementGun = Instantiate(gun, itemAnchor);
 
-                localGuns[currentIndex] = replacementGun;
+                localWeapons[currentIndex] = replacementGun;
             }
             else
             {
                 GameObject instanceGun = Instantiate(gun, itemAnchor);
                 //instanceGun.transform.localPosition = Vector3.zero;
                 instanceGun.SetActive(false);
-                localGuns.Add(instanceGun);
+                localWeapons.Add(instanceGun);
             }
             Switch(currentIndex);
         }
 
         public void RemoveGun(GameObject gun)
         {
-            if (gun == null && !localGuns.Contains(gun)) return;
+            if (gun == null && !localWeapons.Contains(gun)) return;
 
-            localGuns.Remove(gun);
+            localWeapons.Remove(gun);
             Destroy(gun);
         }
 
@@ -193,12 +204,12 @@ namespace Player.Control
                 script.enabled = true;
             }
 
-            foreach(GameObject gun in localGuns)
+            foreach(GameObject gun in localWeapons)
             {
                 Destroy(gun);
             }
-            localGuns.Clear();
-            AddGun(startGun1);
+            localWeapons.Clear();
+            AddWeapon(startGun1);
         }
 
         void ResetPlayerStatsOnSceneLoad(Scene sceneName, LoadSceneMode mode)

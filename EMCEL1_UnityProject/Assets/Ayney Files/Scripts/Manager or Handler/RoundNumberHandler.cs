@@ -43,7 +43,7 @@ public class RoundNumberHandler : MonoBehaviour
         if (WDIScript != null)
         {
             RoundNumberText.text = "Wave " + WDIScript.WaveNumber;
-            Debug.Log("CHANGED WAVE");
+            //Debug.Log("CHANGED WAVE");
         }
 
     }

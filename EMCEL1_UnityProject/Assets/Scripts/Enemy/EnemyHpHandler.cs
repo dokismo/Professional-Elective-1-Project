@@ -19,10 +19,21 @@ public class EnemyHpHandler : MonoBehaviour
     public GameObject deathSound;
 
     bool isAlive = true;
-    
+    [SerializeField] bool IsRagdoll, InPracticeRange;
+    [SerializeField] Animator Animator;
+    [SerializeField] Rigidbody RagdollRoot;
+
+    [SerializeField] Material[] ObjMat;
+    [SerializeField] float TimeToDissolve;
+    [SerializeField] GameObject DeathParticles;
+
+    private void Awake()
+    {
+        ObjMat = transform.Find("Ragdoll").GetComponentInChildren<Renderer>().materials;
+    }
     public void checkHealth()
     {
-        if (!(enemyHp <= 0f)) return;
+        if (!(enemyHp <= 0f) && !InPracticeRange) return;
 
         StartCoroutine(Death());
         
@@ -38,19 +49,39 @@ public class EnemyHpHandler : MonoBehaviour
 
     IEnumerator Death()
     {
-        GetComponent<EnemyNavMeshScript>().ZombieAnimatorController.Play("zombie_death_standing");
-        GetComponent<EnemyNavMeshScript>().ZombieAnimatorController.SetBool("IsDead", true);
+        DeathParticles.SetActive(true);
+        TurnOnRagdollMode();
         GetComponent<EnemyNavMeshScript>().EnemyNMAgent.enabled = false;
-        DisableAllCollidersOnObject();
+        if (!IsRagdoll)
+        {
+            GetComponent<EnemyNavMeshScript>().ZombieAnimatorController.Play("zombie_death_standing");
+            GetComponent<EnemyNavMeshScript>().ZombieAnimatorController.SetBool("IsDead", true);
+            DisableAllCollidersOnObject();
+        }
         transform.Find("Attack Range").gameObject.SetActive(false);
-        yield return new WaitForSeconds(3f);
+        StartCoroutine(Dissolve());
+        GlobalSfx.death?.Invoke(transform.position, deathSound);
+        yield return new WaitForSeconds(TimeToDissolve + 2f);
 
         if (deathSound != null)
-            GlobalSfx.death?.Invoke(transform.position, deathSound);
+            
             Destroy(gameObject);
 
     }
 
+    void TurnOnRagdollMode()
+    {
+        if (IsRagdoll && RagdollRoot != null)
+        {
+            RagdollMotion[] scripts = GetComponentsInChildren<RagdollMotion>();
+            foreach (RagdollMotion script in scripts)
+            {
+                Animator.enabled = false;
+                script.Dead();
+            }
+            RagdollRoot.isKinematic = false;
+        }
+    }
     void DisableAllCollidersOnObject()
     {
         Collider[] colliders = GetComponentsInChildren<Collider>();
@@ -69,5 +100,20 @@ public class EnemyHpHandler : MonoBehaviour
     void DropMoney(int money)
     {
         PlayerStatus.getMoney(money);
+    }
+
+    IEnumerator Dissolve()
+    {
+        float progress = 0f;
+        float time = Time.deltaTime;
+        while(progress < 1f)
+        {
+            foreach(Material mat in ObjMat)
+            {
+                mat.SetFloat("_Dissolve", Mathf.Lerp(mat.GetFloat("_Dissolve"), 1f, time / TimeToDissolve));
+            }
+            yield return null;
+        }
+        yield break;
     }
 }
