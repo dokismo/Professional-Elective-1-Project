@@ -1,2 +1,2 @@
-# Professional-Elective-1-Project
-### This is the Project repository of (EMCEL1)  Professional Elective 1 (BSEMC-GD 3rd Year 2022) 
+# GRIM DAYS - Game Project
+### A Shooter Game Project Created by NEU Game Devs
